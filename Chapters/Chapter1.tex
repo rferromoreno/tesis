@@ -1,0 +1,127 @@
+% Chapter 1
+
+\chapter{Introducción a JavaScript} % Main chapter title
+
+\label{Chapter1} % For referencing the chapter elsewhere, use \ref{Chapter1} 
+
+%----------------------------------------------------------------------------------------
+
+% Define some commands to keep the formatting separated from the content 
+\newcommand{\keyword}[1]{\textbf{#1}}
+\newcommand{\tabhead}[1]{\textbf{#1}}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\file}[1]{\texttt{\bfseries#1}}
+\newcommand{\option}[1]{\texttt{\itshape#1}}
+
+%----------------------------------------------------------------------------------------
+
+\section{Historia de JavaScript}
+
+JavaScript, comunmente abreviado como \textsc{JS}, es un lenguaje de programación interpretado. En los comienzos, el lenguaje se utilizaba para agregar dinamismo del lado del cliente a las páginas web. Sin embargo, hoy en día se pueden crear aplicaciones de escritorio o del lado del servidor.
+
+El lenguaje fue creado por \textbf{Brendan Eich} en 1995, quien en ese entonces trabajaba para Netscape. Eich denominó a su lenguaje \texttt{LiveScript}, y el objetivo inicial del lenguaje era solucionar problemas de validación de formularios complejos en el lado del cliente para el navegador Netscape Navigator, tratando de adaptarlo a tecnologías ya existentes. 
+
+La empresa Netscape junto con Sun Microsystems desarrollaron en conjunto este lenguaje de programación. Pero por cuestiones de mercado antes del lanzamiento, Netscape decidió cambiar el nombre del lenguaje a JavaScript (ya que en ese entonces Java estaba de moda en el mundo informático).
+
+Al poco tiempo, la empresa Microsoft lanzó \texttt{JScript} para Internet Explorer. Para no entrar en una guerra informática, Netscape decidió que lo mejor sería estandarizar el lenguaje. Para ello, enviaron la especificación de JavaScript 1.1 al organismo ECMA (European Computer Manufacturers Association).
+
+ECMA creó el comité TC39 con el objetivo de "\emph{estandarizar de un lenguaje de script multiplataforma e independiente de cualquier empresa}". El primer estándar que creó el comité TC39 se denominó ECMA-262, en el que se definió por primera vez el lenguaje ECMAScript (abreviado comunmente como \texttt{ES}).
+
+Es así entonces, que cuando hablamos de JavaScript, estamos haciendo referencia a una implementación de lo que se conoce como \texttt{ECMAScript}. El estándar ha ido evolucionando con el paso del tiempo. En la actualidad, la mayoría de los navegadores corren algún intérprete que soporta la mayoría de las características de las versiones 5.1 y 6. 
+
+Aunque la última versión sea la de ECMAScript 8 (lanzada en Junio de 2017), la versión 6 es más popular, ya que en ésta se han agregado muchos cambios significativos para el lenguaje. En este documento se hará énfasis en las versiones 5.1 y 6.
+
+%----------------------------------------------------------------------------------------
+
+\section{Características del lenguaje}
+
+JavaScript es un lenguaje de alto nivel, interpretado y multiparadigma. Es dinámica y débilmente tipado. Posee herencia basada en prototipos. 
+
+Se dice que es multiparadigma porque soporta los paradigmas imperativo, funcional, orientado a objetos (prototipado) y dirigido por eventos.
+
+\subsection{Influencias}
+
+JavaScript tiene fuertes influencias de varios lenguajes. Sus características más sobresalientes surgen de los siguientes lenguajes: 
+
+\keyword{Java y C} -- No solo tiene la influencia sobre el nombre, sino que además tiene influencia sobre la sintaxis del lenguaje. Tanto Java como JavaScript sintácticamente emergen del lenguaje C. Sin embargo, Java y JavaScript tienen semánticas y propósitos diferentes.
+
+\keyword{Perl y Python} -- Tanto Perl como Python han influido en el manejo de strings, arreglos y expresiones regulares en JavaScript.
+
+\keyword{Scheme} -- De la familia del paradigma funcional. Adopta las funciones de primera clase y \textit{closures}, los cuales se tratarán más adelante.
+
+\keyword{Self} -- Un lenguaje desarrollado por Sun Microsystems. Es de los pocos lenguajes que tienen herencia prototipada. Además de ésta característica, también se adopta la inusual notación de objetos.
+
+\subsection{Intérpretes}
+
+\textit{(To Do)}
+
+
+%---------------------------------------------------------------------------------------
+
+\section{Nociones básicas}
+
+\subsection{Tipos primitivos}
+
+\keyword{Undefined} -- El tipo indefinido tiene un único valor, \code{undefined}. A toda variable que aún no se le haya asignado valor, tendrá el valor \code{undefined}.
+
+\keyword{Null} -- El tipo nulo tiene un único valor, \code{null}.
+
+\keyword{Boolean} -- El tipo booleano representa una entidad lógica con dos posibles valores, \code{true} ó \code{false}.
+
+\keyword{String} -- ...
+
+\keyword{Number} -- ...
+
+\keyword{Symbol} -- Fue agregado en la versión de ES6. Abarca el conjunto de todos los valores no String que pueden ser usados como clave en la propiedad de un Object. Cada valor posible de Symbol es único e inmutable. Se los puede pensar como tokens que sirven como identificadores únicos. 
+
+\keyword{Object} -- ...
+
+
+\subsection{Palabras reservadas}
+
+Las palabras reservadas del lenguaje se dividen en cuatro conjuntos:
+
+\begin{itemize}
+\item Palabras claves (\textit{keywords})
+\item Palabras reservadas a futuro
+\item Literal nulo (\code{null})
+\item Literales booleanos (\code{true} y \code{false})
+\end{itemize}
+
+Las siguientes son palabras claves, a excepción de \code{null}, \code{true} y \code{false}, que son literales.
+
+\begin{table}[!h]
+\caption{Lista de palabras claves del lenguaje.}
+\label{tab:reservedkeywords}
+\centering
+\begin{tabular}{l l l l}
+\toprule
+break & do & import & throw\\
+case & else & in & true\\
+catch & export & instanceof & try\\
+class & extends & new & typeof\\
+const & false & null & var\\
+continue & finally & return & void\\
+debugger & for & super & while\\
+default & function & switch & with\\
+delete & if & this & yield\\
+\bottomrule\\
+\end{tabular}
+\end{table}
+
+Por otro lado, existe un conjunto de palabras reservadas a futuro. En un principio son solamente dos: \code{await} y \code{enum}. Pero si se especifica la directiva de \textit{strict mode}, aparecen otras más: \code{implements}, \code{interface}, \code{package}, \code{private}, \code{protected} y \code{public}.
+
+En resumen, las palabras reservadas a futuro (en modo estricto) son:
+
+\begin{table}[!h]
+\caption{Lista de palabras reservadas a futuro.}
+\label{tab:futurereservedkeywords}
+\centering
+\begin{tabular}{l l l l}
+\toprule
+await & implements & package & protected\\
+enum & interface & private & public\\
+\bottomrule\\
+\end{tabular}
+\end{table}
+
