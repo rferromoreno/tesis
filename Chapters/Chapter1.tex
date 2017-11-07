@@ -39,6 +39,10 @@ JavaScript es un lenguaje de alto nivel, interpretado y multiparadigma. Es diná
 
 Se dice que es multiparadigma porque soporta los paradigmas imperativo, funcional, orientado a objetos (prototipado) y dirigido por eventos.
 
+En el ecosistema de la Web, JavaScript es uno de los lenguajes más populares. Todos los navegadores en la actualidad tienen un intérprete del lenguaje.
+
+Si bien tiene bastantes partes criticables, JavaScript tiene la fama de ser un lenguaje "`\textit{liviano}"' y "`\textit{expresivo}"'.
+
 \subsection{Influencias}
 
 JavaScript tiene fuertes influencias de varios lenguajes. Sus características más sobresalientes surgen de los siguientes lenguajes: 
@@ -125,6 +129,24 @@ enum & interface & private & public\\
 \end{tabular}
 \end{table}
 
-\begin{lstlisting}
-var x;
+\section{Sintaxis}
+
+A continuación se hará una introducción sintáctica al lenguaje de forma breve y mediante ejemplos. El objetivo de esta sección no es detallar la especificación del lenguaje, sino dar un repaso general por los elementos básicos, las estructuras de control y de repetición. Para mayor detalle sobre la sintaxis, se recomienda leer el "`Standard ECMA-262 (Language Specification)"'.
+
+\subsection{Comentarios}
+
+Los comentarios en JavaScript se realizan de forma similar a los lenguajes influenciados por C (como por ejemplo JavaScript o C++). Es posible hacer comentarios inline, asi como también multilínea.
+
+\begin{lstlisting}[title={Comentario inline}]
+// Esto es un comentario en una sola linea
 \end{lstlisting}
+
+\begin{lstlisting}[title={Comentario multilinea}]
+/* 
+Esto es un comentario
+escrito en varias lineas
+*/
+\end{lstlisting}
+
+\subsection{Variables}
+
