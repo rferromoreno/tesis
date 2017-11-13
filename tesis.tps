@@ -35,8 +35,8 @@ Class=LaTeXView
 Document=Chapters\Chapter1.tex
 
 [Frame1_View0,0]
-TopLine=182
-Cursor=7822
+TopLine=209
+Cursor=11005
 
 [SessionInfo]
 FrameCount=2

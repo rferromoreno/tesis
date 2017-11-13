@@ -12,6 +12,10 @@
 \newcommand{\code}[1]{\texttt{#1}}
 \newcommand{\file}[1]{\texttt{\bfseries#1}}
 \newcommand{\option}[1]{\texttt{\itshape#1}}
+\newcommand{\nuevo}[1]{\fcolorbox{red}{white}{%
+    \minipage[t]{\linewidth\fboxsep\fboxrule\relax}
+        #1
+    \endminipage}}
 
 %----------------------------------------------------------------------------------------
 
@@ -32,6 +36,23 @@ Es así entonces, que cuando hablamos de JavaScript, estamos haciendo referencia
 Aunque la última versión sea la de ECMAScript 8 (lanzada en Junio de 2017), la versión 6 es más popular, ya que en ésta se han agregado muchos cambios significativos para el lenguaje. En este documento se hará énfasis en las versiones 5.1 y 6.
 
 %----------------------------------------------------------------------------------------
+
+\nuevo{
+\section{JavaScript en la actualidad}
+
+Después de más de 20 años de existencia, los usos del lenguaje han cambiado. JavaScript ya no es más un lenguaje para hacer validaciones de formularios complejos en páginas de Internet, ni tampoco para agregar dinamismo o animaciones a las páginas.
+
+En la actualidad, se puede afirmar que JavaScript está en "`la cresta de la ola"'. ?`Qué se puede hacer hoy en día con JavaScript?
+
+\begin{itemize}
+	\item Páginas Web -- Pareciera la respuesta obvia, sin embargo la forma de crear sitios web ha cambiado con el paso del tiempo. Hoy en día existe una gran cantidad de frameworks basados en JavaScript, tales como \keyword{React}, \keyword{AngularJS} o \keyword{Vue.JS}, entre otros.
+	\item Aplicaciones móviles -- Se pueden crear aplicaciones para celulares o dispositivos móviles programando en JavaScript, usando \keyword{Apache Cordova}, \keyword{Sencha}, \keyword{Ionic}, \keyword{NativeScript} o \keyword{Tabris.JS}.
+	\item Aplicaciones de escritorio -- Así como recién se hizo mención de las aplicaciones móviles, las de escritorio no se quedan atrás. Algunos frameworks como \keyword{Electron} ó \keyword{NW.JS} permiten crear aplicaciones multiplataforma.
+	\item Robots -- Mediante frameworks como \keyword{Cylon.JS} se pueden manejar dispositivos de hardware o robots. También existen kits basados en Arduino para programar en JS, tales como \keyword{Johnny-Five} o \keyword{Nodebots}.
+\end{itemize}
+}
+%----------------------------------------------------------------------------------------
+
 
 \section{Características del lenguaje}
 
@@ -57,10 +78,35 @@ JavaScript tiene fuertes influencias de varios lenguajes. Sus características m
 
 \keyword{Self} -- Un lenguaje desarrollado por Sun Microsystems. Es de los pocos lenguajes que tienen herencia prototipada. Además de ésta característica, también se adopta la inusual notación de objetos.
 
+\nuevo{
 \subsection{Intérpretes}
 
-\textit{(To Do)}
+Ya se ha mencionado que JavaScript es un lenguaje interpretado. Sin embargo es necesario mencionar algunos "`motores"' que se encargan de interpretar el código en JavaScript.
 
+Actualmente la gran mayoría de los navegadores (web browsers) viene con un intérprete de JS incorporado. A continuación se mencionan algunos de los más populares:
+
+\begin{itemize}
+\item \keyword{Rhino} -- Gestionado por la fundación Mozilla, es de código abierto y está desarrollado completamente en Java.
+\item \keyword{SpiderMonkey} -- También desarrollado por Mozilla para el navegador Firefox. Escrito en C++. Es utilizado en proyectos como MongoDB y GNOME.
+\item \keyword{Chakra} -- Desarrollado por Microsoft, primero para Internet Explorer, y luego para Microsoft Edge.
+\item \keyword{V8} -- El motor por defecto para Google Chrome, y también utilizado Node.JS, Opera y otros proyectos populares. Escrito en C++, maneja alocación en memoria y posee garbage collector.
+\item \keyword{JavaScriptCore} -- Es utilizado por navegadores como Safari o PhantomJS. También es conocido como SquirrelFish o Nitro, bajo proyectos similares con otro nombre por cuestiones de mercado.
+\end{itemize}
+
+El objetivo de esta sección no es entrar en detalle ni hacer un análisis comparativo de los intérpretes. Basta con hacer una pequeña búsqueda para notar que varios de éstos intérpretes poseen garbage collection, compilación JIT (just in time), y estrategias para la optimización del código.
+
+A lo largo de este documento se mostrarán ejemplos de código, cuya interpretación se realizará utilizando Node.JS (V8), y la consola de los navegadores Google Chrome (V8) y Mozilla Firefox (SpiderMonkey).
+
+En caso de que el lector quiera ejecutar el código JavaScript, se deja a disposición los enlaces de descarga de las herramientas mencionadas:
+
+\begin{itemize}
+\item Node.JS -- \href{https://nodejs.org/es/}{nodejs.org}
+\item Google Chrome -- \href{https://google.com/chrome}{google.com/chrome}
+\item Mozilla Firefox -- \href{https://www.mozilla.org/firefox}{mozilla.org/firefox}
+\end{itemize}
+
+Para abrir el intérprete desde Node.JS, basta con escribir \code{node} en la línea de comandos. Mientras que para el caso de los navegadores, hace falta apretar la tecla F12 para abrir la consola.
+}
 
 %---------------------------------------------------------------------------------------
 
@@ -205,3 +251,5 @@ Se posee uso del condicional \code{if} de manera similar a Java.
 \subsection{Repetición \code{for}}
 
 \subsection{Repetición \code{while} y \code{do}...\code{while}}
+
+\nuevo{sdsdsdsd}
