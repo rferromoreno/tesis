@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.29)  12 NOV 2017 21:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.29)  13 NOV 2017 00:10
 entering extended mode
 **./main.tex
 (main.tex
@@ -1548,7 +1548,7 @@ File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 (E:\Programas\Latex\Miktex\tex\latex\listings\listings.cfg
 File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
-Package scrhack Info: loading listings hack on input line 61.
+Package scrhack Info: loading listings hack on input line 63.
 
 (E:\Programas\Latex\Miktex\tex\latex\koma-script\listings.hak
 File: listings.hak 2017/09/07 v3.24 KOMA-Script package (hacking package listings)
@@ -1640,7 +1640,7 @@ LaTeX Info: Redefining \pageref on input line 6432.
 )
 Package scrhack Info: hyperref hack deactivated because of
 (scrhack)             detection of hyperref version, that doesn't
-(scrhack)             need that hack, on input line 141.
+(scrhack)             need that hack, on input line 143.
 
 
 Package hyperref Message: Driver (autodetected): hpdftex.
@@ -1656,17 +1656,17 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip75
 )
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 141.
-Package hyperref Info: Option `hypertexnames' set `false' on input line 141.
-Package hyperref Info: Option `colorlinks' set `true' on input line 141.
-Package hyperref Info: Option `unicode' set `true' on input line 141.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 143.
+Package hyperref Info: Option `hypertexnames' set `false' on input line 143.
+Package hyperref Info: Option `colorlinks' set `true' on input line 143.
+Package hyperref Info: Option `unicode' set `true' on input line 143.
 
 (E:\Programas\Latex\Miktex\tex\latex\hyperref\puenc.def
 File: puenc.def 2017/03/14 v6.85a Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Option `breaklinks' set `true' on input line 141.
+Package hyperref Info: Option `breaklinks' set `true' on input line 143.
 Package biblatex Info: Trying to load language 'spanish'...
 Package biblatex Info: ... file 'spanish.lbx' found.
  (E:\Programas\Latex\Miktex\tex\latex\biblatex\lbx\spanish.lbx
@@ -1687,29 +1687,29 @@ LaTeX Info: Redefining \% on input line 31.
  (Chapters/Chapter2.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 141.
-LaTeX Font Info:    ... okay on input line 141.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 141.
-LaTeX Font Info:    ... okay on input line 141.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 141.
-LaTeX Font Info:    ... okay on input line 141.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 141.
-LaTeX Font Info:    ... okay on input line 141.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 141.
-LaTeX Font Info:    ... okay on input line 141.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 141.
-LaTeX Font Info:    ... okay on input line 141.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 141.
-LaTeX Font Info:    ... okay on input line 141.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 141.
-LaTeX Font Info:    ... okay on input line 141.
-LaTeX Font Info:    Try loading font information for T1+ppl on input line 141.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Try loading font information for T1+ppl on input line 143.
  (E:\Programas\Latex\Miktex\tex\latex\psnfss\t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
-LaTeX Info: Redefining \sptext on input line 141.
-LaTeX Info: Redefining \. on input line 141.
-LaTeX Info: Redefining \% on input line 141.
+LaTeX Info: Redefining \sptext on input line 143.
+LaTeX Info: Redefining \. on input line 143.
+LaTeX Info: Redefining \% on input line 143.
 Now handling font encoding TS1 ...
 ... processing UTF-8 mapping file for font encoding TS1
  (E:\Programas\Latex\Miktex\tex\latex\base\ts1enc.dfu
@@ -1859,7 +1859,7 @@ Package caption Info: End \AtBeginDocument code.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package scrlayer Info: Setting magic \footheight to \baselineskip while
-(scrlayer)             \begin{document} on input line 141.
+(scrlayer)             \begin{document} on input line 143.
 \big@size=\dimen191
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
@@ -1872,48 +1872,48 @@ Package biblatex Info: Data encoding 'utf8' specified.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' not found.
 No file main.bbl.
-Package biblatex Info: Reference section=0 on input line 141.
-Package biblatex Info: Reference segment=0 on input line 141.
+Package biblatex Info: Reference section=0 on input line 143.
+Package biblatex Info: Reference segment=0 on input line 143.
 \c@lstlisting=\count426
-Package scrhack Info: undefining \float@addtolists on input line 141.
+Package scrhack Info: undefining \float@addtolists on input line 143.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 141.
+(babel)             in language append on input line 143.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 141.
+(babel)             in language append on input line 143.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 141.
+(babel)             in language append on input line 143.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 141.
+(babel)             in language append on input line 143.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 141.
+(babel)             in language append on input line 143.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 141.
+(babel)             in language append on input line 143.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 141.
+(babel)             in language append on input line 143.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 141.
+(babel)             in language append on input line 143.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 141.
+(babel)             in language append on input line 143.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 141.
+(babel)             in language append on input line 143.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 141.
+(babel)             in language append on input line 143.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 141.
+(babel)             in language append on input line 143.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 141.
+(babel)             in language append on input line 143.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 141.
+(babel)             in language append on input line 143.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 141.
+(babel)             in language append on input line 143.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 141.
+(babel)             in language append on input line 143.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 141.
+(babel)             in language append on input line 143.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 141.
+(babel)             in language append on input line 143.
 \AtBeginShipoutBox=\box57
-Package hyperref Info: Link coloring ON on input line 141.
+Package hyperref Info: Link coloring ON on input line 143.
 (E:\Programas\Latex\Miktex\tex\latex\hyperref\nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
@@ -1922,33 +1922,33 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count427
 )
-LaTeX Info: Redefining \ref on input line 141.
-LaTeX Info: Redefining \pageref on input line 141.
-LaTeX Info: Redefining \nameref on input line 141.
+LaTeX Info: Redefining \ref on input line 143.
+LaTeX Info: Redefining \pageref on input line 143.
+LaTeX Info: Redefining \nameref on input line 143.
  (main.out) (main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
 \c__siunitx_mathsf_int=\count428
-LaTeX Font Info:    Try loading font information for OT1+ppl on input line 141.
+LaTeX Font Info:    Try loading font information for OT1+ppl on input line 143.
 
 (E:\Programas\Latex\Miktex\tex\latex\psnfss\ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
-LaTeX Font Info:    Try loading font information for OML+zplm on input line 141.
+LaTeX Font Info:    Try loading font information for OML+zplm on input line 143.
  (E:\Programas\Latex\Miktex\tex\latex\psnfss\omlzplm.fd
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMS+zplm on input line 141.
+LaTeX Font Info:    Try loading font information for OMS+zplm on input line 143.
 
 (E:\Programas\Latex\Miktex\tex\latex\psnfss\omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMX+zplm on input line 141.
+LaTeX Font Info:    Try loading font information for OMX+zplm on input line 143.
  (E:\Programas\Latex\Miktex\tex\latex\psnfss\omxzplm.fd
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
-LaTeX Font Info:    Try loading font information for OT1+zplm on input line 141.
+LaTeX Font Info:    Try loading font information for OT1+zplm on input line 143.
 
 (E:\Programas\Latex\Miktex\tex\latex\psnfss\ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
@@ -2386,41 +2386,41 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 253.
 )
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 255--311
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 255--313
 [][][][] 
  []
 
-LaTeX Info: Redefining \sptext on input line 311.
-LaTeX Info: Redefining \. on input line 311.
-LaTeX Info: Redefining \% on input line 311.
+LaTeX Info: Redefining \sptext on input line 313.
+LaTeX Info: Redefining \. on input line 313.
+LaTeX Info: Redefining \% on input line 313.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 311.
+(babel)             in language  on input line 313.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 311.
+(babel)             in language  on input line 313.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 311.
+(babel)             in language  on input line 313.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 311.
+(babel)             in language  on input line 313.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 311.
+(babel)             in language  on input line 313.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 311.
+(babel)             in language  on input line 313.
 [6]
-LaTeX Info: Redefining \sptext on input line 311.
-LaTeX Info: Redefining \. on input line 311.
-LaTeX Info: Redefining \% on input line 311.
+LaTeX Info: Redefining \sptext on input line 313.
+LaTeX Info: Redefining \. on input line 313.
+LaTeX Info: Redefining \% on input line 313.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 311.
+(babel)             in language  on input line 313.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 311.
+(babel)             in language  on input line 313.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 311.
+(babel)             in language  on input line 313.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 311.
+(babel)             in language  on input line 313.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 311.
+(babel)             in language  on input line 313.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 311.
+(babel)             in language  on input line 313.
  [7]
 \openout2 = `Chapters/Chapter2.aux'.
 
@@ -2450,57 +2450,86 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 13.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 13.
-)
 1: section
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 312.
+(babel)             in language  on input line 43.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 312.
+(babel)             in language  on input line 43.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 312.
+(babel)             in language  on input line 43.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 312.
+(babel)             in language  on input line 43.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 312.
+(babel)             in language  on input line 43.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 312.
+(babel)             in language  on input line 43.
 [8
 
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 338.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 338.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 48.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 48.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 48.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 48.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 48.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 48.
+)
+LaTeX Info: Redefining \sptext on input line 314.
+LaTeX Info: Redefining \. on input line 314.
+LaTeX Info: Redefining \% on input line 314.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 314.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 314.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 314.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 314.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 314.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 314.
+ [9]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 340.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 340.
  (main.aux (Chapters/Chapter1.aux)
 LaTeX Info: Redefining \sptext on input line 31.
 LaTeX Info: Redefining \. on input line 31.
 LaTeX Info: Redefining \% on input line 31.
  (Chapters/Chapter2.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 338.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 338.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 340.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 340.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: E19695E4E2169760804306A89C4ABFE2;3830.
+(rerunfilecheck)             Checksum: 1130C2C4AB95394B39076374BF2A2BD1;4033.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35749 strings out of 493323
- 708401 string characters out of 3139953
+ 35774 strings out of 493323
+ 708715 string characters out of 3139953
  997974 words of memory out of 3000000
- 38890 multiletter control sequences out of 15000+200000
- 562444 words of font info for 77 fonts, out of 3000000 for 9000
+ 38897 multiletter control sequences out of 15000+200000
+ 562757 words of font info for 78 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 58i,20n,82p,10379b,1981s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\rferr\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1200.pk> <C:\Users\rferr\AppData\Loca
-l\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt0900.pk>{E:/Programas/Latex/Miktex/fonts/enc/dvips/base/8r.enc} <C:\
-Users\rferr\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1095.pk><E:/Programas/Latex/Miktex/fonts/typ
-e1/public/amsfonts/cm/cmsy10.pfb><E:/Programas/Latex/Miktex/fonts/type1/urw/palatino/uplb8a.pfb><E:/Programas/Latex/Mikt
-ex/fonts/type1/urw/palatino/uplr8a.pfb><E:/Programas/Latex/Miktex/fonts/type1/urw/palatino/uplr8a.pfb><E:/Programas/Late
-x/Miktex/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (8 pages, 143406 bytes).
+ 58i,20n,82p,10379b,2294s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\rferr\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1000.pk> <C:\Users\rferr\AppData\Loca
+l\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1200.pk> <C:\Users\rferr\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jk
+nappen\ec\dpi600\ectt0900.pk>{E:/Programas/Latex/Miktex/fonts/enc/dvips/base/8r.enc} <C:\Users\rferr\AppData\Local\MiKTe
+X\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1095.pk><E:/Programas/Latex/Miktex/fonts/type1/public/amsfonts/cm/cmsy10.pf
+b><E:/Programas/Latex/Miktex/fonts/type1/urw/palatino/uplb8a.pfb><E:/Programas/Latex/Miktex/fonts/type1/urw/palatino/upl
+r8a.pfb><E:/Programas/Latex/Miktex/fonts/type1/urw/palatino/uplr8a.pfb><E:/Programas/Latex/Miktex/fonts/type1/urw/palati
+no/uplri8a.pfb>
+Output written on main.pdf (9 pages, 159498 bytes).
 PDF statistics:
- 297 PDF objects out of 1000 (max. 8388607)
- 52 named destinations out of 1000 (max. 500000)
- 225 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 350 PDF objects out of 1000 (max. 8388607)
+ 69 named destinations out of 1000 (max. 500000)
+ 233 words of extra memory for PDF output out of 10000 (max. 10000000)
 
