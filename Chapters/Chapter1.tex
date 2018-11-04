@@ -245,8 +245,47 @@ Sobre \code{let}, es una forma de declarar variables de alcance local. Se hará 
 
 Por el lado de \code{const}, se tratan de variables de valor constante, cuyo valor no se puede cambiar y tampoco pueden ser redeclaradas.
 
-\nuevo{
-\subsection{Estructuras de control condicionales y repetitivas}
 
-Las estructuras que poseen el lenguaje son sintácticamente similares a Java
+\subsection{Estructuras condicionales}
+
+El lenguaje posee las estructuras condicionales ya conocidas en lenguajes como C++ o Java.
+
+\subsubsection{Condicionales \code{if} e \code{if-else}}
+
+\begin{lstlisting}[title={Ejemplos de \code{if} e \code{if-else}}]
+if (a > 0) {
+	// bloque si la condicion es verdadera 
 }
+
+if (a > 0) {
+	// bloque si la condición es verdadera
+} else {
+	// bloque si la condición es falsa
+}
+\end{lstlisting}
+
+\subsubsection{Operador ternario \code{?:}}
+
+\begin{lstlisting}[title={Operador ternario \code{?:}}]
+var mayor = a > b ? a : b
+\end{lstlisting}
+
+\subsubsection{Condicional \code{switch}}
+
+
+\subsection{Estructuras repetitivas}
+
+
+\subsection{Funciones}
+
+Las funciones en JavaScript son objetos, instancia de \code{Function}. Al ser objetos, las mismas pueden ser guardadas como valores dentro de variables. Existen diferentes maneras de declarar una función. A continuación se enumeran 
+
+\subsubsection{Funciones como expresión}
+
+Una función como expresión (o función expresión) es una expresión que produce un valor, en este caso un objeto función.
+
+\begin{lstlisting}[title={Función expresión}]
+var suma = function (x, y) { return x + y };
+\end{lstlisting}
+
+
