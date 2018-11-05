@@ -20,7 +20,12 @@ Las funciones puras son otra de las claves del paradigma funcional. Esto es, fun
 
 Lamentablemente el lenguaje no posee ninguna directiva, y tampoco existe una herramienta concreta para determinar la pureza de la función, más que el conocimiento del programador.
 
-A continuación, se mencionan algunas
+A continuación, se mencionan algunas prácticas para evitar las funciones impuras
+
+\begin{itemize}
+  \item Evitar el uso de variables que estén fuera del ámbito (scope) de la función.
+  \item Evitar el uso del DOM o de variables del browser como \code{document} o \code{window}
+\end{itemize}
 
 
 \section{Funciones de primera clase y orden superior}

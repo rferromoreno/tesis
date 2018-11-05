@@ -22,9 +22,9 @@
 \BOOKMARK [2][-]{subsection.24}{Comentarios}{section.23}% 22
 \BOOKMARK [2][-]{subsection.32}{Variables}{section.23}% 23
 \BOOKMARK [2][-]{subsection.39}{Estructuras\040condicionales}{section.23}% 24
-\BOOKMARK [3][-]{section*.40}{if}{subsection.39}% 25
+\BOOKMARK [3][-]{section*.40}{Condicionales\040if\040e\040if-else}{subsection.39}% 25
 \BOOKMARK [3][-]{section*.51}{Operador\040ternario\040?:}{subsection.39}% 26
-\BOOKMARK [3][-]{section*.54}{switch}{subsection.39}% 27
+\BOOKMARK [3][-]{section*.54}{Condicional\040switch}{subsection.39}% 27
 \BOOKMARK [2][-]{subsection.55}{Estructuras\040repetitivas}{section.23}% 28
 \BOOKMARK [2][-]{subsection.56}{Funciones}{section.23}% 29
 \BOOKMARK [3][-]{section*.57}{Funciones como expresión}{subsection.56}% 30
@@ -32,21 +32,20 @@
 \BOOKMARK [1][-]{section.61}{Tipos\040primitivos}{chapter.60}% 32
 \BOOKMARK [2][-]{subsection.74}{Casos\040especiales\040del\040typeof}{section.61}% 33
 \BOOKMARK [0][-]{chapter.81}{Paradigma\040funcional}{}% 34
-\BOOKMARK [1][-]{section.82}{Funciones puras e híbridas}{chapter.81}% 35
-\BOOKMARK [1][-]{section.83}{Efectos\040colaterales}{chapter.81}% 36
-\BOOKMARK [1][-]{section.84}{Recursividad}{chapter.81}% 37
-\BOOKMARK [1][-]{section.85}{Funciones\040de\040primera\040clase\040y\040orden\040superior}{chapter.81}% 38
-\BOOKMARK [1][-]{section.86}{Evaluación estricta y perezosa}{chapter.81}% 39
-\BOOKMARK [0][-]{chapter.87}{Paradigma\040orientado\040a\040objetos}{}% 40
-\BOOKMARK [1][-]{section.88}{Clases}{chapter.87}% 41
-\BOOKMARK [1][-]{section.89}{Herencia}{chapter.87}% 42
-\BOOKMARK [1][-]{section.90}{Encapsulamiento}{chapter.87}% 43
-\BOOKMARK [1][-]{section.91}{Polimorfismo}{chapter.87}% 44
-\BOOKMARK [1][-]{section.92}{Abstracción}{chapter.87}% 45
-\BOOKMARK [1][-]{section.93}{Modularidad}{chapter.87}% 46
-\BOOKMARK [1][-]{section.94}{Principio de ocultación}{chapter.87}% 47
-\BOOKMARK [0][-]{chapter.95}{this\040en\040JavaScript}{}% 48
-\BOOKMARK [1][-]{section.96}{...}{chapter.95}% 49
-\BOOKMARK [0][-]{chapter.97}{Expresiones}{}% 50
-\BOOKMARK [1][-]{section.98}{==\040versus\040===}{chapter.97}% 51
-\BOOKMARK [0][-]{chapter.99}{Scope}{}% 52
+\BOOKMARK [1][-]{section.82}{Recursividad}{chapter.81}% 35
+\BOOKMARK [1][-]{section.83}{Funciones\040puras}{chapter.81}% 36
+\BOOKMARK [1][-]{section.84}{Funciones\040de\040primera\040clase\040y\040orden\040superior}{chapter.81}% 37
+\BOOKMARK [1][-]{section.85}{Evaluación estricta y perezosa}{chapter.81}% 38
+\BOOKMARK [0][-]{chapter.86}{Paradigma\040orientado\040a\040objetos}{}% 39
+\BOOKMARK [1][-]{section.87}{Clases}{chapter.86}% 40
+\BOOKMARK [1][-]{section.88}{Herencia}{chapter.86}% 41
+\BOOKMARK [1][-]{section.89}{Encapsulamiento}{chapter.86}% 42
+\BOOKMARK [1][-]{section.90}{Polimorfismo}{chapter.86}% 43
+\BOOKMARK [1][-]{section.91}{Abstracción}{chapter.86}% 44
+\BOOKMARK [1][-]{section.92}{Modularidad}{chapter.86}% 45
+\BOOKMARK [1][-]{section.93}{Principio de ocultación}{chapter.86}% 46
+\BOOKMARK [0][-]{chapter.94}{this\040en\040JavaScript}{}% 47
+\BOOKMARK [1][-]{section.95}{...}{chapter.94}% 48
+\BOOKMARK [0][-]{chapter.96}{Expresiones}{}% 49
+\BOOKMARK [1][-]{section.97}{==\040versus\040===}{chapter.96}% 50
+\BOOKMARK [0][-]{chapter.98}{Scope}{}% 51
