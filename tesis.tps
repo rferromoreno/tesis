@@ -12,12 +12,12 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1562
-NormalPos.bottom=582
+NormalPos.bottom=851
 Class=LaTeXView
 Document=main.tex
 
 [Frame0_View0,0]
-TopLine=242
+TopLine=260
 Cursor=14098
 
 [Frame1]
@@ -30,12 +30,12 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1562
-NormalPos.bottom=582
+NormalPos.bottom=851
 Class=LaTeXView
 Document=Chapters\Chapter1.tex
 
 [Frame1_View0,0]
-TopLine=299
+TopLine=312
 Cursor=15566
 
 [Frame2]
@@ -48,7 +48,7 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1562
-NormalPos.bottom=582
+NormalPos.bottom=851
 Class=LaTeXView
 Document=Chapters\Chapter2.tex
 
@@ -66,7 +66,7 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1562
-NormalPos.bottom=582
+NormalPos.bottom=851
 Class=BibTeXView
 Document=example.bib
 
@@ -84,7 +84,7 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1562
-NormalPos.bottom=582
+NormalPos.bottom=851
 Class=LaTeXView
 Document=Chapters\Chapter5.tex
 
@@ -102,7 +102,7 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1562
-NormalPos.bottom=582
+NormalPos.bottom=851
 Class=LaTeXView
 Document=Chapters\Chapter4.tex
 
@@ -120,13 +120,13 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1562
-NormalPos.bottom=582
+NormalPos.bottom=851
 Class=LaTeXView
 Document=Chapters\Chapter3.tex
 
 [Frame6_View0,0]
 TopLine=0
-Cursor=729
+Cursor=804
 
 [Frame7]
 Flags=0
@@ -138,7 +138,7 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1562
-NormalPos.bottom=582
+NormalPos.bottom=851
 Class=LaTeXView
 Document=Chapters\Chapter6.tex
 
@@ -156,7 +156,7 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1562
-NormalPos.bottom=582
+NormalPos.bottom=851
 Class=LaTeXView
 Document=Chapters\Chapter7.tex
 
@@ -166,5 +166,5 @@ Cursor=465
 
 [SessionInfo]
 FrameCount=9
-ActiveFrame=1
+ActiveFrame=6
 
