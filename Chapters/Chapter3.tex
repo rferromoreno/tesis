@@ -4,7 +4,7 @@
 
 % -----
 
-Entre los puntos fuertes que posee el lenguaje, es indiscutible decir que las funciones son uno de los ejes principales. Sin embargo, ¿qué tan ligado está el lenguaje al paradigma de programación funcional?. ¿Soporta todas sus características?.
+Entre los puntos fuertes que posee el lenguaje, es indiscutible decir que las funciones son uno de los ejes principales. Sin embargo, ?`qué tan ligado está el lenguaje al paradigma de programación funcional?. ?`Soporta todas sus características?.
 
 Es sabido que algunos conceptos como las funciones de alto orden están vinculadas con el paradigma funcional, mientras que también se conoce que JavaScript permite el pasaje de funciones como parámetros, o el retorno de las mismas como valores. En este capítulo se realizará un análisis sobre las mismas, para poder entender qué tan cerca o lejos está el lenguaje de las características del paradigma.
 
@@ -14,22 +14,45 @@ Es sabido que algunos conceptos como las funciones de alto orden están vinculad
 
 Al igual que los lenguajes sintáticamente similares a JavaScript, la recursión es una técnica que se aplica con naturaleza. Siempre que la función no sea anónima (es decir, que tenga un nombre), se puede aplicar recursión directa sin problemas. Además, el soporte para la recursión mutua también es posible gracias a la característica de \textit{hoisting}.
 
+Cualquiera de las formas vistas en el Capítulo 1 son válidas para definir una función recursiva. A continuación se presentan ejemplos de las mismas, mostrando recursión directa y cruzada:
+
+\begin{lstlisting}[title={Ejemplos de funciones recursivas}]
+// Función recursiva con función como declaración
+function sumatoria(n) {
+  return n > 0 ? n + sumatoria(n - 1) : 0;
+}
+
+// Función recursiva con función como expresión
+var factorial = function(n) {
+  return n > 0 ? n * factorial(n - 1) : 1;
+};
+
+// Recursión cruzada
+var esPar = num => (num === 0 ? true : esImpar(num - 1));
+var esImpar = num => (num === 0 ? false : esPar(num - 1));
+\end{lstlisting}
+
 \section{Funciones puras}
 
-Las funciones puras son otra de las claves del paradigma funcional. Esto es, funciones que bajo la misma entrada, siempre devuelven el mismo resultado.
+Las funciones puras son otra de las claves del paradigma funcional. Esto es, funciones que bajo la misma entrada, siempre devuelven el mismo resultado. Los beneficios que trae el uso de las funciones puras, es la testeabilidad, predictibilidad, y la falta de efectos colaterales.
 
-Lamentablemente el lenguaje no posee ninguna directiva, y tampoco existe una herramienta concreta para determinar la pureza de la función, más que el conocimiento del programador.
+Por suerte, en el lenguaje se pueden escribir fácilmente funciones puras. Lamentablemente el lenguaje no posee ninguna directiva, y tampoco existe una herramienta concreta para determinar la pureza (o impureza) de una función, más que el conocimiento del programador.
 
-A continuación, se mencionan algunas prácticas para evitar las funciones impuras
+A continuación, se mencionan algunas prácticas para evitar las funciones impuras:
 
 \begin{itemize}
-  \item Evitar el uso de variables que estén fuera del ámbito (scope) de la función.
-  \item Evitar el uso del DOM o de variables del browser como \code{document} o \code{window}
+  \item Evitar el uso de variables que estén fuera del ámbito (scope) de la función. Esto incluye también a las variables globales del navegador.
+  \item Evitar el uso del DOM o de variables del browser como \code{document} o \code{window}.
+	\item Evitar el uso de \code{Math.random}, valores azarosos o cambiantes como el día y la hora actual.
+	\item Evitar peticiones bajo el protocolo HTTP u otras que dependan del estado de la red.
+	\item Evitar imprimir por pantalla o por consola, o cualquier mecanismo de I/O.
+	\item Evitar la mutabilidad de datos. Recordar que los objetos en JS se manejan por referencia. Para éste ítem, se recomienda aplicar prácticas de inmutabilidad, o el uso de alguna librería externa.
 \end{itemize}
-
 
 \section{Funciones de primera clase y orden superior}
 
 Una de las características más destacables del lenguaje es que las funciones son objetos, que a su vez se pueden almacenar como valores. Gracias a esto, resulta extremadamente simple el pasaje de funciones como argumentos, así como también devolver funciones como un valor de retorno.
 
-\section{Evaluación estricta y perezosa}
+\section{Evaluación ansiosa (estricta) y perezosa (no estricta)}
+
+Uno de los puntos más cuestionables cuando se analiza a JavaScript dentro del paradigma funcional es la de la evaluación ansiosa y perezosa.
