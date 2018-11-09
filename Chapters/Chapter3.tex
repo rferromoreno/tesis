@@ -46,13 +46,54 @@ A continuación, se mencionan algunas prácticas para evitar las funciones impur
 	\item Evitar el uso de \code{Math.random}, valores azarosos o cambiantes como el día y la hora actual.
 	\item Evitar peticiones bajo el protocolo HTTP u otras que dependan del estado de la red.
 	\item Evitar imprimir por pantalla o por consola, o cualquier mecanismo de I/O.
-	\item Evitar la mutabilidad de datos. Recordar que los objetos en JS se manejan por referencia. Para éste ítem, se recomienda aplicar prácticas de inmutabilidad, o el uso de alguna librería externa.
+	\item Evitar la mutabilidad de datos. Recordar que los objetos en JS se manejan por referencia. Para éste ítem, se recomienda aplicar prácticas de inmutabilidad, ya sea mediante \code{Object.freeze} o el uso de alguna librería externa.
 \end{itemize}
 
 \section{Funciones de primera clase y orden superior}
 
 Una de las características más destacables del lenguaje es que las funciones son objetos, que a su vez se pueden almacenar como valores. Gracias a esto, resulta extremadamente simple el pasaje de funciones como argumentos, así como también devolver funciones como un valor de retorno.
 
+\subsection{Funciones de primera clase}
+
+En JavaScript las funciones son objetos de primera clase, dado que las funciones son tratadas como cualquier otro valor. Al momento de crear una función, en realidad lo que se crea es un objeto de clase \code{Function}.
+
+Para el caso de una función mediante declaración, se asignará a una variable ligada al nombre dado a la función (siempre que no sea anónima). Para el caso de la función por expresión, dependerá si la misma se realiza en una asignación.
+
+\begin{lstlisting}[title={Analizando el valor de una función}]
+function saludar() { console.log('hola'); }
+var despedirse = () => console.log('chau');
+
+console.log(saludar);     // [Function: saludar]
+console.log(despedirse);  // [Function: despedirse]
+
+console.log(saludar.toString());  
+// function saludar() { console.log('hola'); }
+console.log(despedirse.toString()); 
+// () => console.log('chau')
+\end{lstlisting}
+
+El hecho de que las funciones sean tratadas como valores, a su vez, hace que se puedan crear objetos que dentro de sus pares clave-valor tengan propiedades que sean funciones. Es decir, métodos del objeto.
+
+\begin{lstlisting}[title={Asignando una función como valor de una propiedad a un objeto}]
+var gato = {
+  nombre: 'Mishi',
+  maullar: function() {
+    console.log('miau');
+  }
+};
+
+gato.maullar();   
+// miau
+console.log(gato);  
+// { nombre: 'Mishi', maullar: [Function: maullar] }
+\end{lstlisting}
+
+\subsection{Funciones de orden superior}
+
 \section{Evaluación ansiosa (estricta) y perezosa (no estricta)}
 
 Uno de los puntos más cuestionables cuando se analiza a JavaScript dentro del paradigma funcional es la de la evaluación ansiosa y perezosa.
+
+\textbf{COMPLETAR}
+
+\section{Lo bueno, lo malo, lo feo...}

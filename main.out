@@ -31,21 +31,29 @@
 \BOOKMARK [0][-]{chapter.60}{Sistema\040de\040Tipos}{}% 31
 \BOOKMARK [1][-]{section.61}{Tipos\040primitivos}{chapter.60}% 32
 \BOOKMARK [2][-]{subsection.74}{Casos\040especiales\040del\040typeof}{section.61}% 33
-\BOOKMARK [0][-]{chapter.81}{Paradigma\040funcional}{}% 34
-\BOOKMARK [1][-]{section.82}{Recursividad}{chapter.81}% 35
-\BOOKMARK [1][-]{section.97}{Funciones\040puras}{chapter.81}% 36
-\BOOKMARK [1][-]{section.98}{Funciones\040de\040primera\040clase\040y\040orden\040superior}{chapter.81}% 37
-\BOOKMARK [1][-]{section.99}{Evaluación ansiosa \(estricta\) y perezosa \(no estricta\)}{chapter.81}% 38
-\BOOKMARK [0][-]{chapter.100}{Paradigma\040orientado\040a\040objetos}{}% 39
-\BOOKMARK [1][-]{section.101}{Clases}{chapter.100}% 40
-\BOOKMARK [1][-]{section.102}{Herencia}{chapter.100}% 41
-\BOOKMARK [1][-]{section.103}{Encapsulamiento}{chapter.100}% 42
-\BOOKMARK [1][-]{section.104}{Polimorfismo}{chapter.100}% 43
-\BOOKMARK [1][-]{section.105}{Abstracción}{chapter.100}% 44
-\BOOKMARK [1][-]{section.106}{Modularidad}{chapter.100}% 45
-\BOOKMARK [1][-]{section.107}{Principio de ocultación}{chapter.100}% 46
-\BOOKMARK [0][-]{chapter.108}{this\040en\040JavaScript}{}% 47
-\BOOKMARK [1][-]{section.109}{...}{chapter.108}% 48
-\BOOKMARK [0][-]{chapter.110}{Expresiones}{}% 49
-\BOOKMARK [1][-]{section.111}{==\040versus\040===}{chapter.110}% 50
-\BOOKMARK [0][-]{chapter.112}{Scope}{}% 51
+\BOOKMARK [1][-]{section.81}{Lo\040bueno,\040lo\040malo,\040lo\040feo...}{chapter.60}% 34
+\BOOKMARK [0][-]{chapter.82}{Paradigma\040funcional}{}% 35
+\BOOKMARK [1][-]{section.83}{Recursividad}{chapter.82}% 36
+\BOOKMARK [1][-]{section.98}{Funciones\040puras}{chapter.82}% 37
+\BOOKMARK [1][-]{section.99}{Funciones\040de\040primera\040clase\040y\040orden\040superior}{chapter.82}% 38
+\BOOKMARK [2][-]{subsection.100}{Funciones\040de\040primera\040clase}{section.99}% 39
+\BOOKMARK [1][-]{section.112}{Evaluación ansiosa \(estricta\) y perezosa \(no estricta\)}{chapter.82}% 40
+\BOOKMARK [1][-]{section.113}{Lo\040bueno,\040lo\040malo,\040lo\040feo...}{chapter.82}% 41
+\BOOKMARK [0][-]{chapter.114}{Paradigma\040orientado\040a\040objetos}{}% 42
+\BOOKMARK [1][-]{section.115}{Clases}{chapter.114}% 43
+\BOOKMARK [1][-]{section.116}{Herencia}{chapter.114}% 44
+\BOOKMARK [1][-]{section.117}{Encapsulamiento}{chapter.114}% 45
+\BOOKMARK [1][-]{section.118}{Polimorfismo}{chapter.114}% 46
+\BOOKMARK [1][-]{section.119}{Abstracción}{chapter.114}% 47
+\BOOKMARK [1][-]{section.120}{Modularidad}{chapter.114}% 48
+\BOOKMARK [1][-]{section.121}{Principio de ocultación}{chapter.114}% 49
+\BOOKMARK [1][-]{section.122}{Lo\040bueno,\040lo\040malo,\040lo\040feo...}{chapter.114}% 50
+\BOOKMARK [0][-]{chapter.123}{Expresiones}{}% 51
+\BOOKMARK [1][-]{section.124}{==\040versus\040===}{chapter.123}% 52
+\BOOKMARK [1][-]{section.125}{Coerción}{chapter.123}% 53
+\BOOKMARK [1][-]{section.126}{Lo\040bueno,\040lo\040malo,\040lo\040feo...}{chapter.123}% 54
+\BOOKMARK [0][-]{chapter.127}{Scope}{}% 55
+\BOOKMARK [1][-]{section.128}{Lo\040bueno,\040lo\040malo,\040lo\040feo...}{chapter.127}% 56
+\BOOKMARK [0][-]{chapter.129}{this\040en\040JavaScript}{}% 57
+\BOOKMARK [1][-]{section.130}{...}{chapter.129}% 58
+\BOOKMARK [1][-]{section.131}{Lo\040bueno,\040lo\040malo,\040lo\040feo...}{chapter.129}% 59
