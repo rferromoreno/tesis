@@ -156,7 +156,7 @@ pepe.actualizarSaldo(32);
 console.log(pepe.obtenerSaldo());	// 32
 \end{lstlisting}
 
-Un detalle menos obvio pero aún así importante, es que necesariamente los \textit{setters} y \textit{getters} de las variables ocultas por el closure deberán formar parte de la función constructora (es decir, no podrán definirse dentro del prototipo), lo que significa nuevamente que cada instancia de \code{Persona} tendrá código repetido, que implica ese gasto en memoria. Bajo esta situación, nos encontramos en un \textit{trade-off} de tener datos miembro privados, pero no poder hacer uso correcto del patrón prototipal.
+Un detalle menos obvio pero aún así importante, es que necesariamente los \textit{setters} y \textit{getters} de las variables ocultas por el closure deberán formar parte de la función constructora (es decir, no podrán definirse dentro del prototipo), lo que significa nuevamente que cada instancia de \code{Persona} tendrá código repetido, lo que implica gasto en memoria. Bajo esta situación, nos encontramos en un \textit{trade-off} de tener datos miembro privados, pero no poder hacer uso correcto del patrón prototipal.
 
 \section{Polimorfismo}
 

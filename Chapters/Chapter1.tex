@@ -199,12 +199,9 @@ enum & interface & private & public\\
 
 JavaScript es un lenguaje sensible a las mayúsculas, lo que significa que se entiende a \code{miVariable} y a \code{MIVARIABLE} como dos identificadores totalmente diferentes.
 
-\nuevo{
 \subsubsection{Sin tipado estático}
 
 El lenguaje no posee tipado estático. Sin embargo con \textbf{Microsoft TypeScript} o \textbf{Facebook Flow} se puede alcanzar esto mediante el uso de \textit{type annotations}. Consiste en utilizar el lenguaje haciendo anotaciones de los tipos, para luego hacer un chequeo de tipos estáticos mediante un preprocesado del código. Tanto TypeScript como Flow son extensiones de JavaScript. 
-
-}
 
 \section{Sintaxis}
 
@@ -287,4 +284,29 @@ Una función como expresión (o función expresión) es una expresión que produ
 var suma = function (x, y) { return x + y };
 \end{lstlisting}
 
+\subsection{Otros conceptos}
+
+Para entendimiento del lector, se presentan algunos conceptos que se mencionarán en algunos capítulos. No son exclusivamente del lenguaje, pero comprender y saber que el lenguaje dispone de éstas cualidades, ayudará a explicar cómo funcionan otras caracteristicas dentro del lenguaje.
+
+\subsubsection{Hoisting}
+
+Del inglés "`levantamiento"', el término de hoisting es muy acuñado y asociado a JavaScript. 
+
+\subsubsection{Closure}
+
+El término de closure, también conocido en español como "`clausura"' o "`cerradura"' es utilizado en otros lenguajes.
+
+
+\subsubsection{IIFE}
+
+La sigla IIFE representa \textit{Immediately-invoked function expression}, lo que en español sería "`función expresión invocada inmediatamente"'. El término es bastante auto-explicativo: Funciones definidas como expresión (no mediante la declaración normal) que son invocadas en el mismo lugar donde están definidas.
+
+
+
+Qué ventajas nos brindan las IIFEs?
+
+\begin{itemize}
+	\item Se lo puede pensar como un scope de bloque, un scope local donde se pueden definir variables sin ser afectadas desde afuera.
+	\item Sirven para crear módulos o namespaces, sin necesidad de ocupar nombres en el espacio que estemos usando.
+\end{itemize}
 
