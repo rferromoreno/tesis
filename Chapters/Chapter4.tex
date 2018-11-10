@@ -4,7 +4,7 @@
 
 % -----
 
-Uno de los debates principales sobre JavaScript es su soporte hacia el paradigma orientado a objetos. Existe una amplia gama de opiniones y posturas con respecto a JavaScript y su uso dentro de dicho paradigma. Las opiniones pueden ir desde la negativa, es decir, que no lo soporta en lo absoluto, hasta la positiva, pasando por un intermedio de que tiene cierto soporte, pero no naturalmente.
+Uno de los debates principales sobre JavaScript es su soporte hacia el paradigma orientado a objetos. Existe una amplia gama de opiniones y posturas con respecto a JavaScript y su uso dentro de dicho paradigma. Las opiniones pueden ir desde la negativa, es decir, que no lo soporta, hasta la positiva, pasando por un intermedio de que tiene cierto soporte, pero no naturalmente.
 
 En éste capítulo se buscará realizar un análisis sobre características típicas del paradigma orientado a objetos, tratándo de ver de qué manera llega JavaScript a éstas características.
 
@@ -42,7 +42,7 @@ gato.saludar();		// Hola, soy Garfield
 perro.saludar();	// Hola, soy Oddie
 \end{lstlisting}
 
-Si bien puede resultar un poco confuso al principio, para quienes estén acostumbrados al patrón Factory, este ejemplo quizás resulta algo natural. A simple vista, la única \textit{ventaja} es que omitimos el uso del \code{new} a la hora de realizar la instanciación de nuevos objetos. 
+Si bien puede resultar un poco confuso al principio, para quienes estén acostumbrados al patrón Factory, este ejemplo quizás resulte más trivial. A simple vista, la única \textit{ventaja} es que no se necesita usar \code{new} a la hora de realizar la instanciación de nuevos objetos. 
 
 Para el objetivo que buscamos, que es simular el soporte de clases, este patrón es útil.
 
@@ -92,7 +92,7 @@ gato.saludar(); 	// Hola, soy Oddie
 \end{lstlisting}
 
 
-\subsection{ES6 y \code{class} al... ?`rescate?}
+\subsection{\code{class} en ES6}
 
 A partir de la versión ES6, una de las características más jugosas es la del uso de la palabra reservada \code{class}.
 
@@ -104,13 +104,13 @@ A partir de la versión ES6, una de las características más jugosas es la del 
 
 \section{Herencia}
 
-Como se ha mencionado anteriormente, JavaScript tiene la particularidad de tener la herencia prototipada en vez de la herencia clásica.
+Como se ha mencionado anteriormente, JavaScript tiene la particularidad de tener la herencia prototipada en vez de la herencia clásica. 
 
 \subsection{Herencia múltiple}
 
 Dado que los objetos "`heredan"' de un único prototipo, el lenguaje no provee ninguna herramienta natural para el soporte de la herencia múltiple. Otros lenguajes buscan alcanzar la herencia múltiple mediante el uso de interfaces
 
-\section{Encapsulamiento}
+\section{Encapsulamiento y principio de ocultación}
 
 Dependiendo la perspectiva, se puede decir que el lenguaje tampoco provee un mecanismo natural para el encapsulamiento. Si hablamos de ocultar el estado de un objeto, es decir, de hacer sus datos miembro privados, no existe ninguna palabra reservada para ello. De hecho, todas las propiedades de un objeto son públicas.
 
@@ -163,7 +163,5 @@ Un detalle menos obvio pero aún así importante, es que necesariamente los \tex
 \section{Abstracción}
 
 \section{Modularidad}
-
-\section{Principio de ocultación}
 
 \section{Lo bueno, lo malo, lo feo...}

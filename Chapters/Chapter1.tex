@@ -44,7 +44,7 @@ Después de más de 20 años de existencia, los usos del lenguaje han cambiado. 
 En la actualidad, se puede afirmar que JavaScript está en "`la cresta de la ola"'. ?`Qué se puede hacer hoy en día con JavaScript?
 
 \begin{itemize}
-	\item Páginas Web -- Pareciera la respuesta obvia, sin embargo la forma de crear sitios web ha cambiado con el paso del tiempo. Hoy en día existe una gran cantidad de frameworks basados en JavaScript, tales como \keyword{React}, \keyword{AngularJS} o \keyword{Vue.JS}, entre otros.
+	\item Páginas Web -- Pareciera la respuesta obvia, sin embargo la forma de crear sitios web ha cambiado con el paso del tiempo. Hoy en día existe una gran cantidad de librerías y frameworks basados en JavaScript, tales como \keyword{React}, \keyword{AngularJS} o \keyword{Vue.JS}, entre otros.
 	\item Aplicaciones móviles -- Se pueden crear aplicaciones para celulares o dispositivos móviles programando en JavaScript, usando \keyword{Apache Cordova}, \keyword{Sencha}, \keyword{Ionic}, \keyword{NativeScript} o \keyword{Tabris.JS}.
 	\item Aplicaciones de escritorio -- Así como recién se hizo mención de las aplicaciones móviles, las de escritorio no se quedan atrás. Algunos frameworks como \keyword{Electron} ó \keyword{NW.JS} permiten crear aplicaciones multiplataforma.
 	\item Robots -- Mediante frameworks como \keyword{Cylon.JS} se pueden manejar dispositivos de hardware o robots. También existen kits basados en Arduino para programar en JS, tales como \keyword{Johnny-Five} o \keyword{Nodebots}.
@@ -284,29 +284,86 @@ Una función como expresión (o función expresión) es una expresión que produ
 var suma = function (x, y) { return x + y };
 \end{lstlisting}
 
-\subsection{Otros conceptos}
+\section{Otros conceptos}
 
-Para entendimiento del lector, se presentan algunos conceptos que se mencionarán en algunos capítulos. No son exclusivamente del lenguaje, pero comprender y saber que el lenguaje dispone de éstas cualidades, ayudará a explicar cómo funcionan otras caracteristicas dentro del lenguaje.
+Para entendimiento del lector, se presentan algunos conceptos que se mencionarán en algunos capítulos. No son exclusivamente del lenguaje, pero comprender y saber que el lenguaje dispone de éstas cualidades, ayudará a explicar cómo funcionan otras características dentro del lenguaje.
 
-\subsubsection{Hoisting}
+\subsection{Hoisting}
 
-Del inglés "`levantamiento"', el término de hoisting es muy acuñado y asociado a JavaScript. 
+Del inglés "`levantamiento"', el término de hoisting es muy acuñado y asociado a JavaScript. Consiste en mover hacia el comienzo del scope las declaraciones. En términos de compiladores, se puede pensar como una primera pasada del compilador para guardar los identificadores utilizados en el scope. De hecho, lo que sucede es que durante la fase de compilación se reservan en memoria espacio para los nombres declarados.
 
-\subsubsection{Closure}
+Gracias a ésta característica, se puede escribir invocar a una función cuyo código está más adelante.
+
+\begin{lstlisting}
+foo()
+function foo() {
+  console.log("bar");
+}
+\end{lstlisting}
+
+En realidad lo que sucede es que el motor de JavaScript "`mueve"' las declaraciones al principio del scope, por lo que se puede pensar que el código del ejemplo es equivalente a éste:
+
+\begin{lstlisting}
+function foo() {
+  console.log("bar");
+}
+foo()
+\end{lstlisting}
+
+Para las variables sucede algo similar, aunque solamente en su declaración (no en su asignación), por lo que se puede pensar que el siguiente código:
+
+\begin{lstlisting}
+console.log(a); // undefined
+var a = 2;
+\end{lstlisting}
+
+Es equivalente a esto:
+
+\begin{lstlisting}
+var a;
+console.log(a);	// undefined
+a = 2;
+\end{lstlisting}
+
+La precaución hay que tenerla a la hora de escribir funciones como expresión, ya que el hoisting existe en la declaración del nombre pero no en la asignación (tal como pasa con las variables). Por ejemplo, el siguiente código:
+
+\begin{lstlisting}
+foo();
+
+var foo = function () { 
+  console.log("bar");
+}
+\end{lstlisting}
+
+Nos lanzará en ejecución un \code{TypeError: foo is not a function}. Tiene sentido pensar en esto, ya que al igual que nos pasó con la variable \code{a}, el código equivalente sería:
+
+\begin{lstlisting}
+var foo;
+
+foo();	// en este punto, foo es undefined.
+
+foo = function () { 
+  console.log("bar");
+}
+\end{lstlisting}
+
+\subsection{Closures}
 
 El término de closure, también conocido en español como "`clausura"' o "`cerradura"' es utilizado en otros lenguajes.
 
 
-\subsubsection{IIFE}
+\subsection{IIFE}
 
 La sigla IIFE representa \textit{Immediately-invoked function expression}, lo que en español sería "`función expresión invocada inmediatamente"'. El término es bastante auto-explicativo: Funciones definidas como expresión (no mediante la declaración normal) que son invocadas en el mismo lugar donde están definidas.
 
 
 
-Qué ventajas nos brindan las IIFEs?
+?`Qué ventajas nos brindan las IIFEs?
 
 \begin{itemize}
-	\item Se lo puede pensar como un scope de bloque, un scope local donde se pueden definir variables sin ser afectadas desde afuera.
-	\item Sirven para crear módulos o namespaces, sin necesidad de ocupar nombres en el espacio que estemos usando.
+	\item Nos da la posibilidad de simular un scope local.
+	\item Proveen un mecanismo de encapsulamiento.
+	\item Reducen la polución de nombres en el scope global.
+	\item Sirven para crear módulos o namespaces.
 \end{itemize}
 

@@ -12,13 +12,13 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1735
-NormalPos.bottom=747
+NormalPos.bottom=539
 Class=LaTeXView
 Document=main.tex
 
 [Frame0_View0,0]
-TopLine=56
-Cursor=14105
+TopLine=290
+Cursor=14060
 
 [Frame1]
 Flags=0
@@ -30,13 +30,13 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1735
-NormalPos.bottom=747
+NormalPos.bottom=539
 Class=LaTeXView
 Document=Chapters\Chapter1.tex
 
 [Frame1_View0,0]
-TopLine=330
-Cursor=17871
+TopLine=399
+Cursor=19810
 
 [Frame2]
 Flags=0
@@ -48,7 +48,7 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1735
-NormalPos.bottom=747
+NormalPos.bottom=539
 Class=LaTeXView
 Document=Chapters\Chapter2.tex
 
@@ -66,13 +66,13 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1735
-NormalPos.bottom=747
+NormalPos.bottom=539
 Class=LaTeXView
-Document=Chapters\Chapter5.tex
+Document=Chapters\Chapter4.tex
 
 [Frame3_View0,0]
-TopLine=0
-Cursor=172
+TopLine=106
+Cursor=4857
 
 [Frame4]
 Flags=0
@@ -84,13 +84,13 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1735
-NormalPos.bottom=747
+NormalPos.bottom=539
 Class=LaTeXView
-Document=Chapters\Chapter4.tex
+Document=Chapters\Chapter3.tex
 
 [Frame4_View0,0]
-TopLine=165
-Cursor=7839
+TopLine=41
+Cursor=5372
 
 [Frame5]
 Flags=0
@@ -102,13 +102,13 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1735
-NormalPos.bottom=747
+NormalPos.bottom=539
 Class=LaTeXView
-Document=Chapters\Chapter3.tex
+Document=Chapters\Chapter6.tex
 
 [Frame5_View0,0]
-TopLine=35
-Cursor=5372
+TopLine=0
+Cursor=507
 
 [Frame6]
 Flags=0
@@ -120,33 +120,15 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1735
-NormalPos.bottom=747
-Class=LaTeXView
-Document=Chapters\Chapter6.tex
-
-[Frame6_View0,0]
-TopLine=0
-Cursor=507
-
-[Frame7]
-Flags=0
-ShowCmd=1
-MinPos.x=-1
-MinPos.y=-1
-MaxPos.x=-1
-MaxPos.y=-1
-NormalPos.left=4
-NormalPos.top=32
-NormalPos.right=1735
-NormalPos.bottom=747
+NormalPos.bottom=539
 Class=LaTeXView
 Document=Chapters\Chapter7.tex
 
-[Frame7_View0,0]
+[Frame6_View0,0]
 TopLine=0
 Cursor=156
 
 [SessionInfo]
-FrameCount=8
+FrameCount=7
 ActiveFrame=1
 
