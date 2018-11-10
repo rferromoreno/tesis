@@ -12,12 +12,12 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1735
-NormalPos.bottom=846
+NormalPos.bottom=747
 Class=LaTeXView
 Document=main.tex
 
 [Frame0_View0,0]
-TopLine=13
+TopLine=31
 Cursor=14105
 
 [Frame1]
@@ -30,13 +30,13 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1735
-NormalPos.bottom=846
+NormalPos.bottom=747
 Class=LaTeXView
 Document=Chapters\Chapter1.tex
 
 [Frame1_View0,0]
-TopLine=10
-Cursor=16372
+TopLine=31
+Cursor=3492
 
 [Frame2]
 Flags=0
@@ -48,7 +48,7 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1735
-NormalPos.bottom=846
+NormalPos.bottom=747
 Class=LaTeXView
 Document=Chapters\Chapter2.tex
 
@@ -66,7 +66,7 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1735
-NormalPos.bottom=846
+NormalPos.bottom=747
 Class=LaTeXView
 Document=Chapters\Chapter5.tex
 
@@ -84,13 +84,13 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1735
-NormalPos.bottom=846
+NormalPos.bottom=747
 Class=LaTeXView
 Document=Chapters\Chapter4.tex
 
 [Frame4_View0,0]
-TopLine=0
-Cursor=640
+TopLine=160
+Cursor=7972
 
 [Frame5]
 Flags=0
@@ -102,12 +102,12 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1735
-NormalPos.bottom=846
+NormalPos.bottom=747
 Class=LaTeXView
 Document=Chapters\Chapter3.tex
 
 [Frame5_View0,0]
-TopLine=14
+TopLine=23
 Cursor=5372
 
 [Frame6]
@@ -120,7 +120,7 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1735
-NormalPos.bottom=846
+NormalPos.bottom=747
 Class=LaTeXView
 Document=Chapters\Chapter6.tex
 
@@ -138,7 +138,7 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=1735
-NormalPos.bottom=846
+NormalPos.bottom=747
 Class=LaTeXView
 Document=Chapters\Chapter7.tex
 
@@ -148,5 +148,5 @@ Cursor=156
 
 [SessionInfo]
 FrameCount=8
-ActiveFrame=4
+ActiveFrame=0
 

@@ -37,23 +37,29 @@
 \BOOKMARK [1][-]{section.98}{Funciones\040puras}{chapter.82}% 37
 \BOOKMARK [1][-]{section.99}{Funciones\040de\040primera\040clase\040y\040orden\040superior}{chapter.82}% 38
 \BOOKMARK [2][-]{subsection.100}{Funciones\040de\040primera\040clase}{section.99}% 39
-\BOOKMARK [1][-]{section.112}{Evaluación ansiosa \(estricta\) y perezosa \(no estricta\)}{chapter.82}% 40
-\BOOKMARK [1][-]{section.113}{Lo\040bueno,\040lo\040malo,\040lo\040feo...}{chapter.82}% 41
-\BOOKMARK [0][-]{chapter.114}{Paradigma\040orientado\040a\040objetos}{}% 42
-\BOOKMARK [1][-]{section.115}{Clases}{chapter.114}% 43
-\BOOKMARK [1][-]{section.116}{Herencia}{chapter.114}% 44
-\BOOKMARK [1][-]{section.117}{Encapsulamiento}{chapter.114}% 45
-\BOOKMARK [1][-]{section.118}{Polimorfismo}{chapter.114}% 46
-\BOOKMARK [1][-]{section.119}{Abstracción}{chapter.114}% 47
-\BOOKMARK [1][-]{section.120}{Modularidad}{chapter.114}% 48
-\BOOKMARK [1][-]{section.121}{Principio de ocultación}{chapter.114}% 49
-\BOOKMARK [1][-]{section.122}{Lo\040bueno,\040lo\040malo,\040lo\040feo...}{chapter.114}% 50
-\BOOKMARK [0][-]{chapter.123}{Expresiones}{}% 51
-\BOOKMARK [1][-]{section.124}{==\040versus\040===}{chapter.123}% 52
-\BOOKMARK [1][-]{section.125}{Coerción}{chapter.123}% 53
-\BOOKMARK [1][-]{section.126}{Lo\040bueno,\040lo\040malo,\040lo\040feo...}{chapter.123}% 54
-\BOOKMARK [0][-]{chapter.127}{Scope}{}% 55
-\BOOKMARK [1][-]{section.128}{Lo\040bueno,\040lo\040malo,\040lo\040feo...}{chapter.127}% 56
-\BOOKMARK [0][-]{chapter.129}{this\040en\040JavaScript}{}% 57
-\BOOKMARK [1][-]{section.130}{...}{chapter.129}% 58
-\BOOKMARK [1][-]{section.131}{Lo\040bueno,\040lo\040malo,\040lo\040feo...}{chapter.129}% 59
+\BOOKMARK [2][-]{subsection.124}{Funciones\040de\040orden\040superior}{section.99}% 40
+\BOOKMARK [1][-]{section.125}{Evaluación ansiosa \(estricta\) y perezosa \(no estricta\)}{chapter.82}% 41
+\BOOKMARK [1][-]{section.126}{Lo\040bueno,\040lo\040malo,\040lo\040feo...}{chapter.82}% 42
+\BOOKMARK [0][-]{chapter.127}{Paradigma\040orientado\040a\040objetos}{}% 43
+\BOOKMARK [1][-]{section.128}{Clases}{chapter.127}% 44
+\BOOKMARK [2][-]{subsection.129}{Factory\040class\040pattern}{section.128}% 45
+\BOOKMARK [2][-]{subsection.146}{Functional\040class\040pattern}{section.128}% 46
+\BOOKMARK [2][-]{subsection.160}{Prototype\040class\040pattern}{section.128}% 47
+\BOOKMARK [2][-]{subsection.175}{ES6 y class al... ¿rescate?}{section.128}% 48
+\BOOKMARK [1][-]{section.178}{Herencia}{chapter.127}% 49
+\BOOKMARK [2][-]{subsection.179}{Herencia múltiple}{section.178}% 50
+\BOOKMARK [1][-]{section.180}{Encapsulamiento}{chapter.127}% 51
+\BOOKMARK [1][-]{section.213}{Polimorfismo}{chapter.127}% 52
+\BOOKMARK [1][-]{section.214}{Abstracción}{chapter.127}% 53
+\BOOKMARK [1][-]{section.215}{Modularidad}{chapter.127}% 54
+\BOOKMARK [1][-]{section.216}{Principio de ocultación}{chapter.127}% 55
+\BOOKMARK [1][-]{section.217}{Lo\040bueno,\040lo\040malo,\040lo\040feo...}{chapter.127}% 56
+\BOOKMARK [0][-]{chapter.218}{Expresiones}{}% 57
+\BOOKMARK [1][-]{section.219}{==\040versus\040===}{chapter.218}% 58
+\BOOKMARK [1][-]{section.220}{Coerción}{chapter.218}% 59
+\BOOKMARK [1][-]{section.221}{Lo\040bueno,\040lo\040malo,\040lo\040feo...}{chapter.218}% 60
+\BOOKMARK [0][-]{chapter.222}{Scope}{}% 61
+\BOOKMARK [1][-]{section.223}{Lo\040bueno,\040lo\040malo,\040lo\040feo...}{chapter.222}% 62
+\BOOKMARK [0][-]{chapter.224}{this\040en\040JavaScript}{}% 63
+\BOOKMARK [1][-]{section.225}{...}{chapter.224}% 64
+\BOOKMARK [1][-]{section.226}{Lo\040bueno,\040lo\040malo,\040lo\040feo...}{chapter.224}% 65
