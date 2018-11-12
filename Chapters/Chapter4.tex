@@ -94,21 +94,36 @@ gato.saludar(); 	// Hola, soy Oddie
 
 \subsection{\code{class} en ES6}
 
-A partir de la versión ES6, una de las características más jugosas es la del uso de la palabra reservada \code{class}.
+A partir de la versión ES6, una de las características más jugosas es la del uso de la palabra reservada \code{class}. Para desgracia del lector, ésta introducción al lenguaje no es más que \textit{syntactic sugar}. Mediante una sintaxis más amena y amigable se alcanza la creación de clases, pero en el fondo la semántica es idéntica al Prototype class pattern.
 
 \begin{lstlisting}[title={Ejemplo de \code{class}}]
+class Animal {
+  constructor(nombre) {
+    this.nombre = nombre;
+  }
+  saludar() {
+    console.log('Hola, soy ', this.nombre);
+  }
+}
 
+var gato = new Animal('Garfield');
+var perro = new Animal('Oddie');
+
+perro.saludar(); 	// Hola, soy Garfield
+gato.saludar(); 	// Hola, soy Oddie
 \end{lstlisting}
-
-
 
 \section{Herencia}
 
 Como se ha mencionado anteriormente, JavaScript tiene la particularidad de tener la herencia prototipada en vez de la herencia clásica. 
 
+\textbf{COMPLETAR}
+
 \subsection{Herencia múltiple}
 
-Dado que los objetos "`heredan"' de un único prototipo, el lenguaje no provee ninguna herramienta natural para el soporte de la herencia múltiple. Otros lenguajes buscan alcanzar la herencia múltiple mediante el uso de interfaces
+Dado que los objetos "`heredan"' de un único prototipo, el lenguaje no provee ninguna herramienta natural para el soporte de la herencia múltiple. Otros lenguajes buscan alcanzar la herencia múltiple mediante el uso de interfaces. En JavaScript no existen las interfaces, pero sí existe una técnica llamada mixins (acrónimo para \textit{mixed in}, del inglés "`mezclado"') para introducir un comportamiento a una clase sin necesidad de hacerla heredar de otra.
+
+\textbf{COMPLETAR}
 
 \section{Encapsulamiento y principio de ocultación}
 
@@ -160,8 +175,76 @@ Un detalle menos obvio pero aún así importante, es que necesariamente los \tex
 
 \section{Polimorfismo}
 
+\textbf{COMPLETAR}
+
 \section{Abstracción}
 
+\textbf{COMPLETAR}
+
 \section{Modularidad}
+
+Durante sus primeros 20 años de vida, JavaScript no proveía soporte para módulos de una forma nativa. En 2015 con la salida de ES6, el lenguaje adquirió ese soporte nativo que le faltaba. Sin embargo, aún no todos los navegadores (o motores) soportan todas las funcionalidades introducidas en ES6 y las nuevas versiones del estándar.
+
+En ésta sección vamos a mencionar cuáles son las formas en las que se alcanza la modularidad en JavaScript.
+
+\subsection{Módulos mediante patrones}
+
+Al igual que sucede con las clases, se hace el uso de IIFE y closures para aplicar patrones conocidos en la creación de módulos. El patrón por excelencia en este caso es el Revealing Module pattern. Si este patrón es implementado mediante IIFE, se lo puede pensar al módulo como un singleton, ya que al momento de definir el módulo se está creando una única instancia del mismo.
+
+\begin{lstlisting}[title={Revealing module pattern}]
+var ModuloSaludador = (function () {
+  var cantidadSaludos = 0;
+
+  var incrementarSaludos = function() {
+    cantidadSaludos++;
+  }
+
+  var saludar = function() {
+    console.log("hola");
+    incrementarSaludos();
+  }
+
+  var despedirse = function() {
+    console.log("chau");
+    incrementarSaludos();
+  }
+
+  var mostrarContador = function() {
+    console.log(cantidadSaludos);
+  }
+
+  return {
+    saludar: saludar,
+    despedirse: despedirse,
+    imprimirEstado: mostrarContador
+  }
+}());
+
+ModuloSaludador.saludar();				// hola
+ModuloSaludador.despedirse();			// chau
+ModuloSaludador.imprimirEstado();	// 2
+\end{lstlisting}
+
+Para el ejemplo dado, se mantiene un estado interno que cuenta la cantidad de saludos dados. Se puede apreciar como tanto \code{cantidadSaludos} y la función \code{incrementarSaludos} son de alguna forma atributos privados del módulo. 
+
+Lo que retorna la función constructora del módulo en realidad es un objeto con las funciones del mismo, a modo de API. Notar el detalle de la función \code{mostrarContador}, que internamente para el módulo se llamará de esa manera, pero el módulo la expone con otro nombre, \code{imprimirEstado}.
+
+La simplicidad de éste método de modularizar es una gran ventaja. No se requieren librerías externas. Una ventaja clara de la utilización de módulos es que podemos mantener \code{namespaces} más limpios a nivel aplicación.
+
+Una desventaja de éste método es que no existe un manejo de dependencias entre módulos. Se puede hacer inyección de dependencias pasándole mediante parámetro el módulo que queremos inyectar como dependencia al nuevo módulo que estemos definiendo. Esto nos obliga a tener que pensar qué módulos deben estar definidos previamente a otros (recordar que el módulo es una IIFE), o nos obliga a cambiar un poco el patrón y utilizar algo más similar al Prototype class pattern, en donde podremos crear más de una instancia de un módulo en particular. Veremos en las soluciones siguientes cómo se aborda el manejo de dependencias para las otras técnicas.
+
+\subsection{Sistemas de módulos}
+
+Ante la falta de soporte, la propia comunidad se encargó de crear sus propios formatos estandarizados para modularizar sus aplicaciones. A mi entender, las dos partes claves que se agregaron con esta solución fue el manejo de dependencias entre módulos, y la capacidad de poder separar módulos en distintos archivos.
+
+Los dos formatos más populares son \keyword{AMD} y \keyword{CommonJS}. Se pueden pensar a estos formatos como la parte sintáctica de los módulos, ya que luego será necesario hacer uso de algún module loader (librerías externas tales como \keyword{SystemJS} o \keyword{RequireJS}) para conectar y hacer funcionar a los módulos.
+
+\subsubsection{AMD}
+
+\subsubsection{CommonJS}
+
+\subsection{Módulos	en ES6}
+
+
 
 \section{Lo bueno, lo malo, lo feo...}
