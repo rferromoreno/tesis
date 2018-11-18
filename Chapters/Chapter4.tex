@@ -125,7 +125,7 @@ Dado que los objetos "`heredan"' de un único prototipo, el lenguaje no provee n
 
 \textbf{COMPLETAR}
 
-\section{Encapsulamiento y principio de ocultación}
+\section{Encapsulamiento}
 
 Dependiendo la perspectiva, se puede decir que el lenguaje tampoco provee un mecanismo natural para el encapsulamiento. Si hablamos de ocultar el estado de un objeto, es decir, de hacer sus datos miembro privados, no existe ninguna palabra reservada para ello. De hecho, todas las propiedades de un objeto son públicas.
 
@@ -174,10 +174,6 @@ console.log(pepe.obtenerSaldo());	// 32
 Un detalle menos obvio pero aún así importante, es que necesariamente los \textit{setters} y \textit{getters} de las variables ocultas por el closure deberán formar parte de la función constructora (es decir, no podrán definirse dentro del prototipo), lo que significa nuevamente que cada instancia de \code{Persona} tendrá código repetido, lo que implica gasto en memoria. Bajo esta situación, nos encontramos en un \textit{trade-off} de tener datos miembro privados, pero no poder hacer uso correcto del patrón prototipal.
 
 \section{Polimorfismo}
-
-\textbf{COMPLETAR}
-
-\section{Abstracción}
 
 \textbf{COMPLETAR}
 
@@ -241,10 +237,190 @@ Los dos formatos más populares son \keyword{AMD} y \keyword{CommonJS}. Se puede
 
 \subsubsection{AMD}
 
+La sigla representa "`Asynchronous Module Definition"', en español sería definición de módulo asíncrono. Tal como se puede intuir por el nombre, se trata de una especificación para definir módulos y dependencias, y que las mismas sean cargadas de forma asincrónica.
+
+En la especificación se puede encontrar un único método \code{define} para definir un módulo que, tiene sus variantes dependiendo de la cantidad y el tipo de los parámetros dados. Para los ejemplos que se mencionarán aquí, solo usaremos dos parámetros: el primero, un \code{Array} que representan las dependencias del módulo que estamos definiendo, y el segundo, una \code{Function} que será la definición del módulo propiamente dicho.
+% https://github.com/amdjs/amdjs-api/blob/master/AMD.md 
+
+Un ejemplo de módulo con dependencias podría ser el siguiente:
+
+\begin{lstlisting}[title={Ejemplo de AMD}]
+define(['./math', './mailer'], function (math, mailer) {
+  var enviarSiEsPrimo = function(n, email) {
+    if (math.esPrimo(n)) {
+      mailer.enviar(email);
+    }
+  }
+
+  return {
+    enviarSiEsPrimo: enviarSiEsPrimo
+  }
+})
+\end{lstlisting}
+
+El primer parámetro dado es un arreglo con las dependencias. En nuestro caso, damos la ruta relativa a otros dos módulos \textit{math} y \textit{mailer} que supongamos que existen. El segundo parámetro es la definición del módulo que queremos crear, el cual será una función cuyos argumentos formales corresponden a las dos dependencias recién mencionadas. Lo que sucede por detrás es una inyección de éstas dependencias. 
+
+Para nuestro caso del ModuloContador, una adaptación en AMD podría ser la siguiente:
+
+\begin{lstlisting}[title={Modulo contador en AMD}]
+define([], function () {
+  var cantidadSaludos = 0;
+
+  var incrementarSaludos = function() {
+    cantidadSaludos++;
+  }
+
+  var saludar = function() {
+    console.log("hola");
+    incrementarSaludos();
+  }
+
+  var despedirse = function() {
+    console.log("chau");
+    incrementarSaludos();
+  }
+
+  var mostrarContador = function() {
+    console.log(cantidadSaludos);
+  }
+
+  return {
+    saludar: saludar,
+    despedirse: despedirse,
+    imprimirEstado: mostrarContador
+  };
+});
+\end{lstlisting}
+
 \subsubsection{CommonJS}
+
+La otra especificación de módulos popular es la de CommonJS. A diferencia de AMD, la carga de los módulos se hace de forma sincrónica.
+
+Podemos separar a la definición de un módulo en tres partes:
+\begin{itemize}
+	\item La importación de las dependencias, que se hacen mediante un método especial \code{require}.
+	\item La definición del módulo propiamente dicho, es decir, su código.
+	\item La exportación de los métodos públicos del módulo, mediante uso de la propiedad \code{module.exports}.
+\end{itemize}
+
+Nuevamente, la idea no es profundizar sobre la especificación de CommonJS. De hecho, es un poco más amplia de lo que se menciona en éste documento, pero para el concepto que se quiere mostrar, es suficiente con lo recién mencionado.
+
+Un ejemplo equivalente a lo realizado en el módulo AMD, el cual usaba dependencias \textit{math} y \textit{mailer}, podría ser el siguiente:
+
+\begin{lstlisting}
+var math = require('./math');
+var mailer = require('./mailer');
+
+var enviarSiEsPrimo = function(n, email) {
+  if (math.esPrimo(n)) {
+    mailer.enviar(email);
+  }
+};
+
+module.exports.enviarSiEsPrimo = enviarSiEsPrimo;
+\end{lstlisting}
+
+Para el caso del ModuloContador, una versión en CommonJS podría ser la siguiente:
+
+\begin{lstlisting}[title={Modulo contador en CommonJS}]
+var cantidadSaludos = 0;
+
+var incrementarSaludos = function() {
+  cantidadSaludos++;
+};
+
+var saludar = function() {
+  console.log('hola');
+  incrementarSaludos();
+};
+
+var despedirse = function() {
+  console.log('chau');
+  incrementarSaludos();
+};
+
+var mostrarContador = function() {
+  console.log(cantidadSaludos);
+};
+
+module.exports = {
+  saludar: saludar,
+  despedirse: despedirse,
+  imprimirEstado: mostrarContador
+};
+\end{lstlisting}
 
 \subsection{Módulos	en ES6}
 
+Probablemente una de las características más enriquecedoras introducidas a partir de ES6, es la del soporte nativo para los módulos. Este soporte de módulos mimetiza la característica de asincronía en AMD, y la sintaxis concisa en CommonJS. De hecho, la sintaxis es extramadamente más concisa que en CommonJS, además de que se tiene un mejor soporte para las dependencias cíclicas, y gracias a la estructura de los módulos en ES6, se puede hacer un análisis estático y así realizar, por ejemplo, optimizaciones.
 
+Las dos palabras resevadas a tener en cuenta para éste tipo de modularización son \code{import} y \code{export}. Con \code{import} se realizará la importación de dependencias para el módulo que estemos definiendo. Con \code{export}, se realizará la exportación cualquier miembro del módulo que se desee exponer. Una vez más, existen variantes para la parte de \code{export} como por ejemplo \textit{named export} y \textit{default export} que si bien se las mencionarán mediante ejemplos, escapan de este documento y queda a cargo del lector conocerlas en detalle.
+
+Un dato a tener en cuenta, es que el soporte de los módulos para ES6 aún no está implementado en su completitud en el intérprete de todos los navegadores. Al punto tal de que quizás para hacer uso de ésta característica puede que sea necesaria una herramienta de traducción y compilación (acción conocida como "`transpile"') tal como \keyword{Babel}, y una herramienta de compilación o empaquetamiento tal como \keyword{Webpack}.
+
+Tomando como caso de ejemplo el supuesto módulo \textit{math} visto en las secciones anteriores, podríamos hacer \code{import} de éste módulo dependiendo de la forma en la que se esté exportando.
+
+\begin{lstlisting}[title={Algunos ejemplos de \code{import}}]
+// importando lo que esté por "default" 
+import math from './math';
+// importando todo lo exportado por math
+import * as math from './math';
+// importando y haciendo destructuring de lo que nos sirva
+import { esPrimo } from './math'
+\end{lstlisting}
+
+Para el caso de la exportación también existen varias maneras, y dependiendo de cuál se utilice, será correspondiente luego la forma en la que se importe.
+
+\begin{lstlisting}[title={Algunos ejemplos de \code{export}}]
+// exportando una constante con nombre
+export const PI = 3.1416;
+// exportando una funcion
+export function foo() { console.log('foo') }
+// exportando con "default"
+export default function bar() {}
+\end{lstlisting}
+
+Dependiendo cual sea el caso, tiene sentido después pensar qué parte del módulo se está importando: Si tan solo una parte, el módulo completo, alguna función o atributo particular (siempre que se esté exportando), o lo que exporta el módulo por defecto.
+
+Siguiendo con el grupo de ejemplos, se muestra cómo sería una implementación en ES6 de los módulos ejemplificados en las secciones anteriores:
+
+\begin{lstlisting}[title={Ejemplo de módulo en ES6}]
+import { esPrimo } from './math';
+import { enviar } from './mailer';
+
+export function enviarSiEsPrimo(n, email) {
+  if (esPrimo(n)) {
+    enviar(email);
+  }
+}
+\end{lstlisting}
+
+Un particularidad a tener en cuenta en este ejemplo es que en las lineas 1 y 2 se hizo \textit{destructuring} de los módulos \textit{math} y \textit{mailer}, dado que solo nos interesan las funciones \code{esPrimo} y \code{enviar}. Por otro lado, el \code{export} en la definición de la función se puede hacer de forma separada (es decir, definir la función por un lado y luego hacer \code{export enviarSiEsPrimo}. Cualquiera de las dos formas es válida, pero se busca mostrar qué tan conciso queda el código con ES6.
+
+Ahora veamos un ejemplo de ModuloContador, el cual no posee dependencias. Para este caso, mostraremos una variante del \code{export} totalmente válida, en la que se hace un único \code{export} de las tres funciones que expone el módulo.
+
+\begin{lstlisting}[title={Modulo contador en ES6}]
+var cantidadSaludos = 0;
+
+var incrementarSaludos = function() {
+  cantidadSaludos++;
+};
+
+var saludar = function() {
+  console.log('hola');
+  incrementarSaludos();
+};
+
+var despedirse = function() {
+  console.log('chau');
+  incrementarSaludos();
+};
+
+var mostrarContador = function() {
+  console.log(cantidadSaludos);
+};
+
+export { saludar, despedirse, mostrarContador as imprimirEstado };
+\end{lstlisting}
 
 \section{Lo bueno, lo malo, lo feo...}
