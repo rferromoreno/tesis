@@ -11,6 +11,7 @@ En éste capítulo se buscará realizar un análisis sobre características típ
 % -----
 
 \section{Clases}
+\label{clases}
 
 Previo a la salida de ES6 (es decir, en la version 5 de JavaScript) la creación de clases en JavaScript se realiza mediante el uso de patrones para la creación de objetos. La realidad es que en JavaScript no existe un soporte formal o natural para las clases, sino que hay que recurrir a estos patrones para simularlo. Los más populares, a mi entender, son:
 
@@ -73,7 +74,7 @@ También para tener en cuenta: No existen reglas ni restricciones sobre los nomb
 
 \subsection{Prototype class pattern}
 
-Para tratar de resolver el problema recién mencionado, en donde cada instancia tiene una copia del código de la función, es necesario hacer un buen uso del concepto de prototipo en JavaScript.
+Para tratar de resolver el problema recién mencionado, en donde cada instancia tiene una copia del código de la función, es necesario hacer un buen uso del concepto de prototipo en JavaScript, el cual se hizo mención en la sección \ref{sec:prototype}.
 
 \begin{lstlisting}[title={Prototype class pattern}]
 function Animal(nombre) {
@@ -91,6 +92,7 @@ perro.saludar(); 	// Hola, soy Garfield
 gato.saludar(); 	// Hola, soy Oddie
 \end{lstlisting}
 
+Para este caso, tendremos una función constructora \code{Animal}, la cual estará vinculada a su \code{[[Prototype]]}, un objeto que contendrá entre sus propiedades, a la función \code{saludar}. Bajo este patrón, nos obviamos de que cada instancia tenga una copia de la función saludar, y que gracias a la "`cadena del prototipo"' ese comportamiento esté delegado en \code{Animal.prototype}.
 
 \subsection{\code{class} en ES6}
 
@@ -114,6 +116,7 @@ gato.saludar(); 	// Hola, soy Oddie
 \end{lstlisting}
 
 \section{Herencia}
+\label{herencia}
 
 Como se ha mencionado anteriormente, JavaScript tiene la particularidad de tener la herencia prototipada en vez de la herencia clásica. 
 

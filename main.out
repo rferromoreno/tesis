@@ -24,40 +24,41 @@
 \BOOKMARK [2][-]{subsection.39}{Estructuras\040condicionales}{section.23}% 24
 \BOOKMARK [3][-]{section*.40}{Condicionales\040if\040e\040if-else}{subsection.39}% 25
 \BOOKMARK [3][-]{section*.51}{Operador\040ternario\040?:}{subsection.39}% 26
-\BOOKMARK [3][-]{section*.54}{Condicional\040switch}{subsection.39}% 27
-\BOOKMARK [2][-]{subsection.55}{Estructuras\040repetitivas}{section.23}% 28
-\BOOKMARK [2][-]{subsection.56}{Funciones}{section.23}% 29
-\BOOKMARK [3][-]{section*.57}{Funciones como expresión}{subsection.56}% 30
-\BOOKMARK [1][-]{section.60}{Otros\040conceptos}{chapter.1}% 31
-\BOOKMARK [2][-]{subsection.61}{Hoisting}{section.60}% 32
-\BOOKMARK [2][-]{subsection.93}{Closures}{section.60}% 33
-\BOOKMARK [2][-]{subsection.94}{IIFE}{section.60}% 34
-\BOOKMARK [0][-]{chapter.95}{Sistema\040de\040Tipos}{}% 35
-\BOOKMARK [1][-]{section.96}{Tipos\040primitivos}{chapter.95}% 36
-\BOOKMARK [2][-]{subsection.109}{Casos\040especiales\040del\040typeof}{section.96}% 37
-\BOOKMARK [1][-]{section.116}{Lo\040bueno,\040lo\040malo,\040lo\040feo...}{chapter.95}% 38
-\BOOKMARK [0][-]{chapter.117}{Paradigma\040funcional}{}% 39
-\BOOKMARK [1][-]{section.118}{Recursividad}{chapter.117}% 40
-\BOOKMARK [1][-]{section.133}{Funciones\040puras}{chapter.117}% 41
-\BOOKMARK [1][-]{section.134}{Funciones\040de\040primera\040clase\040y\040orden\040superior}{chapter.117}% 42
-\BOOKMARK [2][-]{subsection.135}{Funciones\040de\040primera\040clase}{section.134}% 43
-\BOOKMARK [2][-]{subsection.159}{Funciones\040de\040orden\040superior}{section.134}% 44
-\BOOKMARK [1][-]{section.160}{Evaluación ansiosa \(estricta\) y perezosa \(no estricta\)}{chapter.117}% 45
-\BOOKMARK [1][-]{section.161}{Lo\040bueno,\040lo\040malo,\040lo\040feo...}{chapter.117}% 46
-\BOOKMARK [0][-]{chapter.162}{Paradigma\040orientado\040a\040objetos}{}% 47
-\BOOKMARK [1][-]{section.163}{Clases}{chapter.162}% 48
-\BOOKMARK [2][-]{subsection.164}{Factory\040class\040pattern}{section.163}% 49
-\BOOKMARK [2][-]{subsection.181}{Functional\040class\040pattern}{section.163}% 50
-\BOOKMARK [2][-]{subsection.195}{Prototype\040class\040pattern}{section.163}% 51
-\BOOKMARK [2][-]{subsection.210}{class\040en\040ES6}{section.163}% 52
-\BOOKMARK [1][-]{section.226}{Herencia}{chapter.162}% 53
-\BOOKMARK [2][-]{subsection.227}{Herencia múltiple}{section.226}% 54
-\BOOKMARK [1][-]{section.228}{Encapsulamiento}{chapter.162}% 55
-\BOOKMARK [1][-]{section.261}{Polimorfismo}{chapter.162}% 56
-\BOOKMARK [1][-]{section.262}{Modularidad}{chapter.162}% 57
-\BOOKMARK [2][-]{subsection.263}{Módulos mediante patrones}{section.262}% 58
-\BOOKMARK [2][-]{subsection.296}{Sistemas de módulos}{section.262}% 59
-\BOOKMARK [3][-]{section*.297}{AMD}{subsection.296}% 60
-\BOOKMARK [3][-]{section*.338}{CommonJS}{subsection.296}% 61
-\BOOKMARK [2][-]{subsection.376}{Módulos en ES6}{section.262}% 62
-\BOOKMARK [1][-]{section.422}{Lo\040bueno,\040lo\040malo,\040lo\040feo...}{chapter.162}% 63
+\BOOKMARK [2][-]{subsection.54}{Funciones}{section.23}% 27
+\BOOKMARK [3][-]{section*.55}{Funciones como expresión}{subsection.54}% 28
+\BOOKMARK [3][-]{section*.60}{Funciones como declaración}{subsection.54}% 29
+\BOOKMARK [3][-]{section*.65}{Funciones anónimas y arrow functions}{subsection.54}% 30
+\BOOKMARK [1][-]{section.70}{Otros\040conceptos}{chapter.1}% 31
+\BOOKMARK [2][-]{subsection.71}{Hoisting}{section.70}% 32
+\BOOKMARK [2][-]{subsection.103}{Closures}{section.70}% 33
+\BOOKMARK [2][-]{subsection.104}{IIFE}{section.70}% 34
+\BOOKMARK [2][-]{subsection.105}{Prototype}{section.70}% 35
+\BOOKMARK [0][-]{chapter.127}{Sistema\040de\040Tipos}{}% 36
+\BOOKMARK [1][-]{section.128}{Tipos\040primitivos}{chapter.127}% 37
+\BOOKMARK [2][-]{subsection.141}{Casos\040especiales\040del\040typeof}{section.128}% 38
+\BOOKMARK [1][-]{section.148}{Lo\040bueno,\040lo\040malo,\040lo\040feo...}{chapter.127}% 39
+\BOOKMARK [0][-]{chapter.149}{Paradigma\040funcional}{}% 40
+\BOOKMARK [1][-]{section.150}{Recursividad}{chapter.149}% 41
+\BOOKMARK [1][-]{section.165}{Funciones\040puras}{chapter.149}% 42
+\BOOKMARK [1][-]{section.166}{Funciones\040de\040primera\040clase\040y\040orden\040superior}{chapter.149}% 43
+\BOOKMARK [2][-]{subsection.167}{Funciones\040de\040primera\040clase}{section.166}% 44
+\BOOKMARK [2][-]{subsection.191}{Funciones\040de\040orden\040superior}{section.166}% 45
+\BOOKMARK [1][-]{section.192}{Evaluación ansiosa \(estricta\) y perezosa \(no estricta\)}{chapter.149}% 46
+\BOOKMARK [1][-]{section.193}{Lo\040bueno,\040lo\040malo,\040lo\040feo...}{chapter.149}% 47
+\BOOKMARK [0][-]{chapter.194}{Paradigma\040orientado\040a\040objetos}{}% 48
+\BOOKMARK [1][-]{section.195}{Clases}{chapter.194}% 49
+\BOOKMARK [2][-]{subsection.196}{Factory\040class\040pattern}{section.195}% 50
+\BOOKMARK [2][-]{subsection.213}{Functional\040class\040pattern}{section.195}% 51
+\BOOKMARK [2][-]{subsection.227}{Prototype\040class\040pattern}{section.195}% 52
+\BOOKMARK [2][-]{subsection.242}{class\040en\040ES6}{section.195}% 53
+\BOOKMARK [1][-]{section.258}{Herencia}{chapter.194}% 54
+\BOOKMARK [2][-]{subsection.259}{Herencia múltiple}{section.258}% 55
+\BOOKMARK [1][-]{section.260}{Encapsulamiento}{chapter.194}% 56
+\BOOKMARK [1][-]{section.293}{Polimorfismo}{chapter.194}% 57
+\BOOKMARK [1][-]{section.294}{Modularidad}{chapter.194}% 58
+\BOOKMARK [2][-]{subsection.295}{Módulos mediante patrones}{section.294}% 59
+\BOOKMARK [2][-]{subsection.328}{Sistemas de módulos}{section.294}% 60
+\BOOKMARK [3][-]{section*.329}{AMD}{subsection.328}% 61
+\BOOKMARK [3][-]{section*.370}{CommonJS}{subsection.328}% 62
+\BOOKMARK [2][-]{subsection.408}{Módulos en ES6}{section.294}% 63
+\BOOKMARK [1][-]{section.454}{Lo\040bueno,\040lo\040malo,\040lo\040feo...}{chapter.194}% 64

@@ -242,10 +242,9 @@ Sobre \code{let}, es una forma de declarar variables de alcance local. Se hará 
 
 Por el lado de \code{const}, se tratan de variables de valor constante, cuyo valor no se puede cambiar y tampoco pueden ser redeclaradas.
 
-
 \subsection{Estructuras condicionales}
 
-El lenguaje posee las estructuras condicionales ya conocidas en lenguajes como C++ o Java.
+El lenguaje posee las estructuras condicionales ya conocidas en lenguajes como C++ o Java. A continuación se muestran algunos ejemplos de algunas, que servirán para mejor entendimiento del código de ejemplo dado en los otros capítulos.
 
 \subsubsection{Condicionales \code{if} e \code{if-else}}
 
@@ -267,28 +266,45 @@ if (a > 0) {
 var mayor = a > b ? a : b
 \end{lstlisting}
 
-\subsubsection{Condicional \code{switch}}
-
-\textbf{COMPLETAR}
-
-
-\subsection{Estructuras repetitivas}
-
 \subsection{Funciones}
 
 Las funciones en JavaScript son objetos, instancia de \code{Function}. Al ser objetos, las mismas pueden ser guardadas como valores dentro de variables. Existen diferentes maneras de declarar una función. A continuación se enumeran 
 
 \subsubsection{Funciones como expresión}
 
-Una función como expresión (o función expresión) es una expresión que produce un valor, en este caso un objeto función.
+Una función como expresión (o función expresión) es una expresión que produce un valor, en este caso un objeto función, y luego es asignado a una variable.
 
 \begin{lstlisting}[title={Función expresión}]
 var suma = function (x, y) { return x + y };
+
+suma(2,3); // devuelve 5
+\end{lstlisting}
+
+\subsubsection{Funciones como declaración}
+
+Una función como declaración (o función declaración) funciona de la misma forma que la función expresión, a diferencia de que no es necesario recurrir a la asignación sino que ésta se hace automáticamente.
+
+\begin{lstlisting}[title={Función declaración}]
+function suma(x, y) { return x + y };
+
+suma(2,3); // devuelve 5
+\end{lstlisting}
+
+\subsubsection{Funciones anónimas y arrow functions}
+
+Se les llama funciones anónimas simplemente a aquellas funciones que no tienen nombre. Notar el detalle que cuando se habló de función como expresión, el lado derecho de la asignación era una función anónima.
+
+Por otro lado, a partir de ES6 se introdujo el concepto de \code{arrow function} (o \code{fat arrow}, el cual está actualmente en varios lenguajes. Para el caso de JS, establece una forma más simple y concisa para escribir funciones anónimas, bajo el detalle de que además la palabra \code{this} dentro de la función no cambia, sino que sigue haciendo referencia al contexto donde fue invocada. Esto último no sucede con las funciones como expresión comunes.
+
+\begin{lstlisting}[title={\code{Arrow function}}]
+var mostrar = (texto) => console.log(texto);
+
+mostrar('hola!'); // hola!
 \end{lstlisting}
 
 \section{Otros conceptos}
 
-Para entendimiento del lector, se presentan algunos conceptos que se mencionarán en algunos capítulos. No son exclusivamente del lenguaje, pero comprender y saber que el lenguaje dispone de éstas cualidades, ayudará a explicar cómo funcionan otras características dentro del lenguaje.
+Para entendimiento del lector, se presentan algunos conceptos que se mencionarán en algunos capítulos. Algunos no son exclusivos del lenguaje, pero comprender y saber que el lenguaje dispone de éstas cualidades, ayudará a explicar cómo funcionan otras características que se presentarán más adelante.
 
 \subsection{Hoisting}
 
@@ -370,3 +386,58 @@ La sigla IIFE representa \textit{Immediately-invoked function expression}, lo qu
 	\item Sirven para crear módulos o namespaces.
 \end{itemize}
 
+\subsection{Prototype}
+\label{sec:prototype}
+
+Un concepto importante y clave para entender algunos temas a tratar más adelante es el de \code{prototype}. Recordemos que en JavaScript las funciones son objetos, y que los objetos son una colección de propiedades. 
+
+Al momento de declarar una función, se hace una ligadura de un identificador con el valor de un objeto que es instancia de \code{Function}. Dicho objeto tiene una propiedad especial llamada \code{prototype}, la cual es una referencia a otro objeto, inicialmente vacío. Análogamente, dicho objeto tiene una propiedad llamada \code{constructor} que hace referencia al objeto función que creó la instancia.
+
+\begin{lstlisting}[title={Analizando el \code{prototype} de una función}]
+function Foo() {}
+
+console.log(Foo.prototype); // {}
+
+// agregamos propiedades al prototipo
+Foo.prototype.valor = 42;
+Foo.prototype.bar = function() {
+  console.log('bar');
+};
+
+console.log(Foo.prototype); // { valor: 42, bar: [Function] }
+
+console.log(Foo.prototype.constructor); // [Function: Foo]
+
+\end{lstlisting}
+
+Podemos hacernos una imagen visual sobre las vinculaciones que hay en memoria al momento de la ejecución mediante el siguiente diagrama:
+
+\begin{figure}[th]
+\centering
+\includegraphics{Figures/Prototype}
+\decoRule
+\caption[\code{Foo}]{Diagrama del código y los objetos creados.}
+\label{fig:prototype}
+\end{figure}
+
+Ahora que se mencionó este concepto, tiene sentido revelar que el constructor de clase \code{Object} no es otra cosa más que una función, y sus métodos \code{toString}, \code{valueOf}, ó \code{hasOwnProperty} forman parte de su "`prototipo"'. Ahora supongamos el siguiente código:
+
+\begin{lstlisting}
+var a = new Object();
+
+console.log(a.toString());
+\end{lstlisting}
+
+La instancia \code{a} también tiene una propiedad del prototipo. Pero en este caso, en vez de ser \code{prototype}, la misma se llama \code{\_\_proto\_\_}. Una definición vaga sería que las funciones están vinculadas a un prototipo mediante su propiedad \code{prototype} mientras que las instancias se vinculan a su prototipo mediante la propiedad \code{\_\_proto\_\_}. La forma "`genérica"' definida en el estandar de ECMAScript cuando se habla del prototipo, es mediante el término \code{[[Prototype]]}.
+
+Ahora, ?`qué sucede exactamente al momento de hacer \code{a.toString()}? En realidad lo que sucede es que se busca dentro del objeto de la instancia de \code{a} por una propiedad \code{toString}, pero al no encontrarse, se seguirá buscando en su \code{[[Prototype]]} (y en caso de no encontrarse, seguiría recursivamente hasta llegar a \code{null}). Ésto es lo que se denomina la cadena del prototipo ("`prototype chain"').
+
+\begin{figure}[th]
+\centering
+\includegraphics{Figures/Prototype2}
+\decoRule
+\caption[\code{Object}]{Diagrama del código y la instancia de \code{a}.}
+\label{fig:prototype}
+\end{figure}
+
+Sobre el uso del \code{prototype} se hablará con más detalle de esto en las secciones \ref{clases} y \ref{herencia}, donde en ésta última se hará mención a su rol en la herencia prototipada.
