@@ -95,6 +95,7 @@ gato.saludar(); 	// Hola, soy Oddie
 Para este caso, tendremos una función constructora \code{Animal}, la cual estará vinculada a su \code{[[Prototype]]}, un objeto que contendrá entre sus propiedades, a la función \code{saludar}. Bajo este patrón, nos obviamos de que cada instancia tenga una copia de la función saludar, y que gracias a la "`cadena del prototipo"' ese comportamiento esté delegado en \code{Animal.prototype}.
 
 \subsection{\code{class} en ES6}
+\label{clasesenes6}
 
 A partir de la versión ES6, una de las características más jugosas es la del uso de la palabra reservada \code{class}. Para desgracia del lector, ésta introducción al lenguaje no es más que \textit{syntactic sugar}. Mediante una sintaxis más amena y amigable se alcanza la creación de clases, pero en el fondo la semántica es idéntica al Prototype class pattern.
 
@@ -118,7 +119,15 @@ gato.saludar(); 	// Hola, soy Oddie
 \section{Herencia}
 \label{herencia}
 
-Como se ha mencionado anteriormente, JavaScript tiene la particularidad de tener la herencia prototipada en vez de la herencia clásica. 
+Como se ha mencionado anteriormente, JavaScript tiene la particularidad de tener la herencia prototipada en vez de la herencia clásica. Este tipo de herencia es bastante poderosa, aunque también a veces incomprendida y mal aplicada.
+
+\subsection{Herencia simple mediante \code{prototype}}
+
+\subsection{\code{extends} en ES6}
+
+Tal como se explicó sobre la palabra reservada \code{class} en la sección \label{clasesenes6}, otra de las características que se introdujeron a partir de la versión ES6 es la de la palabra \code{extends} para simular la herencia de clases. Nuevamente ocurre lo mismo que lo mencionado anteriormente: Esta característica es meramente \textit{syntactic sugar} que le omite al programador la necesidad de pensar en prototipos. 
+
+
 
 \textbf{COMPLETAR}
 
@@ -178,7 +187,55 @@ Un detalle menos obvio pero aún así importante, es que necesariamente los \tex
 
 \section{Polimorfismo}
 
-\textbf{COMPLETAR}
+Quizás uno de los puntos más complicados de analizar en cuanto a JavaScript y su relación con el paradigma de orientación a objetos sea el de polimorfismo, dado que por su naturaleza de débilmente tipado y su particularidad de herencia prototipada, no resultará simple hacer una comparación con lenguajes como C++ o Java. 
+
+Para el caso de las funciones "`polimórficas"' el lenguaje no pone restricciones en relación a la aridad ni el tipo de los parámetros. Si la cantidad de argumentos dados al momento de una invocación es menor a la cantidad de parámetros formales de la función, entonces los restantes se considerarán con valor \code{undefined}. 
+
+Existe un identificador especial reservado para el vector de argumentos en JavaScript, bajo el identificador de \code{arguments}. Este es un objeto especial, aunque a simple vista parece un arreglo, no lo es. Funciona de una forma similar a lo que es \code{args} en Java o \code{argv} en C++. Supongamos a continuación una función que no tiene definidos parámetros formales, pero aún así recibe argumentos a la hora de invocarla.
+
+\begin{lstlisting}[title={Analizando \code{arguments}}]
+function mostrarArgumentos() {
+  for (var i = 0; i < arguments.length; i++) {
+    console.log(i + '. ' + arguments[i]);
+  }
+}
+
+mostrarArgumentos('hola', 1, true, { a: 3 });
+
+// 0. hola
+// 1. 1
+// 2. true
+// 3. [object Object]
+\end{lstlisting}
+
+Para el caso de polimorfismo bajo una misma jerarquía de herencia, dado que el lenguaje es débilmente tipado, no posee las restricciones fuertes que posee un lenguaje como Java. Al ser interpretado, no existe un chequeo estático para corroborar que un método que esté siendo invocado pertenezca a un tipo o una clase particular. Ésta característica, la de redefinir un método de la superclase en una subclase, se llama polimorfismo de inclusión (o de subtipado).
+
+\begin{lstlisting}
+class Animal {
+	mover() {}
+}
+class Pez extends Animal {
+  mover() {
+    console.log("Soy pez y estoy nadando...");
+  }
+}
+class Ave extends Animal {
+  mover() {
+    console.log("Soy ave y estoy volando...");
+  }
+}
+
+var animales = [new Pez(), new Ave()];
+
+for (let animal of animales) {
+  animal.mover();
+}
+
+// Soy pez y estoy nadando...
+// Soy ave y estoy volando...
+\end{lstlisting}
+
+?´Qué sucede exactamente?. En ejecución, cada elemento de la lista de \code{animales} hará búsqueda del método \code{mover} en su cadena de prototipo. En caso de no encontrarlo, resultará en un error en ejecución. 
 
 \section{Modularidad}
 

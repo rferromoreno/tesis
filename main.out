@@ -52,13 +52,15 @@
 \BOOKMARK [2][-]{subsection.227}{Prototype\040class\040pattern}{section.195}% 52
 \BOOKMARK [2][-]{subsection.242}{class\040en\040ES6}{section.195}% 53
 \BOOKMARK [1][-]{section.258}{Herencia}{chapter.194}% 54
-\BOOKMARK [2][-]{subsection.259}{Herencia múltiple}{section.258}% 55
-\BOOKMARK [1][-]{section.260}{Encapsulamiento}{chapter.194}% 56
-\BOOKMARK [1][-]{section.293}{Polimorfismo}{chapter.194}% 57
-\BOOKMARK [1][-]{section.294}{Modularidad}{chapter.194}% 58
-\BOOKMARK [2][-]{subsection.295}{Módulos mediante patrones}{section.294}% 59
-\BOOKMARK [2][-]{subsection.328}{Sistemas de módulos}{section.294}% 60
-\BOOKMARK [3][-]{section*.329}{AMD}{subsection.328}% 61
-\BOOKMARK [3][-]{section*.370}{CommonJS}{subsection.328}% 62
-\BOOKMARK [2][-]{subsection.408}{Módulos en ES6}{section.294}% 63
-\BOOKMARK [1][-]{section.454}{Lo\040bueno,\040lo\040malo,\040lo\040feo...}{chapter.194}% 64
+\BOOKMARK [2][-]{subsection.259}{Herencia\040simple\040mediante\040prototype}{section.258}% 55
+\BOOKMARK [2][-]{subsection.260}{extends\040en\040ES6}{section.258}% 56
+\BOOKMARK [2][-]{subsection.261}{Herencia múltiple}{section.258}% 57
+\BOOKMARK [1][-]{section.262}{Encapsulamiento}{chapter.194}% 58
+\BOOKMARK [1][-]{section.295}{Polimorfismo}{chapter.194}% 59
+\BOOKMARK [1][-]{section.332}{Modularidad}{chapter.194}% 60
+\BOOKMARK [2][-]{subsection.333}{Módulos mediante patrones}{section.332}% 61
+\BOOKMARK [2][-]{subsection.366}{Sistemas de módulos}{section.332}% 62
+\BOOKMARK [3][-]{section*.367}{AMD}{subsection.366}% 63
+\BOOKMARK [3][-]{section*.408}{CommonJS}{subsection.366}% 64
+\BOOKMARK [2][-]{subsection.446}{Módulos en ES6}{section.332}% 65
+\BOOKMARK [1][-]{section.492}{Lo\040bueno,\040lo\040malo,\040lo\040feo...}{chapter.194}% 66

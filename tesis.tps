@@ -17,8 +17,8 @@ Class=LaTeXView
 Document=main.tex
 
 [Frame0_View0,0]
-TopLine=278
-Cursor=12872
+TopLine=18
+Cursor=12
 
 [Frame1]
 Flags=0
@@ -35,8 +35,8 @@ Class=LaTeXView
 Document=Chapters\Chapter1.tex
 
 [Frame1_View0,0]
-TopLine=404
-Cursor=5255
+TopLine=431
+Cursor=21524
 
 [Frame2]
 Flags=0
@@ -53,8 +53,8 @@ Class=LaTeXView
 Document=Chapters\Chapter2.tex
 
 [Frame2_View0,0]
-TopLine=78
-Cursor=5119
+TopLine=0
+Cursor=497
 
 [Frame3]
 Flags=0
@@ -71,8 +71,8 @@ Class=LaTeXView
 Document=Chapters\Chapter4.tex
 
 [Frame3_View0,0]
-TopLine=435
-Cursor=19353
+TopLine=133
+Cursor=6093
 
 [Frame4]
 Flags=0
@@ -89,7 +89,7 @@ Class=LaTeXView
 Document=Chapters\Chapter3.tex
 
 [Frame4_View0,0]
-TopLine=91
+TopLine=3
 Cursor=5372
 
 [Frame5]
@@ -130,5 +130,5 @@ Cursor=156
 
 [SessionInfo]
 FrameCount=7
-ActiveFrame=0
+ActiveFrame=3
 
