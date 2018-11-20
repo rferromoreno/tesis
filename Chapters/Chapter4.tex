@@ -158,7 +158,7 @@ falcon.mostrarMarca();      // Ford
 falcon.mostrarTipo();       // terrestre
 \end{lstlisting}
 
-Tal como se mencionó en la sección \label{clases}, las funciones en JavaScript son un mecanismo por naturaleza para simular las clases. ?´Qué sucede en el código de arriba? Se definen las funciones \code{Vehiculo} y \code{Auto} que serán nuestras clases. Ambas funciones actúan de constructoras. Al \code{[[Prototype]]} de \code{Vehiculo} se le agrega un método \code{mostrarTipo} mientras que al \code{[[Prototype]]} de \code{Auto} se le agrega \code{mostrarMarca}. Hasta ese punto es fácil de entender lo sucedido si se ha comprendido las secciones de prototype y de clases. 
+Tal como se mencionó en la sección \ref{clases}, las funciones en JavaScript son un mecanismo por naturaleza para simular las clases. ?´Qué sucede en el código de arriba? Se definen las funciones \code{Vehiculo} y \code{Auto} que serán nuestras clases. Ambas funciones actúan de constructoras. Al \code{[[Prototype]]} de \code{Vehiculo} se le agrega un método \code{mostrarTipo} mientras que al \code{[[Prototype]]} de \code{Auto} se le agrega \code{mostrarMarca}. Hasta ese punto es fácil de entender lo sucedido si se ha comprendido las secciones de prototype y de clases. 
 
 ?`Qué pasa en las líneas 10, 14 y 15? 
 \begin{itemize}
@@ -355,7 +355,7 @@ for (let animal of animales) {
 // Soy ave y estoy volando...
 \end{lstlisting}
 
-?´Qué sucede exactamente?. En ejecución, cada elemento de la lista de \code{animales} hará búsqueda del método \code{mover} en su cadena de prototipo. En caso de no encontrarlo, resultará en un error en ejecución. 
+?`Qué sucede exactamente?. En ejecución, cada elemento de la lista de \code{animales} hará búsqueda del método \code{mover} en su cadena de prototipo. En caso de no encontrarlo, resultará en un error en ejecución. 
 
 \section{Modularidad}
 

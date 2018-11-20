@@ -34,7 +34,7 @@ var esImpar = num => (num === 0 ? false : esPar(num - 1));
 
 \section{Funciones puras}
 
-Las funciones puras son otra de las claves del paradigma funcional. Esto es, funciones que bajo la misma entrada, siempre devuelven el mismo resultado. Los beneficios que trae el uso de las funciones puras, es la testeabilidad, predictibilidad, y la falta de efectos colaterales.
+Las funciones puras son otra de las claves del paradigma funcional. Esto es, funciones que bajo la misma entrada, siempre devuelven el mismo resultado. Esta cualidad brinda la propiedad de transparencia referencial entre los rasgos de un lenguaje perteneciente al paradigma funcional. Los beneficios que trae el uso de las funciones puras, son la testeabilidad, predictibilidad, y la falta de efectos colaterales.
 
 Por suerte, en el lenguaje se pueden escribir fácilmente funciones puras. Lamentablemente el lenguaje no posee ninguna directiva, y tampoco existe una herramienta concreta para determinar la pureza (o impureza) de una función, más que el conocimiento del programador.
 
@@ -90,10 +90,114 @@ console.log(gato);
 
 \subsection{Funciones de orden superior}
 
-\section{Evaluación ansiosa (estricta) y perezosa (no estricta)}
+Dado que las funciones son tratadas como cualquier otro valor, el lenguaje permite la característica de que una función pueda ser pasada como argumento, o que sea el valor de retorno de otra función. Esto conlleva a alcanzar otros mecanismos, como es el curry en las funciones o la aplicación parcial.
 
-Uno de los puntos más cuestionables cuando se analiza a JavaScript dentro del paradigma funcional es la de la evaluación ansiosa y perezosa.
+Comencemos con algunos ejemplos:
 
-\textbf{COMPLETAR}
+\begin{lstlisting}[title={Pasando una función como argumento}]
+var saludar = () => console.log('hola mundo!');
+
+function ejecutar(fn) {
+  fn();
+}
+
+function ejecutarSeguro(fn) {
+  if (typeof fn === 'function') {
+    fn();
+  }
+}
+
+ejecutar(saludar);
+ejecutarSeguro(saludar);
+\end{lstlisting}
+
+En el código mostrado, se poseen dos funciones, \code{ejecutar} y \code{ejecutarSeguro}. La única diferencia es que éste último hace un chequeo de tipo del argumento brindado para asegurarse de que es una función y puede invocarla. Para el primer caso, si no le dieramos una función como parámetro, la ejecución de dicha llamada resultaría en un error.
+
+La otra cualidad es la de retornar funciones, la cual se ejemplificará a continuación:
+
+\begin{lstlisting}[title={Retornando funciones}]
+function generador(prefijo) {
+  return texto => console.log(prefijo + ' ' + texto);
+}
+
+var imprimir = generador('Hola');
+
+// En este momento, imprimir es una función!
+console.log(typeof imprimir); // function
+
+imprimir('mundo');    // Hola mundo
+imprimir('che!');     // Hola che!
+imprimir('a todos');  // Hola a todos
+\end{lstlisting}
+
+La función \code{generador} tiene un parámetro \code{prefijo} y retorna una función, que tiene un parámetro \code{texto}, y muestra mediante la consola la concatenación del prefijo y del texto. Dado que \code{generador} retorna una función, el valor de la misma es ligada a \code{imprimir}, por lo que tiene sentido pensar que éste es como un alias de la función y se puede invocar sin ningún inconveniente. En el ejemplo, se puede observar como \code{imprimir} de alguna forma "`recuerda"' el prefijo que fue establecido al momento de "`generar la función"'.
+
+Veamos otro ejemplo, haciendo una función suma que esté en una forma \textit{curried}:
+
+\begin{lstlisting}[title={Función suma \textit{curried}}]
+var sumar = a => b => a + b;
+
+var sumar2 = sumar(2);
+var sumar5 = sumar(5);
+
+console.log(sumar2(10));	// 12
+console.log(sumar5(10));	// 15
+\end{lstlisting}
+
+Si bien la sintaxis de las \textit{arrow functions} al principio puede resultar ajena, la función sumar es una función con un argumento \code{a} y retorna una función, que tiene un argumento \code{b}, la cual retorna la suma de \code{a + b}. De alguna forma, se puede observar como \code{sumar2} y \code{sumar5} son una aplicación parcial de la función \code{sumar}.
+
+Otra forma de realizar aplicación parcián es mediante el método \code{bind} de la clase \code{Function}, el cual recibe como primer argumento el contexto (por lo general sería \code{this}), y luego una lista de argumentos, para retornar la función aplicada (total o parcialmente). Supongamos el siguiente código:
+
+\begin{lstlisting}[title={Aplicación parcial usando \code{bind}}]
+var multiplicar = (a, b) => a * b;
+
+var duplicar = multiplicar.bind(null, 2);
+
+console.log(duplicar(15));	// 30
+\end{lstlisting}
+
+En este caso, \code{multiplicar.bind} nos retornará una función que será producto de aplicar parcialmente un \code{2} como primer argumento. 
+
+Las funciones de alto orden en el lenguaje son una de las características más poderosas que éste posee. La facilidad con la que se puede pasar o retornar una función brindan un mecanismo que otros lenguajes de programación no pueden alcanzar, y éste es uno de los puntos más fuertes de JavaScript.
+
+\section{Evaluación ansiosa y perezosa}
+
+Una característica deseable en los lenguajes del paradigma funcional es la de la evaluación perezosa (lazy). Sin embargo, la evaluación de expresiones en JavaScript se realiza de manera ansiosa (eager). Supongamos el siguiente código:
+
+\begin{lstlisting}[title={Creando una función condicional}]
+function elegir(condicion, opcion1, opcion2) {
+  if (condicion) {
+    console.log(opcion1);
+  } else {
+    console.log(opcion2);
+  }
+}
+\end{lstlisting}
+
+La función \code{elegir} es de alguna manera, la forma declarativa del \code{if-else}. Como primer parámetro recibe una condición, y como segundo y tercer parámetro recibe las opciones para el caso de que la condición sea verdadera o falsa.
+
+Si el lenguaje implementara la evaluación perezosa, se espera que las expresiones no sean evaluadas hasta el momento de ser necesario (o postergar su ejecución al máximo). Es decir, si yo en \code{opcion1} u \code{opcion2} brindo como argumento una expresión, dicha expresión no debería ser evaluada si no entra por el flujo correspondiente del \code{if}. Si la condición es verdadera, \code{opcion2} no debe ser evaluada en ningún momento. Si la condición es falsa, entonces es \code{opcion1} la que no debe ser evaluada.
+
+Por otro lado, aprovechando la libertad que tenemos en las expresiones gracias al sistema de tipos, podemos crear expresiones de la forma \code{true \&\& console.log()}, o también una expresión matemática como \code{2 + console.log()}. Cualquiera de estas formas son válidas, más allá de la coerción que ocurra en dichas expresiones, al momento de analizar la expresión, se imprimirá el mensaje dado por pantalla.
+
+Dicho esto, ejecutamos las siguientes invocaciones:
+
+\begin{lstlisting}[title={Analizando resultados de las invocaciones}]
+elegir(true, 'a', 'b' && console.log('Ansioso!'));
+// Ansioso!
+// a
+
+elegir(false, 2 + console.log('Ansioso!'), 5);
+// Ansioso!
+// 5
+\end{lstlisting}
+
+Como se puede analizar, para el primer caso, lo primero que ocurre es que se imprimime por pantalla el mensaje "`Ansioso!"', para luego imprimir "`a"'. En el segundo caso ocurre lo mismo: Primero se imprime "`Ansioso!"' y luego un "`5"'. Con esto, se puede mostrar que el lenguaje hace la evaluación de las expresiones al momento de hacer la invocación, y no al momento de que sea realmente necesario evaluar la expresión. En resumen, JavaScript posee evaluación ansiosa.
+
+\section{Semántica de valores}
+
+Por lo general, en los programas del paradigma funcional no se realizan asignaciones, y así, el valor asoaciado a una variable nunca cambia. Este concepto está directamente relacionado con el de funciones puras y transparencia referencial: Al no tener una dependencia sobre el valor de una variable, se espera que una función se evalúe siempre de la misma forma para una misma entrada.
+
+Esta característica de los lenguajes del paradigma funcional da un enfoque puramente matemático, eliminando la noción de estado. Sin embargo esto no sucede en JavaScript. Una variable puede cambiar su valor. En el lenguaje existen sentencias, entre las cuales una de ellas es la asignación. Bajo esta premisa, entonces tendremos una noción de estado en las aplicaciones de nuestro lenguaje, por lo que podemos decir que JavaScript no cumple con ésta propiedad.
 
 \section{Lo bueno, lo malo, lo feo...}
