@@ -200,4 +200,28 @@ Por lo general, en los programas del paradigma funcional no se realizan asignaci
 
 Esta característica de los lenguajes del paradigma funcional da un enfoque puramente matemático, eliminando la noción de estado. Sin embargo esto no sucede en JavaScript. Una variable puede cambiar su valor. En el lenguaje existen sentencias, entre las cuales una de ellas es la asignación. Bajo esta premisa, entonces tendremos una noción de estado en las aplicaciones de nuestro lenguaje, por lo que podemos decir que JavaScript no cumple con ésta propiedad.
 
+Dado el siguiente código:
+
+\begin{lstlisting}[title={Noción de estado}]
+function generarContador() {
+  var contador = 0;
+  return {
+    contar: function() {
+      contador++;
+    },
+    mostrarContador: function() {
+      console.log(contador);
+    }
+  }
+}
+
+var obj = generarContador();
+
+obj.contar();
+obj.contar();
+obj.mostrarContador();
+\end{lstlisting}
+
+Podemos observar un ejemplo de lo fácil que es poseer la noción del estado. Para el caso, el objeto tiene una variable interna \code{contador} el cual puede ir cambiando a medida que se vaya invocando el método \code{contar} sucesivas veces. En éste sentido, no se cumple con la semántica de valores.
+
 \section{Lo bueno, lo malo, lo feo...}
