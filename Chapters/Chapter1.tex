@@ -267,6 +267,7 @@ var mayor = a > b ? a : b
 \end{lstlisting}
 
 \subsection{Funciones}
+\label{sec:funciones}
 
 Las funciones en JavaScript son objetos, instancia de \code{Function}. Al ser objetos, las mismas pueden ser guardadas como valores dentro de variables. Existen diferentes maneras de declarar una función. A continuación se enumeran 
 
@@ -307,6 +308,7 @@ mostrar('hola!'); // hola!
 Para entendimiento del lector, se presentan algunos conceptos que se mencionarán en algunos capítulos. Algunos no son exclusivos del lenguaje, pero comprender y saber que el lenguaje dispone de éstas cualidades, ayudará a explicar cómo funcionan otras características que se presentarán más adelante.
 
 \subsection{Hoisting}
+\label{sec:hoisting}
 
 Del inglés "`levantamiento"', el término de hoisting es muy acuñado y asociado a JavaScript. Consiste en mover hacia el comienzo del scope las declaraciones. En términos de compiladores, se puede pensar como una primera pasada del compilador para guardar los identificadores utilizados en el scope. De hecho, lo que sucede es que durante la fase de compilación se reservan en memoria espacio para los nombres declarados.
 
@@ -366,12 +368,11 @@ foo = function () {
 \end{lstlisting}
 
 \subsection{Closures}
+\label{sec:closures}
 
-El término de closure, también conocido en español como "`clausura"' o "`cerradura"' es utilizado en otros lenguajes. Da la capacidad a las funciones a acceder y manipular variables que son externas a la función, siempre y cuando éstas estén definidas dentro del scope donde la función donde la función fue definida.
+El término de closure, también conocido en español como "`clausura"' o "`cerradura"' es utilizado en otros lenguajes. Da la capacidad a las funciones a acceder y manipular variables que son externas a la función, siempre y cuando éstas estén definidas dentro del scope donde la función donde la función fue definida. Veamos un ejemplo simple:
 
-Veamos un ejemplo simple:
-
-\begin{lstlisting}[title={Creando un closure}]
+\begin{lstlisting}[title={Creando un closure simple}]
 var num = 2;
 function imprimir() {
 	console.log(num);
@@ -382,15 +383,71 @@ imprimir();					// 2
 console.log(num);		// 3
 \end{lstlisting}
 
-Para este caso, la variable \code{num} y la función \code{imprimir} fueron definidas en el scope global. La "`magia"' sucede en la línea 3, donde la función puede entender al identificador \code{num} y ver su valor, e incluso en la línea 4, donde cambia su valor.
+Para este caso, la variable \code{num} y la función \code{imprimir} fueron definidas en el scope global. En la línea 3, la función puede entender al identificador \code{num} y ver su valor, e incluso en la línea 4, cambia su valor. Pero la fortaleza del closure no está ahí. Si nos limitásemos únicamente a hablar de visibilidad, deberíamos estar hablando de scope. La fortaleza del closure es que "`encierra"' a las variables que están dentro del scope de la función, y las mantendrá "`vivas"' siempre que la función exista. Veámoslo con un ejemplo más concreto:
 
-\textbf{COMPLETAR}
+\begin{lstlisting}[title={Analizando otro closure}]
+function generar() {
+  var contador = 0;
+
+  function sumar() {
+    contador++;
+    console.log(contador);
+  }
+
+  return sumar;
+}
+
+var contar = generar();
+contar();	// 1
+contar();	// 2
+contar();	// 3
+\end{lstlisting}
+
+Se puede apreciar como la función \code{generar} es invocada por única vez. Al momento de invocar a la función, se crea un nuevo contexto. Sin embargo por causa del closure, ese contexto sigue con vida ya que es alcanzado desde el contexto global (mediante la variable \code{contar}) y así, el valor de \code{contador} persiste y cambia por cada llamada que hagamos a la funcion \code{contar}.
 
 \subsection{IIFE}
+\label{sec:iife}
 
-La sigla IIFE representa \textit{Immediately-invoked function expression}, lo que en español sería "`función expresión invocada inmediatamente"'. El término es bastante auto-explicativo: Funciones definidas como expresión (no mediante la declaración normal) que son invocadas en el mismo lugar donde están definidas.
+La sigla IIFE representa \textit{Immediately-invoked function expression}, lo que en español sería "`función expresión invocada inmediatamente"'. El término es bastante auto-explicativo: Funciones definidas como expresión que son invocadas en el mismo lugar donde están definidas. Forman parte de un mecanismo importante que nos servirá más adelante para explicar los módulos en la sección \ref{sec:modulos}.
 
-\textbf{COMPLETAR}
+Recordemos como mencionamos en la sección \ref{sec:funciones}, existen dos formas de "`crear"' funciones: por declaración, o mediante una expresión. Las IIFEs corresponde únicamente a éstas últimas. Las dos maneras más comunes de escribir IIFEs se presentan a continuación.
+
+\begin{lstlisting}[title={Introduciendo las IIFEs}]
+// Dos versiones de IIFE. Ámbas válidas.
+(function(){ /* codigo */ }()); 
+(function(){ /* codigo */ })(); 
+
+// Probándolas con console.log
+(function(){ console.log("hola"); }()); // hola
+(function(){ console.log("chau"); })(); // chau
+
+// También pueden tener argumentos!
+(function(msj){ console.log(msj); }("wow!")); // wow!
+\end{lstlisting}
+
+?`Por qué se necesitan los paréntesis? Seguramente para que el intérprete entienda que se trata de una expresión y no de una sentencia. Sin embargo, éstas no son las únicas formas de generar IIFEs. A continuación se presentan más formas, aunque algunas de ellas un poco antiestéticas a la hora de analizar la legibilidad del código.
+
+\begin{lstlisting}[title={Otras formas de escribir IIFEs}]
+// Como una expresión del lado derecho de una asignación
+var i = function(){ return 10; }();
+
+// Dentro de una expresión booleana
+true && function(){ /* codigo */ }();
+
+// Con el operador coma
+0, function(){ /* codigo */ }();
+
+// Con operadores unarios
+!function(){ /* codigo */ }();
+~function(){ /* codigo */ }();
+-function(){ /* codigo */ }();
++function(){ /* codigo */ }();
+
+// Mediante el operador new, donde los paréntesis no son necesarios.
+// Aún así, se los puede usar para pasar argumentos.
+new function(){ /* code */ }
+new function(){ /* code */ }()
+\end{lstlisting}
 
 ?`Qué ventajas nos brindan las IIFEs?
 

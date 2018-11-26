@@ -38,7 +38,43 @@ Las funciones puras son otra de las claves del paradigma funcional. Esto es, fun
 
 Por suerte, en el lenguaje se pueden escribir fácilmente funciones puras. Lamentablemente el lenguaje no posee ninguna directiva, y tampoco existe una herramienta concreta para determinar la pureza (o impureza) de una función, más que el conocimiento del programador.
 
-A continuación, se mencionan algunas prácticas para evitar las funciones impuras:
+Algunos ejemplos de funciones puras se pueden ver a continuación:
+
+\begin{lstlisting}[title={Funciones puras}]
+function sumar(a, b) {
+  return a + b;
+}
+
+function esMayor(edad) {
+  return edad >= 18;
+}
+
+function calcularPrecio(cantidad, costo) {
+	return cantidad * costo;
+}
+\end{lstlisting}
+
+?`Por qué son funciones puras las presentadas previamente? Porque no causan efectos colaterales, y dependen únicamente de sus argumentos para generar un resultado. Ante los mismos argumentos, dichas funciones retornarán los mismos valores. Sin embargo, tal como mencionamos, es muy fácil caer en el uso de funciones impuras:
+
+\begin{lstlisting}[title={Funciones impuras}]
+function obtenerDiaActual() {
+  return new Date().getDate();
+}
+
+function obtenerTextoPorId(id) {
+  return document.getElementById(id).textContent;
+}
+
+const PI = Math.PI;
+
+function calcularArea(radio) {
+  return PI * radio * radio;
+}
+\end{lstlisting}
+
+La función \code{obtenerDiaActual} retorna un valor "`azaroso"', y la misma llamada a la función puede retornar dos valores diferentes (dependiendo de la hora de la computadora). Para el segundo caso, \code{obtenerTextoPorId} depende necesariamente del estado de \code{document} que representa el DOM del navegador. Algo similar sucede con \code{calcularArea}, incluso habiendo declarado a \code{PI} como una "`constante"', la función (de manera aislada) depende de un valor que está por fuera de su scope local, y no nos podemos asegurar de la ausencia de un efecto colateral.
+
+Si bien el lenguaje no provee ningun mecanismo para identificar o limitar únicamente las funciones puras, a continuación se mencionan algunas prácticas para evitar las funciones impuras:
 
 \begin{itemize}
   \item Evitar el uso de variables que estén fuera del ámbito (scope) de la función. Esto incluye también a las variables globales del navegador.
@@ -224,4 +260,13 @@ obj.mostrarContador();
 
 Podemos observar un ejemplo de lo fácil que es poseer la noción del estado. Para el caso, el objeto tiene una variable interna \code{contador} el cual puede ir cambiando a medida que se vaya invocando el método \code{contar} sucesivas veces. En éste sentido, no se cumple con la semántica de valores.
 
-\section{Lo bueno, lo malo, lo feo...}
+\section{Conclusiones}
+
+\begin{itemize}
+\item Lo bueno: 
+JavaScript no será un lenguaje de programación funcional pura, pero el hecho de que las funciones sean valores dentro del lenguaje lo hace excesivamente poderoso. 
+\item Lo malo: 
+La falta de evaluación perezosa, semántica de valores, transparencia referencial, entre otras cosas, son las características de ser un lenguaje puramente funcional. Sin embargo, si tuviera éstas características seguramente tendríamos que limitar al lenguaje en otros aspectos, y probablemente quitarle el soporte para otros paradigmas de programación.
+\item Lo feo: 
+
+\end{itemize}
