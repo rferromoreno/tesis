@@ -1,0 +1,47 @@
+\section{Encapsulamiento}
+
+Dependiendo la perspectiva, se puede decir que el lenguaje tampoco provee un mecanismo natural para el encapsulamiento. Si hablamos de ocultar el estado de un objeto, es decir, de hacer sus datos miembro privados, no existe ninguna palabra reservada para ello. De hecho, todas las propiedades de un objeto son públicas.
+
+Existe una convención extra oficial de que los miembros privados de un objeto comiencen su identificador con un guión bajo. Nuevamente, ésta no es una convención del lenguaje, sino de la comunidad. Más allá de la convención, volvemos a lo mismo: Por fuera se puede analizar cuál es el valor ligado a dicha propiedad.
+
+\begin{lstlisting}[title={Descubriendo variables "`privadas"'}]
+class Persona {
+  constructor(nombre, saldo) {
+    this.nombre = nombre;
+    this._saldo = saldo;
+  }
+}
+
+var pepe = new Persona('Jose', 25);
+
+console.log(pepe.nombre);	// Jose
+console.log(pepe._saldo);	// 25
+\end{lstlisting}
+
+Como se puede observar en el ejemplo, se busca hacer privada la propiedad \code{\_saldo}, pero sin embargo es visible desde afuera del objeto.
+
+Por suerte mediante el uso de \textit{closures}, se puede lograr el encapsulamiento, pero solo mediante el uso de funciones constructoras. Lamentablemente, para la sintaxis de \code{class} de ES6 no hay soporte nativo aún. Al momento de escribirse este documento, existe una propuesta en borrador para agregar al lenguaje, la cual se encuentra en \textit{Stage 3} (para más información, ver \href{https://github.com/tc39/proposal-class-fields#private-fields}).
+
+\begin{lstlisting}[title={Alcanzando variables privadas mediante closures}]
+function Persona(nombre, saldo) {
+  var saldoPrivado = saldo;
+  this.nombre = nombre;
+  this.obtenerSaldo = function() {
+    return saldoPrivado;
+  }
+  this.actualizarSaldo = function(nuevoSaldo) {
+    saldoPrivado = nuevoSaldo;
+  }
+}
+
+var pepe = new Persona('Jose', 25);
+
+console.log(pepe.nombre);					// Jose
+console.log(pepe.saldoPrivado);		// undefined
+// OK, ya que es una propiedad privada.
+console.log(pepe.obtenerSaldo());	// 25
+pepe.actualizarSaldo(32);
+console.log(pepe.obtenerSaldo());	// 32
+\end{lstlisting}
+
+Un detalle menos obvio pero aún así importante, es que necesariamente los \textit{setters} y \textit{getters} de las variables ocultas por el closure deberán formar parte de la función constructora (es decir, no podrán definirse dentro del prototipo), lo que significa nuevamente que cada instancia de \code{Persona} tendrá código repetido, lo que implica gasto en memoria. Bajo esta situación, nos encontramos en un \textit{trade-off} de tener datos miembro privados, pero no poder hacer uso correcto del patrón prototipal.

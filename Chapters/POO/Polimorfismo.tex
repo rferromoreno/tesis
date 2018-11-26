@@ -1,0 +1,52 @@
+
+\section{Polimorfismo}
+
+Quizás uno de los puntos más complicados de analizar en cuanto a JavaScript y su relación con el paradigma de orientación a objetos sea el de polimorfismo, dado que por su naturaleza de débilmente tipado y su particularidad de herencia prototipada, no resultará simple hacer una comparación con lenguajes como C++ o Java. 
+
+Para el caso de las funciones "`polimórficas"' el lenguaje no pone restricciones en relación a la aridad ni el tipo de los parámetros. Si la cantidad de argumentos dados al momento de una invocación es menor a la cantidad de parámetros formales de la función, entonces los restantes se considerarán con valor \code{undefined}. 
+
+Existe un identificador especial reservado para el vector de argumentos en JavaScript, bajo el identificador de \code{arguments}. Este es un objeto especial, aunque a simple vista parece un arreglo, no lo es. Funciona de una forma similar a lo que es \code{args} en Java o \code{argv} en C++. Supongamos a continuación una función que no tiene definidos parámetros formales, pero aún así recibe argumentos a la hora de invocarla.
+
+\begin{lstlisting}[title={Analizando \code{arguments}}]
+function mostrarArgumentos() {
+  for (var i = 0; i < arguments.length; i++) {
+    console.log(i + '. ' + arguments[i]);
+  }
+}
+
+mostrarArgumentos('hola', 1, true, { a: 3 });
+
+// 0. hola
+// 1. 1
+// 2. true
+// 3. [object Object]
+\end{lstlisting}
+
+Para el caso de polimorfismo bajo una misma jerarquía de herencia, dado que el lenguaje es débilmente tipado, no posee las restricciones fuertes que posee un lenguaje como Java. Al ser interpretado, no existe un chequeo estático para corroborar que un método que esté siendo invocado pertenezca a un tipo o una clase particular. Ésta característica, la de redefinir un método de la superclase en una subclase, se llama polimorfismo de inclusión (o de subtipado).
+
+\begin{lstlisting}
+class Animal {
+	mover() {}
+}
+class Pez extends Animal {
+  mover() {
+    console.log("Soy pez y estoy nadando...");
+  }
+}
+class Ave extends Animal {
+  mover() {
+    console.log("Soy ave y estoy volando...");
+  }
+}
+
+var animales = [new Pez(), new Ave()];
+
+for (let animal of animales) {
+  animal.mover();
+}
+
+// Soy pez y estoy nadando...
+// Soy ave y estoy volando...
+\end{lstlisting}
+
+?`Qué sucede exactamente?. En ejecución, cada elemento de la lista de \code{animales} hará búsqueda del método \code{mover} en su cadena de prototipo. En caso de no encontrarlo, resultará en un error en ejecución. 

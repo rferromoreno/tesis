@@ -1,0 +1,105 @@
+\section{Clases}
+\label{clases}
+
+Previo a la salida de ES6 (es decir, en la version 5 de JavaScript) la creación de clases en JavaScript se realiza mediante el uso de patrones para la creación de objetos. La realidad es que en JavaScript no existe un soporte formal o natural para las clases, sino que hay que recurrir a estos patrones para simularlo. Los más populares, a mi entender, son:
+
+\begin{itemize}
+	\item Factory class pattern
+	\item Functional class pattern
+	\item Prototype class pattern
+\end{itemize}
+
+\subsection{Factory class pattern}
+
+Se trata de una función de tipo \textit{factory} (fábrica) utilizada para crear elementos u objetos, con ciertas propiedades y bajo cierto comportamiento. En nuestro caso, dicha función será quien cree nuestras nuevas instancias de lo que queremos moldear como clase.
+
+\begin{lstlisting}[title={Factory class pattern}]
+function animalFactory(nombre) {
+  var temporal = {};
+  temporal.nombre = nombre;
+  temporal.saludar = function() {
+    console.log("Hola, soy "+this.nombre)
+  };
+
+  return temporal;
+}
+
+var gato = animalFactory("Garfield");
+var perro = animalFactory("Oddie");
+
+gato.saludar();		// Hola, soy Garfield
+perro.saludar();	// Hola, soy Oddie
+\end{lstlisting}
+
+Si bien puede resultar un poco confuso al principio, para quienes estén acostumbrados al patrón Factory, este ejemplo quizás resulte más trivial. A simple vista, la única \textit{ventaja} es que no se necesita usar \code{new} a la hora de realizar la instanciación de nuevos objetos. 
+
+Para el objetivo que buscamos, que es simular el soporte de clases, este patrón es útil.
+
+\subsection{Functional class pattern}
+
+Este patrón también es conocido como Constructor pattern. Aprovechando el uso de la palabra \code{new}, podemos omitir la creación de un objeto temporal dentro de nuestra función. De hecho, la palabra \code{new} no solamente crea un nuevo objeto (instancia), sino que además establece quién fue la función de construcción (se puede pensar como "`de quién hereda el objeto"').
+
+\begin{lstlisting}[title={Functional class pattern}]
+function Animal(nombre) {
+  this.nombre = nombre;
+  this.saludar = function() {
+    console.log('Hola, soy ' + this.nombre);
+  };
+};
+
+var gato = new Animal('Garfield');
+var perro = new Animal('Oddie');
+
+gato.saludar();		// Hola, soy Garfield
+perro.saludar();	// Hola, soy Oddie
+\end{lstlisting}
+
+Notar las diferencias con el ejemplo del Factory Pattern. Por un lado, el uso del \code{this} dentro de la función y la falta de necesidad de retornar el objeto (esto sucede implícitamente gracias al \code{new}). Por otro lado, a la hora de crear instancias es importante utilizar la palabra \code{new}.
+
+Un detalle muy importante a tener en cuenta tanto en éste patrón como en el Factory pattern: Para cada instancia creada, la misma poseerá una copia del código de \code{saludar()} en memoria. Parece un detalle menor, pero supongamos que en vez de un solo método, nuestra clase tiene varios, y que ademas precisamos generar una gran cantidad de instancias, significaría estar desperdiciando espacio en memoria.
+
+También para tener en cuenta: No existen reglas ni restricciones sobre los nombres de las funciones constructoras, pero existe una convención entre los programadores de usar la letra capital en los nombres de las funciones constructoras (esto es, que la primera letra sea mayúscula).
+
+\subsection{Prototype class pattern}
+
+Para tratar de resolver el problema recién mencionado, en donde cada instancia tiene una copia del código de la función, es necesario hacer un buen uso del concepto de prototipo en JavaScript, el cual se hizo mención en la sección \ref{sec:prototype}.
+
+\begin{lstlisting}[title={Prototype class pattern}]
+function Animal(nombre) {
+  this.nombre = nombre;
+}
+
+Animal.prototype.saludar = function() {
+  console.log('Hola, soy ', this.nombre);
+};
+
+var gato = new Animal('Garfield');
+var perro = new Animal('Oddie');
+
+perro.saludar(); 	// Hola, soy Garfield
+gato.saludar(); 	// Hola, soy Oddie
+\end{lstlisting}
+
+Para este caso, tendremos una función constructora \code{Animal}, la cual estará vinculada a su \code{[[Prototype]]}, un objeto que contendrá entre sus propiedades, a la función \code{saludar}. Bajo este patrón, nos obviamos de que cada instancia tenga una copia de la función saludar, y que gracias a la "`cadena del prototipo"' ese comportamiento esté delegado en \code{Animal.prototype}.
+
+\subsection{\code{class} en ES6}
+\label{clasesenes6}
+
+A partir de la versión ES6, una de las características más jugosas es la del uso de la palabra reservada \code{class}. Para desgracia del lector, ésta introducción al lenguaje no es más que \textit{syntactic sugar}. Mediante una sintaxis más amena y amigable se alcanza la creación de clases, pero en el fondo la semántica es idéntica al Prototype class pattern.
+
+\begin{lstlisting}[title={Ejemplo de \code{class}}]
+class Animal {
+  constructor(nombre) {
+    this.nombre = nombre;
+  }
+  saludar() {
+    console.log('Hola, soy ', this.nombre);
+  }
+}
+
+var gato = new Animal('Garfield');
+var perro = new Animal('Oddie');
+
+perro.saludar(); 	// Hola, soy Garfield
+gato.saludar(); 	// Hola, soy Oddie
+\end{lstlisting}

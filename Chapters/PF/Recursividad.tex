@@ -1,0 +1,22 @@
+\section{Recursividad}
+
+Al igual que los lenguajes sintáticamente similares a JavaScript, la recursión es una técnica que se aplica con naturaleza. Siempre que la función no sea anónima (es decir, que tenga un nombre), se puede aplicar recursión directa sin problemas. Además, el soporte para la recursión mutua también es posible gracias a la característica de \textit{hoisting}.
+
+Cualquiera de las formas vistas en el Capítulo 1 son válidas para definir una función recursiva. A continuación se presentan ejemplos de las mismas, mostrando recursión directa y cruzada:
+
+\begin{lstlisting}[title={Ejemplos de funciones recursivas}]
+// Función recursiva con función como declaración
+function sumatoria(n) {
+  return n > 0 ? n + sumatoria(n - 1) : 0;
+}
+
+// Función recursiva con función como expresión
+var factorial = function(n) {
+  return n > 0 ? n * factorial(n - 1) : 1;
+};
+
+// Recursión cruzada
+var esPar = num => (num === 0 ? true : esImpar(num - 1));
+var esImpar = num => (num === 0 ? false : esPar(num - 1));
+\end{lstlisting}
+
