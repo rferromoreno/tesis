@@ -38,32 +38,35 @@
 \BOOKMARK [1][-]{section.185}{Tipos\040primitivos}{chapter.184}% 38
 \BOOKMARK [2][-]{subsection.198}{Casos\040especiales\040del\040typeof}{section.185}% 39
 \BOOKMARK [1][-]{section.205}{Lo\040bueno,\040lo\040malo,\040lo\040feo...}{chapter.184}% 40
-\BOOKMARK [-1][]{part.206}{II Paradigmas de programación}{}% 41
-\BOOKMARK [0][-]{chapter.207}{Paradigma\040funcional}{part.206}% 42
-\BOOKMARK [1][-]{section.208}{Recursividad}{chapter.207}% 43
-\BOOKMARK [1][-]{section.223}{Funciones\040puras}{chapter.207}% 44
-\BOOKMARK [1][-]{section.250}{Funciones\040de\040primera\040clase\040y\040orden\040superior}{chapter.207}% 45
-\BOOKMARK [2][-]{subsection.251}{Funciones\040de\040primera\040clase}{section.250}% 46
-\BOOKMARK [2][-]{subsection.275}{Funciones\040de\040orden\040superior}{section.250}% 47
-\BOOKMARK [1][-]{section.318}{Evaluación ansiosa y perezosa}{chapter.207}% 48
-\BOOKMARK [1][-]{section.335}{Semántica de valores}{chapter.207}% 49
-\BOOKMARK [1][-]{section.354}{Conclusiones}{chapter.207}% 50
-\BOOKMARK [0][-]{chapter.355}{Paradigma\040orientado\040a\040objetos}{part.206}% 51
-\BOOKMARK [1][-]{section.356}{Clases}{chapter.355}% 52
-\BOOKMARK [2][-]{subsection.357}{Factory\040class\040pattern}{section.356}% 53
-\BOOKMARK [2][-]{subsection.374}{Functional\040class\040pattern}{section.356}% 54
-\BOOKMARK [2][-]{subsection.388}{Prototype\040class\040pattern}{section.356}% 55
-\BOOKMARK [2][-]{subsection.403}{class\040en\040ES6}{section.356}% 56
-\BOOKMARK [1][-]{section.419}{Herencia}{chapter.355}% 57
-\BOOKMARK [2][-]{subsection.420}{Herencia\040simple\040mediante\040prototype}{section.419}% 58
-\BOOKMARK [2][-]{subsection.451}{extends\040en\040ES6}{section.419}% 59
-\BOOKMARK [2][-]{subsection.480}{Herencia múltiple}{section.419}% 60
-\BOOKMARK [1][-]{section.507}{Encapsulamiento}{chapter.355}% 61
-\BOOKMARK [1][-]{section.540}{Polimorfismo}{chapter.355}% 62
-\BOOKMARK [1][-]{section.577}{Modularidad}{chapter.355}% 63
-\BOOKMARK [2][-]{subsection.578}{Módulos mediante patrones}{section.577}% 64
-\BOOKMARK [2][-]{subsection.611}{Sistemas de módulos}{section.577}% 65
-\BOOKMARK [3][-]{section*.612}{AMD}{subsection.611}% 66
-\BOOKMARK [3][-]{section*.653}{CommonJS}{subsection.611}% 67
-\BOOKMARK [2][-]{subsection.691}{Módulos en ES6}{section.577}% 68
-\BOOKMARK [1][-]{section.737}{Conclusiones}{chapter.355}% 69
+\BOOKMARK [0][-]{chapter.206}{Coercion}{part.183}% 41
+\BOOKMARK [1][-]{section.207}{Operadores\040de\040igualdad}{chapter.206}% 42
+\BOOKMARK [0][-]{chapter.208}{Scope}{part.183}% 43
+\BOOKMARK [-1][]{part.209}{II Paradigmas de programación}{}% 44
+\BOOKMARK [0][-]{chapter.210}{Paradigma\040funcional}{part.209}% 45
+\BOOKMARK [1][-]{section.211}{Recursividad}{chapter.210}% 46
+\BOOKMARK [1][-]{section.226}{Funciones\040puras}{chapter.210}% 47
+\BOOKMARK [1][-]{section.253}{Funciones\040de\040primera\040clase\040y\040orden\040superior}{chapter.210}% 48
+\BOOKMARK [2][-]{subsection.254}{Funciones\040de\040primera\040clase}{section.253}% 49
+\BOOKMARK [2][-]{subsection.278}{Funciones\040de\040orden\040superior}{section.253}% 50
+\BOOKMARK [1][-]{section.321}{Evaluación ansiosa y perezosa}{chapter.210}% 51
+\BOOKMARK [1][-]{section.338}{Semántica de valores}{chapter.210}% 52
+\BOOKMARK [1][-]{section.357}{Conclusiones}{chapter.210}% 53
+\BOOKMARK [0][-]{chapter.358}{Paradigma\040orientado\040a\040objetos}{part.209}% 54
+\BOOKMARK [1][-]{section.359}{Clases}{chapter.358}% 55
+\BOOKMARK [2][-]{subsection.360}{Factory\040class\040pattern}{section.359}% 56
+\BOOKMARK [2][-]{subsection.377}{Functional\040class\040pattern}{section.359}% 57
+\BOOKMARK [2][-]{subsection.391}{Prototype\040class\040pattern}{section.359}% 58
+\BOOKMARK [2][-]{subsection.406}{class\040en\040ES6}{section.359}% 59
+\BOOKMARK [1][-]{section.422}{Herencia}{chapter.358}% 60
+\BOOKMARK [2][-]{subsection.423}{Herencia\040simple\040mediante\040prototype}{section.422}% 61
+\BOOKMARK [2][-]{subsection.454}{extends\040en\040ES6}{section.422}% 62
+\BOOKMARK [2][-]{subsection.483}{Herencia múltiple}{section.422}% 63
+\BOOKMARK [1][-]{section.510}{Encapsulamiento}{chapter.358}% 64
+\BOOKMARK [1][-]{section.543}{Polimorfismo}{chapter.358}% 65
+\BOOKMARK [1][-]{section.580}{Modularidad}{chapter.358}% 66
+\BOOKMARK [2][-]{subsection.581}{Módulos mediante patrones}{section.580}% 67
+\BOOKMARK [2][-]{subsection.614}{Sistemas de módulos}{section.580}% 68
+\BOOKMARK [3][-]{section*.615}{AMD}{subsection.614}% 69
+\BOOKMARK [3][-]{section*.656}{CommonJS}{subsection.614}% 70
+\BOOKMARK [2][-]{subsection.694}{Módulos en ES6}{section.580}% 71
+\BOOKMARK [1][-]{section.740}{Conclusiones}{chapter.358}% 72
