@@ -11,14 +11,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
-NormalPos.right=1645
-NormalPos.bottom=539
+NormalPos.right=1735
+NormalPos.bottom=611
 Class=LaTeXView
 Document=main.tex
 
 [Frame0_View0,0]
-TopLine=18
-Cursor=153
+TopLine=117
+Cursor=2275
 
 [Frame1]
 Flags=0
@@ -29,16 +29,16 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
-NormalPos.right=1645
-NormalPos.bottom=539
+NormalPos.right=1735
+NormalPos.bottom=611
 Class=LaTeXView
 Document=Chapters\Coercion\index.tex
 
 [Frame1_View0,0]
-TopLine=6
-Cursor=1664
+TopLine=106
+Cursor=7473
 
 [SessionInfo]
 FrameCount=2
-ActiveFrame=1
+ActiveFrame=0
 

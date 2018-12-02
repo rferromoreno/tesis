@@ -1,4 +1,4 @@
-\chapter{Coercion} % Main chapter title
+\chapter{Coerción} % Main chapter title
 
 \label{ch:coercion} % For referencing the chapter elsewhere, use \ref{Chapter1} 
 
@@ -6,13 +6,127 @@ Cuando un lenguaje tiene seguridad en su sistema de tipos, hace que el mismo sea
 
 Una de las mayores críticas a Javascript es sobre la conversión de tipos implícita que ocurre en las expresiones. Tiene la fama de ser un lenguaje extremadamente flexible, pero al mismo tiempo impredecible en cuanto a la coerción. En este capítulo se hablará de los efectos de la conversión de tipos que ocurre en el lenguaje, tanto la implícita como la explícita, y así podremos acercarnos a una conclusión de qué tan relajado es el sistema de tipos con respecto a la coerción.
 
+\section{Conversión explícita}
+\label{sec:conversionexplicita}
+
+Comenzaremos este capítulo hablando de la conversión explícita, para entender qué valores de un tipo corresponden a otro tipo. Existen cuatro funciones para hacer conversión a tipos built-in del lenguaje, las cuales son las funciones \code{Boolean}, \code{Number}, \code{String} y \code{Object}. Es innecesario pensar funciones para convertir a \code{null} y \code{undefined} dado que son casos especiales. Por otro lado, hablaremos de la función \code{ToPrimitive} la cual está especificada en el estandar de ECMAScript y es un pilar fundamental para entender las secciones siguientes.
+
+\subsection{Boolean} 
+
+La función \code{Boolean()} convierte el argumento dado a un valor booleano. Los valores que se detallan a continuación se convierten a \code{false}, y son llamados valores de falsedad ("`\textit{falsy}"').
+
+\begin{itemize}
+\item \code{undefined}
+\item \code{null}
+\item \code{false}
+\item \code{0}
+\item \code{NaN}
+\item \code{''}
+\end{itemize}
+
+El resto de los valores son considerados valores de verdad ("`\textit{truthy}"') y serán convertidos a \code{true}, incluyendo a los objetos, que todos son convertidos a true.
+
+\subsection{Number}
+
+Análogamente, la función \code{Number()} convierte un valor dado a su representación numérica. Para éste caso, las reglas son un poco más complejas (y poco intuitivas)
+
+\begin{itemize}
+\item \code{undefined} se transforma en \code{NaN}.
+\item \code{null} se transforma en \code{0}.
+\item \code{false} se transforma en \code{0}.
+\item \code{true} se transforma en \code{1}.
+\item Para el caso de \code{string}, se hace \textit{parsing} de la siguiente manera: Se remueven los espacios en blanco, si el \code{string} resultante es \code{''}, se transforma en \code{0}, sino se intentará leer el valor numérico (si posee algún caracter ajeno a un valor numérico, se transformará en \code{NaN}, caso contrario, se transforma en dicho valor numérico).
+\item Para el caso de \code{object}, primero se transforma a primitivo (ver sección \ref{subsec:toprimitive}), y luego es convertido a \code{number} con las reglas recién mencionadas.
+\end{itemize}
+
+\subsection{String}
+
+La función \code{String()} es el caso más obvio para la mayoría de los tipos primitivos. Convertirá el valor dado al literal string del tipo dado.
+
+\begin{itemize}
+\item \code{null} se convierte a \code{"null"}.
+\item \code{undefined} se convierte a \code{"undefined"}.
+\item \code{true} y \code{false} se convierten a \code{"true"} y \code{"false"}, respectivamente.
+\item Los valores numéricos se transforman en su \code{string} equivalente. Por ejemplo, \code{123.45} se transformará en \code{"123.45"}.
+\item Para el caso de \code{object}, primero se transforma a primitivo (ver sección \ref{subsec:toprimitive}), y luego es convertido a \code{string} con las reglas recién mencionadas.
+\end{itemize}
+
+\subsection{Object}
+
+Para el caso de \code{Object()} es un poco más compejo de reflejar.
+
+\begin{itemize}
+\item \code{null} se convierte en el objeto vacío \code{\{\}}.
+\item \code{undefined} se convierte en el objeto vacío \code{\{\}}.
+\item Para los casos de \code{string}, \code{number} y \code{boolean}, las primitivas se convierten en "`primitivas envueltas"'. Esto es, "`objetos"' que son instancias de \code{String}, \code{Number} y \code{Boolean}, respectivamente.
+\item Los objetos se vuelven en sí mismos.
+\end{itemize}
+
+\subsection{ToPrimitive}
+\label{subsec:toprimitive}
+
+En las subsecciones anteriores se mencionó sobre la conversión de \code{object} a otros tipos. Para el caso de boolean, es simple dado que todos los objetos se convierten a \code{true}. Sin embargo, para los tipos \code{number} y \code{string} es un poco más complejo, dado que hay que recurrir a este algoritmo. 
+
+?`Por qué un objeto se querría convertir a un tipo primitivo? Es justamente una de las partes flexibles del lenguaje. Un objeto se podría tener que convertir a un tipo numérico para el caso de algunas operaciones matemáticas (por ejemplo, el tipo \code{Date} donde se pueden restar fechas) o por ejemplo a un texto, para el caso de que se necesite mostrar un objeto (ya sea mediante las funciones \code{alert} o \code{console.log}).
+
+Cabe aclarar que la función \code{ToPrimitive} existe en la especificación de ECMAScript, pero no es un método o una función tal como se mostró con \code{Boolean}, \code{Number}, \code{String} y \code{Object}. Este método de conversión se utilizará siempre que el contexto lo requiera así, generalmente en operaciones donde ocurre la coerción.
+
+La signatura del método es la siguiente: \code{\color{blue}ToPrimitive(input, PreferredType?)}
+
+El parámetro opcional \code{PreferredType} representa la preferencia del tipo a convertir, y el mismo puede ser \code{Number} o \code{String}. Por lo general, se asume que cuando no está presente, el valor por defecto es \code{Number}, sin embargo este comportamiento puede ser cambiando sobreescribiendo el método \code{@@toPrimitive}, como sucede en el caso de \code{Date} y \code{Symbol}.
+
+El algoritmo de \code{ToPrimitive} si el \code{PreferredType} es \code{Number} es el siguiente:
+
+\begin{enumerate}
+\item Si \code{input} es de tipo primitivo, retornarlo.
+\item Sino, si \code{input} es un objeto, llamar a \code{input.valueOf()}. Si el resultado es primitivo, retornarlo.
+\item Sino, llamar a \code{input.toString()}, si el resultado es primitivo, retornarlo.
+\item Sino, lanzar un \code{TypeError}.
+\end{enumerate}
+
+En caso de que el \code{PreferredType} sea tipo \code{String}, el algoritmo es análogo, solo que se cambian de lugares los puntos 2 y 3.
+
+\section{El operador \code{+}}
+\label{sec:operadormas}
+
+Uno de los grandes dilemas a la hora de diseñar un lenguaje es sobre el uso de operadores como el \code{+}. ?`Debería este operador estar sobrecargado?. Es simple pensar en el \code{+} como un operador de suma de dos datos numéricos, pero ?`se podría usar para concatenar dos cadenas de texto? ?`o para unir el contenido de dos listas (arreglos)? ?`y qué pasa con las fechas?. 
+
+Para comenzar, iremos con el ejemplo más simple de todos, el obvio: El operador \code{+} sirve como suma a la hora de trabajar con datos numéricos.
+
+\begin{lstlisting}[title={Operador \code{+} en números}]
+1 + 2 			// 3
+10 + 50 		// 60
+.1 + 0			// 0.1
+NaN + NaN		// NaN
+-1 + 10			// 9
+\end{lstlisting}
+
+...
+
+Con todo esto visto, ahora se tiene un mejor panorama de cómo funciona el operador \code{+} en Javascript. Se utiliza principalmente en valores de tipos numéricos o strings. Para el caso de los objetos, si alguno de los operandos es string, el mismo se convierte a string, en caso contrario, se convierte a número. Para el caso de los arreglos, el operador \code{+} no funciona como en otros lenguajes. Para concatenar arreglos es necesario utilizar el método \code{concat} o hacer uso de alguna librería externa.
+
 \section{Operadores de igualdad}
 \label{sec:eqeqeq}
 
-Una de las primeras fallas comunes en cuanto a los programadores que se acercan a Javascript y vienen de otros lenguajes, es pensar que el operador de comparación \code{==} funciona de la misma manera que en otros lenguajes. Esto no es así. En Javascript, existen dos operadores de comparación de igualdad, estos son \code{==} y \code{===} (junto con sus comparadores de desigualdad análogos, \code{!=} y \code{!==}).
+Una de las primeras fallas comunes en cuanto a los programadores que se acercan a Javascript y vienen de otros lenguajes de la rama de C, es pensar que el operador de comparación \code{==} funciona de la misma manera que en esos otros lenguajes. Esto no es así. En Javascript, existen dos operadores de comparación de igualdad, estos son \code{==} y \code{===} (junto con sus comparadores de desigualdad análogos, \code{!=} y \code{!==}).
+
+El operador de igualdad \code{===} se le suele llamar estricto, ya que si los dos operandos son de distintos tipos, la expresión será \code{false}, en caso contrario, hará una comparación del valor de los operandos (a excepción de los objetos, que compara referencias).
+
+En cambio el operador de igualdad \code{==} se le suele llamar blando, si los operandos son de distintos tipos, intentará convertir los tipos para luego compararlos.
 
 
 
-La falta de "`transitividad"' en el operador \code{==} es una de las cosas más preocupantes del lenguaje. Es fácil pensar que si \code{A == B} y que \code{B == C}, entonces \code{A == C}, pero esto no sucede siempre.
- 
+La falta de "`transitividad"' en el operador \code{==} es una de las cosas más preocupantes del lenguaje. Es fácil pensar que si \code{A == B} y que \code{B == C}, entonces \code{A == C}, pero esto no sucede siempre.  Por ejemplo:
+
+\begin{lstlisting}[title={Falta de transitividad en \code{==}}]
+0 == ''             // true
+0 == '0'            // true
+'' == '0'           // false
+
+false == undefined  // false
+false == null       // false
+null == undefined   // true
+\end{lstlisting}
+
+El consejo de los autores experimentados, es siempre usar el operador \code{===}.
 
