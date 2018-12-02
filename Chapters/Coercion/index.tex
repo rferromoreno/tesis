@@ -10,5 +10,9 @@ Una de las mayores críticas a Javascript es sobre la conversión de tipos impl�
 \label{sec:eqeqeq}
 
 Una de las primeras fallas comunes en cuanto a los programadores que se acercan a Javascript y vienen de otros lenguajes, es pensar que el operador de comparación \code{==} funciona de la misma manera que en otros lenguajes. Esto no es así. En Javascript, existen dos operadores de comparación de igualdad, estos son \code{==} y \code{===} (junto con sus comparadores de desigualdad análogos, \code{!=} y \code{!==}).
+
+
+
+La falta de "`transitividad"' en el operador \code{==} es una de las cosas más preocupantes del lenguaje. Es fácil pensar que si \code{A == B} y que \code{B == C}, entonces \code{A == C}, pero esto no sucede siempre.
  
 
