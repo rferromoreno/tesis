@@ -17,7 +17,7 @@ Class=LaTeXView
 Document=main.tex
 
 [Frame0_View0,0]
-TopLine=117
+TopLine=150
 Cursor=2275
 
 [Frame1]
@@ -35,10 +35,10 @@ Class=LaTeXView
 Document=Chapters\Coercion\index.tex
 
 [Frame1_View0,0]
-TopLine=106
-Cursor=7473
+TopLine=183
+Cursor=10611
 
 [SessionInfo]
 FrameCount=2
-ActiveFrame=0
+ActiveFrame=1
 

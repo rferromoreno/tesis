@@ -9,7 +9,7 @@ Una de las mayores críticas a Javascript es sobre la conversión de tipos impl�
 \section{Conversión explícita}
 \label{sec:conversionexplicita}
 
-Comenzaremos este capítulo hablando de la conversión explícita, para entender qué valores de un tipo corresponden a otro tipo. Existen cuatro funciones para hacer conversión a tipos built-in del lenguaje, las cuales son las funciones \code{Boolean}, \code{Number}, \code{String} y \code{Object}. Es innecesario pensar funciones para convertir a \code{null} y \code{undefined} dado que son casos especiales. Por otro lado, hablaremos de la función \code{ToPrimitive} la cual está especificada en el estandar de ECMAScript y es un pilar fundamental para entender las secciones siguientes.
+Comenzaremos este capítulo hablando de la conversión explícita, para entender qué valores de un tipo corresponden a otro tipo. Existen cuatro funciones para hacer conversión a tipos built-in del lenguaje, las cuales son las funciones \code{Boolean}, \code{Number}, \code{String} y \code{Object}. Es innecesario pensar funciones para convertir a \code{null} y \code{undefined} dado que son casos especiales. 
 
 \subsection{Boolean} 
 
@@ -36,7 +36,7 @@ Análogamente, la función \code{Number()} convierte un valor dado a su represen
 \item \code{false} se transforma en \code{0}.
 \item \code{true} se transforma en \code{1}.
 \item Para el caso de \code{string}, se hace \textit{parsing} de la siguiente manera: Se remueven los espacios en blanco, si el \code{string} resultante es \code{''}, se transforma en \code{0}, sino se intentará leer el valor numérico (si posee algún caracter ajeno a un valor numérico, se transformará en \code{NaN}, caso contrario, se transforma en dicho valor numérico).
-\item Para el caso de \code{object}, primero se transforma a primitivo (ver sección \ref{subsec:toprimitive}), y luego es convertido a \code{number} con las reglas recién mencionadas.
+\item Para el caso de \code{object}, primero se transforma a primitivo (ver sección \ref{sec:toprimitive}), y luego es convertido a \code{number} con las reglas recién mencionadas.
 \end{itemize}
 
 \subsection{String}
@@ -48,7 +48,7 @@ La función \code{String()} es el caso más obvio para la mayoría de los tipos 
 \item \code{undefined} se convierte a \code{"undefined"}.
 \item \code{true} y \code{false} se convierten a \code{"true"} y \code{"false"}, respectivamente.
 \item Los valores numéricos se transforman en su \code{string} equivalente. Por ejemplo, \code{123.45} se transformará en \code{"123.45"}.
-\item Para el caso de \code{object}, primero se transforma a primitivo (ver sección \ref{subsec:toprimitive}), y luego es convertido a \code{string} con las reglas recién mencionadas.
+\item Para el caso de \code{object}, primero se transforma a primitivo (ver sección \ref{sec:toprimitive}), y luego es convertido a \code{string} con las reglas recién mencionadas.
 \end{itemize}
 
 \subsection{Object}
@@ -62,10 +62,10 @@ Para el caso de \code{Object()} es un poco más compejo de reflejar.
 \item Los objetos se vuelven en sí mismos.
 \end{itemize}
 
-\subsection{ToPrimitive}
-\label{subsec:toprimitive}
+\section{ToPrimitive}
+\label{sec:toprimitive}
 
-En las subsecciones anteriores se mencionó sobre la conversión de \code{object} a otros tipos. Para el caso de boolean, es simple dado que todos los objetos se convierten a \code{true}. Sin embargo, para los tipos \code{number} y \code{string} es un poco más complejo, dado que hay que recurrir a este algoritmo. 
+Hablaremos de la función \code{ToPrimitive} la cual está especificada en el estandar de ECMAScript y es un pilar fundamental para entender las secciones siguientes. En la sección anterior (\ref{sec:conversionexplicita}) se hizo mención sobre la conversión de \code{object} hacia otros tipos. Para el caso de boolean, es simple dado que todos los objetos se convierten a \code{true}. Sin embargo, para los tipos \code{number} y \code{string} es un poco más complejo, dado que hay que recurrir a este algoritmo. 
 
 ?`Por qué un objeto se querría convertir a un tipo primitivo? Es justamente una de las partes flexibles del lenguaje. Un objeto se podría tener que convertir a un tipo numérico para el caso de algunas operaciones matemáticas (por ejemplo, el tipo \code{Date} donde se pueden restar fechas) o por ejemplo a un texto, para el caso de que se necesite mostrar un objeto (ya sea mediante las funciones \code{alert} o \code{console.log}).
 
@@ -101,9 +101,47 @@ NaN + NaN		// NaN
 -1 + 10			// 9
 \end{lstlisting}
 
-...
+Por otro lado, el mismo operador también se puede usar para concatenación de strings.
 
-Con todo esto visto, ahora se tiene un mejor panorama de cómo funciona el operador \code{+} en Javascript. Se utiliza principalmente en valores de tipos numéricos o strings. Para el caso de los objetos, si alguno de los operandos es string, el mismo se convierte a string, en caso contrario, se convierte a número. Para el caso de los arreglos, el operador \code{+} no funciona como en otros lenguajes. Para concatenar arreglos es necesario utilizar el método \code{concat} o hacer uso de alguna librería externa.
+\begin{lstlisting}[title={Operador \code{+} en strings}]
+"hola" + "mundo"	// "holamundo"
+"abc" + "def"			// "abcdef"
+"123" + "456"			// "123456"
+"chau" + ""				// "chau"
+\end{lstlisting}
+
+Hasta este punto, todo parece funcionar de acuerdo a lo esperado. El problema es cuando empezamos a mezclar los tipos. Empecemos mirando los casos de \code{number} y \code{string}:
+
+\begin{lstlisting}[title={Operador \code{+} mezclando strings con números}]
+1 + "1"				// "11"
+"1" + 1				// "11"
+2 + ""				// "2"
+"hola" + 0		// "hola0"
+\end{lstlisting}
+
+Si bien puede parecer un poco raro, la regla aquí es que si uno de los operandos es \code{string}, entonces el resultado será la concatenación de los \code{string}. Ahora sigamos evaluando, qué pasa con los \code{boolean}:
+
+\begin{lstlisting}[title={Operador \code{+} en booleanos}]
+true + true		// 2
+true + false	// 1
+false + false	// 0
+\end{lstlisting}
+
+Tal como se mencionó en la sección \ref{sec:conversionexplicita}, el valor numérico de \code{true} es \code{1} mientras que el de \code{false} es \code{0}. Entonces para este caso, ocurre una coerción hacia tipo numérico en los operandos, y el operador \code{+} funciona como una suma numérica normal.
+
+Para entender mejor lo que está sucediendo, es preferible tener a mano un pseudo algoritmo de lo que sucede por detrás con el operador \code{+}:
+
+\begin{enumerate}
+\item Convertir ambos operandos a sus valores primitivos haciendo uso del \code{ToPrimitive} mencionado anteriormente.
+\item Si alguno de los dos operandos es \code{string}, convertir ambos operandos a \code{string} y retornar la concatenación de los resultados.
+\item Sino, convertir ambos operandos a su valor numérico y retornar la suma de los resultados.
+\end{enumerate}
+
+Con todo esto visto, ahora se tiene un mejor panorama de cómo funciona el operador \code{+} en Javascript. Se utiliza principalmente en valores de tipos numéricos o strings. 
+
+Para el caso de los objetos, si alguno de los operandos es string, el mismo se convierte a string, en caso contrario, se convierte a número. 
+
+Para el caso de los arreglos, el operador \code{+} no funciona como en otros lenguajes. Para concatenar arreglos es necesario utilizar el método \code{concat} o hacer uso de alguna librería externa.
 
 \section{Operadores de igualdad}
 \label{sec:eqeqeq}
@@ -112,7 +150,7 @@ Una de las primeras fallas comunes en cuanto a los programadores que se acercan 
 
 El operador de igualdad \code{===} se le suele llamar estricto, ya que si los dos operandos son de distintos tipos, la expresión será \code{false}, en caso contrario, hará una comparación del valor de los operandos (a excepción de los objetos, que compara referencias).
 
-En cambio el operador de igualdad \code{==} se le suele llamar blando, si los operandos son de distintos tipos, intentará convertir los tipos para luego compararlos.
+En cambio el operador de igualdad \code{==} se le suele llamar blando, o según la especificación, comparador de igualdad abstracta. Si los operandos son de distintos tipos, intentará convertir los tipos para luego compararlos.
 
 
 
