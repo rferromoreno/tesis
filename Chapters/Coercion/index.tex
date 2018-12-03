@@ -65,9 +65,9 @@ Para el caso de \code{Object()} es un poco más compejo de reflejar.
 \section{ToPrimitive}
 \label{sec:toprimitive}
 
-Hablaremos de la función \code{ToPrimitive} la cual está especificada en el estandar de ECMAScript y es un pilar fundamental para entender las secciones siguientes. En la sección anterior (\ref{sec:conversionexplicita}) se hizo mención sobre la conversión de \code{object} hacia otros tipos. Para el caso de boolean, es simple dado que todos los objetos se convierten a \code{true}. Sin embargo, para los tipos \code{number} y \code{string} es un poco más complejo, dado que hay que recurrir a este algoritmo. 
+La función \code{ToPrimitive} está especificada en el estandar de ECMAScript y es un pilar fundamental para entender las secciones siguientes. En la sección anterior (\ref{sec:conversionexplicita}) se hizo mención sobre la conversión de \code{object} hacia otros tipos. Para el caso de boolean, es simple dado que todos los objetos se convierten a \code{true}. Sin embargo, para los tipos \code{number} y \code{string} es un poco más complejo, dado que hay que recurrir a este algoritmo. 
 
-?`Por qué un objeto se querría convertir a un tipo primitivo? Es justamente una de las partes flexibles del lenguaje. Un objeto se podría tener que convertir a un tipo numérico para el caso de algunas operaciones matemáticas (por ejemplo, el tipo \code{Date} donde se pueden restar fechas) o por ejemplo a un texto, para el caso de que se necesite mostrar un objeto (ya sea mediante las funciones \code{alert} o \code{console.log}).
+?`Por qué un objeto se querría convertir a un tipo primitivo? Es justamente una de las partes flexibles del lenguaje. Esta función es la que permite poder utilizar operandos de distintos tipos en algunas expresiones. Un objeto se podría tener que convertir a un tipo numérico para el caso de algunas operaciones matemáticas (por ejemplo, el tipo \code{Date} donde se pueden restar fechas) o por ejemplo a un texto, para el caso de que se necesite mostrar un objeto (ya sea mediante las funciones \code{alert} o \code{console.log}).
 
 Cabe aclarar que la función \code{ToPrimitive} existe en la especificación de ECMAScript, pero no es un método o una función tal como se mostró con \code{Boolean}, \code{Number}, \code{String} y \code{Object}. Este método de conversión se utilizará siempre que el contexto lo requiera así, generalmente en operaciones donde ocurre la coerción.
 
@@ -89,7 +89,40 @@ En caso de que el \code{PreferredType} sea tipo \code{String}, el algoritmo es a
 \section{El operador \code{+}}
 \label{sec:operadormas}
 
-Uno de los grandes dilemas a la hora de diseñar un lenguaje es sobre el uso de operadores como el \code{+}. ?`Debería este operador estar sobrecargado?. Es simple pensar en el \code{+} como un operador de suma de dos datos numéricos, pero ?`se podría usar para concatenar dos cadenas de texto? ?`o para unir el contenido de dos listas (arreglos)? ?`y qué pasa con las fechas?. 
+Uno de los grandes dilemas a la hora de diseñar un lenguaje es sobre el uso de operadores como el \code{+}. ?`Debería este operador estar sobrecargado?. Es simple pensar en el \code{+} como un operador de suma de dos datos numéricos, pero ?`se podría usar para concatenar dos cadenas de texto? ?`o para unir el contenido de dos listas (arreglos)?.
+
+\subsection{Operador unario}
+
+La existencia del operador unario \code{+} puede resultar en una de las más confusas del lenguaje. La única finalidad del operador unario \code{+} es hacer una conversión numérica en caso de ser posible, y en caso contrario retornar \code{NaN}. No funciona de la misma forma en la que funcionaría el operador unario \code{-} (negación matemática), en donde además de realizar la conversión numérica, intentará cambiar el signo. Por ejemplo:
+
+\begin{lstlisting}[title={Operador unario \code{+}}]
++3				// 3
+-3				// -3
++(-3)			// -3
++-3				// -3
+-+3				// -3
+\end{lstlisting}
+
+Nuevamente, este operador funciona únicamente para una conversión a número, pero no del signo. Dicho esto, se presentan a continaución algunos ejemplos con sus respectivos resultados.
+
+\begin{lstlisting}[title={Operador unario \code{+} (más casos)}]
++3                                   // 3
++'-3'                                // -3
++'3.14'                              // 3.14
++'3'                                 // 3
++'0xFF'                              // 255
++true                                // 1
++'123e-5'                            // 0.00123
++false                               // 0
++null                                // 0
++'Infinity'                          // Infinity
++'infinity'                          // NaN
++function(val){  return val }        // NaN
+\end{lstlisting}
+
+El operador unario \code{+} suele ser el elegido por algunos programadores cuando quieren hacer coerción explícita de un valor a su tipo numérico. Los resultados de utilizar \code{Number()} para ambos casos serían idénticos. El \textit{trade-off} está en la legibilidad de las expresiones cuando éstas se vuelven más complejas.
+
+\subsection{Operador binario}
 
 Para comenzar, iremos con el ejemplo más simple de todos, el obvio: El operador \code{+} sirve como suma a la hora de trabajar con datos numéricos.
 
@@ -137,6 +170,27 @@ Para entender mejor lo que está sucediendo, es preferible tener a mano un pseud
 \item Sino, convertir ambos operandos a su valor numérico y retornar la suma de los resultados.
 \end{enumerate}
 
+Considerando esto, evaluemos algunos casos más:
+
+\begin{lstlisting}[title={Operador \code{+} con arreglos y objetos}]
+[] + []			// ''
+[] + {}			// '[object Object]'
+{} + {}			// '[object Object][object Object]'
+{} + []			// 0
+\end{lstlisting}
+
+Para el primer caso, la conversión a primitivo del arreglo vacío \code{[]} primero hace un \code{valueOf()}, el cual retorna el arreglo mismo (\code{this}). Luego, como el resultado no es un valor primitivo, se hace \code{toString()} el cual retorna el string vacío \code{''}. Finalmente, el resultado de sumar \code{[] + []} es el string vacío.
+
+Para el segundo caso, sucede algo similar. Dado que el primer operando es el string vacío, entonces el \code{+} corresponde a una concatenación de strings. Y el método \code{toString()} sobre un objeto (instancia directa de Object) se traduce a string de la forma \code{'[object Object]'}.
+
+Luego de haber visto los dos primeros casos, el tercer caso se explica solo. Se hace la conversión del primero y el \code{+} representa la concatenación de strings. Sucede exactamente lo mismo que en el primer caso, el \code{valueOf()} del primer operando retorna \code{this} entonces se termina haciendo un \code{toString()}.
+
+El que es bastante inusual es el cuarto caso. Luego de haber visto el segundo, uno tiende a esperar que el cuarto de el mismo resultado, pero esto no es así. ?`Qué pasó? El intérprete consideró a la primera parte de la expresión como un bloque de código vacío y la ignoró. Luego, la expresión quedó como \code{+[]}, donde el \code{+} representa el operador unario, no el binario. Lo que significa que resultó en una coerción hacia \code{number} del string vacío \code{''}, resultando en un \code{0}. De hecho, podemos corroborarlo haciendo uso de los paréntesis, entonces el intérprete lo leerá como una expresión y \code{\{\}} representará un objeto en vez de un  bloque.
+
+\begin{lstlisting}[title={Caso especial}]
+({} + [])			// '[object Object]'
+\end{lstlisting}
+
 Con todo esto visto, ahora se tiene un mejor panorama de cómo funciona el operador \code{+} en Javascript. Se utiliza principalmente en valores de tipos numéricos o strings. 
 
 Para el caso de los objetos, si alguno de los operandos es string, el mismo se convierte a string, en caso contrario, se convierte a número. 
@@ -152,7 +206,7 @@ El operador de igualdad \code{===} se le suele llamar estricto, ya que si los do
 
 En cambio el operador de igualdad \code{==} se le suele llamar blando, o según la especificación, comparador de igualdad abstracta. Si los operandos son de distintos tipos, intentará convertir los tipos para luego compararlos.
 
-
+\textbf{COMPLETAR}
 
 La falta de "`transitividad"' en el operador \code{==} es una de las cosas más preocupantes del lenguaje. Es fácil pensar que si \code{A == B} y que \code{B == C}, entonces \code{A == C}, pero esto no sucede siempre.  Por ejemplo:
 
