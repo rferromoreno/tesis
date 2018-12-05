@@ -16,5 +16,56 @@
   {}
 \endgroup
 
-\datalist[entry]{nyt/global//global/global}\enddatalist
+\datalist[entry]{nyt/global//global/global}
+  \entry{Crockford:2008:JGP:1386753}{book}{}
+    \name{author}{1}{}{%
+      {{hash=CD}{%
+         family={Crockford},
+         familyi={C\bibinitperiod},
+         given={Douglas},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {O'Reilly Media, Inc.}%
+    }
+    \strng{namehash}{CD1}
+    \strng{fullhash}{CD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2008}
+    \field{labeldatesource}{year}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{isbn}{0596517742}
+    \field{title}{JavaScript: The Good Parts}
+    \field{year}{2008}
+  \endentry
+
+  \entry{Rauschmayer:2014:SJ:2614440}{book}{}
+    \name{author}{1}{}{%
+      {{hash=RA}{%
+         family={Rauschmayer},
+         familyi={R\bibinitperiod},
+         given={Axel},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {O'Reilly Media, Inc.}%
+    }
+    \strng{namehash}{RA1}
+    \strng{fullhash}{RA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2014}
+    \field{labeldatesource}{year}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{edition}{1st}
+    \field{isbn}{1449365035, 9781449365035}
+    \field{title}{Speaking JavaScript}
+    \field{year}{2014}
+  \endentry
+\enddatalist
 \endinput

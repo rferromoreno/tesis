@@ -49,7 +49,7 @@ headsepline, % Uncomment to get a line under the header
 
 \usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
 
-%\addbibresource{example.bib} % The filename of the bibliography
+\addbibresource{bibliography.bib} % The filename of the bibliography
 
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
 
@@ -310,6 +310,8 @@ headsepline, % Uncomment to get a line under the header
 % Include the chapters of the thesis as separate files from the Chapters folder
 % Uncomment the lines as you write the chapters
 
+%\input{Chapters/IntroTesis/index}
+%\input{Chapters/IntroJS/index}
 \include{Chapters/Chapter1} % Introducción
 \part{Sistema de tipos}
 \include{Chapters/Chapter2} % Sistema de tipos
@@ -341,7 +343,8 @@ headsepline, % Uncomment to get a line under the header
 %	BIBLIOGRAPHY
 %----------------------------------------------------------------------------------------
 
-%\printbibliography[heading=bibintoc]
+\nocite{*}
+\printbibliography[heading=bibintoc]
 
 %----------------------------------------------------------------------------------------
 
