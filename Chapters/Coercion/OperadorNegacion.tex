@@ -1,0 +1,28 @@
+\section{El operador \code{!}}
+\label{sec:operadornegacion}
+
+El operador unario de negación lógica es otro de los operadores que es necesario hacer mención. Tal como sucedía con el operador unario \code{+}, en donde se hacía una conversión a Number, con el operador \code{!} sucede análogamente lo mismo, pero la conversión será a Boolean. 
+
+\begin{lstlisting}[title={Operador \code{!} con diferentes valores}]
+!true					// false
+!false				// true
+!null					// true
+!undefined		// true
+!0						// true
+!1						// false
+!{}						// false
+![]						// false
+!function(){}	// false
+\end{lstlisting}
+
+Haciendo uso de este conocimiento sobre la conversión a \code{boolean}, podemos llegar a tener código más compacto. Por ejemplo, si tuvieramos una variable \code{a} y necesitamos chequear en algún momento si \code{a === null} o sí \code{a === undefined} para saber si \code{a} obtuvo algún valor, se puede hacer de la siguiente manera:
+
+\begin{lstlisting}
+var a;
+// ...
+if (!a) {
+	// lanzar un error
+}
+\end{lstlisting}
+
+De todas formas, hay que tener especial cuidado con esto, ya que por ejemplo si nuestra variable \code{a} obtuviera el valor \code{0}, nuestro código lanzaría un error cuando en realidad sí se obtuvo un valor.

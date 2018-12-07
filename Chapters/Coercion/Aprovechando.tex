@@ -1,0 +1,29 @@
+\section{Aprovechando la coerción}
+\label{sec:aprovechando}
+
+Hasta este punto se ha hablado de los efectos inesperados o con poca coherencia que tiene la coerción en el lenguaje. Sin embargo, cuando uno conoce las reglas que tiene el lenguaje, puede empezar a hacer uso de esos efectos a su favor.
+
+Recordemos principalmente que Javascript es, entre otras cosas, un lenguaje de "`scripting"', por lo que se espera que haya ciertas facilidades y no tanta burocracia delante del programador a la hora de realizar su tarea.
+
+Si bien la coerción lleva a efectos inesperados, bugs y dificultad a la hora de trazar y encontrar errores en el código, es probable que los programadores experimentados destaquen el punto de que se pueden hacer cosas muy concisas.
+
+Por ejemplo, supongamos un escenario de una llamada asincrónica donde nos puede venir \code{data}, asi como también puede faltar dicha información (que no nos llegue dicha propiedad), luego en el código podemos verificar que la misma "`existe"' mediante el uso de la coerción en una expresión.
+
+\begin{lstlisting}
+if (data) {
+	// hacer operaciones
+}
+\end{lstlisting}
+
+Otro ejemplo puede ser el de verificar si una función está definida o no en cuanto a su valor de verdad. Supongamos que tenemos tenemos una función que tiene un parámetro opcional \code{callback} y si ésta fue definida, queremos ejecutarla.
+
+\begin{lstlisting}
+function procesar(callback) {
+	// hacer operaciones
+	callback && callback();
+}
+\end{lstlisting}
+
+La línea 3 representaría un chequeo de "`si callback fue definido, entonces ejecutarla"'. Si \code{callback} es \code{undefined} (porque se llamó a \code{procesar} sin argumentos), entonces la parte izquierda de esa expresión dará \code{false} y el operador \code{\&\&} hará un "`cortocircuito"', evitando ejecutar la segunda parte.
+
+Estos dos ejemplos sirven para presentar al lector que, dentro del lenguaje, la coerción puede ser utilizada a favor del programador.

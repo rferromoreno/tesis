@@ -1,0 +1,105 @@
+\section{Operadores de igualdad}
+\label{sec:eqeqeq}
+
+Una de las primeras fallas comunes en cuanto a los programadores que se acercan a Javascript y vienen de otros lenguajes de la rama de C, es pensar que el operador de comparación \code{==} funciona de la misma manera que en esos otros lenguajes. Esto no es así. En Javascript, existen dos operadores de comparación de igualdad, estos son \code{==} y \code{===} (junto con sus comparadores de desigualdad análogos, \code{!=} y \code{!==}).
+
+El operador de igualdad \code{===} se le suele llamar estricto, ya que si los dos operandos son de distintos tipos, la expresión será \code{false}, en caso contrario, hará una comparación del valor de los operandos (a excepción de los objetos, que compara referencias).
+
+En cambio el operador de igualdad \code{==} se le suele llamar blando, o según la especificación, "`comparador de igualdad abstracta"'. Si los operandos son de distintos tipos, intentará convertir los tipos para luego compararlos.
+
+Una de las mayores críticas del operador \code{==} es la falta de coherencia semántica. Por ejemplo, un arreglo vacío \code{[]} en el fondo es un objeto, lo cual debería ser un valor de verdad. La negación de un valor de verdad, por lógica, debería ser un valor de falsedad. Sin embargo, esto no sucede así.
+
+\begin{lstlisting}[title={Comparando un \code{Array} con su negación}]
+[] == ![] 				// true
+\end{lstlisting}
+
+?`Por qué ésta comparación da verdadera? Lo que está pasando en el fondo es que ambos operandos están siendo transformados a \code{number}. Por el lado de la izquierda, se produce el \code{ToNumber} visto anteriormente, resultando en un valor \code{0}. Sin embargo el operando de la derecha previamente es transformado a \code{boolean} (por el \code{not}), lo cual se traduce a \code{false}, el cual luego termina siendo traducido a \code{0}.
+
+\begin{lstlisting}
++[] == +![];
+0 == +false;
+0 == 0;
+true;
+\end{lstlisting}
+
+El caso de los arreglos no es lo único que carece de lógica. También hay un trato especial para \code{null} y \code{undefined}, los cuales se suponen que son valores de falsedad (tal como se marcó en \ref{sec:conversionexplicita}), pero al momento de comparar los valores con \code{false} el resultado no es el esperado.
+
+\begin{lstlisting}[title={Comparando \code{null} y \code{undefined} con \code{false}}]
+null == false				// false
+undefined == false	// false
+\end{lstlisting}
+
+Para entender mejor qué pasa en el fondo, es necesario recurrir a los algoritmos de comparación de la especificación. Cabe la aclaración que se hará uso de tres "`métodos"': \code{ToNumber} y \code{ToPrimitive}, los cuales se introdujeron en las secciones \ref{sec:conversionexplicita} y \ref{sec:toprimitive} respectivamente, y \code{Tipo} el cual retorna el tipo de un valor dado. 
+
+Empecemos con el algoritmo de \textbf{Comparación de Igualdad Estricta}. Sea la comparación \code{x === y}, donde \code{x} e \code{y} son los operandos, la comparación se hace de la siguiente forma.
+
+\begin{enumerate}
+\item Si \code{Tipo(x)} es distinto a \code{Tipo(y)}
+\item Si \code{Tipo(x)} es Number, entonces
+\begin{enumerate}
+\item Si \code{x} es NaN, retornar \code{false}
+\item Si \code{y} es NaN, retornar \code{false}
+\item Si \code{x} tiene el mismo valor numérico de \code{y}, retornar \code{true}
+\item Si \code{x} es +0 e \code{y} es -0, retornar \code{true}
+\item Si \code{x} es -0 e \code{y} es +0, retornar \code{true}
+\item Retornar \code{false}
+\end{enumerate}
+\item Si \code{Tipo(x)} es Undefined, retornar \code{true}
+\item Si \code{Tipo(x)} es Null, retornar \code{true}
+\item Si \code{Tipo(x)} es String, entonces
+\begin{enumerate}
+\item Si \code{x} e \code{y} tienen exactamente la misma secuencia de unidades de código (misma longitud y mismas unidades en los índices correspondientes), retornar \code{true}
+\item Sino, retornar \code{false}
+\end{enumerate}
+\item Si \code{Tipo(x)} es Boolean, entonces
+\begin{enumerate}
+\item Si ambos \code{x} e \code{y} son \code{true} o ambos son \code{false}, retornar \code{true}
+\item Sino, retornar \code{false}
+\end{enumerate}
+\item Si \code{Tipo(x)} es Symbol, entonces
+\begin{enumerate}
+\item Si ambos \code{x} e \code{y} tienen el mismo valor de Symbol, retornar \code{true}
+\item Sino, retornar \code{false}
+\end{enumerate}
+\item Si \code{x} e \code{y} tienen el mismo valor de Object, retornar \code{true}
+\item Sino, retornar \code{false}
+\end{enumerate}
+
+Este algoritmo es dentro de todo bastante simple. Partiendo por el hecho de que si ambos tipos son distintos, se retorna false \code{false}, y sino, se hace una comparación por valores según el tipo. Cabe destacar que los casos de \code{NaN}, \code{+0} y \code{-0} son especiales para \code{number}, por su implementación de la norma IEEE 754. Matemáticamente, \code{+0} y \code{-0} son iguales, pero para la implementación, representan dos valores distintos, y por eso es que están ramificados de manera exclusiva en el algoritmo.
+
+Ahora sigamos con el algoritmo de \textbf{Comparación de Igualdad Abstracta}.
+
+\begin{enumerate}
+\item Si \code{Tipo(x)} es igual a \code{Tipo(y)}, retornar el resultado de la comparación estricta \code{x === y}.
+\item Si \code{x} es \code{null}, e \code{y} es \code{undefined}, retornar \code{true}
+\item Si \code{x} es \code{undefined}, e \code{y} es \code{null}, retornar \code{true}
+\item Si \code{Tipo(x)} es Number y \code{Tipo(y)} es String, retornar el resultado de \code{x == ToNumber(y)}
+\item Si \code{Tipo(x)} es String y \code{Tipo(y)} es Number, retornar el resultado de \code{ToNumber(x) == y}
+\item Si \code{Tipo(x)} es Boolean, retornar el resultado de \code{ToNumber(x) == y}
+\item Si \code{Tipo(y)} es Boolean, retornar el resultado de \code{x == ToNumber(y)}
+\item Si \code{Tipo(x)} es String, Number, o Symbol, y \code{Tipo(y)} es Object, retornar el resultado de \code{x == ToPrimitive(y)}
+\item Si \code{Tipo(x)} es Object, y \code{Tipo(y)} es String, Number o Symbol, retornar el resultado de \code{ToPrimitive(x) == y}
+\item Retornar \code{false}
+\end{enumerate}
+
+Veamos el detalle, primero, que el algoritmo está definido de forma recursiva. Lo segundo a tener en cuenta, la mayoría de los tipos intentarán convertirse a Number a excepción de los casos del final donde incluye casos de Object los cuales son transformados con \code{ToPrimitive}. Sin embargo, previo a eso, hay casos especiales para \code{null} y \code{undefined}. Este algoritmo presentado es el que está en la versión de ECMAScript 6.0, sin embargo no se descarta que en versiones siguientes sea modificado.
+
+La falta de "`transitividad"' en el operador \code{==} es otra de las cosas más preocupantes del lenguaje. Es fácil pensar que si \code{A == B} y que \code{B == C}, entonces \code{A == C}, pero esto no sucede siempre.  Por ejemplo:
+
+\begin{lstlisting}[title={Falta de transitividad en \code{==}}]
+0 == ''             // true
+0 == '0'            // true
+'' == '0'           // false
+
+false == undefined  // false
+false == null       // false
+null == undefined   // true
+\end{lstlisting}
+
+El consejo de los autores experimentados es siempre usar el operador \code{===}, para ser estrictos con la comparación y no caer en transformaciones inesperadas. Sin embargo, a medida que mezclamos los operadores, podemos seguir cayendo en el mismo problema. Combinando lo visto en esta sección y en la sección \ref{sec:operadormas} del operador \code{+}, tiene sentido entonces una expresión así:
+
+\begin{lstlisting}
+true + true === 2		// true
+\end{lstlisting}
+
+Algo a tener en cuenta, y que no formará parte de este documento, es que este tipo de problemas no solo están presentes en la comparación de igualdad, sino que también existen dentro de otros operadores de comparación, como puede ser \code{>}, \code{>=}, \code{<}, \code{<=}, entre otros.

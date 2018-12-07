@@ -1,0 +1,23 @@
+\section{ToPrimitive}
+\label{sec:toprimitive}
+
+La función \code{ToPrimitive} está especificada en el estandar de ECMAScript y es un pilar fundamental para entender las secciones siguientes. En la sección anterior (\ref{sec:conversionexplicita}) se hizo mención sobre la conversión de \code{object} hacia otros tipos. Para el caso de boolean, es simple dado que todos los objetos se convierten a \code{true}. Sin embargo, para los tipos \code{number} y \code{string} es un poco más complejo, dado que hay que recurrir a este algoritmo. 
+
+?`Por qué un objeto se querría convertir a un tipo primitivo? Es justamente una de las partes flexibles del lenguaje. Esta función es la que permite poder utilizar operandos de distintos tipos en algunas expresiones. Un objeto se podría tener que convertir a un tipo numérico para el caso de algunas operaciones matemáticas (por ejemplo, el tipo \code{Date} donde se pueden restar fechas) o por ejemplo a un texto, para el caso de que se necesite mostrar un objeto (ya sea mediante las funciones \code{alert} o \code{console.log}).
+
+Cabe aclarar que la función \code{ToPrimitive} existe en la especificación de ECMAScript, pero no es un método o una función tal como se mostró con \code{Boolean}, \code{Number}, \code{String} y \code{Object}. Este método de conversión se utilizará siempre que el contexto lo requiera así, generalmente en operaciones donde ocurre la coerción.
+
+La signatura del método es la siguiente: \code{\color{blue}ToPrimitive(input, PreferredType?)}
+
+El parámetro opcional \code{PreferredType} representa la preferencia del tipo a convertir, y el mismo puede ser \code{Number} o \code{String}. Por lo general, se asume que cuando no está presente, el valor por defecto es \code{Number}, sin embargo este comportamiento puede ser cambiando sobreescribiendo el método \code{@@toPrimitive}, como sucede en el caso de \code{Date} y \code{Symbol}.
+
+El algoritmo de \code{ToPrimitive} si el \code{PreferredType} es \code{Number} es el siguiente:
+
+\begin{enumerate}
+\item Si \code{input} es de tipo primitivo, retornarlo.
+\item Sino, si \code{input} es un objeto, llamar a \code{input.valueOf()}. Si el resultado es primitivo, retornarlo.
+\item Sino, llamar a \code{input.toString()}, si el resultado es primitivo, retornarlo.
+\item Sino, lanzar un \code{TypeError}.
+\end{enumerate}
+
+En caso de que el \code{PreferredType} sea tipo \code{String}, el algoritmo es análogo, solo que se cambian de lugares los puntos 2 y 3.
