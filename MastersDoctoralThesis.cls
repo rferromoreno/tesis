@@ -247,6 +247,9 @@
 \usepackage{xcolor} % Required for specifying custom colours
 
 \colorlet{mdtRed}{red!50!black}
+\colorlet{mdtBlue}{blue!50!black}
+\definecolor{yaleBlue}{rgb}{0.06, 0.3, 0.57}
+\definecolor{airforceBlue}{rgb}{0.36, 0.54, 0.66}
 
 %----------------------------------------------------------------------------------------
 %	MARGINS
@@ -524,8 +527,8 @@ bookmarksopenlevel=0,
 hypertexnames=false,
 colorlinks=true,% Set to false to disable coloring links
 citecolor=magenta,% The color of citations
-linkcolor=red,% The color of references to document elements (sections, figures, etc)
-urlcolor=mdtRed,% The color of hyperlinks (URLs)
+linkcolor=airforceBlue,% The color of references to document elements (sections, figures, etc)
+urlcolor=yaleBlue,% The color of hyperlinks (URLs)
 pdfstartview={FitV},
 unicode,
 breaklinks=true,

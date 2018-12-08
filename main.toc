@@ -1,0 +1,95 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\babel@toc {spanish}{}
+\contentsline {chapter}{\numberline {1}Introducción a la tesis}{1}{chapter.2}
+\contentsline {section}{\numberline {1.1}Motivación}{1}{section.3}
+\contentsline {section}{\numberline {1.2}Estructura de la tesis}{1}{section.4}
+\contentsline {chapter}{\numberline {2}Introducción a JavaScript}{3}{chapter.5}
+\contentsline {section}{\numberline {2.1}Historia de JavaScript}{3}{section.6}
+\contentsline {section}{\numberline {2.2}JavaScript en la actualidad}{4}{section.7}
+\contentsline {section}{\numberline {2.3}Características del lenguaje}{4}{section.8}
+\contentsline {subsection}{\numberline {2.3.1}Influencias}{5}{subsection.9}
+\contentsline {subsection}{\numberline {2.3.2}Intérpretes}{5}{subsection.10}
+\contentsline {section}{\numberline {2.4}Nociones básicas}{6}{section.11}
+\contentsline {subsection}{\numberline {2.4.1}Tipos primitivos}{6}{subsection.12}
+\contentsline {subsubsection}{Undefined}{6}{section*.13}
+\contentsline {subsubsection}{Null}{6}{section*.14}
+\contentsline {subsubsection}{Boolean}{6}{section*.15}
+\contentsline {subsubsection}{String}{6}{section*.16}
+\contentsline {subsubsection}{Number}{6}{section*.17}
+\contentsline {subsubsection}{Symbol}{7}{section*.18}
+\contentsline {subsubsection}{Object}{7}{section*.19}
+\contentsline {subsection}{\numberline {2.4.2}Palabras reservadas}{7}{subsection.20}
+\contentsline {subsection}{\numberline {2.4.3}Otras cuestiones a tener en cuenta}{8}{subsection.23}
+\contentsline {subsubsection}{Identificadores}{8}{section*.24}
+\contentsline {subsubsection}{Sensible a las mayúsculas}{8}{section*.25}
+\contentsline {subsubsection}{Sin tipado estático}{8}{section*.26}
+\contentsline {section}{\numberline {2.5}Sintaxis}{8}{section.27}
+\contentsline {subsection}{\numberline {2.5.1}Comentarios}{8}{subsection.28}
+\contentsline {subsection}{\numberline {2.5.2}Variables}{9}{subsection.36}
+\contentsline {subsection}{\numberline {2.5.3}Estructuras condicionales}{9}{subsection.43}
+\contentsline {subsubsection}{Condicionales \texttt {if} e \texttt {if-else}}{9}{section*.44}
+\contentsline {subsubsection}{Operador ternario \texttt {?:}}{10}{section*.55}
+\contentsline {subsection}{\numberline {2.5.4}Funciones}{10}{subsection.58}
+\contentsline {subsubsection}{Funciones como expresión}{10}{section*.59}
+\contentsline {subsubsection}{Funciones como declaración}{10}{section*.64}
+\contentsline {subsubsection}{Funciones anónimas y arrow functions}{11}{section*.69}
+\contentsline {section}{\numberline {2.6}Otros conceptos}{11}{section.74}
+\contentsline {subsection}{\numberline {2.6.1}Hoisting}{11}{subsection.75}
+\contentsline {subsection}{\numberline {2.6.2}Closures}{12}{subsection.107}
+\contentsline {subsection}{\numberline {2.6.3}IIFE}{13}{subsection.133}
+\contentsline {subsection}{\numberline {2.6.4}Prototype}{14}{subsection.165}
+\contentsline {part}{I\hspace {1em}Sistema de tipos}{17}{part.187}
+\contentsline {chapter}{\numberline {3}Sistema de Tipos}{18}{chapter.188}
+\contentsline {section}{\numberline {3.1}Tipos primitivos}{18}{section.189}
+\contentsline {subsection}{\numberline {3.1.1}Casos especiales del \texttt {typeof}}{19}{subsection.202}
+\contentsline {section}{\numberline {3.2}Lo bueno, lo malo, lo feo...}{20}{section.209}
+\contentsline {chapter}{\numberline {4}Coerción}{21}{chapter.210}
+\contentsline {section}{\numberline {4.1}Conversión explícita}{21}{section.211}
+\contentsline {subsection}{\numberline {4.1.1}Boolean}{21}{subsection.212}
+\contentsline {subsection}{\numberline {4.1.2}Number}{22}{subsection.213}
+\contentsline {subsection}{\numberline {4.1.3}String}{22}{subsection.214}
+\contentsline {subsection}{\numberline {4.1.4}Object}{22}{subsection.215}
+\contentsline {section}{\numberline {4.2}ToPrimitive}{23}{section.216}
+\contentsline {section}{\numberline {4.3}El operador \texttt {+}}{23}{section.221}
+\contentsline {subsection}{\numberline {4.3.1}Operador unario}{24}{subsection.222}
+\contentsline {subsection}{\numberline {4.3.2}Operador binario}{24}{subsection.242}
+\contentsline {section}{\numberline {4.4}El operador \texttt {!}}{26}{section.273}
+\contentsline {section}{\numberline {4.5}Operadores de igualdad}{27}{section.290}
+\contentsline {section}{\numberline {4.6}Aprovechando la coerción}{30}{section.342}
+\contentsline {chapter}{\numberline {5}Scope}{32}{chapter.352}
+\contentsline {section}{\numberline {5.1}Scope Léxico}{32}{section.353}
+\contentsline {section}{\numberline {5.2}Scope por Bloque}{32}{section.354}
+\contentsline {subsection}{\numberline {5.2.1}\texttt {let} y \texttt {const} en ES6}{34}{subsection.401}
+\contentsline {subsubsection}{\texttt {let}}{34}{section*.402}
+\contentsline {subsubsection}{\texttt {const}}{35}{section*.426}
+\contentsline {section}{\numberline {5.3}La palabra \texttt {this}}{36}{section.443}
+\contentsline {part}{II\hspace {1em}Paradigmas de programación}{37}{part.444}
+\contentsline {chapter}{\numberline {6}Paradigma funcional}{38}{chapter.445}
+\contentsline {section}{\numberline {6.1}Recursividad}{38}{section.446}
+\contentsline {section}{\numberline {6.2}Funciones puras}{39}{section.461}
+\contentsline {section}{\numberline {6.3}Funciones de primera clase y orden superior}{40}{section.488}
+\contentsline {subsection}{\numberline {6.3.1}Funciones de primera clase}{40}{subsection.489}
+\contentsline {subsection}{\numberline {6.3.2}Funciones de orden superior}{41}{subsection.513}
+\contentsline {section}{\numberline {6.4}Evaluación ansiosa y perezosa}{43}{section.556}
+\contentsline {section}{\numberline {6.5}Semántica de valores}{44}{section.573}
+\contentsline {section}{\numberline {6.6}Conclusiones}{44}{section.592}
+\contentsline {chapter}{\numberline {7}Paradigma orientado a objetos}{46}{chapter.593}
+\contentsline {section}{\numberline {7.1}Clases}{46}{section.594}
+\contentsline {subsection}{\numberline {7.1.1}Factory class pattern}{46}{subsection.595}
+\contentsline {subsection}{\numberline {7.1.2}Functional class pattern}{47}{subsection.612}
+\contentsline {subsection}{\numberline {7.1.3}Prototype class pattern}{48}{subsection.626}
+\contentsline {subsection}{\numberline {7.1.4}\texttt {class} en ES6}{48}{subsection.641}
+\contentsline {section}{\numberline {7.2}Herencia}{49}{section.657}
+\contentsline {subsection}{\numberline {7.2.1}Herencia simple mediante \texttt {prototype}}{49}{subsection.658}
+\contentsline {subsection}{\numberline {7.2.2}\texttt {extends} en ES6}{51}{subsection.689}
+\contentsline {subsection}{\numberline {7.2.3}Herencia múltiple}{52}{subsection.718}
+\contentsline {section}{\numberline {7.3}Encapsulamiento}{53}{section.745}
+\contentsline {section}{\numberline {7.4}Polimorfismo}{54}{section.778}
+\contentsline {section}{\numberline {7.5}Modularidad}{56}{section.815}
+\contentsline {subsection}{\numberline {7.5.1}Módulos mediante patrones}{56}{subsection.816}
+\contentsline {subsection}{\numberline {7.5.2}Sistemas de módulos}{57}{subsection.849}
+\contentsline {subsubsection}{AMD}{57}{section*.850}
+\contentsline {subsubsection}{CommonJS}{58}{section*.891}
+\contentsline {subsection}{\numberline {7.5.3}Módulos en ES6}{59}{subsection.929}
+\contentsline {section}{\numberline {7.6}Conclusiones}{61}{section.975}
+\contentsline {chapter}{Bibliograf\'{\i }a}{63}{chapter*.976}

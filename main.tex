@@ -121,13 +121,13 @@ headsepline, % Uncomment to get a line under the header
 %----------------------------------------------------------------------------------------
 
 \thesistitle{Javascript: Lo bueno, lo malo y lo feo} % Your thesis title, this is used in the title and abstract, print it with \ttitle
-\supervisor{Dr. James \textsc{Smith}} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
+\supervisor{Dra. María Laura \textsc{Cobo}\\Dr. Sebastián \textsc{Gottifredi}} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
 \examiner{} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
-\degree{} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
+\degree{Licenciatura en Ciencias de la Computación} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
 \author{Ricardo \textsc{Ferro Moreno}} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
 \addresses{} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
 
-\subject{Biological Sciences} % Your subject area, this is not currently used anywhere in the template, print it elsewhere with \subjectname
+%\subject{Biological Sciences} % Your subject area, this is not currently used anywhere in the template, print it elsewhere with \subjectname
 \keywords{} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
 \university{\href{http://www.uns.edu.ar}{Universidad Nacional del Sur}} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
 \department{\href{http://cs.uns.edu.ar}{Departamento de Ciencias e Ingeniería de la Computación}} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
@@ -150,44 +150,46 @@ headsepline, % Uncomment to get a line under the header
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
 
-%\begin{titlepage}
-%\begin{center}
+\begin{titlepage}
+\begin{center}
 
-%\vspace*{.06\textheight}
-%{\scshape\LARGE \univname\par}\vspace{1.5cm} % University name
-%\textsc{\Large Doctoral Thesis}\\[0.5cm] % Thesis type
+\vspace*{.06\textheight}
+{\scshape\LARGE Tesis de grado\par} % University name	% \vspace{1.5cm}
+\textsc{\Large Licenciatura en Ciencias de la Computación}\\[1.5cm] % Thesis type
 
-%\HRule \\[0.4cm] % Horizontal line
-%{\huge \bfseries \ttitle\par}\vspace{0.4cm} % Thesis title
-%\HRule \\[1.5cm] % Horizontal line
- 
-%\begin{minipage}[t]{0.4\textwidth}
-%\begin{flushleft} \large
-%\emph{Author:}\\
-%\href{http://github.com/rferromoreno}{\authorname} % Author name - remove the \href bracket to remove the link
-%\end{flushleft}
-%\end{minipage}
-%\begin{minipage}[t]{0.4\textwidth}
-%\begin{flushright} \large
-%\emph{Supervisor:} \\
-%\href{http://www.jamessmith.com}{\supname} % Supervisor name - remove the \href bracket to remove the link  
-%\end{flushright}
-%\end{minipage}\\[3cm]
- 
-%\vfill
+\HRule \\[0.4cm] % Horizontal line
+{\huge \bfseries \ttitle\par}\vspace{0.4cm} % Thesis title
+\HRule \\[0.4cm] % Horizontal line
+
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Autor:}\\
+{\authorname} % Author name - remove the \href bracket to remove the link
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright} \large
+\emph{Directores:} \\
+{\supname} % Supervisor name - remove the \href bracket to remove the link  
+\end{flushright}
+\end{minipage}\\[3cm]
+
+\vfill
+
+\includegraphics[scale=0.15]{Logo} % University/department logo - uncomment to place it
 
 %\large \textit{A thesis submitted in fulfillment of the requirements\\ for the degree of \degreename}\\[0.3cm] % University requirement text
 %\textit{in the}\\[0.4cm]
-%\groupname\\\deptname\\[2cm] % Research group name and department name
- 
-%\vfill
+\deptname\\\univname\\[1cm] % Research group name and department name
 
-%{\large \today}\\[4cm] % Date
-%\includegraphics{Logo} % University/department logo - uncomment to place it
+
+\vfill
+
+{\large \the\year}\\[4cm] % Date
  
-%\vfill
-%\end{center}
-%\end{titlepage}
+\vfill
+\end{center}
+\end{titlepage}
 
 %----------------------------------------------------------------------------------------
 %	DECLARATION PAGE
@@ -247,7 +249,7 @@ headsepline, % Uncomment to get a line under the header
 %	LIST OF CONTENTS/FIGURES/TABLES PAGES
 %----------------------------------------------------------------------------------------
 
-%\tableofcontents % Prints the main table of contents
+\tableofcontents % Prints the main table of contents
 
 %\listoffigures % Prints the list of figures
 

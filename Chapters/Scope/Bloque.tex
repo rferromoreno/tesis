@@ -20,6 +20,20 @@ Este tipo de scope se llama "`por bloque"' y existe en otros lenguajes como Java
 
 Lo que realmente está sucediendo en el código anterior es que se está aplicando el concepto de \textit{hoisting} sobre el código. En todo el bloque solamente existe una variable \code{a}. La segunda declaración de la variable es omitida, aunque no su asignación. Y como para crear un "`nuevo scope"' es necesario hacer una declaración de una función, entonces no existirán dos scopes, sino que solamente uno.
 
+\begin{lstlisting}
+{
+  var a;
+	a = "primera";
+  {
+    a = "segunda";
+    console.log(a);
+  }
+  console.log(a);
+}
+\end{lstlisting}
+
+Las llaves \code{\{\}} de las líneas 4 y 7 son sintácticamente válidas, pero no producen nada nuevo adentro del código. Se pueden omitir y el significado del programa será el mismo.
+
 Supongamos este otro ejemplo:
 
 \begin{lstlisting}
@@ -50,22 +64,6 @@ function test(condicion) {
 \end{lstlisting}
 
 La declaración de las funciones se hacen al principio de la función, cuando "`comienza"' el scope. Éste es uno de los puntos claves del lenguaje para entender que, a pesar de la similitud sintáctica con otros lenguajes, la semántica no es la misma. 
-
-Volviendo al primer ejemplo entonces lo que sucede es lo siguiente:
-
-\begin{lstlisting}
-{
-  var a;
-	a = "primera";
-  {
-    a = "segunda";
-    console.log(a);
-  }
-  console.log(a);
-}
-\end{lstlisting}
-
-Las llaves \code{\{\}} de las líneas 4 y 7 son sintácticamente válidas, pero no producen nada nuevo adentro del código. Se pueden omitir y el significado del programa será el mismo.
 
 A veces el scope por bloque es necesario para no contaminar el espacio de nombres. 
 
