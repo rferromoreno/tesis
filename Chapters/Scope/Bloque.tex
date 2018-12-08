@@ -1,4 +1,4 @@
-\section{Scope por Bloque}
+\section{Scope por bloque}
 \label{sec:scopebloque}
 
 Uno de los mayores errores de los programadores que vienen de la rama de Java y C, es creer que Javascript por naturaleza implementa scope por bloques. ?`Qué significa tener scope en bloque? Supongamos el siguiente código
@@ -158,3 +158,15 @@ lista.push(4);
 
 console.log(lista);			// [1, 2, 3, 4]
 \end{lstlisting}
+
+Lo que no se puede hacer con una variable definida como \code{const}, es cambiarle la asignación. Por ejemplo, el siguiente código presentará un \code{TypeError}.
+
+\begin{lstlisting}
+const persona = { nombre: 'Juan' };
+
+persona.edad = 25;                // ok!
+
+persona = { nombre: 'Jorge' };    // TypeError
+\end{lstlisting}
+
+Visto esto, es entendible entonces que la palabra \code{const} no hace inmutable a los objetos, sino que lo que se hace es un chequeo únicamente a la hora de realizar una asignación.

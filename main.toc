@@ -57,39 +57,40 @@
 \contentsline {section}{\numberline {4.5}Operadores de igualdad}{27}{section.290}
 \contentsline {section}{\numberline {4.6}Aprovechando la coerción}{30}{section.342}
 \contentsline {chapter}{\numberline {5}Scope}{32}{chapter.352}
-\contentsline {section}{\numberline {5.1}Scope Léxico}{32}{section.353}
-\contentsline {section}{\numberline {5.2}Scope por Bloque}{32}{section.354}
-\contentsline {subsection}{\numberline {5.2.1}\texttt {let} y \texttt {const} en ES6}{34}{subsection.401}
-\contentsline {subsubsection}{\texttt {let}}{34}{section*.402}
-\contentsline {subsubsection}{\texttt {const}}{35}{section*.426}
-\contentsline {section}{\numberline {5.3}La palabra \texttt {this}}{36}{section.443}
-\contentsline {part}{II\hspace {1em}Paradigmas de programación}{37}{part.444}
-\contentsline {chapter}{\numberline {6}Paradigma funcional}{38}{chapter.445}
-\contentsline {section}{\numberline {6.1}Recursividad}{38}{section.446}
-\contentsline {section}{\numberline {6.2}Funciones puras}{39}{section.461}
-\contentsline {section}{\numberline {6.3}Funciones de primera clase y orden superior}{40}{section.488}
-\contentsline {subsection}{\numberline {6.3.1}Funciones de primera clase}{40}{subsection.489}
-\contentsline {subsection}{\numberline {6.3.2}Funciones de orden superior}{41}{subsection.513}
-\contentsline {section}{\numberline {6.4}Evaluación ansiosa y perezosa}{43}{section.556}
-\contentsline {section}{\numberline {6.5}Semántica de valores}{44}{section.573}
-\contentsline {section}{\numberline {6.6}Conclusiones}{44}{section.592}
-\contentsline {chapter}{\numberline {7}Paradigma orientado a objetos}{46}{chapter.593}
-\contentsline {section}{\numberline {7.1}Clases}{46}{section.594}
-\contentsline {subsection}{\numberline {7.1.1}Factory class pattern}{46}{subsection.595}
-\contentsline {subsection}{\numberline {7.1.2}Functional class pattern}{47}{subsection.612}
-\contentsline {subsection}{\numberline {7.1.3}Prototype class pattern}{48}{subsection.626}
-\contentsline {subsection}{\numberline {7.1.4}\texttt {class} en ES6}{48}{subsection.641}
-\contentsline {section}{\numberline {7.2}Herencia}{49}{section.657}
-\contentsline {subsection}{\numberline {7.2.1}Herencia simple mediante \texttt {prototype}}{49}{subsection.658}
-\contentsline {subsection}{\numberline {7.2.2}\texttt {extends} en ES6}{51}{subsection.689}
-\contentsline {subsection}{\numberline {7.2.3}Herencia múltiple}{52}{subsection.718}
-\contentsline {section}{\numberline {7.3}Encapsulamiento}{53}{section.745}
-\contentsline {section}{\numberline {7.4}Polimorfismo}{54}{section.778}
-\contentsline {section}{\numberline {7.5}Modularidad}{56}{section.815}
-\contentsline {subsection}{\numberline {7.5.1}Módulos mediante patrones}{56}{subsection.816}
-\contentsline {subsection}{\numberline {7.5.2}Sistemas de módulos}{57}{subsection.849}
-\contentsline {subsubsection}{AMD}{57}{section*.850}
-\contentsline {subsubsection}{CommonJS}{58}{section*.891}
-\contentsline {subsection}{\numberline {7.5.3}Módulos en ES6}{59}{subsection.929}
-\contentsline {section}{\numberline {7.6}Conclusiones}{61}{section.975}
-\contentsline {chapter}{Bibliograf\'{\i }a}{63}{chapter*.976}
+\contentsline {section}{\numberline {5.1}Scope léxico}{32}{section.353}
+\contentsline {section}{\numberline {5.2}Scope por funciones}{33}{section.367}
+\contentsline {section}{\numberline {5.3}Scope por bloque}{33}{section.387}
+\contentsline {subsection}{\numberline {5.3.1}\texttt {let} y \texttt {const} en ES6}{35}{subsection.434}
+\contentsline {subsubsection}{\texttt {let}}{35}{section*.435}
+\contentsline {subsubsection}{\texttt {const}}{36}{section*.459}
+\contentsline {section}{\numberline {5.4}La palabra \texttt {this}}{37}{section.482}
+\contentsline {part}{II\hspace {1em}Paradigmas de programación}{38}{part.483}
+\contentsline {chapter}{\numberline {6}Paradigma funcional}{39}{chapter.484}
+\contentsline {section}{\numberline {6.1}Recursividad}{39}{section.485}
+\contentsline {section}{\numberline {6.2}Funciones puras}{40}{section.500}
+\contentsline {section}{\numberline {6.3}Funciones de primera clase y orden superior}{41}{section.527}
+\contentsline {subsection}{\numberline {6.3.1}Funciones de primera clase}{41}{subsection.528}
+\contentsline {subsection}{\numberline {6.3.2}Funciones de orden superior}{42}{subsection.552}
+\contentsline {section}{\numberline {6.4}Evaluación ansiosa y perezosa}{44}{section.595}
+\contentsline {section}{\numberline {6.5}Semántica de valores}{45}{section.612}
+\contentsline {section}{\numberline {6.6}Conclusiones}{45}{section.631}
+\contentsline {chapter}{\numberline {7}Paradigma orientado a objetos}{47}{chapter.632}
+\contentsline {section}{\numberline {7.1}Clases}{47}{section.633}
+\contentsline {subsection}{\numberline {7.1.1}Factory class pattern}{47}{subsection.634}
+\contentsline {subsection}{\numberline {7.1.2}Functional class pattern}{48}{subsection.651}
+\contentsline {subsection}{\numberline {7.1.3}Prototype class pattern}{49}{subsection.665}
+\contentsline {subsection}{\numberline {7.1.4}\texttt {class} en ES6}{49}{subsection.680}
+\contentsline {section}{\numberline {7.2}Herencia}{50}{section.696}
+\contentsline {subsection}{\numberline {7.2.1}Herencia simple mediante \texttt {prototype}}{50}{subsection.697}
+\contentsline {subsection}{\numberline {7.2.2}\texttt {extends} en ES6}{52}{subsection.728}
+\contentsline {subsection}{\numberline {7.2.3}Herencia múltiple}{53}{subsection.757}
+\contentsline {section}{\numberline {7.3}Encapsulamiento}{54}{section.784}
+\contentsline {section}{\numberline {7.4}Polimorfismo}{55}{section.817}
+\contentsline {section}{\numberline {7.5}Modularidad}{57}{section.854}
+\contentsline {subsection}{\numberline {7.5.1}Módulos mediante patrones}{57}{subsection.855}
+\contentsline {subsection}{\numberline {7.5.2}Sistemas de módulos}{58}{subsection.888}
+\contentsline {subsubsection}{AMD}{58}{section*.889}
+\contentsline {subsubsection}{CommonJS}{59}{section*.930}
+\contentsline {subsection}{\numberline {7.5.3}Módulos en ES6}{60}{subsection.968}
+\contentsline {section}{\numberline {7.6}Conclusiones}{62}{section.1014}
+\contentsline {chapter}{Bibliograf\'{\i }a}{64}{chapter*.1015}

@@ -55,39 +55,40 @@
 \BOOKMARK [1][-]{section.290}{Operadores\040de\040igualdad}{chapter.210}% 55
 \BOOKMARK [1][-]{section.342}{Aprovechando la coerción}{chapter.210}% 56
 \BOOKMARK [0][-]{chapter.352}{Scope}{part.187}% 57
-\BOOKMARK [1][-]{section.353}{Scope Léxico}{chapter.352}% 58
-\BOOKMARK [1][-]{section.354}{Scope\040por\040Bloque}{chapter.352}% 59
-\BOOKMARK [2][-]{subsection.401}{let\040y\040const\040en\040ES6}{section.354}% 60
-\BOOKMARK [3][-]{section*.402}{let}{subsection.401}% 61
-\BOOKMARK [3][-]{section*.426}{const}{subsection.401}% 62
-\BOOKMARK [1][-]{section.443}{La\040palabra\040this}{chapter.352}% 63
-\BOOKMARK [-1][]{part.444}{II Paradigmas de programación}{}% 64
-\BOOKMARK [0][-]{chapter.445}{Paradigma\040funcional}{part.444}% 65
-\BOOKMARK [1][-]{section.446}{Recursividad}{chapter.445}% 66
-\BOOKMARK [1][-]{section.461}{Funciones\040puras}{chapter.445}% 67
-\BOOKMARK [1][-]{section.488}{Funciones\040de\040primera\040clase\040y\040orden\040superior}{chapter.445}% 68
-\BOOKMARK [2][-]{subsection.489}{Funciones\040de\040primera\040clase}{section.488}% 69
-\BOOKMARK [2][-]{subsection.513}{Funciones\040de\040orden\040superior}{section.488}% 70
-\BOOKMARK [1][-]{section.556}{Evaluación ansiosa y perezosa}{chapter.445}% 71
-\BOOKMARK [1][-]{section.573}{Semántica de valores}{chapter.445}% 72
-\BOOKMARK [1][-]{section.592}{Conclusiones}{chapter.445}% 73
-\BOOKMARK [0][-]{chapter.593}{Paradigma\040orientado\040a\040objetos}{part.444}% 74
-\BOOKMARK [1][-]{section.594}{Clases}{chapter.593}% 75
-\BOOKMARK [2][-]{subsection.595}{Factory\040class\040pattern}{section.594}% 76
-\BOOKMARK [2][-]{subsection.612}{Functional\040class\040pattern}{section.594}% 77
-\BOOKMARK [2][-]{subsection.626}{Prototype\040class\040pattern}{section.594}% 78
-\BOOKMARK [2][-]{subsection.641}{class\040en\040ES6}{section.594}% 79
-\BOOKMARK [1][-]{section.657}{Herencia}{chapter.593}% 80
-\BOOKMARK [2][-]{subsection.658}{Herencia\040simple\040mediante\040prototype}{section.657}% 81
-\BOOKMARK [2][-]{subsection.689}{extends\040en\040ES6}{section.657}% 82
-\BOOKMARK [2][-]{subsection.718}{Herencia múltiple}{section.657}% 83
-\BOOKMARK [1][-]{section.745}{Encapsulamiento}{chapter.593}% 84
-\BOOKMARK [1][-]{section.778}{Polimorfismo}{chapter.593}% 85
-\BOOKMARK [1][-]{section.815}{Modularidad}{chapter.593}% 86
-\BOOKMARK [2][-]{subsection.816}{Módulos mediante patrones}{section.815}% 87
-\BOOKMARK [2][-]{subsection.849}{Sistemas de módulos}{section.815}% 88
-\BOOKMARK [3][-]{section*.850}{AMD}{subsection.849}% 89
-\BOOKMARK [3][-]{section*.891}{CommonJS}{subsection.849}% 90
-\BOOKMARK [2][-]{subsection.929}{Módulos en ES6}{section.815}% 91
-\BOOKMARK [1][-]{section.975}{Conclusiones}{chapter.593}% 92
-\BOOKMARK [0][-]{chapter*.976}{Bibliografía}{part.444}% 93
+\BOOKMARK [1][-]{section.353}{Scope léxico}{chapter.352}% 58
+\BOOKMARK [1][-]{section.367}{Scope\040por\040funciones}{chapter.352}% 59
+\BOOKMARK [1][-]{section.387}{Scope\040por\040bloque}{chapter.352}% 60
+\BOOKMARK [2][-]{subsection.434}{let\040y\040const\040en\040ES6}{section.387}% 61
+\BOOKMARK [3][-]{section*.435}{let}{subsection.434}% 62
+\BOOKMARK [3][-]{section*.459}{const}{subsection.434}% 63
+\BOOKMARK [1][-]{section.482}{La\040palabra\040this}{chapter.352}% 64
+\BOOKMARK [-1][]{part.483}{II Paradigmas de programación}{}% 65
+\BOOKMARK [0][-]{chapter.484}{Paradigma\040funcional}{part.483}% 66
+\BOOKMARK [1][-]{section.485}{Recursividad}{chapter.484}% 67
+\BOOKMARK [1][-]{section.500}{Funciones\040puras}{chapter.484}% 68
+\BOOKMARK [1][-]{section.527}{Funciones\040de\040primera\040clase\040y\040orden\040superior}{chapter.484}% 69
+\BOOKMARK [2][-]{subsection.528}{Funciones\040de\040primera\040clase}{section.527}% 70
+\BOOKMARK [2][-]{subsection.552}{Funciones\040de\040orden\040superior}{section.527}% 71
+\BOOKMARK [1][-]{section.595}{Evaluación ansiosa y perezosa}{chapter.484}% 72
+\BOOKMARK [1][-]{section.612}{Semántica de valores}{chapter.484}% 73
+\BOOKMARK [1][-]{section.631}{Conclusiones}{chapter.484}% 74
+\BOOKMARK [0][-]{chapter.632}{Paradigma\040orientado\040a\040objetos}{part.483}% 75
+\BOOKMARK [1][-]{section.633}{Clases}{chapter.632}% 76
+\BOOKMARK [2][-]{subsection.634}{Factory\040class\040pattern}{section.633}% 77
+\BOOKMARK [2][-]{subsection.651}{Functional\040class\040pattern}{section.633}% 78
+\BOOKMARK [2][-]{subsection.665}{Prototype\040class\040pattern}{section.633}% 79
+\BOOKMARK [2][-]{subsection.680}{class\040en\040ES6}{section.633}% 80
+\BOOKMARK [1][-]{section.696}{Herencia}{chapter.632}% 81
+\BOOKMARK [2][-]{subsection.697}{Herencia\040simple\040mediante\040prototype}{section.696}% 82
+\BOOKMARK [2][-]{subsection.728}{extends\040en\040ES6}{section.696}% 83
+\BOOKMARK [2][-]{subsection.757}{Herencia múltiple}{section.696}% 84
+\BOOKMARK [1][-]{section.784}{Encapsulamiento}{chapter.632}% 85
+\BOOKMARK [1][-]{section.817}{Polimorfismo}{chapter.632}% 86
+\BOOKMARK [1][-]{section.854}{Modularidad}{chapter.632}% 87
+\BOOKMARK [2][-]{subsection.855}{Módulos mediante patrones}{section.854}% 88
+\BOOKMARK [2][-]{subsection.888}{Sistemas de módulos}{section.854}% 89
+\BOOKMARK [3][-]{section*.889}{AMD}{subsection.888}% 90
+\BOOKMARK [3][-]{section*.930}{CommonJS}{subsection.888}% 91
+\BOOKMARK [2][-]{subsection.968}{Módulos en ES6}{section.854}% 92
+\BOOKMARK [1][-]{section.1014}{Conclusiones}{chapter.632}% 93
+\BOOKMARK [0][-]{chapter*.1015}{Bibliografía}{part.483}% 94

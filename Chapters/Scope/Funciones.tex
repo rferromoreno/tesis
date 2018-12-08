@@ -1,0 +1,36 @@
+\section{Scope por funciones}
+\label{sec:scopefunciones}
+
+La forma de crear un scope local en JavaScript es mediante funciones. Al momento de declarar una función, estamos "`creando"' un nuevo ámbito para la función. Dado el siguiente código:
+
+\begin{lstlisting}
+var a = "primera"
+
+function uno() {
+  var a = "segunda";
+
+  function dos() {
+    var a = "tercera";
+    console.log(a);
+  }
+
+  dos();
+
+  console.log(a);
+}
+
+uno();
+
+console.log(a);
+\end{lstlisting}
+
+Existen tres scopes: 
+\begin{itemize} 
+\item El global, que es donde residen la variable \code{a} (con valor \code{'primera'}) y la función \code{uno}.
+\item El scope dentro de la función \code{uno}, donde residen la variable \code{a} (con valor \code{'segunda'}) y la función \code{dos}.
+\item El scope dentro de la función \code{dos}, donde reside la variable \code{a} (con valor \code{'tercera'}).
+\end{itemize}
+
+Dado que estamos hablando de "`distintas variables"' bajo el identificador \code{a}, el código presentado imprimirá por pantalla "`tercera"', "`segunda"' y "`primera"', en dicho órden.
+
+Asi como la declaración normal de una función sirve para "`generar un nuevo scope"', si la función no es necesaria, se puede hacer uso de un IIFE para omitir "`manchar"' el espacio de nombres.

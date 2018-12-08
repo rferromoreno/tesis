@@ -1,6 +1,25 @@
-\section{Scope Léxico}
+\section{Scope léxico}
 \label{sec:scopelexico}
 
-Existen dos modelos predominantes cuando hablamos de scope: El léxico y el dinámico. Javascript hace uso del modelo de scope léxico, pero ?`qué significa exactamente esto?
+Existen dos modelos predominantes cuando hablamos de scope: El léxico y el dinámico. JavaScript hace uso del modelo de scope léxico, pero ?`qué significa exactamente esto?
 
-El scope léxico, también llamado estático, hace la definición de los nombres durante la declaración, es decir, cuando estamos "`escribiendo código"'.
+El scope léxico, también llamado estático, hace la definición de los nombres durante la declaración, es decir, cuando estamos "`escribiendo código"'. En cambio, en el scope dinámico, los nombres se definen en ejecución dependiendo el contexto de la llamada. Analicemos el siguiente código:
+
+\begin{lstlisting}
+function foo() {
+	console.log(a);
+}
+
+function bar() {
+	var a = 3;
+	foo();
+}
+
+var a = 2;
+
+bar();
+\end{lstlisting}
+
+Como tenemos scope léxico, entonces la línea 2 imprimirá el valor 2, dado que \code{a} hace referencia al contexto léxico donde fue declarado (en este caso, \code{a} hace referencia al definido en la línea 10). 
+
+Si tuvieramos scope dinámico, en cambio, se impriría el valor 3, dado que éste mecanismo resolvería la referencia revisando la pila de llamadas, haciendo referencia al valor de \code{a} asignado en la línea 6.
