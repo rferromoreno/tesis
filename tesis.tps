@@ -17,7 +17,7 @@ Class=LaTeXView
 Document=main.tex
 
 [Frame0_View0,0]
-TopLine=81
+TopLine=79
 Cursor=3433
 
 [Frame1]

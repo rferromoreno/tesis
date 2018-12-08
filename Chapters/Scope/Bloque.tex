@@ -1,0 +1,162 @@
+\section{Scope por Bloque}
+\label{sec:scopebloque}
+
+Uno de los mayores errores de los programadores que vienen de la rama de Java y C, es creer que Javascript por naturaleza implementa scope por bloques. ?`Qué significa tener scope en bloque? Supongamos el siguiente código
+
+\begin{lstlisting}
+{
+  var a = "primera";
+  {
+    var a = "segunda";
+    console.log(a);
+  }
+  console.log(a);
+}
+\end{lstlisting}
+
+Si existiera el scope por bloque en Javascript, entonces el código presentado debería imprimir "`segunda"' en la línea 5, y luego "`primera"' en la línea 7, dado que ésta última pertenece a otro bloque y hacemos referencia a otra variable \code{a}. Sin embargo, si ejecutamos el código, podemos observar que en ambas ocasiones imprimió "`segunda"'.
+
+Este tipo de scope se llama "`por bloque"' y existe en otros lenguajes como Java. Sin embargo, en Javascript no existe este concepto, o al menos no con la palabra \code{var} (más adelante en la sección \ref{subsec:letyconst}, veremos cómo se introdujo en ES6).
+
+Lo que realmente está sucediendo en el código anterior es que se está aplicando el concepto de \textit{hoisting} sobre el código. En todo el bloque solamente existe una variable \code{a}. La segunda declaración de la variable es omitida, aunque no su asignación. Y como para crear un "`nuevo scope"' es necesario hacer una declaración de una función, entonces no existirán dos scopes, sino que solamente uno.
+
+Supongamos este otro ejemplo:
+
+\begin{lstlisting}
+function test(condicion) {
+  if (condicion) {
+    var a = "la condición era verdadera";
+    // ...
+  } else {
+    var b = "la condición era falsa";
+    // ...
+  }
+}
+\end{lstlisting}
+
+En realidad, no sucede que \code{a} solamente será declarada si la condición dada es verdadera (ni tampoco \code{b} si la condición es falsa). Lo que se interpreta realmente con el código, es lo siguiente:
+
+\begin{lstlisting}
+function test(condicion) {
+  var a, b;
+  if (condicion) {
+    a = "la condición era verdadera";
+    // ...
+  } else {
+    b = "la condición era falsa";
+    // ...
+  }
+}
+\end{lstlisting}
+
+La declaración de las funciones se hacen al principio de la función, cuando "`comienza"' el scope. Éste es uno de los puntos claves del lenguaje para entender que, a pesar de la similitud sintáctica con otros lenguajes, la semántica no es la misma. 
+
+Volviendo al primer ejemplo entonces lo que sucede es lo siguiente:
+
+\begin{lstlisting}
+{
+  var a;
+	a = "primera";
+  {
+    a = "segunda";
+    console.log(a);
+  }
+  console.log(a);
+}
+\end{lstlisting}
+
+Las llaves \code{\{\}} de las líneas 4 y 7 son sintácticamente válidas, pero no producen nada nuevo adentro del código. Se pueden omitir y el significado del programa será el mismo.
+
+A veces el scope por bloque es necesario para no contaminar el espacio de nombres. 
+
+\begin{lstlisting}[title={Contaminando el espacio de nombres}]
+for (var i=0; i<10; i++) {
+  console.log(i);
+}
+
+console.log(i);		// 10
+\end{lstlisting}
+
+En el código presentado, podemos decir que la variable \code{i} se mantiene "`viva"' dentro del scope del programa. De hecho, esto además de influir en la polución del espacio de nombres, podríamos decir que también tiene una implicancia con el \textit{garbage collector}, dado que costará identificar qué variables tiene sentido "`limpiar"' y cuáles no.
+
+Hasta estos últimos años, los programadores que requerían hacer uso de scope por bloques se veían forzados a usar técnicas o \textit{hacks} para no caer en estos problemas. Algunas, por ejemplo, eran crear nuevos scopes declarando funciones anónimas o mediante el uso de IIFEs, o incluso hacer uso del \code{with} o del \code{try-catch} para simular un bloque. Por suerte, a continuación, veremos que esto fue "`solucionado"'.
+
+\subsection{\code{let} y \code{const} en ES6}
+\label{subsec:letyconst}
+
+A partir del 2015, una característica incluída en el estandar de ES6 es el uso de las palabras reservadas \code{let} y \code{const}. Con la introducción de éstas, aparece entonces el sentido de scope por bloques dentro del lenguaje.
+
+\subsubsection{\code{let}}
+
+La palabra \code{let} se puede pensar de una manera similar a \code{var}. La diferencia entre éstas dos, es que la sentencia \code{var} declara variables dentro de un contexto de entorno variable, mientras que \code{let} lo hace en un entorno léxico. De ésta forma, alcanzamos lo que queríamos, que era el scope por bloques. Supongamos:
+
+\begin{lstlisting}
+{
+  let a = "primera";
+  {
+    let a = "segunda";
+    console.log(a);
+  }
+  console.log(a);
+}
+\end{lstlisting}
+
+En este caso, sucederá lo que no podíamos hacer en la sección \ref{sec:scopebloque}. El programa mostrará por pantalla "`segunda"', correspondiente a la línea 5, y luego "`primera"', correspondiente a la línea 7.
+
+Hay que tener especial cuidado con la palabra \code{let} por dos motivos. El primero de ellos, es que no existe el concepto de hoisting cuando usamos el \code{let}. La definición de la variable, y la ligadura con el nombre se hace de forma léxica, es decir exactamente en la línea donde fue declarada.
+
+\begin{lstlisting}[title={Hoisting en \code{var} pero no en \code{let}}]
+console.log(a);   // undefined
+
+var a;
+
+console.log(b);   // ReferenceError: b is not defined
+
+let b;
+\end{lstlisting}
+
+En el código presentado, en la línea 1 se imprime por pantalla \code{undefined} porque gracias al hoisting, esa declaración de la variable \code{a} sucede previo al primer \code{console.log}. Sin embargo no sucede lo mismo en la línea 5, dado que el identificador \code{b} aún no existe (será recién descubierto en la línea 7), entonces el programa lanza un \code{ReferenceError}.
+
+Con lo otro que hay que tener cuidado, dado que ésta ligadura se hace de forma léxica, es que en los ciclos de repetición se hará tantas veces como se ejecute el ciclo. Por ejemplo:
+
+\begin{lstlisting}
+for (let i=0; i<10; i++) {
+	console.log(i);
+}
+
+console.log(i); // ReferenceError
+\end{lstlisting}
+
+La ligadura de la variable \code{i} no solo se hace al comienzo del ciclo \code{for}, sino que además se hará en cada iteración.
+
+\subsubsection{\code{const}}
+
+Análogo a la palabra \code{let}, la palabra \code{const} también se usa para definir una variable en el código. La diferencia es que ésta se ligará a un valor constante, y cualquier intento de cambiar el valor de la misma resultará en un error.
+
+\begin{lstlisting}[title={Intentando cambiar el valor a una constante}]
+const pi = 3.14;
+
+pi = 3.1416;
+\end{lstlisting}
+
+El código recién presentado resultará en un \code{TypeError} en la línea 3, bajo la explicación de "`Assignment to constant variable.​​"' dado que se está haciendo una asignación a una constante. Sin embargo, hay que tener especial cuidado con ésta palabra, ya que solo funciona con tipos primitivos.
+
+Para el caso de los objetos, el siguiente código no presentará ningún error:
+
+\begin{lstlisting}[title={\code{const} sobre objetos}]
+const persona = { nombre: 'Juan' };
+
+persona.edad = 25;
+
+console.log(persona);		// ​​​​​{ nombre: 'Juan', edad: 25 }​​​​​
+\end{lstlisting}
+
+Para el caso de los arreglos, dado que son objetos, sucederá lo mismo:
+
+\begin{lstlisting}[title={\code{const} sobre arreglos}]
+const lista = [1, 2, 3];
+
+lista.push(4);
+
+console.log(lista);			// [1, 2, 3, 4]
+\end{lstlisting}

@@ -108,5 +108,86 @@
     }
     \field{year}{2016}
   \endentry
+
+  \entry{Simpson:2014:YDK:2}{book}{}
+    \name{author}{1}{}{%
+      {{hash=SK}{%
+         family={Simpson},
+         familyi={S\bibinitperiod},
+         given={Kyle},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {O'Reilly Media, Inc.}%
+    }
+    \strng{namehash}{SK1}
+    \strng{fullhash}{SK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2014}
+    \field{extradate}{1}
+    \field{labeldatesource}{year}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{edition}{1st}
+    \field{isbn}{1449335586, 9781449335588}
+    \field{title}{You Don'T Know JS: Scope \& Closures}
+    \field{year}{2014}
+  \endentry
+
+  \entry{Simpson:2014:YDK:1}{book}{}
+    \name{author}{1}{}{%
+      {{hash=SK}{%
+         family={Simpson},
+         familyi={S\bibinitperiod},
+         given={Kyle},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {O'Reilly Media, Inc.}%
+    }
+    \strng{namehash}{SK1}
+    \strng{fullhash}{SK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2014}
+    \field{extradate}{2}
+    \field{labeldatesource}{year}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{edition}{1st}
+    \field{isbn}{1491904151, 9781491904152}
+    \field{title}{You Don'T Know JS: This \& Object Prototypes}
+    \field{year}{2014}
+  \endentry
+
+  \entry{Simpson:2014:YDK:3}{book}{}
+    \name{author}{1}{}{%
+      {{hash=SK}{%
+         family={Simpson},
+         familyi={S\bibinitperiod},
+         given={Kyle},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {O'Reilly Media, Inc.}%
+    }
+    \strng{namehash}{SK1}
+    \strng{fullhash}{SK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2014}
+    \field{extradate}{3}
+    \field{labeldatesource}{year}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{edition}{1st}
+    \field{isbn}{1491904194, 9781491904190}
+    \field{title}{You Don'T Know JS: Types \& Grammar}
+    \field{year}{2014}
+  \endentry
 \enddatalist
 \endinput
