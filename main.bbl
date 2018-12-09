@@ -42,6 +42,31 @@
     \field{year}{2008}
   \endentry
 
+  \entry{EcmaScript:15}{book}{}
+    \name{author}{1}{}{%
+      {{hash=E}{%
+         family={{Ecma International}},
+         familyi={E\bibinitperiod},
+      }}%
+    }
+    \keyw{JavaScript spec specification}
+    \strng{namehash}{E1}
+    \strng{fullhash}{E1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2015}
+    \field{labeldatesource}{year}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \field{edition}{6th}
+    \field{title}{{ECMAScript 2015 Language Specification}}
+    \verb{url}
+    \verb http://www.ecma-international.org/ecma-262/6.0/ECMA-262.pdf
+    \endverb
+    \field{year}{2015}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
   \entry{Rauschmayer:2014:SJ:2614440}{book}{}
     \name{author}{1}{}{%
       {{hash=RA}{%
@@ -65,6 +90,9 @@
     \field{edition}{1st}
     \field{isbn}{1449365035, 9781449365035}
     \field{title}{Speaking JavaScript}
+    \verb{url}
+    \verb http://speakingjs.com/
+    \endverb
     \field{year}{2014}
   \endentry
 
@@ -132,7 +160,11 @@
     \field{sortinithash}{S}
     \field{edition}{1st}
     \field{isbn}{1449335586, 9781449335588}
-    \field{title}{You Don'T Know JS: Scope \& Closures}
+    \field{title}{You Don't Know JS: Scope \& Closures}
+    \verb{url}
+    \verb https://github.com/getify/You-Dont-Know-JS/tree/master/scope%20%26%20
+    \verb closures
+    \endverb
     \field{year}{2014}
   \endentry
 
@@ -159,7 +191,11 @@
     \field{sortinithash}{S}
     \field{edition}{1st}
     \field{isbn}{1491904151, 9781491904152}
-    \field{title}{You Don'T Know JS: This \& Object Prototypes}
+    \field{title}{You Don't Know JS: This \& Object Prototypes}
+    \verb{url}
+    \verb https://github.com/getify/You-Dont-Know-JS/tree/master/this%20%26%20o
+    \verb bject%20prototypes
+    \endverb
     \field{year}{2014}
   \endentry
 
@@ -186,7 +222,11 @@
     \field{sortinithash}{S}
     \field{edition}{1st}
     \field{isbn}{1491904194, 9781491904190}
-    \field{title}{You Don'T Know JS: Types \& Grammar}
+    \field{title}{You Don't Know JS: Types \& Grammar}
+    \verb{url}
+    \verb https://github.com/getify/You-Dont-Know-JS/tree/master/types%20%26%20
+    \verb grammar
+    \endverb
     \field{year}{2014}
   \endentry
 \enddatalist

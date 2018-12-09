@@ -1,6 +1,226 @@
 \section{La palabra \code{this}}
 \label{sec:scopethis}
 
-Si bien la palabra \code{this} no refiere directamente al scope, sino más bien a una cuestión de contexto, es necesario hacer un párrafo aparte sobre la misma, dado que el \code{this} puede cambiar de significado dentro del scope de una función.
+Si bien la palabra \code{this} no refiere directamente al scope, sino más bien a una cuestión de contexto, es necesario hacer un párrafo aparte sobre la misma, dado que el \code{this} puede "`cambiar de significado"'. Podríamos decir que el \code{this} forma parte de ese "`scope dinámico"' del que se habló en la sección \ref{sec:scopelexico}. La ligadura se hace en tiempo de ejecución y es dependiente del contexto de cómo se invoca a la función que lo contenga.
 
+Lo primero a mencionar, es que la definición de \code{this} no será la misma si estamos hablando dentro de una función, o de una función dentro de un objeto. Este dato es parcialmente verdadero, y será abordado en ésta sección. Dado el siguiente código:
 
+\begin{lstlisting}[title={Analizando \code{this}}]
+function foo() {
+  console.log(this);
+}
+
+var obj = {
+  a: 42,
+  foo: function () {
+    console.log(this);
+  }
+}
+
+foo();
+obj.foo();
+\end{lstlisting}
+
+El método \code{foo} llamado en la línea 12 mostrará un resultado, mientras que el método \code{foo} de la línea 13 mostrará otro. ?`Qué muestra cada uno? El de la línea 12 mostrará lo que corresponda al objeto del contexto global. Si estamos en Node, nos mostrará lo que represente la variable \code{global}, y si estamos desde la consola del browser, nos mostrará lo que contenta la variable \code{window}. Sin embargo, la llamada \code{obj.foo()} mostrará los contenidos del objeto \code{obj} (en este caso, \code{​​​​​\{ a: 42, foo: [Function] \}}). En éste último caso, es natural entonces pensar que \code{this} estaba ligado a \code{obj}.
+
+?`Por qué sucede esto? Existen cuatro tipos de ligaduras frente al \code{this}, dependiendo en \textit{dónde} y \textit{cómo} se hizo la llamada a la función.
+
+\subsection{Ligadura por defecto}
+
+Este tipo de ligadura sucede cuando se hace una llamada a una función de una forma normal y plana. Analicemos el siguiente ejemplo:
+
+\begin{lstlisting}[title={Ligadura por defecto}]
+function foo() {
+	console.log(this.a);
+}
+
+var a = 2;
+
+foo();  // 2
+\end{lstlisting}
+
+Como se puede observar en el código, la variable \code{a} forma parte del objeto global, que es donde apunta \code{this} al momento de hacer el \code{console.log} de la línea 2.
+
+Algo a tener en cuenta es que el contexto de la llamada puede cambiar, por lo que es extremadamente fácil perder la referencia al contexto y caer en errores de este estilo. Supongamos:
+
+\begin{lstlisting}
+var a = "global";
+
+function foo(callback) {
+  this.a = 42;
+  callback();
+}
+
+foo(function() {
+  console.log(this.a);	// 42
+})
+
+console.log(a);					// global
+\end{lstlisting}
+
+\subsection{Ligadura implícita}
+
+Otra forma de ligadura es la implícita, que es cuando la función forma parte del contexto de un objeto. Dado el código:
+
+\begin{lstlisting}[title={Ligadura implícita}]
+function foo() {
+	console.log(this.a);
+}
+
+var obj = {
+	a: 2,
+	foo: foo
+};
+
+obj.foo(); // 2
+\end{lstlisting}
+
+Observemos cómo la función \code{foo} fue definida por fuera del objeto \code{obj} pero aún así es referenciada mediante una propiedad del mismo.
+
+Al momento de ser llamada la función foo, se hace mediante \code{obj.foo()}. Entonces, para este caso, \code{this} está ligado a \code{obj}. Cuando hacemos una llamada de éste estilo, estamos diciendo implícitamente esto, que \code{this} refiere a la entidad llamadora.
+
+Si la llamada es "`en cadena"', lo que importa es el último objeto al que hicimos referencia en esa llamada en cadena, previo a la llamada al método. Por ejemplo:
+
+\begin{lstlisting}
+function foo() {
+	console.log(this.a);
+}
+
+var obj2 = {
+	a: 42,
+	foo: foo
+};
+
+var obj1 = {
+	a: 2,
+	obj2: obj2
+};
+
+obj1.obj2.foo(); // 42
+\end{lstlisting}
+
+El detalle del código anterior es que la ligadura del \code{this} pasó de ser \code{obj1} a ser \code{obj2} cuando se produjo la llamada en cadena.
+
+Hay que tener especial cuidado con la ligadura implícita, dado que en algunos casos puede no funcionar como uno espera.
+
+\begin{lstlisting}
+function foo() {
+	console.log( this.a );
+}
+
+var obj = {
+	a: 2,
+	foo: foo
+};
+
+var bar = obj.foo; // alias
+
+var a = "global";
+
+bar(); // "global"
+\end{lstlisting}
+
+En el código anterior, se quiso "`crear"' \code{bar} un alias de \code{obj.foo}, pero al momento de hacer la llamada (en la línea 14), se produjo la ligadura por defecto, en donde \code{this} hizo referencia al objeto global, entonces se mostró \code{this.a} con valor \code{'global'} en pantalla. Lo que sucedió realmente, es que en el fondo la referencia de \code{bar} es directamente a \code{foo}, dado que tanto \code{foo}, \code{obj.foo} y \code{bar} están haciendo referencia a la misma función.
+
+\subsection{Ligadura explícita}
+
+En JavaScript existen tres métodos de la clase \code{Function} que nos pueden servir de ayuda a "`forzar"' cambiar el contexto: \code{call}, \code{apply} y \code{bind}.
+
+\begin{itemize}
+\item \code{call} y \code{apply} reciben como primer parámetro el contexto a ser aplicado en la función (lo que será "`ligado"' a \code{this}). La diferencia entre estos dos métodos es que \code{call} es n-ario, es decir el resto de los argumentos que reciba la función serán utilizados como parámetros para aplicar, mientras que \code{apply} recibe como segundo parámetro un arreglo de argumentos para ser aplicado a la función.
+\item \code{bind} se comporta de manera similar a \code{call}: Recibe como primer parámetro el contexto para ser ligado a \code{this} y luego los parámetros para pasarle a la función. La diferencia es que \code{bind} no necesariamente hace la llamada a la función, sino que retorna una nueva función con el contexto ligado.
+\end{itemize}
+
+Ejemplificando:
+
+\begin{lstlisting}[title={\code{call}, \code{apply} y \code{bind} en acción}]
+var persona1 = { nombre: 'Juan' };
+var persona2 = { nombre: 'Luciano' };
+var persona3 = { nombre: 'Federico' };
+
+function mostrar(dia, mes) {
+  console.log(this.nombre, " nacido el ", dia, "/", mes);
+}
+
+mostrar.call(persona1, 4, 'Abril');
+// Juan nacido el 4/Abril
+mostrar.apply(persona2, [5, 'Noviembre']);
+// Luciano nacido el 5/Noviembre
+
+var mostrarAFede = mostrar.bind(persona3, 27, 'Diciembre');
+
+mostrarAFede();
+// Federico nacido el 27/Diciembre
+\end{lstlisting}
+
+Más allá de las diferencias del segundo parámetro, es importante notar cómo el primer parámetro nos sirve para cambiar el contexto. En el ejemplo dado, veamos que \code{this.nombre} fue cambiando su significado dado que también fuimos pasando "`otro contexto"' (que son los objetos \code{persona1}, \code{persona2} y \code{persona3}).
+
+Volviendo a los ejemplos presentados, entonces una llamada mediante \code{call} o \code{apply} hará la ligadura explícita.
+
+\begin{lstlisting}[title={Ligadura explícita}]
+function foo() {
+	console.log(this.a);
+}
+
+var obj = {
+	a: 2
+};
+
+foo.call(obj); 	// 2
+foo.apply(obj);	// 2
+\end{lstlisting}
+
+Hay que tener especial cuidado a la hora de usar \code{bind}, dado que la función que retorna éste método hará una ligadura permanente del \code{this} sobre la función resultante. Este concepto se lo conoce como \textit{hard binding}.
+
+\begin{lstlisting}[title={\textit{Hard binding} usando \code{bind}}]
+function foo() {
+  console.log(this.a);
+}
+
+var obj1 = { a: 1 };
+var obj2 = { a: 2 };
+
+var bar = foo.bind(obj2);
+
+foo.call(obj1);		// 1
+bar();						// 2
+bar.call(obj1);		// 2
+bar.apply(obj1);	// 2
+\end{lstlisting}
+
+\subsection{Ligadura mediante \code{new}}
+
+La otra forma de alterar el significado del \code{this} es mediante el uso del operador \code{new}. La palabra \code{new} se usa de una forma similar a la de Java. La diferencia es que en JavaScript no existe el mismo concepto de \textit{clase} que en Java (sobre esto se hablará más en la sección \ref{clases}).
+
+Al hacer uso del operador \code{new}, sucede lo siguiente:
+
+\begin{enumerate}
+\item Un nuevo objeto es creado ("`construido"').
+\item Se realiza una vinculación a su prototipo.
+\item El objeto contruido es ligado a la palabra \code{this} para dicha llamada.
+\item El objeto es retornado, a menos que exista un \code{return} explícito en la función contructora.
+\end{enumerate}
+
+Dicho esto, entonces el uso del operador \code{new} para crear nuevas instancias hace que cambie el significado del \code{this} en cada objeto al que es asignado. Ésta entonces, es la otra forma de "`cambiar el significado del \code{this}"'.
+
+\begin{lstlisting}[title={Ligadura mediante \code{new}}]
+function foo(a) {
+	this.a = a;
+}
+
+var bar = new foo(2);
+console.log(bar.a); // 2
+\end{lstlisting}
+
+A simple vista no parece de mucha utilidad el uso del \code{this} cuando se usa \code{new}, sin embargo es un concepto de gran utilidad a la hora de usar el prototipo y las clases en JavaScript (ver secciones \ref{sec:prototype} y \ref{clases}).
+
+\subsection{Precedencia en las ligaduras}
+
+Para cerrar ésta parte del capítulo, es necesaria la aclaración que los cuatro tipo de ligaduras presentadas tienen un orden de precedencia. Es importante para el programador conocer éste mismo para no caer en la problemática de que el \code{this} no esté ligado a algo inesperado.
+
+\begin{enumerate}
+\item Si se utilizó el operador \code{new}, se usará al nuevo objeto construido.
+\item Si se utilizó \code{call} o \code{apply} (o \code{bind}, con excepciones), se utilizará el objeto especificado.
+\item Si se hizo una llamada en cadena y dicha sentencia tiene un objeto llamador, se utilizará el objeto.
+\item Sino, se utilizará el contexto global.
+\end{enumerate}

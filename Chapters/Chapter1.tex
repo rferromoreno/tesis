@@ -293,9 +293,9 @@ suma(2,3); // devuelve 5
 
 Se les llama funciones anónimas simplemente a aquellas funciones que no tienen nombre. Notar el detalle que cuando se habló de función como expresión, el lado derecho de la asignación era una función anónima.
 
-Por otro lado, a partir de ES6 se introdujo el concepto de \code{arrow function} (o \code{fat arrow}, el cual está actualmente en varios lenguajes. Para el caso de JS, establece una forma más simple y concisa para escribir funciones anónimas, bajo el detalle de que además la palabra \code{this} dentro de la función no cambia ni está ligada a un nuevo contexto, sino que sigue está ligada léxicamente al contexto donde fue invocada. Esto último no sucede con las funciones como expresión comunes, ya que en éstas se crea un scope nuevo.
+Por otro lado, a partir de ES6 se introdujo el concepto de \textit{arrow function} (o \textit{fat arrow}, el cual está actualmente en varios lenguajes. Para el caso de JS, establece una forma más simple y concisa para escribir funciones anónimas, bajo el detalle de que además la palabra \code{this} dentro de la función no cambia ni está ligada a un nuevo contexto, sino que sigue está ligada léxicamente al contexto donde fue invocada. Esto último no sucede con las funciones como expresión comunes, ya que en éstas se crea un scope nuevo.
 
-\begin{lstlisting}[title={\code{Arrow function}}]
+\begin{lstlisting}[title={\textit{Arrow function}}]
 var mostrar = (texto) => console.log(texto);
 
 mostrar('hola!'); // hola!
