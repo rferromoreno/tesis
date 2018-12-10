@@ -1,0 +1,155 @@
+\section{Tipos primitivos}
+
+Tal como se mencionó en el Capítulo \ref{ch:introduccionjs}, existen solamente 7 tipos primitivos del lenguaje. Una variable está asociada a un valor, y dicho valor puede ser de alguno de los siguientes tipos:
+
+\begin{itemize}
+\item \code{undefined}
+\item \code{null}
+\item \code{number}
+\item \code{string}
+\item \code{boolean}
+\item \code{symbol}
+\item \code{object}
+\end{itemize}
+
+Algunos autores consideran que \code{Object} no es un tipo primitivo. De hecho, en la sección \ref{sec:toprimitive} (y a lo largo del capítulo \ref{ch:coercion}) mostraremos que la especificación hace una distinción especial para éste tipo a la hora de hacer conversiones de tipo, por lo que pensar que \code{Object} no es un tipo primitivo da lugar a debate. 
+
+También existe un concepto errado de que "`en JavaScript todo es un objeto"'. Considerando que en JavaScript las funciones y los arreglos son objetos, la frase es en parte cierta. Pero el concepto es equivocado porque además de objetos existen los otros tipos primitivos, de los cuales haremos mención en esta sección.
+
+En las siguientes subsecciones haremos introducción (y algunas críticas) a algunos de los tipos. No son tenidos en cuenta \code{boolean}, dado que no hay mucho que analizar, y tampoco \code{symbol}, el cual no formará parte de éste documento.
+
+\subsection{\code{null} y \code{undefined}}
+
+Estos dos tipos representan el valor "`vacío"', y puede resultar confuso, porque tener dos identificadores para \textit{casi} lo mismo parece, desde el primer momento, redundante. El valor de \code{undefined} se suele utilizar como valor para variables que aún no fueron declaradas, mientras que el valor de \code{null} se supone que cuando queremos forzar a que una variable tenga valor nulo.
+
+\begin{lstlisting}[title={\code{null} y \code{undefined}}]
+var a;
+var b = null;
+
+console.log(a);	// undefined
+console.log(b);	// null
+\end{lstlisting}
+
+El problema de \code{undefined} es que no existe un mecanismo para restringir el uso de este tipo. De hecho, podemos asignarle \code{undefined} como valor a una variable, y en ese sentido no podemos saber si fue porque se le asignó el valor o porque nunca obtuvo uno.
+
+\begin{lstlisting}
+var a;
+var b = null;
+b = undefined;
+
+console.log(a);	// undefined
+console.log(b);	// undefined
+\end{lstlisting}
+
+Aquí es donde entra el juego entre un valor "`no definido"' y un valor "`no declarado"'. Lo lógico, es pensar que \code{undefined} se utiliza para una variable que sí fue declarada, pero que su valor aún no fue definido. Mientras que una variable "`no declarada"' representaría a una variable que en ningún momento se la declaró mediante ningún mecanismo (ni \code{var}, ni \code{let}, ni \code{const}).
+
+El problema es que el intérprete tampoco es muy concreto a la hora de describir los errores, ya que si la variable no fue declarada, !`nos dirá que la misma no fue definida!
+
+\begin{lstlisting}
+var a;
+
+a; // undefined
+b; // ReferenceError: b is not defined
+\end{lstlisting}
+
+Por el lado de \code{null} no hay mucho que aclarar. En el capítulo \ref{ch:coercion} observaremos cómo \code{null} es un valor de falsedad, pero al compararlo con \code{false}, dicha comparación da un resultado negativo.
+
+\subsection{\code{string}}
+
+El tipo \code{string} es el utilizado para representar una cadena de caracteres o texto. En otros lenguajes, generalmente un \code{string} es tratado como una lista, una secuencia o un array de caracteres (porque de hecho, en algunos lenguajes lo es). Sin embargo, en JavaScript no existe el concepto de \code{char}. Solamente el de \code{string}. Si se desea, en JavaScript se puede tratar a un \code{string} como si fuera un \code{array}, pero no lo es. Solamente poseen varios "`métodos en común"'.
+
+\begin{lstlisting}[title={Similitudes entre \code{string} y un \code{array}}]
+var a = 'hola';                 // string
+var b = ['h', 'o', 'l', 'a'];   // array
+
+console.log(a.length);          // 4
+console.log(b.length);          // 4
+
+console.log(a.indexOf('o'))     // 1
+console.log(b.indexOf('o'))     // 1
+
+console.log(a.concat('mundo'))  
+// holamundo
+console.log(b.concat(['m','u','n','d','o']))
+// ​​​​​[ 'h', 'o', 'l', 'a', 'm', 'u', 'n', 'd', 'o' ]​​​​​
+\end{lstlisting}
+
+A pesar de que existe cierta similitud entre estos dos tipos, es un error pensar a \code{string} como una simple cadena de caracteres. Observemos:
+
+\begin{lstlisting}
+var a = 'hola';                 // string
+var b = ['h', 'o', 'l', 'a'];   // array
+
+a[0] = 'H';
+b[0] = 'H';
+
+console.log(a);		// hola
+console.log(b);		// ​​​​​[ 'H', 'o', 'l', 'a' ]​​​​​
+\end{lstlisting}
+
+El valor de la primera letra de la variable \code{a} no se vio modificada. Esto sucede porque en JavaScript el tipo \code{string} es inmutable. Las operaciones que vienen con la clase \code{String} devuelven un nuevo valor, sin mutar ni cambiar el valor con el cual operamos.
+
+Por otro lado, existen algunos métodos que existen para la clase \code{Array} pero no para \code{String}. Serían deseables métodos como \code{join}, \code{map} o \code{reverse}. Por suerte existen formas de tomar esos métodos "`prestados"': haciendo conversión hacia \code{array} y volviendo a \code{string} (poco óptimo) o forzando las llamadas mediante el uso del método \code{call}, del cual se hablará con precisión en la sección \ref{subsec:ligaduraexplicita}.
+
+Lo cierto, es que el tipo \code{string} no es un arreglo de caracteres, y en cierto punto el programador tendrá que evaluar si resultará una mejor solución a su problema utilizar este tipo, o un \code{array} de \code{string}, en caso de que tenga datos que deba ir "`mutando"'.
+
+\subsection{\code{number}}
+
+El otro tipo a destacar en el lenguaje es \code{number}. En JavaScript no existe una distinción entre \code{integer} y \code{float}, \code{real} o \code{double}. Solamente existe el concepto de \code{number} y éste es compartido, independientemente si se trata de un número entero o real.
+
+Existe una famosa crítica al lenguaje que se suele ver en Internet, que es la siguiente:
+
+\begin{lstlisting}
+0.1 + 0.2 === 0.3			// false
+\end{lstlisting}
+
+Sin embargo, criticar a JavaScript por dicha expresión es una equivocación enorme. De hecho, este problema también lo poseen lenguajes como C, C++, Java, Python, PHP, entre otros (ver \href{https://0.30000000000000004.com/}{0.30000000000000004.com}). 
+
+En todo caso, se puede criticar al sistema de tipos (por utilizar únicamente \code{number} y no tener un manejo natural para los decimales "`grandes"'). Pero lo que realmente sucede bajo esa expresión, es que el tipo \code{number} en JavaScript implementa la norma IEEE 754 de punto flotante, por lo que algunas veces habrá cierta pérdida de precisión en algunas operaciones matemáticas para determinados valores. 
+
+Por otro motivo que se suele cuestionar a JavaScript es por los valores numéricos especiales: \code{+0}, \code{-0}, \code{Infinity}, \code{-Infinity} y \code{NaN}. Pero de nuevo, estamos en lo mismo: Todos estos valores están ahí porque forman parte de la implementación de IEEE 754.
+
+De lo que sí hay que hacer mención es de la parte sintáctica de los números. Existen diversas formas de escribir números (y algunos de ellos representan lo mismo). A continuación se presentan algunos ejemplos. Todos de ellos son formas válidas.
+
+\begin{lstlisting}
+// ejemplo 1
+42
+42.0
+42.
+
+// ejemplo 2
+42.3
+42.300
+
+// ejemplo 3
+0.5
+.5
+\end{lstlisting}
+
+La parte "`desagradable"' para algunos puede ser la de la línea 4 y la línea 12, donde se usa el punto al principio o al final del literal. 
+
+Un punto fuerte es que se pueden usar literales en notación científica o en otras bases, como hexadecimal, octal o binario. Éste último concepto fue introducido en versiones previas pero mejorado en ES6.
+
+\begin{lstlisting}
+// Notación científica
+1E3			// 1 * 10^3
+1.1E6		// 1.1 * 10^6
+2e-5		// 2 * 10^-5
+
+// Hexadecimal
+0xf3; // 243
+0Xf3; // 243
+
+// Octal
+0o363;		// 243
+0O363;		// 243
+
+// Binario
+0b11110011;	// 243
+0B11110011; // 243
+\end{lstlisting}
+
+\subsection{\code{object}}
+
+\textbf{COMPLETAR}
+

@@ -1,0 +1,48 @@
+
+\subsection{Palabras reservadas}
+
+Las palabras reservadas del lenguaje se dividen en cuatro conjuntos:
+
+\begin{itemize}
+\item Palabras claves (\textit{keywords})
+\item Palabras reservadas a futuro
+\item Literal nulo (\code{null})
+\item Literales booleanos (\code{true} y \code{false})
+\end{itemize}
+
+Las siguientes son palabras claves, a excepción de \code{null}, \code{true} y \code{false}, que son literales.
+
+\begin{table}[!h]
+\caption{Lista de palabras claves del lenguaje.}
+\label{tab:reservedkeywords}
+\centering
+\begin{tabular}{l l l l}
+\toprule
+break & do & import & throw\\
+case & else & in & true\\
+catch & export & instanceof & try\\
+class & extends & new & typeof\\
+const & false & null & var\\
+continue & finally & return & void\\
+debugger & for & super & while\\
+default & function & switch & with\\
+delete & if & this & yield\\
+\bottomrule\\
+\end{tabular}
+\end{table}
+
+Por otro lado, existe un conjunto de palabras reservadas a futuro. En un principio son solamente dos: \code{await} y \code{enum}. Pero si se especifica la directiva de \textit{strict mode}, aparecen otras más: \code{implements}, \code{interface}, \code{package}, \code{private}, \code{protected} y \code{public}.
+
+En resumen, las palabras reservadas a futuro (en modo estricto) son:
+
+\begin{table}[!h]
+\caption{Lista de palabras reservadas a futuro.}
+\label{tab:futurereservedkeywords}
+\centering
+\begin{tabular}{l l l l}
+\toprule
+await & implements & package & protected\\
+enum & interface & private & public\\
+\bottomrule\\
+\end{tabular}
+\end{table}

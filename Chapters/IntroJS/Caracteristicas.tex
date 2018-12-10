@@ -1,0 +1,51 @@
+\section{Características del lenguaje}
+
+JavaScript es un lenguaje de alto nivel, interpretado y multiparadigma. Es dinámica y débilmente tipado. 
+
+Posee herencia basada en prototipos. Este tipo de herencia es muy particular, y muy pocos lenguajes lo tienen. 
+
+Se dice que es multiparadigma porque soporta los paradigmas imperativo, funcional, orientado a objetos (prototipado) y dirigido por eventos.
+
+En el ecosistema de la Web, JavaScript es uno de los lenguajes más populares. Todos los navegadores en la actualidad tienen un intérprete del lenguaje.
+
+Si bien tiene bastantes partes criticables, JavaScript tiene la fama de ser un lenguaje "`\textit{liviano}"' y "`\textit{expresivo}"'.
+
+\subsection{Influencias}
+
+JavaScript tiene fuertes influencias de varios lenguajes. Sus características más sobresalientes surgen de los siguientes lenguajes: 
+
+\keyword{Java y C} -- No solo tiene la influencia sobre el nombre, sino que además tiene influencia sobre la sintaxis del lenguaje. Tanto Java como JavaScript sintácticamente emergen del lenguaje C. Sin embargo, Java y JavaScript tienen semánticas y propósitos diferentes.
+
+\keyword{Perl y Python} -- Tanto Perl como Python han influido en el manejo de strings, arreglos y expresiones regulares en JavaScript.
+
+\keyword{Scheme} -- De la familia del paradigma funcional. Adopta las funciones de primera clase y \textit{closures}, los cuales se tratarán más adelante.
+
+\keyword{Self} -- Un lenguaje desarrollado por Sun Microsystems. Es de los pocos lenguajes que tienen herencia prototipada. Además de ésta característica, también se adopta la inusual notación de objetos.
+
+\subsection{Intérpretes}
+
+Ya se ha mencionado que JavaScript es un lenguaje interpretado. Sin embargo es necesario mencionar algunos "`motores"' que se encargan de interpretar el código en JavaScript.
+
+Actualmente la gran mayoría de los navegadores (web browsers) viene con un intérprete de JS incorporado. A continuación se mencionan algunos de los más populares:
+
+\begin{itemize}
+\item \keyword{Rhino} -- Gestionado por la fundación Mozilla, es de código abierto y está desarrollado completamente en Java.
+\item \keyword{SpiderMonkey} -- También desarrollado por Mozilla para el navegador Firefox. Escrito en C++. Es utilizado en proyectos como MongoDB y GNOME.
+\item \keyword{Chakra} -- Desarrollado por Microsoft, primero para Internet Explorer, y luego para Microsoft Edge.
+\item \keyword{V8} -- El motor por defecto para Google Chrome, y también utilizado Node.JS, Opera y otros proyectos populares. Escrito en C++, maneja alocación en memoria y posee garbage collector.
+\item \keyword{JavaScriptCore} -- Es utilizado por navegadores como Safari o PhantomJS. También es conocido como SquirrelFish o Nitro, bajo proyectos similares con otro nombre por cuestiones de mercado.
+\end{itemize}
+
+El objetivo de esta sección no es entrar en detalle ni hacer un análisis comparativo de los intérpretes. Basta con hacer una pequeña búsqueda para notar que varios de éstos intérpretes poseen garbage collection, compilación JIT (just in time), y estrategias para la optimización del código.
+
+A lo largo de este documento se mostrarán ejemplos de código, cuya interpretación se realizará utilizando Node.JS (V8), y la consola de los navegadores Google Chrome (V8) y Mozilla Firefox (SpiderMonkey).
+
+En caso de que el lector quiera ejecutar el código JavaScript, se deja a disposición los enlaces de descarga de las herramientas mencionadas:
+
+\begin{itemize}
+\item Node.JS -- \href{https://nodejs.org/es/}{nodejs.org}
+\item Google Chrome -- \href{https://google.com/chrome}{google.com/chrome}
+\item Mozilla Firefox -- \href{https://www.mozilla.org/firefox}{mozilla.org/firefox}
+\end{itemize}
+
+Para abrir el intérprete desde Node.JS, basta con escribir \code{node} en la línea de comandos. Mientras que para el caso de los navegadores, hace falta apretar la tecla F12 para abrir la consola.

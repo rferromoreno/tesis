@@ -1,0 +1,60 @@
+
+\subsection{Hoisting}
+\label{sec:hoisting}
+
+Del inglés "`levantamiento"', el término de hoisting es muy acuñado y asociado a JavaScript. Consiste en mover hacia el comienzo del scope las declaraciones. En términos de compiladores, se puede pensar como una primera pasada del compilador para guardar los identificadores utilizados en el scope. De hecho, lo que sucede es que durante la fase de compilación se reservan en memoria espacio para los nombres declarados.
+
+Gracias a ésta característica, se puede escribir invocar a una función cuyo código está más adelante.
+
+\begin{lstlisting}
+foo()
+function foo() {
+  console.log("bar");
+}
+\end{lstlisting}
+
+En realidad lo que sucede es que el motor de JavaScript "`mueve"' las declaraciones al principio del scope, por lo que se puede pensar que el código del ejemplo es equivalente a éste:
+
+\begin{lstlisting}
+function foo() {
+  console.log("bar");
+}
+foo()
+\end{lstlisting}
+
+Para las variables sucede algo similar, aunque solamente en su declaración (no en su asignación), por lo que se puede pensar que el siguiente código:
+
+\begin{lstlisting}
+console.log(a); // undefined
+var a = 2;
+\end{lstlisting}
+
+Es equivalente a esto:
+
+\begin{lstlisting}
+var a;
+console.log(a);	// undefined
+a = 2;
+\end{lstlisting}
+
+La precaución hay que tenerla a la hora de escribir funciones como expresión, ya que el hoisting existe en la declaración del nombre pero no en la asignación (tal como pasa con las variables). Por ejemplo, el siguiente código:
+
+\begin{lstlisting}
+foo();
+
+var foo = function () { 
+  console.log("bar");
+}
+\end{lstlisting}
+
+Nos lanzará en ejecución un \code{TypeError: foo is not a function}. Tiene sentido pensar en esto, ya que al igual que nos pasó con la variable \code{a}, el código equivalente sería:
+
+\begin{lstlisting}
+var foo;
+
+foo();	// en este punto, foo es undefined.
+
+foo = function () { 
+  console.log("bar");
+}
+\end{lstlisting}

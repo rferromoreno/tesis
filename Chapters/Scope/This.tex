@@ -123,6 +123,7 @@ bar(); // "global"
 En el código anterior, se quiso "`crear"' \code{bar} un alias de \code{obj.foo}, pero al momento de hacer la llamada (en la línea 14), se produjo la ligadura por defecto, en donde \code{this} hizo referencia al objeto global, entonces se mostró \code{this.a} con valor \code{'global'} en pantalla. Lo que sucedió realmente, es que en el fondo la referencia de \code{bar} es directamente a \code{foo}, dado que tanto \code{foo}, \code{obj.foo} y \code{bar} están haciendo referencia a la misma función.
 
 \subsection{Ligadura explícita}
+\label{subsec:ligaduraexplicita}
 
 En JavaScript existen tres métodos de la clase \code{Function} que nos pueden servir de ayuda a "`forzar"' cambiar el contexto: \code{call}, \code{apply} y \code{bind}.
 
@@ -216,7 +217,7 @@ A simple vista no parece de mucha utilidad el uso del \code{this} cuando se usa 
 
 \subsection{Precedencia en las ligaduras}
 
-Para cerrar ésta parte del capítulo, es necesaria la aclaración que los cuatro tipo de ligaduras presentadas tienen un orden de precedencia. Es importante para el programador conocer éste mismo para no caer en la problemática de que el \code{this} no esté ligado a algo inesperado.
+Es necesaria la aclaración que los cuatro tipo de ligaduras presentadas tienen un orden de precedencia. Es importante para el programador conocer éste mismo para no caer en la problemática de que el \code{this} no esté ligado a algo inesperado.
 
 \begin{enumerate}
 \item Si se utilizó el operador \code{new}, se usará al nuevo objeto construido.
@@ -224,3 +225,5 @@ Para cerrar ésta parte del capítulo, es necesaria la aclaración que los cuatr
 \item Si se hizo una llamada en cadena y dicha sentencia tiene un objeto llamador, se utilizará el objeto.
 \item Sino, se utilizará el contexto global.
 \end{enumerate}
+
+Para cerrar ésta parte del capítulo, el concepto de \code{this} pareciera que se introdujo en el lenguaje "`a la fuerza"' y es de alguna forma, difícil de asimilar cuando se lo compara con otros lenguajes. Sin embargo, este operador es necesario y nos será de utilidad más adelante, en el capítulo \ref{ch:poo} cuando se hable del paradigma de orientación a objetos.

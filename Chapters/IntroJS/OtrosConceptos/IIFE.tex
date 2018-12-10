@@ -1,0 +1,53 @@
+
+\subsection{IIFE}
+\label{sec:iife}
+
+La sigla IIFE representa \textit{Immediately-invoked function expression}, lo que en español sería "`función expresión invocada inmediatamente"'. El término es bastante auto-explicativo: Funciones definidas como expresión que son invocadas en el mismo lugar donde están definidas. Forman parte de un mecanismo importante que nos servirá más adelante para explicar los módulos en la sección \ref{sec:modulos}.
+
+Recordemos como mencionamos en la sección \ref{sec:funciones}, existen dos formas de "`crear"' funciones: por declaración, o mediante una expresión. Las IIFEs corresponde únicamente a éstas últimas. Las dos maneras más comunes de escribir IIFEs se presentan a continuación.
+
+\begin{lstlisting}[title={Introduciendo las IIFEs}]
+// Dos versiones de IIFE. Ámbas válidas.
+(function(){ /* codigo */ }()); 
+(function(){ /* codigo */ })(); 
+
+// Probándolas con console.log
+(function(){ console.log("hola"); }()); // hola
+(function(){ console.log("chau"); })(); // chau
+
+// También pueden tener argumentos!
+(function(msj){ console.log(msj); }("wow!")); // wow!
+\end{lstlisting}
+
+?`Por qué se necesitan los paréntesis? Seguramente para que el intérprete entienda que se trata de una expresión y no de una sentencia. Sin embargo, éstas no son las únicas formas de generar IIFEs. A continuación se presentan más formas, aunque algunas de ellas un poco antiestéticas a la hora de analizar la legibilidad del código.
+
+\begin{lstlisting}[title={Otras formas de escribir IIFEs}]
+// Como una expresión del lado derecho de una asignación
+var i = function(){ return 10; }();
+
+// Dentro de una expresión booleana
+true && function(){ /* codigo */ }();
+
+// Con el operador coma
+0, function(){ /* codigo */ }();
+
+// Con operadores unarios
+!function(){ /* codigo */ }();
+~function(){ /* codigo */ }();
+-function(){ /* codigo */ }();
++function(){ /* codigo */ }();
+
+// Mediante el operador new, donde los paréntesis no son necesarios.
+// Aún así, se los puede usar para pasar argumentos.
+new function(){ /* code */ }
+new function(){ /* code */ }()
+\end{lstlisting}
+
+?`Qué ventajas nos brindan las IIFEs?
+
+\begin{itemize}
+	\item Nos da la posibilidad de simular un scope local.
+	\item Proveen un mecanismo de encapsulamiento.
+	\item Reducen la polución de nombres en el scope global.
+	\item Sirven para crear módulos o namespaces.
+\end{itemize}

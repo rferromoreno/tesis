@@ -301,6 +301,24 @@ headsepline, % Uncomment to get a line under the header
 
 %\dedicatory{For/Dedicated to/To my\ldots} 
 
+
+%----------------------------------------------------------------------------------------
+% COMANDOS
+%----------------------------------------------------------------------------------------
+
+% Define some commands to keep the formatting separated from the content 
+\newcommand{\keyword}[1]{\textbf{#1}}
+\newcommand{\tabhead}[1]{\textbf{#1}}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\file}[1]{\texttt{\bfseries#1}}
+\newcommand{\option}[1]{\texttt{\itshape#1}}
+\newcommand{\nuevo}[1]{\fcolorbox{red}{white}{%
+    \minipage[t]{\linewidth\fboxsep\fboxrule\relax}
+        #1
+    \endminipage}}
+
+
+
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - CHAPTERS
 %----------------------------------------------------------------------------------------
@@ -313,20 +331,14 @@ headsepline, % Uncomment to get a line under the header
 % Uncomment the lines as you write the chapters
 
 \input{Chapters/IntroTesis/index}
-%\input{Chapters/IntroJS/index}
-\include{Chapters/Chapter1} % Introducción
+\input{Chapters/IntroJS/index}
 \part{Sistema de tipos}
-\include{Chapters/Chapter2} % Sistema de tipos
+\input{Chapters/Tipos/index}
 \input{Chapters/Coercion/index}
 \input{Chapters/Scope/index}
-%\include{Chapters/Chapter3} % Programación funcional
-%\include{Chapters/Chapter4} % Programación orientada a objetos
 \part{Paradigmas de programación}
 \input{Chapters/PF/index}
 \input{Chapters/POO/index}
-%\include{Chapters/Chapter5} % Expresiones
-%\include{Chapters/Chapter6} % Scope
-%\include{Chapters/Chapter7} % this en JavaScript
 
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - APPENDICES

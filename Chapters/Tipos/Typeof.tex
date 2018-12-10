@@ -1,0 +1,59 @@
+\section{El operador \code{typeof}}
+
+Para el análisis del tipo de un valor (o del valor de una variable) en ejecución, se puede hacer uso del operador \code{typeof}. Dicho operador retorna un String con el nombre del tipo del valor evaluado.
+
+\begin{lstlisting}[title={Analizando los tipos con \code{typeof}}]
+typeof undefined		// "undefined"
+typeof 123					// "number"
+typeof true					// "boolean"
+typeof {}						// "object"
+typeof "Hola Mundo" // "string"
+typeof Symbol()			// "symbol"
+\end{lstlisting}
+
+Una de las primeras flaquezas presentadas por el lenguaje es la del \code{typeof null}. 
+
+\begin{lstlisting}[title={Analizando \code{typeof null}}]
+typeof null					// "object"
+\end{lstlisting}
+
+Uno tiende a esperar que \code{typeof null} retorne "\code{null}", sin embargo, retorna "\code{object}". Este es un \textit{bug} conocido y difícilmente sea corregido, ya que se estima que hay muchas aplicaciones y sistemas en la web que se basan en este comportamiento. Se cree que corregir esto crearía más problemas que soluciones.
+
+Esto no solo pasa con el literal \code{null} sino que además sucederá con cualquier variable ligada a un tipo nulo.
+
+\begin{lstlisting}[title={Analizando \code{typeof null} (cont.)}]
+var a = null;
+typeof a					// "object"
+\end{lstlisting}
+
+\subsection{Casos especiales del \code{typeof}}
+
+Existen algunos casos especiales para el operador \code{typeof}. ?`Qué pasa con las funciones?. ?`Y con los arreglos?. ?`Y con los tipos built-in pero que no son primitivos (también conocido como "`nativos"')?. Vamos por partes.
+
+El primero de los casos es el de las \textbf{funciones}. Como se mencionó anteriormente, en la especificación, una función es considerada un subtipo de \code{object}, a diferencia de que tiene una propiedad interna \code{[[Call]]}. Sin ir más lejos, ?`qué se espera que retorne \code{typeof} para el caso de una función?
+
+\begin{lstlisting}[title={Analizando \code{typeof} de una función}]
+typeof function a(){}					// "function"
+\end{lstlisting}
+
+Si bien quizás resulte más intuitivo esperar que retorne "\code{object}", el hecho de que haya retornado "\code{function}" puede resultar útil a la hora de distinguir entre objetos y funciones, y así identificar cuales son los que se pueden invocar (también conocidos como "`callable objects"'). Sin embargo, este hecho es algo contradictorio ya que "\code{function}" no está distinguido entre los tipos primitivos.
+
+El otro caso especial es el de los \textbf{arreglos}. En JavaScript, un arreglo no es más que un objeto con una propiedad interna \code{length}, donde cada propiedad de la instancia del objeto es el índice del arreglo.
+
+\begin{lstlisting}[title={Analizando \code{typeof} de arreglos}]
+typeof []									// "object"
+typeof [1, 2, 3]					// "object"
+typeof ["hola", "mundo"]	// "object"
+\end{lstlisting}
+
+?`Por qué para las funciones el operador \code{typeof} devuelve \code{function} mientras que para los arreglos sigue devolviendo \code{object}? 
+
+Al parecer, la distinción de los "`callable objects"' es importante para el lenguaje, pero para el caso de arreglos es irrelevante saber si un arreglo es efectivamente un arreglo o simplemente un objeto, dado que tienen las mismas propiedades y se lo puede tratar de la misma manera. ?`Cómo saber entonces cuando -por ejemplo- una variable es un objeto o un arreglo? La respuesta es mediante el operador \code{instanceof}. La distinción se hace mediante el análisis de la clase asociada, y no del tipo.
+
+Para cerrar, existe un caso curioso para el valor especial numérico \code{NaN}. Recordemos que este es un valor especial para representar "`Not a Number"' (del español, \textit{No es un número}). Sin embargo cuando hacemos \code{typeof} del mismo, obtenemos que el mismo es de tipo numérico.
+
+\begin{lstlisting}[title={Analizando \code{typeof} de \code{NaN}}]
+typeof NaN								// "number"
+\end{lstlisting}
+
+Esto sucede lógicamente porque, en el fondo, \code{NaN} es de hecho un \code{number}. Tal como se mencionó anteriormente, JavaScript implementa la norma de punto flotante (IEEE 754), la cual tiene una \textit{excepción} para valores que para la aritmética de punto flotante son inválidos.

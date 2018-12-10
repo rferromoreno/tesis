@@ -1,0 +1,38 @@
+
+\subsection{Closures}
+\label{sec:closures}
+
+El término de closure, también conocido en español como "`clausura"' o "`cerradura"' es utilizado en otros lenguajes. Da la capacidad a las funciones a acceder y manipular variables que son externas a la función, siempre y cuando éstas estén definidas dentro del scope donde la función donde la función fue definida. Veamos un ejemplo simple:
+
+\begin{lstlisting}[title={Creando un closure simple}]
+var num = 2;
+function imprimir() {
+	console.log(num);
+	num = 3;
+}
+
+imprimir();					// 2
+console.log(num);		// 3
+\end{lstlisting}
+
+Para este caso, la variable \code{num} y la función \code{imprimir} fueron definidas en el scope global. En la línea 3, la función puede entender al identificador \code{num} y ver su valor, e incluso en la línea 4, cambia su valor. Pero la fortaleza del closure no está ahí. Si nos limitásemos únicamente a hablar de visibilidad, deberíamos estar hablando de scope. La fortaleza del closure es que "`encierra"' a las variables que están dentro del scope de la función, y las mantendrá "`vivas"' siempre que la función exista. Veámoslo con un ejemplo más concreto:
+
+\begin{lstlisting}[title={Analizando otro closure}]
+function generar() {
+  var contador = 0;
+
+  function sumar() {
+    contador++;
+    console.log(contador);
+  }
+
+  return sumar;
+}
+
+var contar = generar();
+contar();	// 1
+contar();	// 2
+contar();	// 3
+\end{lstlisting}
+
+Se puede apreciar como la función \code{generar} es invocada por única vez. Al momento de invocar a la función, se crea un nuevo contexto. Sin embargo por causa del closure, ese contexto sigue con vida ya que es alcanzado desde el contexto global (mediante la variable \code{contar}) y así, el valor de \code{contador} persiste y cambia por cada llamada que hagamos a la funcion \code{contar}.
