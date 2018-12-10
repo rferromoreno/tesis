@@ -38,7 +38,7 @@
 \contentsline {subsection}{\numberline {2.6.2}Closures}{12}{subsection.107}
 \contentsline {subsection}{\numberline {2.6.3}IIFE}{13}{subsection.133}
 \contentsline {subsection}{\numberline {2.6.4}Prototype}{14}{subsection.165}
-\contentsline {part}{I\hspace {1em}Sistema de tipos}{17}{part.187}
+\contentsline {part}{I\hspace {1em}Sistema de Tipos}{17}{part.187}
 \contentsline {chapter}{\numberline {3}Tipos}{18}{chapter.188}
 \contentsline {section}{\numberline {3.1}Tipos primitivos}{18}{section.189}
 \contentsline {subsection}{\numberline {3.1.1}\texttt {null} y \texttt {undefined}}{19}{subsection.190}
@@ -73,33 +73,42 @@
 \contentsline {subsection}{\numberline {5.4.3}Ligadura explícita}{45}{subsection.712}
 \contentsline {subsection}{\numberline {5.4.4}Ligadura mediante \texttt {new}}{46}{subsection.756}
 \contentsline {subsection}{\numberline {5.4.5}Precedencia en las ligaduras}{47}{subsection.768}
-\contentsline {part}{II\hspace {1em}Paradigmas de programación}{48}{part.773}
-\contentsline {chapter}{\numberline {6}Paradigma funcional}{49}{chapter.774}
-\contentsline {section}{\numberline {6.1}Recursividad}{49}{section.775}
-\contentsline {section}{\numberline {6.2}Funciones puras}{50}{section.790}
-\contentsline {section}{\numberline {6.3}Funciones de primera clase y orden superior}{51}{section.817}
-\contentsline {subsection}{\numberline {6.3.1}Funciones de primera clase}{51}{subsection.818}
-\contentsline {subsection}{\numberline {6.3.2}Funciones de orden superior}{52}{subsection.842}
-\contentsline {section}{\numberline {6.4}Evaluación ansiosa y perezosa}{54}{section.885}
-\contentsline {section}{\numberline {6.5}Semántica de valores}{55}{section.902}
-\contentsline {section}{\numberline {6.6}Conclusiones}{55}{section.921}
-\contentsline {chapter}{\numberline {7}Paradigma orientado a objetos}{57}{chapter.922}
-\contentsline {section}{\numberline {7.1}Clases}{57}{section.923}
-\contentsline {subsection}{\numberline {7.1.1}Factory class pattern}{57}{subsection.924}
-\contentsline {subsection}{\numberline {7.1.2}Functional class pattern}{58}{subsection.941}
-\contentsline {subsection}{\numberline {7.1.3}Prototype class pattern}{59}{subsection.955}
-\contentsline {subsection}{\numberline {7.1.4}\texttt {class} en ES6}{59}{subsection.970}
-\contentsline {section}{\numberline {7.2}Herencia}{60}{section.986}
-\contentsline {subsection}{\numberline {7.2.1}Herencia simple mediante \texttt {prototype}}{60}{subsection.987}
-\contentsline {subsection}{\numberline {7.2.2}\texttt {extends} en ES6}{62}{subsection.1018}
-\contentsline {subsection}{\numberline {7.2.3}Herencia múltiple}{63}{subsection.1047}
-\contentsline {section}{\numberline {7.3}Encapsulamiento}{64}{section.1074}
-\contentsline {section}{\numberline {7.4}Polimorfismo}{65}{section.1107}
-\contentsline {section}{\numberline {7.5}Modularidad}{67}{section.1144}
-\contentsline {subsection}{\numberline {7.5.1}Módulos mediante patrones}{67}{subsection.1145}
-\contentsline {subsection}{\numberline {7.5.2}Sistemas de módulos}{68}{subsection.1178}
-\contentsline {subsubsection}{AMD}{68}{section*.1179}
-\contentsline {subsubsection}{CommonJS}{69}{section*.1220}
-\contentsline {subsection}{\numberline {7.5.3}Módulos en ES6}{70}{subsection.1258}
-\contentsline {section}{\numberline {7.6}Conclusiones}{72}{section.1304}
-\contentsline {chapter}{Bibliograf\'{\i }a}{74}{chapter*.1305}
+\contentsline {chapter}{\numberline {6}Conclusión: Parte I}{48}{chapter.773}
+\contentsline {section}{\numberline {6.1}Lo bueno}{48}{section.774}
+\contentsline {section}{\numberline {6.2}Lo malo}{48}{section.775}
+\contentsline {section}{\numberline {6.3}Lo feo}{48}{section.776}
+\contentsline {part}{II\hspace {1em}Paradigmas de Programación}{49}{part.777}
+\contentsline {chapter}{\numberline {7}Paradigma funcional}{50}{chapter.778}
+\contentsline {section}{\numberline {7.1}Recursividad}{50}{section.779}
+\contentsline {section}{\numberline {7.2}Funciones puras}{51}{section.794}
+\contentsline {section}{\numberline {7.3}Funciones de primera clase y orden superior}{52}{section.821}
+\contentsline {subsection}{\numberline {7.3.1}Funciones de primera clase}{52}{subsection.822}
+\contentsline {subsection}{\numberline {7.3.2}Funciones de orden superior}{53}{subsection.846}
+\contentsline {section}{\numberline {7.4}Evaluación ansiosa y perezosa}{55}{section.889}
+\contentsline {section}{\numberline {7.5}Semántica de valores}{56}{section.906}
+\contentsline {chapter}{\numberline {8}Paradigma orientado a objetos}{57}{chapter.925}
+\contentsline {section}{\numberline {8.1}Clases}{57}{section.926}
+\contentsline {subsection}{\numberline {8.1.1}Factory class pattern}{57}{subsection.927}
+\contentsline {subsection}{\numberline {8.1.2}Functional class pattern}{58}{subsection.944}
+\contentsline {subsection}{\numberline {8.1.3}Prototype class pattern}{59}{subsection.958}
+\contentsline {subsection}{\numberline {8.1.4}\texttt {class} en ES6}{59}{subsection.973}
+\contentsline {section}{\numberline {8.2}Herencia}{60}{section.989}
+\contentsline {subsection}{\numberline {8.2.1}Herencia simple mediante \texttt {prototype}}{60}{subsection.990}
+\contentsline {subsection}{\numberline {8.2.2}\texttt {extends} en ES6}{62}{subsection.1021}
+\contentsline {subsection}{\numberline {8.2.3}Herencia múltiple}{63}{subsection.1050}
+\contentsline {section}{\numberline {8.3}Encapsulamiento}{64}{section.1077}
+\contentsline {section}{\numberline {8.4}Polimorfismo}{65}{section.1110}
+\contentsline {section}{\numberline {8.5}Modularidad}{67}{section.1147}
+\contentsline {subsection}{\numberline {8.5.1}Módulos mediante patrones}{67}{subsection.1148}
+\contentsline {subsection}{\numberline {8.5.2}Sistemas de módulos}{68}{subsection.1181}
+\contentsline {subsubsection}{AMD}{68}{section*.1182}
+\contentsline {subsubsection}{CommonJS}{69}{section*.1223}
+\contentsline {subsection}{\numberline {8.5.3}Módulos en ES6}{70}{subsection.1261}
+\contentsline {chapter}{\numberline {9}Conclusión: Parte II}{73}{chapter.1307}
+\contentsline {section}{\numberline {9.1}Lo bueno}{73}{section.1308}
+\contentsline {section}{\numberline {9.2}Lo malo}{74}{section.1309}
+\contentsline {section}{\numberline {9.3}Lo feo}{74}{section.1310}
+\contentsline {chapter}{\numberline {10}Conclusiones generales}{75}{chapter.1311}
+\contentsline {section}{\numberline {10.1}A futuro}{75}{section.1312}
+\contentsline {section}{\numberline {10.2}Resumen}{75}{section.1313}
+\contentsline {chapter}{Bibliograf\'{\i }a}{77}{chapter*.1314}
