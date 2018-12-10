@@ -151,5 +151,107 @@ Un punto fuerte es que se pueden usar literales en notación científica o en ot
 
 \subsection{\code{object}}
 
-\textbf{COMPLETAR}
+Dejando de lado el resto de los tipos primitivos, el tipo por excelencia dentro del lenguaje es \code{object}. En JavaScript \textit{casi todo} es un objeto: arreglos, funciones, clases, módulos. Existen diversas formas de crear un objeto, todas ellas son válidas.
 
+\begin{lstlisting}[title={Creando un \code{object}}]
+var obj1 = {};
+var obj2 = new Object();
+var obj3 = Object.create(null);
+\end{lstlisting}
+
+La sintaxis de la línea 1 es la utilizada por excelencia. El uso de las llaves \code{\{\}} puede parecer confuso al principio, porque los mismos también son utilizados para definir bloques. Sin embargo, la simplicidad que tiene es destacable. Para quienes conocen el formato JSON (JavaScript Object Notation) utilizado a veces en la web, esto no resultará nada nuevo.
+
+Pero ?`qué es exactamente un objeto?. Es un conjunto de propiedades determinadas por una \textit{clave} y asociadas a un \textit{valor}. Dichos valores pueden ser de cualquier tipo de los vistos en el lenguaje (incluso otros objetos, lo que significa que pueden ser también funciones o arreglos).
+
+\begin{lstlisting}[title={Ejemplo de \code{object}}]
+var obj = {
+  nombre: "Prueba",
+  ejemplo: true,
+  contador: 42,
+  saludar: function () {
+    console.log("Hola!");
+  },
+  proximo: {
+    nombre: "Otro"
+  },
+  multiplos: [1, 2, 3, 5]
+}
+\end{lstlisting}
+
+Existen dos formas de referirse a la locación de la propiedad de un objeto: mediante la notación de punto o mediante la notación de arreglo. 
+
+\begin{lstlisting}[title={Notación punto y notación arreglo}]
+var objeto = {
+  a: 2,
+  b: 3
+};
+
+objeto.a;		  // 2
+objeto["b"];	// 3
+
+objeto.a = 4;
+objeto["b"] = 5;
+
+console.log(objeto); //​​​​​ { a: 4, b: 5 }
+\end{lstlisting}
+
+De lo que hay que tener especial cuidado cuando empezamos a acceder a las propiedades de un objeto en cualquiera de las dos formas, porque permite el uso de algunos literales de otros tipos a modo de identificador (clave) de una propiedad. Ésta característica cambió a partir de la versión de ES5, previo a ello, se permitía utilizar palabras reservadas mediante la notación de arreglo pero no mediante la notación de punto.
+
+\begin{lstlisting}[title={Utilizando literales como claves}]
+var obj = {
+  a: 2
+};
+
+obj.true = 3;
+obj[false] = 4;
+obj[undefined] = 5;
+obj.null = 6;
+
+console.log(obj);
+// { a: 2, true: 3, false: 4, undefined: 5, null: 6 }​​​​​
+\end{lstlisting}
+
+Sin embargo, no todos los literales forman parte de un identificador válido para JavaScript, para el caso de los números, lógicamente no forman parte de un identificador válido. Para la notación punto, entonces, tendremos un problema. Pero si utilizamos la notación arreglo, no.
+
+\begin{lstlisting}[title={Utilizando números como claves}]
+var obj = {};
+
+obj[1] = "válido";
+obj["2"] = "válido";
+
+console.log(obj); // ​​​​​{ 1: 'válido', 2: 'válido' }​​​​​
+
+obj.3 = "inválido";
+obj."3" = "inválido";
+\end{lstlisting}
+
+Tanto las formas presentadas en la línea 8 y 9 son inválidas. De hecho, en la línea 8 ocurrirá un \code{SyntaxError} por un "`identificador no esperado"'. Lo que sucede realmente cuando utilizamos la notación de arreglo es que se está realizando una conversión a \code{string} del identificador. Se verá más detalles sobre éste tipo de conversiones en el capítulo \ref{ch:coercion}, pero mientras tanto es necesario hacer éstas advertencias sobre el acceso a propiedades. Este comportamiento inesperado no es algo únicamente de los datos numéricos.
+
+\begin{lstlisting}[title={Utilizando objetos como claves}]
+var obj = {};
+var obj2 = {};
+var obj3 = {};
+
+obj[obj2] = 1;
+obj.obj3 = 2;
+
+console.log(obj); // ​​​​​{ '[object Object]': 1, obj3: 2 }​​​​​
+\end{lstlisting}
+
+Podemos ver, por un lado, cómo \code{obj2} fue convertido a \code{string} y fue utilizado erróneamente como clave para una propiedad de \code{obj}. Por el otro lado, con la notación de punto, se utilizó el texto \code{obj3} (y no la referencia al objeto) como identificador de la propiedad. 
+
+Por último, ?`qué pasa con las referencias circulares en objetos?. Preguntarse ésto debería ser importante para el programador por cuestiones relativas al \textit{garbage collector}.
+
+\begin{lstlisting}[title={Referencias circulares con objetos}]
+var obj = {};
+
+var obj2 = {
+  next: obj
+};
+
+obj.next = obj2;
+
+console.log(obj); // { next: { next: [Circular] } }​​​​​
+\end{lstlisting}
+
+Para el caso del entorno donde se realizó la prueba (NodeJS), al momento de hacer \code{console.log}, el intérprete fue lo suficientemente \textit{inteligente} para darse cuenta de que se trataba de una referencia circular.
