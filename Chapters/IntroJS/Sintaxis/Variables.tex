@@ -1,0 +1,17 @@
+\subsection{Variables}
+
+Para la declaración de variables, el lenguaje posee la palabra reservada \code{var}. Una variable tendrá el valor inicial \code{undefined} a menos que se la inicialice en su declaración.
+
+También se pueden hacer múltiples declaraciones en la misma línea, incluso con la asignación de un valor inicial.
+
+\begin{lstlisting}[title={Declarando variables}]
+var a;									// Definiendo una variable con nombre a
+var b = 1; 	 						// Definiendo una variable con nombre b
+var c, d, e;	 					// Definiendo varias variables
+var f, g = true, h;			// Esto también es válido
+var i = "Hola", j = 2;	// Definiendo y asignando múltiples variables
+\end{lstlisting}
+
+Vale la pena hacer mención también a dos nuevas formas de definir variables a partir de ES6. Se trata de \code{let} y \code{const}.
+
+Sobre \code{let}, es una forma de declarar variables de "`alcance local"'. Por el lado de \code{const}, se tratan de variables de valor constante, cuyo valor no se puede cambiar y tampoco pueden ser redeclaradas. Se profundizará sobre éstos dos conceptos en la sección \ref{sec:scopebloque}, cuando se hable sobre el ámbito en JavaScript.

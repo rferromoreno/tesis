@@ -14,12 +14,12 @@ El tipo booleano representa una entidad lógica con dos posibles valores, \code{
 Utilizado para representar datos de texto, el tipo String está definido como cero o más elementos, donde cada elemento es un entero no signado de 16 bits, de una longitud máxima de $2^{52}-1$ elementos.
 
 \subsubsection{Number} 
-Representa al conjunto de datos numérico. Se basa en la norma IEEE 754-2008, formato doble precisión de 64 bits en la aritmética de punto flotante. Toma algunos valores especiales de este conjunto para representar datos como NaN (Not a Number) y también +Infinity y -Infinity. La cantidad de valores reservados para NaN es dependiente de la implementación.
+Representa al conjunto de datos numérico. Se basa en la norma IEEE 754-2008, formato doble precisión de 64 bits en la aritmética de punto flotante. Toma algunos valores especiales de este conjunto para representar datos como \code{NaN} (Not a Number) y también \code{+Infinity} y \code{-Infinity}. La cantidad de valores reservados para \code{NaN} es dependiente de la implementación.
 
 \subsubsection{Symbol} 
-Fue agregado en la versión de ES6. Abarca el conjunto de todos los valores no String que pueden ser usados como clave en la propiedad de un Object. Cada valor posible de Symbol es único e inmutable. Se los puede pensar como tokens que sirven como identificadores únicos. 
+Fue agregado en la versión de ES6. Abarca el conjunto de todos los valores no String que pueden ser usados como clave en la propiedad de un \code{Object}. Cada valor posible de \code{Symbol} es único e inmutable. Se los puede pensar como tokens que sirven como identificadores únicos. 
 
 \subsubsection{Object} 
 Es la forma básica de representar un objeto en JavaScript. Está compuesto por una colección de propiedades.
 
-Las propiedades se identifican usando claves. El valor de una clave puede ser o bien un String, o bien un Symbol. Todos los valores String y Symbol son válidos como nombre clave para una propiedad, inclusive la cadena vacía. 
+Las propiedades se identifican usando claves. El valor de una clave puede ser o bien un \code{String}, o bien un \code{Symbol}. Todos los valores \code{String} y \code{Symbol} son válidos como nombre clave para una propiedad, inclusive la cadena vacía. 

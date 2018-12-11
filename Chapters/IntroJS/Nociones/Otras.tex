@@ -3,7 +3,7 @@
 \subsubsection{Identificadores}
 
 \begin{itemize}
-\item Un identificador debe comenzar con una letra, signo pesos (\$), ó guión bajo (\textunderscore).
+\item Un identificador debe \textbf{comenzar} con una letra, signo pesos (\$), ó guión bajo (\textunderscore).
 \item Un identificador consiste en letras, números, signo pesos (\$), ó guión bajo (\textunderscore).
 \item Se permiten caracteres Unicode.
 \item No se permite el uso de palabras reservadas como identificadores.
@@ -15,23 +15,4 @@ JavaScript es un lenguaje sensible a las mayúsculas, lo que significa que se en
 
 \subsubsection{Sin tipado estático}
 
-El lenguaje no posee tipado estático. Sin embargo con \textbf{Microsoft TypeScript} o \textbf{Facebook Flow} se puede alcanzar esto mediante el uso de \textit{type annotations}. Consiste en utilizar el lenguaje haciendo anotaciones de los tipos, para luego hacer un chequeo de tipos estáticos mediante un preprocesado del código. Tanto TypeScript como Flow son extensiones de JavaScript. 
-
-\section{Sintaxis}
-
-A continuación se hará una introducción sintáctica al lenguaje de forma breve y mediante ejemplos. El objetivo de esta sección no es detallar la especificación del lenguaje, sino dar un repaso general por los elementos básicos, las estructuras de control y de repetición. Para mayor detalle sobre la sintaxis, se recomienda leer el "`Standard ECMA-262 (Language Specification)"'.
-
-\subsection{Comentarios}
-
-Los comentarios en JavaScript se realizan de forma similar a los lenguajes influenciados por C (como por ejemplo JavaScript o C++). Es posible hacer comentarios inline, asi como también multilínea.
-
-\begin{lstlisting}[title={Comentario inline}]
-// Esto es un comentario en una sola linea
-\end{lstlisting}
-
-\begin{lstlisting}[title={Comentario multilinea}]
-/* 
-Esto es un comentario
-escrito en varias lineas
-*/
-\end{lstlisting}
+El lenguaje no posee tipado estático. Sin embargo con TypeScript (de Microsoft) o Flow (de Facebook) se puede alcanzar esto mediante el uso de "`type annotations"'. Consiste en utilizar el lenguaje haciendo anotaciones de los tipos, para luego hacer un chequeo de tipos estáticos mediante un preprocesado del código. Tanto TypeScript como Flow son \textit{extensiones} de JavaScript. 
