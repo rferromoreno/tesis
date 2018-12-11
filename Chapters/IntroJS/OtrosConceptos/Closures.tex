@@ -2,7 +2,7 @@
 \subsection{Closures}
 \label{sec:closures}
 
-El término de closure, también conocido en español como "`clausura"' o "`cerradura"' es utilizado en otros lenguajes. Da la capacidad a las funciones a acceder y manipular variables que son externas a la función, siempre y cuando éstas estén definidas dentro del scope donde la función donde la función fue definida. Veamos un ejemplo simple:
+El término "`closure"', también conocido en español como "`clausura"' o "`cerradura"' es utilizado en varios lenguajes. Da la capacidad a las funciones a acceder y manipular variables que son externas a la función, siempre y cuando éstas estén definidas dentro del scope donde la función fue definida. Veamos un ejemplo simple:
 
 \begin{lstlisting}[title={Creando un closure simple}]
 var num = 2;
@@ -35,4 +35,4 @@ contar();	// 2
 contar();	// 3
 \end{lstlisting}
 
-Se puede apreciar como la función \code{generar} es invocada por única vez. Al momento de invocar a la función, se crea un nuevo contexto. Sin embargo por causa del closure, ese contexto sigue con vida ya que es alcanzado desde el contexto global (mediante la variable \code{contar}) y así, el valor de \code{contador} persiste y cambia por cada llamada que hagamos a la funcion \code{contar}.
+Se puede apreciar como la función \code{generar} es invocada por única vez. Al momento de invocar a la función, se crea un nuevo contexto. Sin embargo por causa del closure, ese contexto sigue con vida ya que es alcanzado desde el contexto global (mediante la variable \code{contar}) y así, el valor de \code{contador} persiste y cambia por cada llamada que hagamos a la función \code{contar}.

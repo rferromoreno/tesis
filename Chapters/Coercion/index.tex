@@ -2,11 +2,11 @@
 
 \label{ch:coercion} % For referencing the chapter elsewhere, use \ref{Chapter1} 
 
-Cuando un lenguaje tiene seguridad en su sistema de tipos, hace que el mismo sea coherente, predecible, que sea fácil de intuir los tipos que se manejan. Para que un lenguaje gane flexibilidad en su sistema de tipos, debe sacrificar éstos aspectos de seguridad. Sin embargo, se pierden también los calificativos recién mencionados.
+Cuando un lenguaje tiene seguridad en su sistema de tipos, hace que el mismo sea coherente, predecible, que sea fácil de inferir o trazar qué tipos se manejan en un momento de ejecución dado. Para que un lenguaje gane flexibilidad en su sistema de tipos, debe sacrificar éstos aspectos de seguridad, mientras se pierden también los calificativos mencionados.
 
-Una de las mayores críticas a Javascript es sobre la conversión de tipos implícita que ocurre en las expresiones. Tiene la fama de ser un lenguaje extremadamente flexible, pero al mismo tiempo impredecible en cuanto a la coerción. 
+Una de las mayores críticas a JavaScript es sobre la conversión de tipos implícita que ocurre en las expresiones. Tiene la fama de ser un lenguaje extremadamente flexible, pero al mismo tiempo impredecible en cuanto a la coerción en sus sistema de tipos. 
 
-En este capítulo se hablará de los efectos de la conversión de tipos que ocurre en el lenguaje, tanto la implícita como la explícita, y así podremos acercarnos a una conclusión de qué tan relajado es el sistema de tipos con respecto a la coerción. Para acotar el análisis, limitaremos el mismo a los operadores que se utilizan con más frecuencia a la hora de programar.
+En este capítulo se hablará de los efectos de la conversión de tipos que ocurre en el lenguaje, tanto la implícita como la explícita, y así podremos acercarnos a una conclusión de qué tan relajado es el sistema de tipos. Para acotar el análisis, limitaremos el mismo a los operadores que se utilizan con más frecuencia a la hora de programar.
 
 \input{Chapters/Coercion/Explicita}
 \input{Chapters/Coercion/ToPrimitive}

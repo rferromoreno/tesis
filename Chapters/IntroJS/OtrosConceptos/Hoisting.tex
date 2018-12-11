@@ -2,9 +2,9 @@
 \subsection{Hoisting}
 \label{sec:hoisting}
 
-Del inglés "`levantamiento"', el término de hoisting es muy acuñado y asociado a JavaScript. Consiste en mover hacia el comienzo del scope las declaraciones. En términos de compiladores, se puede pensar como una primera pasada del compilador para guardar los identificadores utilizados en el scope. De hecho, lo que sucede es que durante la fase de compilación se reservan en memoria espacio para los nombres declarados.
+Del inglés "`levantamiento"', el término de hoisting es muy acuñado y asociado a JavaScript. Consiste en "`mover"' hacia el comienzo del scope las declaraciones. En términos de compiladores, se puede pensar como una primera pasada del compilador para guardar los identificadores utilizados en el scope. De hecho, lo que sucede es que durante la fase de compilación se reservan en memoria espacio para los nombres declarados.
 
-Gracias a ésta característica, se puede escribir invocar a una función cuyo código está más adelante.
+Gracias a ésta característica, se puede invocar a una función que aún no fue definida, es decir, que su código está "`más adelante"'.
 
 \begin{lstlisting}
 foo()

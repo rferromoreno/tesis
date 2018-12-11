@@ -8,8 +8,8 @@ Recordemos como mencionamos en la sección \ref{sec:funciones}, existen dos form
 
 \begin{lstlisting}[title={Introduciendo las IIFEs}]
 // Dos versiones de IIFE. Ámbas válidas.
-(function(){ /* codigo */ }()); 
-(function(){ /* codigo */ })(); 
+(function(){ /* código */ }()); 
+(function(){ /* código */ })(); 
 
 // Probándolas con console.log
 (function(){ console.log("hola"); }()); // hola
@@ -19,23 +19,23 @@ Recordemos como mencionamos en la sección \ref{sec:funciones}, existen dos form
 (function(msj){ console.log(msj); }("wow!")); // wow!
 \end{lstlisting}
 
-?`Por qué se necesitan los paréntesis? Seguramente para que el intérprete entienda que se trata de una expresión y no de una sentencia. Sin embargo, éstas no son las únicas formas de generar IIFEs. A continuación se presentan más formas, aunque algunas de ellas un poco antiestéticas a la hora de analizar la legibilidad del código.
+?`Por qué se necesitan los paréntesis? Para que el intérprete entienda que se trata de una expresión y no de una sentencia. Sin embargo, éstas no son las únicas formas de generar IIFEs. A continuación se presentan más formas, aunque algunas de ellas sean un poco antiestéticas a la hora de analizar la legibilidad del código.
 
 \begin{lstlisting}[title={Otras formas de escribir IIFEs}]
 // Como una expresión del lado derecho de una asignación
 var i = function(){ return 10; }();
 
 // Dentro de una expresión booleana
-true && function(){ /* codigo */ }();
+true && function(){ /* código */ }();
 
 // Con el operador coma
-0, function(){ /* codigo */ }();
+0, function(){ /* código */ }();
 
 // Con operadores unarios
-!function(){ /* codigo */ }();
-~function(){ /* codigo */ }();
--function(){ /* codigo */ }();
-+function(){ /* codigo */ }();
+!function(){ /* código */ }();
+~function(){ /* código */ }();
+-function(){ /* código */ }();
++function(){ /* código */ }();
 
 // Mediante el operador new, donde los paréntesis no son necesarios.
 // Aún así, se los puede usar para pasar argumentos.

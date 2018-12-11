@@ -1,7 +1,7 @@
 \section{Conversión explícita}
 \label{sec:conversionexplicita}
 
-Comenzaremos este capítulo hablando de la conversión explícita, para entender qué valores de un tipo corresponden a otro tipo. Existen cuatro funciones para hacer conversión a tipos built-in del lenguaje, las cuales son las funciones \code{Boolean}, \code{Number}, \code{String} y \code{Object}. Es innecesario pensar funciones para convertir a \code{null} y \code{undefined} dado que son casos especiales. 
+Comenzaremos este capítulo hablando de la conversión explícita, para entender qué valores de un tipo corresponden a otro tipo. Existen cuatro funciones para hacer conversión a tipos built-in del lenguaje, las cuales son  \code{Boolean}, \code{Number}, \code{String} y \code{Object}. Es innecesario pensar funciones para convertir a \code{null} y \code{undefined} dado que son casos especiales. 
 
 \subsection{Boolean} 
 
@@ -16,29 +16,29 @@ La función \code{Boolean()} convierte el argumento dado a un valor booleano. Lo
 \item \code{''}
 \end{itemize}
 
-El resto de los valores son considerados valores de verdad ("`\textit{truthy}"') y serán convertidos a \code{true}, incluyendo a los objetos, que todos son convertidos a true.
+El resto de los valores son considerados valores de verdad ("`\textit{truthy}"') y serán convertidos a \code{true}, incluyendo a los objetos, que todos son convertidos a \code{true}.
 
 \subsection{Number}
 
-Análogamente, la función \code{Number()} convierte un valor dado a su representación numérica. Para éste caso, las reglas son un poco más complejas (y poco intuitivas)
+Análogamente, la función \code{Number()} convierte un valor dado a su representación numérica. Para éste caso, las reglas son un poco más complejas (y menos intuitivas).
 
 \begin{itemize}
 \item \code{undefined} se transforma en \code{NaN}.
 \item \code{null} se transforma en \code{0}.
 \item \code{false} se transforma en \code{0}.
 \item \code{true} se transforma en \code{1}.
-\item Para el caso de \code{string}, se hace \textit{parsing} de la siguiente manera: Se remueven los espacios en blanco, si el \code{string} resultante es \code{''}, se transforma en \code{0}, sino se intentará leer el valor numérico (si posee algún caracter ajeno a un valor numérico, se transformará en \code{NaN}, caso contrario, se transforma en dicho valor numérico).
+\item Para el caso de \code{string}, se hace \textit{parsing} de la siguiente manera: Se remueven los espacios en blanco, si el \code{string} resultante es \code{''}, se transforma en \code{0}, sino se intentará leer el valor numérico (si posee algún caracter ajeno a un valor de representación numérica, se transformará en \code{NaN}, caso contrario, se transforma en dicho valor numérico).
 \item Para el caso de \code{object}, primero se transforma a primitivo (ver sección \ref{sec:toprimitive}), y luego es convertido a \code{number} con las reglas recién mencionadas.
 \end{itemize}
 
 \subsection{String}
 
-La función \code{String()} es el caso más obvio para la mayoría de los tipos primitivos. Convertirá el valor dado al literal string del tipo dado.
+La función \code{String()} es el caso más obvio para la mayoría de los tipos primitivos. Convertirá el valor dado al literal \code{string} del tipo dado.
 
 \begin{itemize}
-\item \code{null} se convierte a \code{"null"}.
-\item \code{undefined} se convierte a \code{"undefined"}.
-\item \code{true} y \code{false} se convierten a \code{"true"} y \code{"false"}, respectivamente.
+\item \code{null} se convierte a \code{``null''}.
+\item \code{undefined} se convierte a \code{``undefined''}.
+\item \code{true} y \code{false} se convierten a \code{``true''} y \code{``false''}, respectivamente.
 \item Los valores numéricos se transforman en su \code{string} equivalente. Por ejemplo, \code{123.45} se transformará en \code{"123.45"}.
 \item Para el caso de \code{object}, primero se transforma a primitivo (ver sección \ref{sec:toprimitive}), y luego es convertido a \code{string} con las reglas recién mencionadas.
 \end{itemize}

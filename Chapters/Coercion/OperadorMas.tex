@@ -15,7 +15,7 @@ La existencia del operador unario \code{+} puede resultar en una de las más con
 -+3				// -3
 \end{lstlisting}
 
-Nuevamente, este operador funciona únicamente para una conversión a número, pero no del signo. Dicho esto, se presentan a continaución algunos ejemplos con sus respectivos resultados.
+Insistimos, este operador funciona únicamente para una conversión a número, pero tiene influencia sobre el signo. Dicho esto, se presentan a continuación algunos ejemplos con sus respectivos resultados.
 
 \begin{lstlisting}[title={Operador unario \code{+} (más casos)}]
 +3                                   // 3
@@ -32,11 +32,11 @@ Nuevamente, este operador funciona únicamente para una conversión a número, p
 +function(val){  return val }        // NaN
 \end{lstlisting}
 
-El operador unario \code{+} suele ser el elegido por algunos programadores cuando quieren hacer coerción explícita de un valor a su tipo numérico. Los resultados de utilizar \code{Number()} para ambos casos serían idénticos. El \textit{trade-off} está en la legibilidad de las expresiones cuando éstas se vuelven más complejas.
+El operador unario \code{+} suele ser el elegido por algunos programadores cuando quieren hacer coerción explícita de un valor a su tipo numérico. Los resultados de utilizar \code{Number()} para ambos casos serían idénticos. El \textit{trade-off} está en la legibilidad de las expresiones cuando éstas se vuelven más complejas. Se gana simplicidad, pero se sacrifica legibilidad.
 
 \subsection{Operador binario}
 
-Para comenzar, iremos con el ejemplo más simple de todos, el obvio: El operador \code{+} sirve como suma a la hora de trabajar con datos numéricos.
+Para comenzar, iremos con el ejemplo más simple de todos: El operador \code{+} sirve como suma a la hora de trabajar con datos numéricos.
 
 \begin{lstlisting}[title={Operador \code{+} en números}]
 1 + 2 			// 3
@@ -55,7 +55,7 @@ Por otro lado, el mismo operador también se puede usar para concatenación de s
 "chau" + ""				// "chau"
 \end{lstlisting}
 
-Hasta este punto, todo parece funcionar de acuerdo a lo esperado. El problema es cuando empezamos a mezclar los tipos. Empecemos mirando los casos de \code{number} y \code{string}:
+Hasta este punto, todo parece funcionar de acuerdo a lo esperado. JavaScript actúa de forma bastante similar a otros lenguajes que poseen el operador \code{+} sobrecargado. El problema comienza cuando empezamos a "`mezclar"' los tipos. Empecemos analizando los casos de \code{number} y \code{string}:
 
 \begin{lstlisting}[title={Operador \code{+} mezclando strings con números}]
 1 + "1"				// "11"
@@ -74,7 +74,7 @@ false + false	// 0
 
 Tal como se mencionó en la sección \ref{sec:conversionexplicita}, el valor numérico de \code{true} es \code{1} mientras que el de \code{false} es \code{0}. Entonces para este caso, ocurre una coerción hacia tipo numérico en los operandos, y el operador \code{+} funciona como una suma numérica normal.
 
-Para entender mejor lo que está sucediendo, es preferible tener a mano un pseudo algoritmo de lo que sucede por detrás con el operador \code{+}:
+Para entender mejor lo que está sucediendo, es preferible tener a mano un pseudo algoritmo de cómo trabaja el operador binario \code{+}:
 
 \begin{enumerate}
 \item Convertir ambos operandos a sus valores primitivos haciendo uso del \code{ToPrimitive} mencionado anteriormente.
@@ -93,18 +93,30 @@ Considerando esto, evaluemos algunos casos más:
 
 Para el primer caso, la conversión a primitivo del arreglo vacío \code{[]} primero hace un \code{valueOf()}, el cual retorna el arreglo mismo (\code{this}). Luego, como el resultado no es un valor primitivo, se hace \code{toString()} el cual retorna el string vacío \code{''}. Finalmente, el resultado de sumar \code{[] + []} es el string vacío.
 
-Para el segundo caso, sucede algo similar. Dado que el primer operando es el string vacío, entonces el \code{+} corresponde a una concatenación de strings. Y el método \code{toString()} sobre un objeto (instancia directa de Object) se traduce a string de la forma \code{'[object Object]'}.
+Para el segundo caso, sucede algo similar. Dado que el primer operando es el string vacío, entonces el \code{+} corresponde a una concatenación de strings. Y el método \code{toString()} sobre un objeto (instancia directa de Object) se traduce a string de la forma \code{``[object Object]''}.
 
 Luego de haber visto los dos primeros casos, el tercer caso se explica solo. Se hace la conversión del primero y el \code{+} representa la concatenación de strings. Sucede exactamente lo mismo que en el primer caso, el \code{valueOf()} del primer operando retorna \code{this} entonces se termina haciendo un \code{toString()}.
 
-El que es bastante inusual es el cuarto caso. Luego de haber visto el segundo, uno tiende a esperar que el cuarto de el mismo resultado, pero esto no es así. ?`Qué pasó? El intérprete consideró a la primera parte de la expresión como un bloque de código vacío y la ignoró. Luego, la expresión quedó como \code{+[]}, donde el \code{+} representa el operador unario, no el binario. Lo que significa que resultó en una coerción hacia \code{number} del string vacío \code{''}, resultando en un \code{0}. De hecho, podemos corroborarlo haciendo uso de los paréntesis, entonces el intérprete lo leerá como una expresión y \code{\{\}} representará un objeto en vez de un  bloque.
+El que es bastante inusual es el cuarto caso. Luego de haber visto el segundo, uno tiende a esperar que el cuarto de el mismo resultado, pero esto no es así. ?`Qué pasó? El intérprete consideró a la primera parte de la expresión como un bloque de código vacío y la ignoró. Luego, la expresión quedó como \code{+[]}, donde el \code{+} representa el operador unario, no el binario. Lo que significa que resultó en una coerción hacia \code{number} del string vacío \code{''}, resultando en un \code{0}. Podemos "`corregir"' este comportamiento haciendo uso de los paréntesis, entonces el intérprete lo leerá como una expresión y \code{\{\}} representará un objeto en vez de un bloque.
 
 \begin{lstlisting}[title={Caso especial}]
 ({} + [])			// '[object Object]'
 \end{lstlisting}
 
-Con todo esto visto, ahora se tiene un mejor panorama de cómo funciona el operador \code{+} en Javascript. Se utiliza principalmente en valores de tipos numéricos o strings. 
+El hecho de que los arreglos estén vacíos o sean mezclados con objetos no cambia el resultado. Si tenemos dos arreglos con contenido, el resultado será de todas formas convertido a \code{string}. Ejemplificando:
+
+\begin{lstlisting}[title={Operador \code{+} entre arreglos}]
+var a = [1, 2, 3];
+var b = [4, 5, 6];
+
+var resultado = a + b;
+
+console.log(typeof resultado);	// string​​​​​
+console.log(resultado)					// '1,2,34,5,6'​​​​​
+\end{lstlisting}
+
+Con todo esto visto, ahora se tiene un mejor panorama de cómo funciona el operador \code{+} en JavaScript. Se utiliza principalmente en valores de tipos numéricos o strings. 
 
 Para el caso de los objetos, si alguno de los operandos es string, el mismo se convierte a string, en caso contrario, se convierte a número. 
 
-Para el caso de los arreglos, el operador \code{+} no funciona como en otros lenguajes. Para concatenar arreglos es necesario utilizar el método \code{concat} o hacer uso de alguna librería externa.
+Para el caso de los arreglos, el operador \code{+} no funciona como en otros lenguajes. Para concatenar arreglos es necesario utilizar el método \code{concat} o hacer uso de alguna librería externa. 

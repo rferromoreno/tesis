@@ -1,6 +1,6 @@
 \section{Tipos primitivos}
 
-Tal como se mencionó en el Capítulo \ref{ch:introduccionjs}, existen solamente 7 tipos primitivos del lenguaje. Una variable está asociada a un valor, y dicho valor puede ser de alguno de los siguientes tipos:
+Tal como se mencionó en el capítulo \ref{ch:introduccionjs}, existen solamente 7 tipos primitivos del lenguaje. Una variable está asociada a un valor, y dicho valor puede ser de alguno de los siguientes tipos:
 
 \begin{itemize}
 \item \code{undefined}
@@ -12,15 +12,15 @@ Tal como se mencionó en el Capítulo \ref{ch:introduccionjs}, existen solamente
 \item \code{object}
 \end{itemize}
 
-Algunos autores consideran que \code{Object} no es un tipo primitivo. De hecho, en la sección \ref{sec:toprimitive} (y a lo largo del capítulo \ref{ch:coercion}) mostraremos que la especificación hace una distinción especial para éste tipo a la hora de hacer conversiones de tipo, por lo que pensar que \code{Object} no es un tipo primitivo da lugar a debate. 
+Algunos autores consideran que \code{Object} no es un tipo primitivo. De hecho, en la sección \ref{sec:toprimitive} (y a lo largo del capítulo \ref{ch:coercion}) mostraremos que la especificación de ECMAScript \cite{EcmaScript:15} hace una distinción especial para éste a la hora de hacer conversiones de tipo, por lo que pensar que \code{Object} no es un tipo primitivo da lugar a debate, y es un pensamiento totalmente válido.
 
-También existe un concepto errado de que "`en JavaScript todo es un objeto"'. Considerando que en JavaScript las funciones y los arreglos son objetos, la frase es en parte cierta. Pero el concepto es equivocado porque además de objetos existen los otros tipos primitivos, de los cuales haremos mención en esta sección.
+También existe un concepto errado de que "`en JavaScript todo es un objeto"'. Considerando que en JavaScript las funciones y los arreglos son objetos, la frase es en parte cierta. Pero el concepto es equivocado porque además de objetos existen los otros tipos primitivos, los cuales acabamos de mencionar.
 
 En las siguientes subsecciones haremos introducción (y algunas críticas) a algunos de los tipos. No son tenidos en cuenta \code{boolean}, dado que no hay mucho que analizar, y tampoco \code{symbol}, el cual no formará parte de éste documento.
 
 \subsection{\code{null} y \code{undefined}}
 
-Estos dos tipos representan el valor "`vacío"', y puede resultar confuso, porque tener dos identificadores para \textit{casi} lo mismo parece, desde el primer momento, redundante. El valor de \code{undefined} se suele utilizar como valor para variables que aún no fueron declaradas, mientras que el valor de \code{null} se supone que cuando queremos forzar a que una variable tenga valor nulo.
+Estos dos tipos representan el valor "`vacío"', y puede resultar confuso, porque tener dos identificadores para \textit{casi} lo mismo parece redundante. El valor de \code{undefined} se suele utilizar como valor para variables que aún no fueron declaradas, mientras que el valor de \code{null} se supone que cuando queremos forzar a que una variable tenga valor nulo.
 
 \begin{lstlisting}[title={\code{null} y \code{undefined}}]
 var a;
@@ -41,7 +41,7 @@ console.log(a);	// undefined
 console.log(b);	// undefined
 \end{lstlisting}
 
-Aquí es donde entra el juego entre un valor "`no definido"' y un valor "`no declarado"'. Lo lógico, es pensar que \code{undefined} se utiliza para una variable que sí fue declarada, pero que su valor aún no fue definido. Mientras que una variable "`no declarada"' representaría a una variable que en ningún momento se la declaró mediante ningún mecanismo (ni \code{var}, ni \code{let}, ni \code{const}).
+Aquí es donde entra el juego el significado de un valor "`no definido"' y un valor "`no declarado"'. Lo lógico, es pensar que \code{undefined} se utiliza para una variable que sí fue declarada, pero que su valor aún no fue definido. Mientras que una variable "`no declarada"' representaría a una variable que en ningún momento se la declaró mediante ningún mecanismo (ni \code{var}, ni \code{let}, ni \code{const}).
 
 El problema es que el intérprete tampoco es muy concreto a la hora de describir los errores, ya que si la variable no fue declarada, !`nos dirá que la misma no fue definida!
 
@@ -52,11 +52,11 @@ a; // undefined
 b; // ReferenceError: b is not defined
 \end{lstlisting}
 
-Por el lado de \code{null} no hay mucho que aclarar. En el capítulo \ref{ch:coercion} observaremos cómo \code{null} es un valor de falsedad, pero al compararlo con \code{false}, dicha comparación da un resultado negativo.
+Por el lado de \code{null} no hay mucho más para aclarar. Su significado es idéntico al de otros lenguajes de la misma rama. En el capítulo \ref{ch:coercion} observaremos cómo \code{null} es un valor de falsedad, pero al compararlo con \code{false}, dicha comparación da un resultado negativo.
 
 \subsection{\code{string}}
 
-El tipo \code{string} es el utilizado para representar una cadena de caracteres o texto. En otros lenguajes, generalmente un \code{string} es tratado como una lista, una secuencia o un array de caracteres (porque de hecho, en algunos lenguajes lo es). Sin embargo, en JavaScript no existe el concepto de \code{char}. Solamente el de \code{string}. Si se desea, en JavaScript se puede tratar a un \code{string} como si fuera un \code{array}, pero no lo es. Solamente poseen varios "`métodos en común"'.
+El tipo \code{string} es utilizado para representar una cadena de caracteres o texto. En otros lenguajes, generalmente un \code{string} es tratado como una lista, una secuencia o un array de caracteres (porque de hecho, en algunos lenguajes lo es). No obstante, en JavaScript no existe el concepto de \code{char}; solamente el de \code{string}. Si se desea, en JavaScript se puede tratar a un \code{string} como si fuera un \code{array}, pero no lo es. Solamente poseen varios "`métodos en común"'.
 
 \begin{lstlisting}[title={Similitudes entre \code{string} y un \code{array}}]
 var a = 'hola';                 // string
@@ -74,7 +74,7 @@ console.log(b.concat(['m','u','n','d','o']))
 // ​​​​​[ 'h', 'o', 'l', 'a', 'm', 'u', 'n', 'd', 'o' ]​​​​​
 \end{lstlisting}
 
-A pesar de que existe cierta similitud entre estos dos tipos, es un error pensar a \code{string} como una simple cadena de caracteres. Observemos:
+A pesar de que existe cierta similitud entre estos dos tipos, es un grave error pensar al tipo \code{string} como una simple cadena de caracteres. Observemos:
 
 \begin{lstlisting}
 var a = 'hola';                 // string
@@ -87,15 +87,15 @@ console.log(a);		// hola
 console.log(b);		// ​​​​​[ 'H', 'o', 'l', 'a' ]​​​​​
 \end{lstlisting}
 
-El valor de la primera letra de la variable \code{a} no se vio modificada. Esto sucede porque en JavaScript el tipo \code{string} es inmutable. Las operaciones que vienen con la clase \code{String} devuelven un nuevo valor, sin mutar ni cambiar el valor con el cual operamos.
+El valor de la primera letra de la variable \code{a} no se vio modificada. Esto sucede porque en JavaScript el tipo \code{string} es inmutable. Las operaciones que brinda la clase \code{String} devuelven un nuevo valor, sin mutar ni cambiar el valor con el cual operamos.
 
-Por otro lado, existen algunos métodos que existen para la clase \code{Array} pero no para \code{String}. Serían deseables métodos como \code{join}, \code{map} o \code{reverse}. Por suerte existen formas de tomar esos métodos "`prestados"': haciendo conversión hacia \code{array} y volviendo a \code{string} (poco óptimo) o forzando las llamadas mediante el uso del método \code{call}, del cual se hablará con precisión en la sección \ref{subsec:ligaduraexplicita}.
+Por otro lado, existen algunos métodos que existen para la clase \code{Array} pero no para \code{String}. Serían deseables métodos como \code{join}, \code{map} o \code{reverse}. Por suerte existen formas de tomar esos métodos "`prestados"': haciendo conversión hacia \code{array} y volviendo a \code{string} (poco óptimo), o forzando las llamadas mediante el uso del método \code{call}, del cual se hablará con precisión en la sección \ref{subsec:ligaduraexplicita}.
 
-Lo cierto, es que el tipo \code{string} no es un arreglo de caracteres, y en cierto punto el programador tendrá que evaluar si resultará una mejor solución a su problema utilizar este tipo, o un \code{array} de \code{string}, en caso de que tenga datos que deba ir "`mutando"'.
+Lo cierto es que el tipo \code{string} no es un arreglo de caracteres, y llegado a cierto punto el programador tendrá que evaluar si resultará una mejor solución a su problema utilizar este tipo, o un \code{array} de \code{string}, en caso de que tenga datos que deban ir "`mutando"'.
 
 \subsection{\code{number}}
 
-El otro tipo a destacar en el lenguaje es \code{number}. En JavaScript no existe una distinción entre \code{integer} y \code{float}, \code{real} o \code{double}. Solamente existe el concepto de \code{number} y éste es compartido, independientemente si se trata de un número entero o real.
+Otro tipo a destacar en el lenguaje es \code{number}. En JavaScript no existe una distinción entre \code{integer} y \code{float}, \code{real} o \code{double}. Solamente existe el concepto de \code{number} y éste es compartido, independientemente si se trata de un número entero o real.
 
 Existe una famosa crítica al lenguaje que se suele ver en Internet, que es la siguiente:
 
@@ -103,13 +103,13 @@ Existe una famosa crítica al lenguaje que se suele ver en Internet, que es la s
 0.1 + 0.2 === 0.3			// false
 \end{lstlisting}
 
-Sin embargo, criticar a JavaScript por dicha expresión es una equivocación enorme. De hecho, este problema también lo poseen lenguajes como C, C++, Java, Python, PHP, entre otros (ver \href{https://0.30000000000000004.com/}{0.30000000000000004.com}). 
+Criticar a JavaScript por dicha expresión es una equivocación enorme. De hecho, éste problema también lo poseen lenguajes como C, C++, Java, Python, PHP, entre otros (ver \href{https://0.30000000000000004.com/}{0.30000000000000004.com}). 
 
 En todo caso, se puede criticar al sistema de tipos (por utilizar únicamente \code{number} y no tener un manejo natural para los decimales "`grandes"'). Pero lo que realmente sucede bajo esa expresión, es que el tipo \code{number} en JavaScript implementa la norma IEEE 754 de punto flotante, por lo que algunas veces habrá cierta pérdida de precisión en algunas operaciones matemáticas para determinados valores. 
 
 Por otro motivo que se suele cuestionar a JavaScript es por los valores numéricos especiales: \code{+0}, \code{-0}, \code{Infinity}, \code{-Infinity} y \code{NaN}. Pero de nuevo, estamos en lo mismo: Todos estos valores están ahí porque forman parte de la implementación de IEEE 754.
 
-De lo que sí hay que hacer mención es de la parte sintáctica de los números. Existen diversas formas de escribir números (y algunos de ellos representan lo mismo). A continuación se presentan algunos ejemplos. Todos de ellos son formas válidas.
+En lo que sí corresponde hacer hinchapié es en la parte sintáctica de los números. Existen diversas formas de escribir números (y algunos de ellos representan lo mismo). A continuación se presentan algunos ejemplos. Todos de ellos son formas válidas.
 
 \begin{lstlisting}
 // ejemplo 1
@@ -128,7 +128,7 @@ De lo que sí hay que hacer mención es de la parte sintáctica de los números.
 
 La parte "`desagradable"' para algunos puede ser la de la línea 4 y la línea 12, donde se usa el punto al principio o al final del literal. 
 
-Un punto fuerte es que se pueden usar literales en notación científica o en otras bases, como hexadecimal, octal o binario. Éste último concepto fue introducido en versiones previas pero mejorado en ES6.
+Un punto fuerte es que se pueden usar literales en notación científica o en otras bases, como hexadecimal, octal o binario. Éste último concepto fue introducido en versiones previas, pero mejorado en ES6.
 
 \begin{lstlisting}
 // Notación científica
@@ -151,7 +151,7 @@ Un punto fuerte es que se pueden usar literales en notación científica o en ot
 
 \subsection{\code{object}}
 
-Dejando de lado el resto de los tipos primitivos, el tipo por excelencia dentro del lenguaje es \code{object}. En JavaScript \textit{casi todo} es un objeto: arreglos, funciones, clases, módulos. Existen diversas formas de crear un objeto, todas ellas son válidas.
+Dejando de lado el resto de los tipos primitivos, el tipo por excelencia dentro del lenguaje es \code{object}. En JavaScript \textit{casi todo} es un objeto: arreglos, funciones, clases, módulos. Existen diversas formas de crear un objeto, algunas de ellas se muestran a continuación:
 
 \begin{lstlisting}[title={Creando un \code{object}}]
 var obj1 = {};
@@ -159,9 +159,9 @@ var obj2 = new Object();
 var obj3 = Object.create(null);
 \end{lstlisting}
 
-La sintaxis de la línea 1 es la utilizada por excelencia. El uso de las llaves \code{\{\}} puede parecer confuso al principio, porque los mismos también son utilizados para definir bloques. Sin embargo, la simplicidad que tiene es destacable. Para quienes conocen el formato JSON (JavaScript Object Notation) utilizado a veces en la web, esto no resultará nada nuevo.
+La forma sintáctica de la línea 1 es utilizada asiduamente. El uso de las llaves \code{\{\}} puede parecer confuso al principio, porque las mismas también son utilizados para definir bloques. Sin embargo, la simplicidad que tiene es destacable. Para quienes conocen el formato JSON (JavaScript Object Notation) utilizado a veces en la web, esto no resultará nada nuevo.
 
-Pero ?`qué es exactamente un objeto?. Es un conjunto de propiedades determinadas por una \textit{clave} y asociadas a un \textit{valor}. Dichos valores pueden ser de cualquier tipo de los vistos en el lenguaje (incluso otros objetos, lo que significa que pueden ser también funciones o arreglos).
+Pero ?`qué es \textit{exactamente} un objeto?. Es un conjunto de propiedades determinadas por una \textit{clave} y asociadas a un \textit{valor}. Dichos valores pueden ser de cualquier tipo de los ya vistos (incluso otros objetos, lo que significa que pueden ser también funciones o arreglos).
 
 \begin{lstlisting}[title={Ejemplo de \code{object}}]
 var obj = {
@@ -178,7 +178,7 @@ var obj = {
 }
 \end{lstlisting}
 
-Existen dos formas de referirse a la locación de la propiedad de un objeto: mediante la notación de punto o mediante la notación de arreglo. 
+Existen dos maneras de hacer referencia a la locación de la propiedad de un objeto: mediante la notación de punto o mediante la notación de arreglo. 
 
 \begin{lstlisting}[title={Notación punto y notación arreglo}]
 var objeto = {
@@ -195,7 +195,7 @@ objeto["b"] = 5;
 console.log(objeto); //​​​​​ { a: 4, b: 5 }
 \end{lstlisting}
 
-De lo que hay que tener especial cuidado cuando empezamos a acceder a las propiedades de un objeto en cualquiera de las dos formas, porque permite el uso de algunos literales de otros tipos a modo de identificador (clave) de una propiedad. Ésta característica cambió a partir de la versión de ES5, previo a ello, se permitía utilizar palabras reservadas mediante la notación de arreglo pero no mediante la notación de punto.
+Hay que tener especial cuidado cuando empezamos a acceder a las propiedades de un objeto en cualquiera de las dos formas, porque permite el uso de algunos literales de otros tipos a modo de identificador de una propiedad. Ésta característica cambió a partir de la versión de ES5, previo a ello, se permitía utilizar palabras reservadas mediante la notación de arreglo pero no mediante la notación de punto.
 
 \begin{lstlisting}[title={Utilizando literales como claves}]
 var obj = {
@@ -211,7 +211,7 @@ console.log(obj);
 // { a: 2, true: 3, false: 4, undefined: 5, null: 6 }​​​​​
 \end{lstlisting}
 
-Sin embargo, no todos los literales forman parte de un identificador válido para JavaScript, para el caso de los números, lógicamente no forman parte de un identificador válido. Para la notación punto, entonces, tendremos un problema. Pero si utilizamos la notación arreglo, no.
+Uno de los puntos más flojos en este aspecto es cuando hablamos de literales numéricos. Si bien no forman parte de un identificador válido para el lenguaje, sí lo son para las propiedades de un objeto. Pero hay que tener cuidado: Para la notación punto no sirven, pero sí para la notación arreglo.
 
 \begin{lstlisting}[title={Utilizando números como claves}]
 var obj = {};
@@ -240,7 +240,17 @@ console.log(obj); // ​​​​​{ '[object Object]': 1, obj3: 2 }​​​�
 
 Podemos ver, por un lado, cómo \code{obj2} fue convertido a \code{string} y fue utilizado erróneamente como clave para una propiedad de \code{obj}. Por el otro lado, con la notación de punto, se utilizó el texto \code{obj3} (y no la referencia al objeto) como identificador de la propiedad. 
 
-Por último, ?`qué pasa con las referencias circulares en objetos?. Preguntarse ésto debería ser importante para el programador por cuestiones relativas al \textit{garbage collector}.
+Una inconsistencia más, es la de la "`cadena vacía"', la cual también formará parte de un identificador válido.
+
+\begin{lstlisting}[title={Cadena vacía como clave}]
+var obj = {};
+
+obj[''] = 'wow!';
+
+console.log(obj);	// ​​​​​{ '': 'wow!' }​​​​​ 
+\end{lstlisting}
+
+Para cerrar ésta parte de objetos, ?`qué pasa con las referencias circulares en objetos?. Preguntarse ésto debería ser importante para el programador por cuestiones relativas al \textit{garbage collector}.
 
 \begin{lstlisting}[title={Referencias circulares con objetos}]
 var obj = {};

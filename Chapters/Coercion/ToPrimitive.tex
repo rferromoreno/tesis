@@ -1,11 +1,11 @@
 \section{ToPrimitive}
 \label{sec:toprimitive}
 
-La función \code{ToPrimitive} está especificada en el estandar de ECMAScript y es un pilar fundamental para entender las secciones siguientes. En la sección anterior (\ref{sec:conversionexplicita}) se hizo mención sobre la conversión de \code{object} hacia otros tipos. Para el caso de boolean, es simple dado que todos los objetos se convierten a \code{true}. Sin embargo, para los tipos \code{number} y \code{string} es un poco más complejo, dado que hay que recurrir a este algoritmo. 
+La función \code{ToPrimitive} está especificada en el estándar de ECMAScript \cite{EcmaScript:15} y es un pilar fundamental para entender las secciones siguientes. En la sección \ref{sec:conversionexplicita} se hizo mención acerca de la conversión de \code{object} hacia otros tipos. Para el caso de \code{boolean}, es simple dado que todos los objetos se convierten a \code{true}. Sin embargo, para los tipos \code{number} y \code{string} es un poco más complejo, dado que hay que recurrir a este algoritmo. 
 
-?`Por qué un objeto se querría convertir a un tipo primitivo? Es justamente una de las partes flexibles del lenguaje. Esta función es la que permite poder utilizar operandos de distintos tipos en algunas expresiones. Un objeto se podría tener que convertir a un tipo numérico para el caso de algunas operaciones matemáticas (por ejemplo, el tipo \code{Date} donde se pueden restar fechas) o por ejemplo a un texto, para el caso de que se necesite mostrar un objeto (ya sea mediante las funciones \code{alert} o \code{console.log}).
+?`Por qué un objeto se querría convertir a un tipo primitivo? Es justamente una de las partes flexibles del lenguaje. Esta función es la que permite poder utilizar operandos de distintos tipos en algunas expresiones. Un objeto se podría tener que convertir a un tipo numérico para el caso de algunas operaciones matemáticas (por ejemplo, el tipo \code{Date} donde se pueden restar fechas) o por ejemplo a un texto, para el caso de que se necesite "`mostrar"' un objeto (ya sea mediante las funciones \code{alert} o \code{console.log}).
 
-Cabe aclarar que la función \code{ToPrimitive} existe en la especificación de ECMAScript, pero no es un método o una función tal como se mostró con \code{Boolean}, \code{Number}, \code{String} y \code{Object}. Este método de conversión se utilizará siempre que el contexto lo requiera así, generalmente en operaciones donde ocurre la coerción.
+Cabe aclarar que la función \code{ToPrimitive} \textit{existe} en la especificación de ECMAScript, pero no es un método o una función tal como se mostró con \code{Boolean}, \code{Number}, \code{String} y \code{Object}. Este método de conversión se utilizará siempre que el contexto así lo requiera, generalmente en operaciones donde ocurre la coerción de objetos.
 
 La signatura del método es la siguiente: \code{\color{blue}ToPrimitive(input, PreferredType?)}
 
@@ -20,4 +20,4 @@ El algoritmo de \code{ToPrimitive} si el \code{PreferredType} es \code{Number} e
 \item Sino, lanzar un \code{TypeError}.
 \end{enumerate}
 
-En caso de que el \code{PreferredType} sea tipo \code{String}, el algoritmo es análogo, solo que se cambian de lugares los puntos 2 y 3.
+En caso de que el \code{PreferredType} sea tipo \code{String}, el algoritmo es análogo, solo que se intercambian los lugares de los puntos 2 y 3.

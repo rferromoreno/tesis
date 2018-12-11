@@ -1,7 +1,7 @@
 \section{Operadores de igualdad}
 \label{sec:eqeqeq}
 
-Una de las primeras fallas comunes en cuanto a los programadores que se acercan a Javascript y vienen de otros lenguajes de la rama de C, es pensar que el operador de comparación \code{==} funciona de la misma manera que en esos otros lenguajes. Esto no es así. En Javascript, existen dos operadores de comparación de igualdad, estos son \code{==} y \code{===} (junto con sus comparadores de desigualdad análogos, \code{!=} y \code{!==}).
+Una de las primeras fallas comunes en cuanto a los programadores que se acercan a JavaScript y vienen de otros lenguajes de la rama de C, es pensar que el operador de comparación \code{==} funciona de la misma manera que en esos otros lenguajes. Esto no es así. En JavaScript, existen dos operadores de comparación de igualdad, estos son \code{==} y \code{===} (junto con sus comparadores de desigualdad análogos, \code{!=} y \code{!==}).
 
 El operador de igualdad \code{===} se le suele llamar estricto, ya que si los dos operandos son de distintos tipos, la expresión será \code{false}, en caso contrario, hará una comparación del valor de los operandos (a excepción de los objetos, que compara referencias).
 
@@ -13,7 +13,7 @@ Una de las mayores críticas del operador \code{==} es la falta de coherencia se
 [] == ![] 				// true
 \end{lstlisting}
 
-?`Por qué ésta comparación da verdadera? Lo que está pasando en el fondo es que ambos operandos están siendo transformados a \code{number}. Por el lado de la izquierda, se produce el \code{ToNumber} visto anteriormente, resultando en un valor \code{0}. Sin embargo el operando de la derecha previamente es transformado a \code{boolean} (por el \code{not}), lo cual se traduce a \code{false}, el cual luego termina siendo traducido a \code{0}.
+?`Por qué ésta comparación da verdadera? Lo que está pasando es que ambos operandos están siendo transformados a \code{number}. Por el lado de la izquierda, se produce el \code{ToNumber} visto anteriormente, resultando en un valor \code{0}. Sin embargo el operando de la derecha previamente es transformado a \code{boolean} (por el \code{not}), lo cual se traduce a \code{false}, el cual luego termina siendo traducido a \code{0}.
 
 \begin{lstlisting}
 +[] == +![];
@@ -29,9 +29,9 @@ null == false				// false
 undefined == false	// false
 \end{lstlisting}
 
-Para entender mejor qué pasa en el fondo, es necesario recurrir a los algoritmos de comparación de la especificación. Cabe la aclaración que se hará uso de tres "`métodos"': \code{ToNumber} y \code{ToPrimitive}, los cuales se introdujeron en las secciones \ref{sec:conversionexplicita} y \ref{sec:toprimitive} respectivamente, y \code{Tipo} el cual retorna el tipo de un valor dado. 
+Para entender mejor qué pasa, es necesario recurrir a los algoritmos de comparación de la especificación. Cabe la aclaración que se hará uso de tres "`métodos"': \code{ToNumber} y \code{ToPrimitive}, los cuales se introdujeron en las secciones \ref{sec:conversionexplicita} y \ref{sec:toprimitive} respectivamente, y un método \code{Tipo}, el cual retorna el tipo de un valor dado. 
 
-Empecemos con el algoritmo de \textbf{Comparación de Igualdad Estricta}. Sea la comparación \code{x === y}, donde \code{x} e \code{y} son los operandos, la comparación se hace de la siguiente forma.
+Empecemos con el algoritmo de \textbf{Comparación de Igualdad Estricta}. Sea la comparación \code{x === y}, donde \code{x} e \code{y} son los operandos, la comparación se hace de la siguiente forma:
 
 \begin{enumerate}
 \item Si \code{Tipo(x)} es distinto a \code{Tipo(y)}
@@ -65,7 +65,8 @@ Empecemos con el algoritmo de \textbf{Comparación de Igualdad Estricta}. Sea la
 \item Sino, retornar \code{false}
 \end{enumerate}
 
-Este algoritmo es dentro de todo bastante simple. Partiendo por el hecho de que si ambos tipos son distintos, se retorna false \code{false}, y sino, se hace una comparación por valores según el tipo. Cabe destacar que los casos de \code{NaN}, \code{+0} y \code{-0} son especiales para \code{number}, por su implementación de la norma IEEE 754. Matemáticamente, \code{+0} y \code{-0} son iguales, pero para la implementación, representan dos valores distintos, y por eso es que están ramificados de manera exclusiva en el algoritmo.
+Este algoritmo es dentro de todo bastante simple. Partiendo por el hecho de que si ambos tipos son distintos, se retorna \code{false}, y sino, se hace una comparación por valores según el tipo. 
+Cabe destacar que los casos de \code{NaN}, \code{+0} y \code{-0} son especiales para \code{number}, por su implementación de la norma IEEE 754. Matemáticamente, \code{+0} y \code{-0} son iguales, pero para la implementación, representan dos valores distintos, y por eso es que están ramificados de manera exclusiva en el algoritmo.
 
 Ahora sigamos con el algoritmo de \textbf{Comparación de Igualdad Abstracta}.
 
@@ -82,7 +83,7 @@ Ahora sigamos con el algoritmo de \textbf{Comparación de Igualdad Abstracta}.
 \item Retornar \code{false}
 \end{enumerate}
 
-Veamos el detalle, primero, que el algoritmo está definido de forma recursiva. Lo segundo a tener en cuenta, la mayoría de los tipos intentarán convertirse a Number a excepción de los casos del final donde incluye casos de Object los cuales son transformados con \code{ToPrimitive}. Sin embargo, previo a eso, hay casos especiales para \code{null} y \code{undefined}. Este algoritmo presentado es el que está en la versión de ECMAScript 6.0, sin embargo no se descarta que en versiones siguientes sea modificado.
+Notar el detalle que el algoritmo está definido de forma recursiva. Algo a tener en cuenta, la mayoría de los tipos intentarán convertirse a Number a excepción de los casos del final, donde los valores que tengan tipo Object serán transformados a tipos primitivos mediante \code{ToPrimitive}. Sin embargo, previo a eso, hay casos especiales para \code{null} y \code{undefined}. Este algoritmo presentado es el que está en la versión de ECMAScript 6.0, sin embargo no se descarta que en versiones siguientes sea modificado u optimizado.
 
 La falta de "`transitividad"' en el operador \code{==} es otra de las cosas más preocupantes del lenguaje. Es fácil pensar que si \code{A == B} y que \code{B == C}, entonces \code{A == C}, pero esto no sucede siempre.  Por ejemplo:
 

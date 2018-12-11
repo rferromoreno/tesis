@@ -1,13 +1,13 @@
 \section{Aprovechando la coerción}
 \label{sec:aprovechando}
 
-Hasta este punto se ha hablado de los efectos inesperados o con poca coherencia que tiene la coerción en el lenguaje. Sin embargo, cuando uno conoce las reglas que tiene el lenguaje, puede empezar a hacer uso de esos efectos a su favor.
+Hasta este punto se ha hablado de los efectos inesperados o con poca coherencia que tiene la coerción en el lenguaje. Sin embargo, cuando uno conoce las reglas, puede empezar a hacer uso de esos efectos a su favor.
 
-Recordemos principalmente que Javascript es, entre otras cosas, un lenguaje de "`scripting"', por lo que se espera que haya ciertas facilidades y no tanta burocracia delante del programador a la hora de realizar su tarea.
+Recordemos principalmente que JavaScript es, entre otras cosas, un lenguaje de "`scripting"', por lo que se espera que haya ciertas facilidades y no tanta burocracia delante del programador a la hora de realizar su tarea. Del lenguaje, se espera que tenga cierta flexibilidad, y que se pueda expresar con cierta \textit{rapidez}.
 
 Si bien la coerción lleva a efectos inesperados, bugs y dificultad a la hora de trazar y encontrar errores en el código, es probable que los programadores experimentados destaquen el punto de que se pueden hacer cosas muy concisas.
 
-Por ejemplo, supongamos un escenario de una llamada asincrónica donde nos puede venir \code{data}, asi como también puede faltar dicha información (que no nos llegue dicha propiedad), luego en el código podemos verificar que la misma "`existe"' mediante el uso de la coerción en una expresión.
+Por ejemplo, supongamos un escenario de una llamada asincrónica donde nos puede venir \code{data}, asi como también puede faltar dicha información (que no nos llegue dicha propiedad). Luego, en el código podemos verificar que la misma "`existe"' mediante el uso de la coerción en una expresión.
 
 \begin{lstlisting}
 if (data) {
