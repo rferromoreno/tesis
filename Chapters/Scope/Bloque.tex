@@ -1,7 +1,7 @@
 \section{Scope por bloque}
 \label{sec:scopebloque}
 
-Uno de los mayores errores de los programadores que vienen de la rama de Java y C, es creer que Javascript por naturaleza implementa scope por bloques. ?`Qué significa tener scope en bloque? Supongamos el siguiente código
+Uno de los mayores errores de los programadores que vienen de la familia de lenguajes de C, es creer que JavaScript por naturaleza implementa scope por bloques. ?`Qué significa tener scope en bloque? Supongamos el siguiente código
 
 \begin{lstlisting}
 {
@@ -16,11 +16,11 @@ Uno de los mayores errores de los programadores que vienen de la rama de Java y 
 
 Si existiera el scope por bloque en Javascript, entonces el código presentado debería imprimir "`segunda"' en la línea 5, y luego "`primera"' en la línea 7, dado que ésta última pertenece a otro bloque y hacemos referencia a otra variable \code{a}. Sin embargo, si ejecutamos el código, podemos observar que en ambas ocasiones imprimió "`segunda"'.
 
-Este tipo de scope se llama "`por bloque"' y existe en otros lenguajes como Java. Sin embargo, en Javascript no existe este concepto, o al menos no con la palabra \code{var} (más adelante en la sección \ref{subsec:letyconst}, veremos cómo se introdujo en ES6).
+Este tipo de scope se llama "`por bloque"' y existe en otros lenguajes como Java. Sin embargo, en JavaScript no existe este concepto, o al menos no con la palabra \code{var} (más adelante en la sección \ref{subsec:letyconst}, veremos cómo se introdujo en ES6).
 
 Lo que realmente está sucediendo en el código anterior es que se está aplicando el concepto de \textit{hoisting} sobre el código. En todo el bloque solamente existe una variable \code{a}. La segunda declaración de la variable es omitida, aunque no su asignación. Y como para crear un "`nuevo scope"' es necesario hacer una declaración de una función, entonces no existirán dos scopes, sino que solamente uno.
 
-\begin{lstlisting}
+\begin{lstlisting}[title={Código equivalente al ejemplo anterior}]
 {
   var a;
 	a = "primera";
@@ -32,7 +32,7 @@ Lo que realmente está sucediendo en el código anterior es que se está aplican
 }
 \end{lstlisting}
 
-Las llaves \code{\{\}} de las líneas 4 y 7 son sintácticamente válidas, pero no producen nada nuevo adentro del código. Se pueden omitir y el significado del programa será el mismo.
+Las llaves \code{\{\}} de las líneas 4 y 7 son sintácticamente válidas, pero no producen nada nuevo adentro del código. Se pueden omitir, y el significado del programa será el mismo.
 
 Supongamos este otro ejemplo:
 
