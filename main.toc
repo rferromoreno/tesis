@@ -76,39 +76,39 @@
 \contentsline {chapter}{\numberline {6}Conclusión: Parte I}{49}{chapter.787}
 \contentsline {section}{\numberline {6.1}Lo bueno}{49}{section.788}
 \contentsline {section}{\numberline {6.2}Lo malo}{49}{section.789}
-\contentsline {section}{\numberline {6.3}Lo feo}{49}{section.790}
-\contentsline {part}{II\hspace {1em}Paradigmas de Programación}{50}{part.791}
-\contentsline {chapter}{\numberline {7}Paradigma funcional}{51}{chapter.792}
-\contentsline {section}{\numberline {7.1}Recursividad}{51}{section.793}
-\contentsline {section}{\numberline {7.2}Funciones puras}{52}{section.808}
-\contentsline {section}{\numberline {7.3}Funciones de primera clase y orden superior}{53}{section.835}
-\contentsline {subsection}{\numberline {7.3.1}Funciones de primera clase}{53}{subsection.836}
-\contentsline {subsection}{\numberline {7.3.2}Funciones de orden superior}{54}{subsection.860}
-\contentsline {section}{\numberline {7.4}Evaluación ansiosa y perezosa}{56}{section.903}
-\contentsline {section}{\numberline {7.5}Semántica de valores}{57}{section.920}
-\contentsline {chapter}{\numberline {8}Paradigma orientado a objetos}{58}{chapter.939}
-\contentsline {section}{\numberline {8.1}Clases}{58}{section.940}
-\contentsline {subsection}{\numberline {8.1.1}Factory class pattern}{58}{subsection.941}
-\contentsline {subsection}{\numberline {8.1.2}Functional class pattern}{59}{subsection.958}
-\contentsline {subsection}{\numberline {8.1.3}Prototype class pattern}{60}{subsection.972}
-\contentsline {subsection}{\numberline {8.1.4}\texttt {class} en ES6}{60}{subsection.987}
-\contentsline {section}{\numberline {8.2}Herencia}{61}{section.1003}
-\contentsline {subsection}{\numberline {8.2.1}Herencia simple mediante \texttt {prototype}}{61}{subsection.1004}
-\contentsline {subsection}{\numberline {8.2.2}\texttt {extends} en ES6}{63}{subsection.1035}
-\contentsline {subsection}{\numberline {8.2.3}Herencia múltiple}{64}{subsection.1064}
-\contentsline {section}{\numberline {8.3}Encapsulamiento}{65}{section.1091}
-\contentsline {section}{\numberline {8.4}Polimorfismo}{66}{section.1124}
-\contentsline {section}{\numberline {8.5}Modularidad}{68}{section.1161}
-\contentsline {subsection}{\numberline {8.5.1}Módulos mediante patrones}{68}{subsection.1162}
-\contentsline {subsection}{\numberline {8.5.2}Sistemas de módulos}{69}{subsection.1195}
-\contentsline {subsubsection}{AMD}{69}{section*.1196}
-\contentsline {subsubsection}{CommonJS}{70}{section*.1237}
-\contentsline {subsection}{\numberline {8.5.3}Módulos en ES6}{71}{subsection.1275}
-\contentsline {chapter}{\numberline {9}Conclusión: Parte II}{74}{chapter.1321}
-\contentsline {section}{\numberline {9.1}Lo bueno}{74}{section.1322}
-\contentsline {section}{\numberline {9.2}Lo malo}{75}{section.1323}
-\contentsline {section}{\numberline {9.3}Lo feo}{75}{section.1324}
-\contentsline {chapter}{\numberline {10}Conclusiones generales}{76}{chapter.1325}
-\contentsline {section}{\numberline {10.1}A futuro}{76}{section.1326}
-\contentsline {section}{\numberline {10.2}Resumen}{76}{section.1327}
-\contentsline {chapter}{Bibliograf\'{\i }a}{78}{chapter*.1328}
+\contentsline {section}{\numberline {6.3}Lo feo}{50}{section.790}
+\contentsline {part}{II\hspace {1em}Paradigmas de Programación}{51}{part.791}
+\contentsline {chapter}{\numberline {7}Paradigma funcional}{52}{chapter.792}
+\contentsline {section}{\numberline {7.1}Recursividad}{52}{section.793}
+\contentsline {section}{\numberline {7.2}Funciones puras}{53}{section.808}
+\contentsline {section}{\numberline {7.3}Funciones de primera clase y orden superior}{54}{section.835}
+\contentsline {subsection}{\numberline {7.3.1}Funciones de primera clase}{54}{subsection.836}
+\contentsline {subsection}{\numberline {7.3.2}Funciones de orden superior}{55}{subsection.860}
+\contentsline {section}{\numberline {7.4}Evaluación ansiosa y perezosa}{57}{section.903}
+\contentsline {section}{\numberline {7.5}Semántica de valores}{58}{section.920}
+\contentsline {chapter}{\numberline {8}Paradigma orientado a objetos}{59}{chapter.939}
+\contentsline {section}{\numberline {8.1}Clases}{59}{section.940}
+\contentsline {subsection}{\numberline {8.1.1}Factory class pattern}{59}{subsection.941}
+\contentsline {subsection}{\numberline {8.1.2}Functional class pattern}{60}{subsection.958}
+\contentsline {subsection}{\numberline {8.1.3}Prototype class pattern}{61}{subsection.972}
+\contentsline {subsection}{\numberline {8.1.4}\texttt {class} en ES6}{61}{subsection.987}
+\contentsline {section}{\numberline {8.2}Herencia}{62}{section.1003}
+\contentsline {subsection}{\numberline {8.2.1}Herencia simple mediante \texttt {prototype}}{62}{subsection.1004}
+\contentsline {subsection}{\numberline {8.2.2}\texttt {extends} en ES6}{64}{subsection.1035}
+\contentsline {subsection}{\numberline {8.2.3}Herencia múltiple}{65}{subsection.1064}
+\contentsline {section}{\numberline {8.3}Encapsulamiento}{66}{section.1091}
+\contentsline {section}{\numberline {8.4}Polimorfismo}{67}{section.1124}
+\contentsline {section}{\numberline {8.5}Modularidad}{69}{section.1161}
+\contentsline {subsection}{\numberline {8.5.1}Módulos mediante patrones}{69}{subsection.1162}
+\contentsline {subsection}{\numberline {8.5.2}Sistemas de módulos}{70}{subsection.1195}
+\contentsline {subsubsection}{AMD}{70}{section*.1196}
+\contentsline {subsubsection}{CommonJS}{71}{section*.1237}
+\contentsline {subsection}{\numberline {8.5.3}Módulos en ES6}{72}{subsection.1275}
+\contentsline {chapter}{\numberline {9}Conclusión: Parte II}{75}{chapter.1321}
+\contentsline {section}{\numberline {9.1}Lo bueno}{75}{section.1322}
+\contentsline {section}{\numberline {9.2}Lo malo}{76}{section.1323}
+\contentsline {section}{\numberline {9.3}Lo feo}{76}{section.1324}
+\contentsline {chapter}{\numberline {10}Conclusiones generales}{77}{chapter.1325}
+\contentsline {section}{\numberline {10.1}A futuro}{77}{section.1326}
+\contentsline {section}{\numberline {10.2}Resumen}{77}{section.1327}
+\contentsline {chapter}{Bibliograf\'{\i }a}{79}{chapter*.1328}

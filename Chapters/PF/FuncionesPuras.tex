@@ -38,7 +38,7 @@ function calcularArea(radio) {
 }
 \end{lstlisting}
 
-La función \code{obtenerDiaActual} retorna un valor "`azaroso"', y la misma llamada a la función puede retornar dos valores diferentes (dependiendo de la hora de la computadora). Para el segundo caso, \code{obtenerTextoPorId} depende necesariamente del estado de \code{document} que representa el DOM del navegador. Algo similar sucede con \code{calcularArea}, incluso habiendo declarado a \code{PI} como una "`constante"', la función (de manera aislada) depende de un valor que está por fuera de su scope local, y no nos podemos asegurar de la ausencia de un efecto colateral.
+La función \code{obtenerDiaActual} retorna un valor "`azaroso"', y dos llamadas a la misma función puede retornar dos valores diferentes (dependiendo de la hora de la computadora). Para el segundo caso, \code{obtenerTextoPorId} depende necesariamente del estado de \code{document} que representa el DOM del navegador. Algo similar sucede con \code{calcularArea}, incluso habiendo declarado a \code{PI} como una "`constante"', la función (de manera aislada) depende de un valor que está por fuera de su scope local, y no nos podemos asegurar de la ausencia de un efecto colateral.
 
 Si bien el lenguaje no provee ningun mecanismo para identificar o limitar únicamente las funciones puras, a continuación se mencionan algunas prácticas para evitar las funciones impuras:
 

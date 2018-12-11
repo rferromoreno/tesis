@@ -1,12 +1,12 @@
 \section{Funciones de primera clase y orden superior}
 
-Una de las características más destacables del lenguaje es que las funciones son objetos, que a su vez se pueden almacenar como valores. Gracias a esto, resulta extremadamente simple el pasaje de funciones como argumentos, así como también devolver funciones como un valor de retorno.
+Una de las características más destacables del lenguaje es que las funciones son objetos. Gracias a esto, resulta extremadamente simple el pasaje de funciones como argumentos, así como también devolver funciones como un valor de retorno.
 
 \subsection{Funciones de primera clase}
 
 En JavaScript las funciones son objetos de primera clase, dado que las funciones son tratadas como cualquier otro valor. Al momento de crear una función, en realidad lo que se crea es un objeto de clase \code{Function}.
 
-Para el caso de una función mediante declaración, se asignará a una variable ligada al nombre dado a la función (siempre que no sea anónima). Para el caso de la función por expresión, dependerá si la misma se realiza en una asignación.
+Para el caso de una función mediante declaración, su valor quedará ligado al nombre de la variable dada(siempre que no sea anónima). Para el caso de la función por expresión, dependerá si la misma se realiza en una asignación.
 
 \begin{lstlisting}[title={Analizando el valor de una función}]
 function saludar() { console.log('hola'); }
@@ -21,7 +21,7 @@ console.log(despedirse.toString());
 // () => console.log('chau')
 \end{lstlisting}
 
-El hecho de que las funciones sean tratadas como valores, a su vez, hace que se puedan crear objetos que dentro de sus pares clave-valor tengan propiedades que sean funciones. Es decir, métodos del objeto.
+El hecho de que las funciones sean tratadas como valores, además, hace que se puedan crear objetos que dentro de sus pares clave-valor tengan propiedades que sean funciones. Es decir, métodos del objeto.
 
 \begin{lstlisting}[title={Asignando una función como valor de una propiedad a un objeto}]
 var gato = {
@@ -39,7 +39,7 @@ console.log(gato);
 
 \subsection{Funciones de orden superior}
 
-Dado que las funciones son tratadas como cualquier otro valor, el lenguaje permite la característica de que una función pueda ser pasada como argumento, o que sea el valor de retorno de otra función. Esto conlleva a alcanzar otros mecanismos, como es el curry en las funciones o la aplicación parcial.
+Dado que las funciones son tratadas como cualquier otro valor, el lenguaje permite la característica de que una función pueda ser pasada como argumento, o que sea el valor de retorno de otra función. Esto conlleva a alcanzar otros mecanismos, como es el \textit{currying}, o como la aplicación parcial.
 
 Comencemos con algunos ejemplos:
 
@@ -79,7 +79,7 @@ imprimir('che!');     // Hola che!
 imprimir('a todos');  // Hola a todos
 \end{lstlisting}
 
-La función \code{generador} tiene un parámetro \code{prefijo} y retorna una función, que tiene un parámetro \code{texto}, y muestra mediante la consola la concatenación del prefijo y del texto. Dado que \code{generador} retorna una función, el valor de la misma es ligada a \code{imprimir}, por lo que tiene sentido pensar que éste es como un alias de la función y se puede invocar sin ningún inconveniente. En el ejemplo, se puede observar como \code{imprimir} de alguna forma "`recuerda"' el prefijo que fue establecido al momento de "`generar la función"'.
+La función \code{generador} tiene un parámetro \code{prefijo} y retorna una función, que tiene un parámetro \code{texto}, y muestra mediante la consola la concatenación del prefijo y del texto. Dado que \code{generador} retorna una función, el valor de la misma es ligada a \code{imprimir}, por lo que tiene sentido pensar que éste es como un alias de la función y se puede invocar sin ningún inconveniente. En el ejemplo, se puede observar como \code{imprimir} de alguna forma "`\textit{recuerda}"' el prefijo que fue establecido al momento de "`generar la función"'.
 
 Veamos otro ejemplo, haciendo una función suma que esté en una forma \textit{curried}:
 

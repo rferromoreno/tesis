@@ -1,1 +1,11 @@
 \section{Lo feo}
+
+La inconsistencia e incoherencia en las expresiones es uno de los puntos más flojos del lenguaje. La falta de transitividad en las operaciones de comparación, e incluso de conmutatividad en operaciones como la suma, es algo que preocupa y hace que el lenguaje sea impredecible. En ese afán de intentar hacer un lenguaje de scripting sumamente flexible, se pierde seguridad en el sistema de tipos, dejando en manos del programador la responsabilidad de saber en todo momento de qué tipos deberían ser los datos que maneja.
+
+La forma en la que se trata a los tipos \code{null} y \code{undefined} también deja bastante que desear. Para el lenguaje, estos dos tipos son totalmente exclusivos, al punto tal de que existe un trato preferencial para ellos al momento de usar un operador de comparación. Para el caso de \code{undefined}, la idea de tener un valor para una variable a la cual aún no se le asignó valor es buena, pero mal aplicada en la práctica. Como vimos anteriormente, es posible asignarle \code{undefined} a una variable y así cambiar completamente su significado.
+
+Un aspecto totalmente criticable es la manera en la que se acceden a las propiedades de los objetos, siendo por ejemplo el string vacío una secuencia válida para acceder a una propiedad. En este sentido, se podría mejorar para tener una consistencia entre la notación punto y la notación arreglo, aunque se perdería algo de flexibilidad en el lenguaje.
+
+La similitud entre \code{var} y \code{let} pueden llevar al programador a un mal uso de las mismas. Uno de los puntos flojos frente a esta similitud, es que el hoisting se produce para \code{var} pero no para \code{let}. Si el concepto de hoisting existe para \code{var} a nivel del scope de la función, sería más coherente que para el \code{let} suceda lo mismo pero para el scope del bloque creado.
+
+ 
