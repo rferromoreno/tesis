@@ -40,7 +40,7 @@ falcon.mostrarMarca();      // Ford
 falcon.mostrarTipo();       // terrestre
 \end{lstlisting}
 
-Tal como se mencionó en la sección \ref{clases}, las funciones en JavaScript son un mecanismo por naturaleza para simular las clases. ?´Qué sucede en el código de arriba? Se definen las funciones \code{Vehiculo} y \code{Auto} que serán nuestras clases. Ambas funciones actúan de constructoras. Al \code{[[Prototype]]} de \code{Vehiculo} se le agrega un método \code{mostrarTipo} mientras que al \code{[[Prototype]]} de \code{Auto} se le agrega \code{mostrarMarca}. Hasta ese punto es fácil de entender lo sucedido si se ha comprendido las secciones de prototype y de clases. 
+Tal como se mencionó en la sección \ref{clases}, las funciones en JavaScript son un mecanismo por naturaleza para \textit{simular} las clases. ?`Qué sucede en el código de arriba? Se definen las funciones \code{Vehiculo} y \code{Auto} que serán nuestras clases. Ambas funciones actúan de constructoras. Al \code{[[Prototype]]} de \code{Vehiculo} se le agrega un método \code{mostrarTipo} mientras que al \code{[[Prototype]]} de \code{Auto} se le agrega \code{mostrarMarca}. Hasta ese punto es fácil de entender lo sucedido si se ha comprendido las secciones de prototype y de clases. 
 
 ?`Qué pasa en las líneas 10, 14 y 15? 
 \begin{itemize}
@@ -53,7 +53,7 @@ En ejecución, podemos imaginarnos la siguiente imagen como una representación 
 
 \newpage
 
-\begin{figure}[!ht]
+\begin{figure}[H]
 \centering
 \includegraphics{Figures/Herencia}
 \decoRule
@@ -113,7 +113,7 @@ function mixin(fuente, destino) {
 }
 \end{lstlisting}
 
-Lo ideal sería pensar en \code{fuente} como un objeto cuyas propiedades serán los miembros a "`inyectar"' en \code{destino}. Esta técnica llevó al estandar a agregar un método \code{Object.assign} a partir de ES6, el cual copia los valores de todas las propiedades enumerables en un objeto destino.
+Lo ideal sería pensar en \code{fuente} como un objeto cuyas propiedades serán los miembros a "`inyectar"' en \code{destino}. Esta técnica llevó al estándar a agregar un método \code{Object.assign} a partir de ES6, el cual copia los valores de todas las propiedades enumerables en un objeto destino.
 
 Otra manera de implementar los Mixins en ES6 es aprovechando que las clases son de primer órden. Éstas pueden ser pasadas como argumento o ser retornadas por una función.
 
