@@ -89,8 +89,8 @@ Class=LaTeXView
 Document=main.tex
 
 [Frame4_View0,0]
-TopLine=322
-Cursor=14070
+TopLine=360
+Cursor=15055
 
 [Frame5]
 Flags=0
@@ -107,7 +107,7 @@ Class=LaTeXView
 Document=Chapters\POO\Herencia.tex
 
 [Frame5_View0,0]
-TopLine=76
+TopLine=86
 Cursor=3737
 
 [Frame6]
@@ -182,7 +182,25 @@ Document=Chapters\PF\EvaluacionAnsiosa.tex
 TopLine=0
 Cursor=2217
 
+[Frame10]
+Flags=0
+ShowCmd=1
+MinPos.x=-1
+MinPos.y=-1
+MaxPos.x=-1
+MaxPos.y=-1
+NormalPos.left=4
+NormalPos.top=32
+NormalPos.right=1369
+NormalPos.bottom=611
+Class=LaTeXView
+Document=Chapters\POO\Clases.tex
+
+[Frame10_View0,0]
+TopLine=107
+Cursor=5450
+
 [SessionInfo]
-FrameCount=10
+FrameCount=11
 ActiveFrame=4
 

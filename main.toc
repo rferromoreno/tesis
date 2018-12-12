@@ -74,9 +74,6 @@
 \contentsline {subsection}{\numberline {5.4.4}Ligadura mediante \texttt {new}}{47}{subsection.770}
 \contentsline {subsection}{\numberline {5.4.5}Precedencia en las ligaduras}{48}{subsection.782}
 \contentsline {chapter}{\numberline {6}Conclusión: Parte I}{49}{chapter.787}
-\contentsline {section}{\numberline {6.1}Lo bueno}{49}{section.788}
-\contentsline {section}{\numberline {6.2}Lo malo}{49}{section.789}
-\contentsline {section}{\numberline {6.3}Lo feo}{50}{section.790}
 \contentsline {part}{II\hspace {1em}Paradigmas de Programación}{51}{part.791}
 \contentsline {chapter}{\numberline {7}Paradigma funcional}{52}{chapter.792}
 \contentsline {section}{\numberline {7.1}Recursividad}{52}{section.793}
@@ -105,9 +102,6 @@
 \contentsline {subsubsection}{CommonJS}{71}{section*.1237}
 \contentsline {subsection}{\numberline {8.5.3}Módulos en ES6}{72}{subsection.1275}
 \contentsline {chapter}{\numberline {9}Conclusión: Parte II}{75}{chapter.1321}
-\contentsline {section}{\numberline {9.1}Lo bueno}{75}{section.1322}
-\contentsline {section}{\numberline {9.2}Lo malo}{76}{section.1323}
-\contentsline {section}{\numberline {9.3}Lo feo}{76}{section.1324}
 \contentsline {chapter}{\numberline {10}Conclusiones generales}{77}{chapter.1325}
 \contentsline {section}{\numberline {10.1}A futuro}{77}{section.1326}
 \contentsline {section}{\numberline {10.2}Resumen}{77}{section.1327}
