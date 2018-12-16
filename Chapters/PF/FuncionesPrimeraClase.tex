@@ -6,7 +6,7 @@ Una de las características más destacables del lenguaje es que las funciones s
 
 En JavaScript las funciones son objetos de primera clase, dado que las funciones son tratadas como cualquier otro valor. Al momento de crear una función, en realidad lo que se crea es un objeto de clase \code{Function}.
 
-Para el caso de una función mediante declaración, su valor quedará ligado al nombre de la variable dada(siempre que no sea anónima). Para el caso de la función por expresión, dependerá si la misma se realiza en una asignación.
+Para el caso de una función mediante declaración, su valor quedará ligado al nombre de la variable dada (siempre que no sea anónima). Para el caso de la función por expresión, dependerá si la misma se realiza en una asignación.
 
 \begin{lstlisting}[title={Analizando el valor de una función}]
 function saludar() { console.log('hola'); }
@@ -39,7 +39,7 @@ console.log(gato);
 
 \subsection{Funciones de orden superior}
 
-Dado que las funciones son tratadas como cualquier otro valor, el lenguaje permite la característica de que una función pueda ser pasada como argumento, o que sea el valor de retorno de otra función. Esto conlleva a alcanzar otros mecanismos, como es el \textit{currying}, o como la aplicación parcial.
+El lenguaje posee la característica de que una función pueda ser pasada como argumento, o que sea el valor de retorno de otra función. Esto conlleva a alcanzar otros mecanismos, como es el \textit{currying}, o como la aplicación parcial.
 
 Comencemos con algunos ejemplos:
 
@@ -60,9 +60,11 @@ ejecutar(saludar);
 ejecutarSeguro(saludar);
 \end{lstlisting}
 
-En el código mostrado, se poseen dos funciones, \code{ejecutar} y \code{ejecutarSeguro}. La única diferencia es que éste último hace un chequeo de tipo del argumento brindado para asegurarse de que es una función y puede invocarla. Para el primer caso, si no le dieramos una función como parámetro, la ejecución de dicha llamada resultaría en un error.
+En el código mostrado, se poseen dos funciones, \code{ejecutar} y \code{ejecutarSeguro}. La única diferencia es que en la implementación de éste último hay chequeo del tipo del argumento brindado para asegurarse de que es una función y puede invocarla. Para el primer caso, si no le dieramos una función como parámetro, la ejecución de dicha llamada resultaría en un error.
 
-La otra cualidad es la de retornar funciones, la cual se ejemplificará a continuación:
+Este tipo de estrategia de pasar funciones como parámetros es de gran utilidad en los \textit{callbacks}, un patrón utilizado para poder manejar la asincronía en el lenguaje. 
+
+La otra cualidad importante para las funciones de alto orden, es la de retornar funciones. Observemos el siguiente ejemplo:
 
 \begin{lstlisting}[title={Retornando funciones}]
 function generador(prefijo) {
