@@ -21,7 +21,7 @@ foo();
 obj.foo();
 \end{lstlisting}
 
-El método \code{foo} llamado en la línea 12 mostrará un resultado, mientras que el método \code{foo} de la línea 13 mostrará otro. ?`Qué muestra cada uno? El de la línea 12 mostrará lo que corresponda al objeto del contexto global. Si estamos en Node, nos mostrará lo que represente la variable \code{global}, y si estamos desde la consola del browser, nos mostrará lo que contenta la variable \code{window}. Sin embargo, la llamada \code{obj.foo()} mostrará los contenidos del objeto \code{obj} (en este caso, \code{​​​​​\{ a: 42, foo: [Function] \}}). En éste último caso, es natural entonces pensar que \code{this} estaba ligado a \code{obj}.
+El método \code{foo} llamado en la línea 12 mostrará un resultado, mientras que el método \code{foo} de la línea 13 mostrará otro. ?`Qué muestra cada uno? El de la línea 12, lo que corresponda al objeto del contexto global. Si estamos en Node, nos brindará lo que represente la variable \code{global}, y si estamos desde la consola del browser, nos mostrará el contenido de la variable \code{window}. Sin embargo, la llamada \code{obj.foo()} imprimirá las propiedades del objeto \code{obj} (en este caso, \code{​​​​​\{ a: 42, foo: [Function] \}}). En éste último caso, es natural entonces pensar que \code{this} estaba ligado a \code{obj}.
 
 ?`Por qué sucede esto? Existen cuatro tipos de ligaduras frente al \code{this}, dependiendo en \textit{dónde} y \textit{cómo} se hizo la llamada a la función.
 
@@ -101,7 +101,7 @@ obj1.obj2.foo(); // 42
 
 El detalle del código anterior es que la ligadura del \code{this} pasó de ser \code{obj1} a ser \code{obj2} cuando se produjo la llamada en cadena.
 
-Hay que tener especial cuidado con la ligadura implícita, dado que en algunos casos puede no funcionar como uno espera.
+Debemos tener especial cuidado con la ligadura implícita, dado que en algunos casos puede no funcionar como uno espera.
 
 \begin{lstlisting}
 function foo() {
@@ -226,4 +226,4 @@ Es necesaria la aclaración que los cuatro tipo de ligaduras presentadas tienen 
 \item Sino, se utilizará el contexto global.
 \end{enumerate}
 
-Para cerrar ésta parte del capítulo, el concepto de \code{this} pareciera que se introdujo en el lenguaje "`a la fuerza"' y es de alguna forma, difícil de asimilar cuando se lo compara con otros lenguajes. Sin embargo, este operador es necesario y nos será de utilidad más adelante, en el capítulo \ref{ch:poo} cuando se hable del paradigma de orientación a objetos.
+Para cerrar ésta parte del capítulo, el concepto de \code{this} pareciera que se introdujo en el lenguaje "`a la fuerza"' y es de alguna forma, difícil de asimilar cuando se lo compara con otros lenguajes. Pero este operador es necesario y nos será de utilidad más adelante, en el capítulo \ref{ch:poo} cuando se hable del paradigma de orientación a objetos.

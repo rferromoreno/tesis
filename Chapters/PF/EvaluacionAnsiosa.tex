@@ -14,7 +14,7 @@ function elegir(condicion, opcion1, opcion2) {
 
 La función \code{elegir} es de alguna manera, la forma declarativa del \code{if-else}. Como primer parámetro recibe una condición, y como segundo y tercer parámetro recibe las opciones para el caso de que la condición sea verdadera o falsa.
 
-Si el lenguaje implementara la evaluación perezosa, se espera que las expresiones no sean evaluadas hasta el momento de ser necesario (o postergar su ejecución al máximo). Es decir, si se brindara en \code{opcion1} u \code{opcion2} como argumento una expresión, dicha expresión no debería ser evaluada si no entra por el flujo correspondiente del \code{if}. Si la condición es verdadera, \code{opcion2} no debe ser evaluada en ningún momento. Si la condición es falsa, entonces es \code{opcion1} la que no debe ser evaluada.
+Si el lenguaje implementara la evaluación perezosa, se espera que las expresiones no sean evaluadas hasta el momento de ser necesario (o postergar su ejecución al máximo). En otras palabras, si se brindara en \code{opcion1} u \code{opcion2} como argumento una expresión, dicha expresión no debería ser evaluada si no entra por el flujo correspondiente del \code{if}. Si la condición es verdadera, \code{opcion2} no debe ser evaluada en ningún momento. Si la condición es falsa, entonces es \code{opcion1} la que no debe ser evaluada.
 
 Por otro lado, aprovechando la libertad que tenemos en las expresiones gracias al sistema de tipos, podemos crear expresiones de la forma \code{true \&\& console.log()}, o también una expresión matemática como \code{2 + console.log()}. Cualquiera de estas formas son válidas, más allá de la coerción que ocurra en dichas expresiones, al momento de analizar la expresión, se imprimirá el mensaje dado por pantalla.
 

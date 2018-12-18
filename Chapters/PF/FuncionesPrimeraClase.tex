@@ -97,7 +97,7 @@ console.log(sumar5(10));	// 15
 
 Si bien la sintaxis de las \textit{arrow functions} al principio puede resultar ajena, la función sumar es una función con un argumento \code{a} y retorna una función, que tiene un argumento \code{b}, la cual retorna la suma de \code{a + b}. De alguna forma, se puede observar como \code{sumar2} y \code{sumar5} son una aplicación parcial de la función \code{sumar}.
 
-Otra forma de realizar aplicación parcián es mediante el método \code{bind} de la clase \code{Function}, el cual recibe como primer argumento el contexto (por lo general sería \code{this}), y luego una lista de argumentos, para retornar la función aplicada (total o parcialmente). Supongamos el siguiente código:
+Otra forma de realizar aplicación parcial es mediante el método \code{bind} de la clase \code{Function}, el cual recibe como primer argumento el contexto (por lo general sería \code{this}), y luego una lista de argumentos, para retornar la función aplicada (total o parcialmente). Supongamos el siguiente código:
 
 \begin{lstlisting}[title={Aplicación parcial usando \code{bind}}]
 var multiplicar = (a, b) => a * b;

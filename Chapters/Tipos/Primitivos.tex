@@ -43,7 +43,7 @@ console.log(b);	// undefined
 
 Aquí es donde entra el juego el significado de un valor "`no definido"' y un valor "`no declarado"'. Lo lógico, es pensar que \code{undefined} se utiliza para una variable que sí fue declarada, pero que su valor aún no fue definido. Mientras que una variable "`no declarada"' representaría a una variable que en ningún momento se la declaró mediante ningún mecanismo (ni \code{var}, ni \code{let}, ni \code{const}).
 
-El problema es que el intérprete tampoco es muy concreto a la hora de describir los errores, ya que si la variable no fue declarada, !`nos dirá que la misma no fue definida!
+Un inconveniente es que el intérprete tampoco es muy concreto a la hora de describir los errores, ya que si la variable no fue declarada, !`nos dirá que la misma no fue definida!
 
 \begin{lstlisting}
 var a;
@@ -89,7 +89,7 @@ console.log(b);		// ​​​​​[ 'H', 'o', 'l', 'a' ]​​​​​
 
 El valor de la primera letra de la variable \code{a} no se vio modificada. Esto sucede porque en JavaScript el tipo \code{string} es inmutable. Las operaciones que brinda la clase \code{String} devuelven un nuevo valor, sin mutar ni cambiar el valor con el cual operamos.
 
-Por otro lado, existen algunos métodos que existen para la clase \code{Array} pero no para \code{String}. Serían deseables métodos como \code{join}, \code{map} o \code{reverse}. Por suerte existen formas de tomar esos métodos "`prestados"': haciendo conversión hacia \code{array} y volviendo a \code{string} (poco óptimo), o forzando las llamadas mediante el uso del método \code{call}, del cual se hablará con precisión en la sección \ref{subsec:ligaduraexplicita}.
+Por otro lado, algunos métodos pertenecientes de la clase \code{Array} pero no existen para \code{String}. Serían deseables métodos como \code{join}, \code{map} o \code{reverse}. Por suerte hay formas de tomar esos métodos "`prestados"': haciendo conversión hacia \code{array} y volviendo a \code{string} (poco óptimo), o forzando las llamadas mediante el uso del método \code{call}, del cual se hablará con precisión en la sección \ref{subsec:ligaduraexplicita}.
 
 Lo cierto es que el tipo \code{string} no es un arreglo de caracteres, y llegado a cierto punto el programador tendrá que evaluar si resultará una mejor solución a su problema utilizar este tipo, o un \code{array} de \code{string}, en caso de que tenga datos que deban ir "`mutando"'.
 

@@ -89,7 +89,7 @@ Class=LaTeXView
 Document=main.tex
 
 [Frame4_View0,0]
-TopLine=117
+TopLine=120
 Cursor=5060
 
 [Frame5]
@@ -110,7 +110,25 @@ Document=Chapters\IntroJS\Sintaxis\Funciones.tex
 TopLine=0
 Cursor=29
 
+[Frame6]
+Flags=0
+ShowCmd=1
+MinPos.x=-1
+MinPos.y=-1
+MaxPos.x=-1
+MaxPos.y=-1
+NormalPos.left=4
+NormalPos.top=32
+NormalPos.right=1369
+NormalPos.bottom=611
+Class=LaTeXView
+Document=Chapters\POO\Encapsulamiento.tex
+
+[Frame6_View0,0]
+TopLine=22
+Cursor=1639
+
 [SessionInfo]
-FrameCount=6
+FrameCount=7
 ActiveFrame=4
 

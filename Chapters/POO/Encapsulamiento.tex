@@ -20,7 +20,7 @@ console.log(pepe._saldo);	// 25
 
 Como se puede observar en el ejemplo, se busca hacer privada la propiedad \code{\_saldo}, pero sin embargo es visible desde afuera del objeto.
 
-Por suerte mediante el uso de \textit{closures}, se puede lograr el encapsulamiento, pero solo mediante el uso de funciones constructoras. Lamentablemente, para la sintaxis de \code{class} de ES6 no hay soporte nativo aún. Al momento de escribirse este documento, existe una propuesta en borrador para agregar al lenguaje, la cual se encuentra en \textit{Stage 3} (para más información, ver \href{https://github.com/tc39/proposal-class-fields#private-fields}).
+Por suerte mediante el uso de \textit{closures}, se puede lograr el encapsulamiento, pero solo mediante el uso de funciones constructoras. Lamentablemente, para la sintaxis de \code{class} de ES6 no hay soporte nativo aún. Al momento de escribirse este documento, existe una propuesta en borrador para agregar al lenguaje, la cual se encuentra en \textit{Stage 3} (para más información, ver \href{https://github.com/tc39/proposal-class-fields#private-fields}{https://github.com/tc39/proposal-class-fields\#private-fields}).
 
 \begin{lstlisting}[title={Alcanzando variables privadas mediante closures}]
 function Persona(nombre, saldo) {

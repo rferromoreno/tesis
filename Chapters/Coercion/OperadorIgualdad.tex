@@ -13,7 +13,7 @@ Una de las mayores críticas del operador \code{==} es la falta de coherencia se
 [] == ![] 				// true
 \end{lstlisting}
 
-?`Por qué ésta comparación da verdadera? Lo que está pasando es que ambos operandos están siendo transformados a \code{number}. Por el lado de la izquierda, se produce el \code{ToNumber} visto anteriormente, resultando en un valor \code{0}. Sin embargo el operando de la derecha previamente es transformado a \code{boolean} (por el \code{not}), lo cual se traduce a \code{false}, el cual luego termina siendo traducido a \code{0}.
+?`Por qué ésta comparación da verdadera? Lo que está pasando es que ambos operandos están siendo transformados a \code{number}. Por el lado de la izquierda, se produce el \code{ToNumber} visto anteriormente, resultando en un valor \code{0}. Sin embargo, el operando de la derecha previamente es transformado a \code{boolean} (por el \code{not}), lo cual se traduce a \code{false}, el cual luego termina siendo traducido a \code{0}.
 
 \begin{lstlisting}
 +[] == +![];
@@ -83,7 +83,7 @@ Ahora sigamos con el algoritmo de \textbf{Comparación de Igualdad Abstracta}.
 \item Retornar \code{false}
 \end{enumerate}
 
-Notar el detalle que el algoritmo está definido de forma recursiva. Algo a tener en cuenta, la mayoría de los tipos intentarán convertirse a Number a excepción de los casos del final, donde los valores que tengan tipo Object serán transformados a tipos primitivos mediante \code{ToPrimitive}. Sin embargo, previo a eso, hay casos especiales para \code{null} y \code{undefined}. Este algoritmo presentado es el que está en la versión de ECMAScript 6.0, sin embargo no se descarta que en versiones siguientes sea modificado u optimizado.
+Notar el detalle que el algoritmo está definido de forma recursiva. Algo a tener en cuenta, la mayoría de los tipos intentarán convertirse a Number a excepción de los casos del final, donde los valores que tengan tipo Object serán transformados a tipos primitivos mediante \code{ToPrimitive}. Previo a eso, hay casos especiales para \code{null} y \code{undefined}. Este algoritmo presentado es el que está en la versión de ECMAScript 6.0, sin embargo no se descarta que en versiones siguientes sea modificado u optimizado.
 
 La falta de "`transitividad"' en el operador \code{==} es otra de las cosas más preocupantes del lenguaje. Es fácil pensar que si \code{A == B} y que \code{B == C}, entonces \code{A == C}, pero esto no sucede siempre.  Por ejemplo:
 
@@ -97,7 +97,7 @@ false == null       // false
 null == undefined   // true
 \end{lstlisting}
 
-El consejo de los autores experimentados es siempre usar el operador \code{===}, para ser estrictos con la comparación y no caer en transformaciones inesperadas. Sin embargo, a medida que mezclamos los operadores, podemos seguir cayendo en el mismo problema. Combinando lo visto en esta sección y en la sección \ref{sec:operadormas} del operador \code{+}, tiene sentido entonces una expresión así:
+El consejo de los autores experimentados es siempre usar el operador \code{===}, para ser estrictos con la comparación y no caer en transformaciones inesperadas. No obstante, a medida que mezclamos los operadores, podemos seguir cayendo en el mismo problema. Combinando lo visto en esta sección y en la sección \ref{sec:operadormas} del operador \code{+}, tiene sentido entonces una expresión así:
 
 \begin{lstlisting}
 true + true === 2		// true

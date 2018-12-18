@@ -14,7 +14,7 @@ Uno de los mayores errores de los programadores que vienen de la familia de leng
 }
 \end{lstlisting}
 
-Si existiera el scope por bloque en Javascript, entonces el código presentado debería imprimir "`segunda"' en la línea 5, y luego "`primera"' en la línea 7, dado que ésta última pertenece a otro bloque y hacemos referencia a otra variable \code{a}. Sin embargo, si ejecutamos el código, podemos observar que en ambas ocasiones imprimió "`segunda"'.
+Si existiera el scope por bloque en JavaScript, entonces el código presentado debería imprimir "`segunda"' en la línea 5, y luego "`primera"' en la línea 7, dado que ésta última pertenece a otro bloque y hacemos referencia a otra variable \code{a}. No obstante, si ejecutamos el código, podemos observar que en ambas ocasiones imprimió "`segunda"'.
 
 Este tipo de scope se llama "`por bloque"' y existe en otros lenguajes como Java. Sin embargo, en JavaScript no existe este concepto, o al menos no con la palabra \code{var} (más adelante en la sección \ref{subsec:letyconst}, veremos cómo se introdujo en ES6).
 
@@ -63,7 +63,7 @@ function test(condicion) {
 }
 \end{lstlisting}
 
-La declaración de las funciones se hacen al principio de la función, cuando "`comienza"' el scope. Éste es uno de los puntos claves del lenguaje para entender que, a pesar de la similitud sintáctica con otros lenguajes, la semántica no es la misma. 
+La declaración de las funciones se hacen al principio de la función, cuando "`comienza"' el scope. Éste es uno de los puntos claves del lenguaje para entender que, \textbf{a pesar de la similitud sintáctica con otros lenguajes, la semántica no es la misma}. 
 
 A veces el scope por bloque es necesario para no contaminar el espacio de nombres. 
 
@@ -75,7 +75,7 @@ for (var i=0; i<10; i++) {
 console.log(i);		// 10
 \end{lstlisting}
 
-En el código presentado, podemos decir que la variable \code{i} se mantiene "`viva"' dentro del scope del programa. De hecho, esto además de influir en la polución del espacio de nombres, podríamos decir que también tiene una implicancia con el \textit{garbage collector}, dado que costará identificar qué variables tiene sentido "`limpiar"' y cuáles no.
+En el código presentado, podemos decir que la variable \code{i} se mantiene "`viva"' dentro del scope del programa. De hecho, esto además de influir en la polución del espacio de nombres, también tiene una implicancia con el \textit{garbage collector}, dado que costará identificar qué variables tiene sentido "`limpiar"' y cuáles no.
 
 Hasta estos últimos años, los programadores que requerían hacer uso de scope por bloques se veían forzados a usar técnicas o \textit{hacks} para no caer en estos problemas. Algunas, por ejemplo, eran crear nuevos scopes declarando funciones anónimas o mediante el uso de IIFEs, o incluso hacer uso del \code{with} o del \code{try-catch} para simular un bloque. Por suerte, a continuación, veremos que esto fue "`solucionado"'.
 
@@ -113,7 +113,7 @@ console.log(b);   // ReferenceError: b is not defined
 let b;
 \end{lstlisting}
 
-En el código presentado, en la línea 1 se imprime por pantalla \code{undefined} porque gracias al hoisting, esa declaración de la variable \code{a} sucede previo al primer \code{console.log}. Sin embargo no sucede lo mismo en la línea 5, dado que el identificador \code{b} aún no existe (será recién descubierto en la línea 7), entonces el programa lanza un \code{ReferenceError}.
+En el código presentado, en la línea 1 se imprime por pantalla \code{undefined} porque gracias al hoisting, esa declaración de la variable \code{a} sucede previo al primer \code{console.log}. En tanto, no sucede lo mismo en la línea 5, dado que el identificador \code{b} aún no existe (será recién descubierto en la línea 7), entonces el programa lanza un \code{ReferenceError}.
 
 Con lo otro que hay que tener cuidado, dado que ésta ligadura se hace de forma léxica, es que en los ciclos de repetición se hará tantas veces como se ejecute el ciclo. Por ejemplo:
 
