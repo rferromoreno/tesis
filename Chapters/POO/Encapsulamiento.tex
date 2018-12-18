@@ -1,8 +1,8 @@
 \section{Encapsulamiento}
 
-Dependiendo la perspectiva, se puede decir que el lenguaje tampoco provee un mecanismo natural para el encapsulamiento. Si hablamos de ocultar el estado de un objeto, es decir, de hacer sus datos miembro privados, no existe ninguna palabra reservada para ello. De hecho, todas las propiedades de un objeto son públicas.
+Si se habla de abstracción, no hay dudas de que JavaScript cumple correctamente con ésta característica. En cambio, si hablamos de principio de ocultamiento (esto es, ocultar el estado de un objeto, haciendo que sus datos miembro sean privados), no existe ninguna palabra reservada para ello. De hecho, todas las propiedades de un objeto son públicas.
 
-Existe una convención extra oficial de que los miembros privados de un objeto comiencen su identificador con un guión bajo. Nuevamente, ésta no es una convención del lenguaje, sino de la comunidad. Más allá de la convención, volvemos a lo mismo: Por fuera se puede analizar cuál es el valor ligado a dicha propiedad.
+Existe una convención no oficial de que los miembros privados de un objeto comiencen su identificador con un guión bajo. Ésta no es una convención del lenguaje, sino de la comunidad. Más allá de la convención, volvemos a lo mismo: Por fuera se puede analizar cuál es el valor ligado a dicha propiedad.
 
 \begin{lstlisting}[title={Descubriendo variables "`privadas"'}]
 class Persona {
@@ -18,9 +18,9 @@ console.log(pepe.nombre);	// Jose
 console.log(pepe._saldo);	// 25
 \end{lstlisting}
 
-Como se puede observar en el ejemplo, se busca hacer privada la propiedad \code{\_saldo}, pero sin embargo es visible desde afuera del objeto.
+En el ejemplo, se busca hacer privada la propiedad \code{\_saldo}, pero la misma es visible desde afuera del objeto.
 
-Por suerte mediante el uso de \textit{closures}, se puede lograr el encapsulamiento, pero solo mediante el uso de funciones constructoras. Lamentablemente, para la sintaxis de \code{class} de ES6 no hay soporte nativo aún. Al momento de escribirse este documento, existe una propuesta en borrador para agregar al lenguaje, la cual se encuentra en \textit{Stage 3} (para más información, ver \href{https://github.com/tc39/proposal-class-fields#private-fields}{https://github.com/tc39/proposal-class-fields\#private-fields}).
+Por suerte, mediante el uso de \textit{closures}, se puede simular la existencia de variables privadas, pero solo mediante el uso de funciones constructoras. Lamentablemente, para la sintaxis de \code{class} de ES6 no hay soporte nativo aún. Al momento de escribirse este documento, existe una propuesta en borrador para agregar al lenguaje, la cual se encuentra en \textit{Stage 3} (para más información, ver \href{https://github.com/tc39/proposal-class-fields#private-fields}{https://github.com/tc39/proposal-class-fields\#private-fields}).
 
 \begin{lstlisting}[title={Alcanzando variables privadas mediante closures}]
 function Persona(nombre, saldo) {

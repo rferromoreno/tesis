@@ -217,7 +217,7 @@ export function enviarSiEsPrimo(n, email) {
 }
 \end{lstlisting}
 
-Un particularidad a tener en cuenta en este ejemplo es que en las lineas 1 y 2 se hizo \textit{destructuring} de los módulos \textit{math} y \textit{mailer}, dado que solo nos interesan las funciones \code{esPrimo} y \code{enviar}. Por otro lado, el \code{export} en la definición de la función se puede hacer de forma separada (es decir, definir la función por un lado y luego hacer \code{export enviarSiEsPrimo}. Cualquiera de las dos formas es válida, pero se busca mostrar qué tan conciso queda el código con ES6.
+Una particularidad a tener en cuenta en este ejemplo es que en las lineas 1 y 2 se hizo \textit{destructuring} de los módulos \textit{math} y \textit{mailer}, dado que solo nos interesan las funciones \code{esPrimo} y \code{enviar}. Por otro lado, el \code{export} en la definición de la función se puede hacer de forma separada (es decir, definir la función por un lado y luego hacer \code{export enviarSiEsPrimo}. Cualquiera de las dos formas es válida, pero se busca mostrar qué tan conciso queda el código con ES6.
 
 Ahora veamos un ejemplo de ModuloContador, el cual no posee dependencias. Para este caso, mostraremos una variante del \code{export} totalmente válida, en la que se hace un único \code{export} de las tres funciones que expone el módulo.
 
