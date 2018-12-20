@@ -18,7 +18,7 @@ function animalFactory(nombre) {
   var temporal = {};
   temporal.nombre = nombre;
   temporal.saludar = function() {
-    console.log("Hola, soy "+this.nombre)
+    console.log("Hola, soy " + this.nombre)
   };
 
   return temporal;
@@ -43,12 +43,12 @@ Este patrón también es conocido como Constructor pattern. Aprovechando el uso 
 function Animal(nombre) {
   this.nombre = nombre;
   this.saludar = function() {
-    console.log('Hola, soy ' + this.nombre);
+    console.log("Hola, soy " + this.nombre);
   };
 };
 
-var gato = new Animal('Garfield');
-var perro = new Animal('Oddie');
+var gato = new Animal("Garfield");
+var perro = new Animal("Oddie");
 
 gato.saludar();		// Hola, soy Garfield
 perro.saludar();	// Hola, soy Oddie
@@ -70,14 +70,14 @@ function Animal(nombre) {
 }
 
 Animal.prototype.saludar = function() {
-  console.log('Hola, soy ', this.nombre);
+  console.log("Hola, soy ", this.nombre);
 };
 
-var gato = new Animal('Garfield');
-var perro = new Animal('Oddie');
+var gato = new Animal("Garfield");
+var perro = new Animal("Oddie");
 
-perro.saludar(); 	// Hola, soy Garfield
-gato.saludar(); 	// Hola, soy Oddie
+gato.saludar(); 	// Hola, soy Garfield
+perro.saludar(); 	// Hola, soy Oddie
 \end{lstlisting}
 
 Para este caso, tendremos una función constructora \code{Animal}, la cual estará vinculada a su \code{[[Prototype]]}, un objeto que contendrá entre sus propiedades a la función \code{saludar}. Bajo este patrón, nos obviamos de que cada instancia tenga una copia de la función saludar, y que gracias a la "`cadena del prototipo"' ese comportamiento esté delegado en \code{Animal.prototype}.
@@ -93,13 +93,13 @@ class Animal {
     this.nombre = nombre;
   }
   saludar() {
-    console.log('Hola, soy ', this.nombre);
+    console.log("Hola, soy ", this.nombre);
   }
 }
 
-var gato = new Animal('Garfield');
-var perro = new Animal('Oddie');
+var gato = new Animal("Garfield");
+var perro = new Animal("Oddie");
 
-perro.saludar(); 	// Hola, soy Garfield
-gato.saludar(); 	// Hola, soy Oddie
+gato.saludar(); 	// Hola, soy Garfield
+perro.saludar(); 	// Hola, soy Oddie
 \end{lstlisting}

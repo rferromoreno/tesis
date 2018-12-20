@@ -10,11 +10,11 @@ Existe un identificador especial reservado para el vector de argumentos en JavaS
 \begin{lstlisting}[title={Analizando \code{arguments}}]
 function mostrarArgumentos() {
   for (var i = 0; i < arguments.length; i++) {
-    console.log(i + '. ' + arguments[i]);
+    console.log(i + ". " + arguments[i]);
   }
 }
 
-mostrarArgumentos('hola', 1, true, { a: 3 });
+mostrarArgumentos("hola", 1, true, { a: 3 });
 
 // 0. hola
 // 1. 1

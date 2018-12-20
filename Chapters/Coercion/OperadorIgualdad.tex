@@ -88,9 +88,9 @@ Notar el detalle que el algoritmo está definido de forma recursiva. Algo a tene
 La falta de "`transitividad"' en el operador \code{==} es otra de las cosas más preocupantes del lenguaje. Es fácil pensar que si \code{A == B} y que \code{B == C}, entonces \code{A == C}, pero esto no sucede siempre.  Por ejemplo:
 
 \begin{lstlisting}[title={Falta de transitividad en \code{==}}]
-0 == ''             // true
-0 == '0'            // true
-'' == '0'           // false
+0 == ""             // true
+0 == "0"            // true
+"" == "0"           // false
 
 false == undefined  // false
 false == null       // false

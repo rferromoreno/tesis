@@ -135,20 +135,20 @@ En JavaScript existen tres métodos de la clase \code{Function} que nos pueden s
 Ejemplificando:
 
 \begin{lstlisting}[title={\code{call}, \code{apply} y \code{bind} en acción}]
-var persona1 = { nombre: 'Juan' };
-var persona2 = { nombre: 'Luciano' };
-var persona3 = { nombre: 'Federico' };
+var persona1 = { nombre: "Juan" };
+var persona2 = { nombre: "Luciano" };
+var persona3 = { nombre: "Federico" };
 
 function mostrar(dia, mes) {
   console.log(this.nombre, " nacido el ", dia, "/", mes);
 }
 
-mostrar.call(persona1, 4, 'Abril');
+mostrar.call(persona1, 4, "Abril");
 // Juan nacido el 4/Abril
-mostrar.apply(persona2, [5, 'Noviembre']);
+mostrar.apply(persona2, [5, "Noviembre"]);
 // Luciano nacido el 5/Noviembre
 
-var mostrarAFede = mostrar.bind(persona3, 27, 'Diciembre');
+var mostrarAFede = mostrar.bind(persona3, 27, "Diciembre");
 
 mostrarAFede();
 // Federico nacido el 27/Diciembre

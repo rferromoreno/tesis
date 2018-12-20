@@ -67,7 +67,7 @@ En la especificación se puede encontrar un único método \code{define} para de
 Un ejemplo de módulo con dependencias podría ser el siguiente:
 
 \begin{lstlisting}[title={Ejemplo de AMD}]
-define(['./math', './mailer'], function (math, mailer) {
+define(["./math", "./mailer"], function (math, mailer) {
   var enviarSiEsPrimo = function(n, email) {
     if (math.esPrimo(n)) {
       mailer.enviar(email);
@@ -130,8 +130,8 @@ Nuevamente, la idea no es profundizar sobre la especificación de CommonJS. De h
 Un ejemplo equivalente a lo realizado en el módulo AMD, el cual usaba dependencias \textit{math} y \textit{mailer}, podría ser el siguiente:
 
 \begin{lstlisting}
-var math = require('./math');
-var mailer = require('./mailer');
+var math = require("./math");
+var mailer = require("./mailer");
 
 var enviarSiEsPrimo = function(n, email) {
   if (math.esPrimo(n)) {
@@ -152,12 +152,12 @@ var incrementarSaludos = function() {
 };
 
 var saludar = function() {
-  console.log('hola');
+  console.log("hola");
   incrementarSaludos();
 };
 
 var despedirse = function() {
-  console.log('chau');
+  console.log("chau");
   incrementarSaludos();
 };
 
@@ -184,11 +184,11 @@ Tomando como caso de ejemplo el supuesto módulo \textit{math} visto en las secc
 
 \begin{lstlisting}[title={Algunos ejemplos de \code{import}}]
 // importando lo que esté por "default" 
-import math from './math';
+import math from "./math";
 // importando todo lo exportado por math
-import * as math from './math';
+import * as math from "./math";
 // importando y haciendo destructuring de lo que nos sirva
-import { esPrimo } from './math'
+import { esPrimo } from "./math"
 \end{lstlisting}
 
 Para el caso de la exportación también existen varias maneras, y dependiendo de cuál se utilice, será correspondiente luego la forma en la que se importe.
@@ -197,7 +197,7 @@ Para el caso de la exportación también existen varias maneras, y dependiendo d
 // exportando una constante con nombre
 export const PI = 3.1416;
 // exportando una funcion
-export function foo() { console.log('foo') }
+export function foo() { console.log("foo") }
 // exportando con "default"
 export default function bar() {}
 \end{lstlisting}
@@ -207,8 +207,8 @@ Dependiendo cual sea el caso, tiene sentido después pensar qué parte del módu
 Siguiendo con el grupo de ejemplos, se muestra cómo sería una implementación en ES6 de los módulos ejemplificados en las secciones anteriores:
 
 \begin{lstlisting}[title={Ejemplo de módulo en ES6}]
-import { esPrimo } from './math';
-import { enviar } from './mailer';
+import { esPrimo } from "./math";
+import { enviar } from "./mailer";
 
 export function enviarSiEsPrimo(n, email) {
   if (esPrimo(n)) {
@@ -229,12 +229,12 @@ var incrementarSaludos = function() {
 };
 
 var saludar = function() {
-  console.log('hola');
+  console.log("hola");
   incrementarSaludos();
 };
 
 var despedirse = function() {
-  console.log('chau');
+  console.log("chau");
   incrementarSaludos();
 };
 

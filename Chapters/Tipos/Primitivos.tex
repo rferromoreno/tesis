@@ -59,32 +59,32 @@ Por el lado de \code{null} no hay mucho más para aclarar. Su significado es id�
 El tipo \code{string} es utilizado para representar una cadena de caracteres o texto. En otros lenguajes, generalmente un \code{string} es tratado como una lista, una secuencia o un array de caracteres (porque de hecho, en algunos lenguajes lo es). No obstante, en JavaScript no existe el concepto de \code{char}; solamente el de \code{string}. Si se desea, en JavaScript se puede tratar a un \code{string} como si fuera un \code{array}, pero no lo es. Solamente poseen varios "`métodos en común"'.
 
 \begin{lstlisting}[title={Similitudes entre \code{string} y un \code{array}}]
-var a = 'hola';                 // string
-var b = ['h', 'o', 'l', 'a'];   // array
+var a = "hola";                 // string
+var b = ["h", "o", "l", "a"];   // array
 
 console.log(a.length);          // 4
 console.log(b.length);          // 4
 
-console.log(a.indexOf('o'))     // 1
-console.log(b.indexOf('o'))     // 1
+console.log(a.indexOf("o"))     // 1
+console.log(b.indexOf("o"))     // 1
 
-console.log(a.concat('mundo'))  
+console.log(a.concat("mundo"))  
 // holamundo
-console.log(b.concat(['m','u','n','d','o']))
-// ​​​​​[ 'h', 'o', 'l', 'a', 'm', 'u', 'n', 'd', 'o' ]​​​​​
+console.log(b.concat(["m","u","n","d","o"]))
+// ​​​​​[ "h", "o", "l", "a", "m", "u", "n", "d", "o" ]​​​​​
 \end{lstlisting}
 
 A pesar de que existe cierta similitud entre estos dos tipos, es un grave error pensar al tipo \code{string} como una simple cadena de caracteres. Observemos:
 
 \begin{lstlisting}
-var a = 'hola';                 // string
-var b = ['h', 'o', 'l', 'a'];   // array
+var a = "hola";                 // string
+var b = ["h", "o", "l", "a"];   // array
 
-a[0] = 'H';
-b[0] = 'H';
+a[0] = "H";
+b[0] = "H";
 
 console.log(a);		// hola
-console.log(b);		// ​​​​​[ 'H', 'o', 'l', 'a' ]​​​​​
+console.log(b);		// ​​​​​[ "H", "o", "l", "a" ]​​​​​
 \end{lstlisting}
 
 El valor de la primera letra de la variable \code{a} no se vio modificada. Esto sucede porque en JavaScript el tipo \code{string} es inmutable. Las operaciones que brinda la clase \code{String} devuelven un nuevo valor, sin mutar ni cambiar el valor con el cual operamos.
@@ -245,9 +245,9 @@ Una inconsistencia más, es la de la "`cadena vacía"', la cual también formar�
 \begin{lstlisting}[title={Cadena vacía como clave}]
 var obj = {};
 
-obj[''] = 'wow!';
+obj[""] = "wow!";
 
-console.log(obj);	// ​​​​​{ '': 'wow!' }​​​​​ 
+console.log(obj);	// ​​​​​{ "": "wow!" }​​​​​ 
 \end{lstlisting}
 
 Para cerrar ésta parte de objetos, ?`qué pasa con las referencias circulares en objetos?. Preguntarse ésto debería ser importante para el programador por cuestiones relativas al \textit{garbage collector}.

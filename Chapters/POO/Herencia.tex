@@ -120,14 +120,14 @@ Otra manera de implementar los Mixins en ES6 es aprovechando que las clases son 
 \begin{lstlisting}[title={Haciendo uso de \code{class} como expresión}]
 var MyMixin = (superclass) => class extends superclass {  
   saludar() {
-    console.log('hola!');
+    console.log("hola!");
   }
 };
 
 class Foo {}
 class Bar extends MyMixin(Foo) {
   despedirse() {
-    console.log('chau!');
+    console.log("chau!");
   }
 }
 

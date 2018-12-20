@@ -16,7 +16,7 @@ Uno de los mayores errores de los programadores que vienen de la familia de leng
 
 Si existiera el scope por bloque en JavaScript, entonces el código presentado debería imprimir "`segunda"' en la línea 5, y luego "`primera"' en la línea 7, dado que ésta última pertenece a otro bloque y hacemos referencia a otra variable \code{a}. No obstante, si ejecutamos el código, podemos observar que en ambas ocasiones imprimió "`segunda"'.
 
-Este tipo de scope se llama "`por bloque"' y existe en otros lenguajes como Java. Sin embargo, en JavaScript no existe este concepto, o al menos no con la palabra \code{var} (más adelante en la sección \ref{subsec:letyconst}, veremos cómo se introdujo en ES6).
+Este tipo de scope se llama "`por bloque"'. No obstante, en JavaScript no existe el scope por bloque, o al menos no con la palabra \code{var} (más adelante en la sección \ref{subsec:letyconst}, veremos cómo se introdujo en ES6).
 
 Lo que realmente está sucediendo en el código anterior es que se está aplicando el concepto de \textit{hoisting} sobre el código. En todo el bloque solamente existe una variable \code{a}. La segunda declaración de la variable es omitida, aunque no su asignación. Y como para crear un "`nuevo scope"' es necesario hacer una declaración de una función, entonces no existirán dos scopes, sino que solamente uno.
 
@@ -142,11 +142,11 @@ El código recién presentado resultará en un \code{TypeError} en la línea 3, 
 Para el caso de los objetos, el siguiente código no presentará ningún error:
 
 \begin{lstlisting}[title={\code{const} sobre objetos}]
-const persona = { nombre: 'Juan' };
+const persona = { nombre: "Juan" };
 
 persona.edad = 25;
 
-console.log(persona);		// ​​​​​{ nombre: 'Juan', edad: 25 }​​​​​
+console.log(persona);		// ​​​​​{ nombre: "Juan", edad: 25 }​​​​​
 \end{lstlisting}
 
 Para el caso de los arreglos, dado que son objetos, sucederá lo mismo:
@@ -162,11 +162,11 @@ console.log(lista);			// [1, 2, 3, 4]
 Lo que no se puede hacer con una variable definida como \code{const}, es cambiarle la asignación. Por ejemplo, el siguiente código presentará un \code{TypeError}.
 
 \begin{lstlisting}
-const persona = { nombre: 'Juan' };
+const persona = { nombre: "Juan" };
 
 persona.edad = 25;                // ok!
 
-persona = { nombre: 'Jorge' };    // TypeError
+persona = { nombre: "Jorge" };    // TypeError
 \end{lstlisting}
 
 Visto esto, es entendible entonces que la palabra \code{const} no hace inmutable a los objetos, sino que lo que se hace es un chequeo únicamente a la hora de realizar una asignación.

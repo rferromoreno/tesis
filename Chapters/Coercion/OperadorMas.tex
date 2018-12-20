@@ -19,16 +19,16 @@ Insistimos, este operador funciona únicamente para una conversión a número, p
 
 \begin{lstlisting}[title={Operador unario \code{+} (más casos)}]
 +3                                   // 3
-+'-3'                                // -3
-+'3.14'                              // 3.14
-+'3'                                 // 3
-+'0xFF'                              // 255
++"-3"                                // -3
++"3.14"                              // 3.14
++"3"                                 // 3
++"0xFF"                              // 255
 +true                                // 1
-+'123e-5'                            // 0.00123
++"123e-5"                            // 0.00123
 +false                               // 0
 +null                                // 0
-+'Infinity'                          // Infinity
-+'infinity'                          // NaN
++"Infinity"                          // Infinity
++"infinity"                          // NaN
 +function(val){  return val }        // NaN
 \end{lstlisting}
 
@@ -85,9 +85,9 @@ Para entender mejor lo que está sucediendo, es preferible tener a mano un pseud
 Considerando esto, evaluemos algunos casos más:
 
 \begin{lstlisting}[title={Operador \code{+} con arreglos y objetos}]
-[] + []			// ''
-[] + {}			// '[object Object]'
-{} + {}			// '[object Object][object Object]'
+[] + []			// ""
+[] + {}			// "[object Object]"
+{} + {}			// "[object Object][object Object]"
 {} + []			// 0
 \end{lstlisting}
 
@@ -100,7 +100,7 @@ Luego de haber visto los dos primeros casos, el tercer caso se explica solo. Se 
 El que es bastante inusual es el cuarto caso. Luego de haber visto el segundo, uno tiende a esperar que el cuarto de el mismo resultado, pero esto no es así. ?`Qué pasó? El intérprete consideró a la primera parte de la expresión como un bloque de código vacío y la ignoró. Luego, la expresión quedó como \code{+[]}, donde el \code{+} representa el operador unario, no el binario. Lo que significa que resultó en una coerción hacia \code{number} del string vacío \code{''}, resultando en un \code{0}. Podemos "`corregir"' este comportamiento haciendo uso de los paréntesis, entonces el intérprete lo leerá como una expresión y \code{\{\}} representará un objeto en vez de un bloque.
 
 \begin{lstlisting}[title={Caso especial}]
-({} + [])			// '[object Object]'
+({} + [])			// "[object Object]"
 \end{lstlisting}
 
 El hecho de que los arreglos estén vacíos o sean mezclados con objetos no cambia el resultado. Si tenemos dos arreglos con contenido, el resultado será de todas formas convertido a \code{string}. Ejemplificando:
@@ -111,8 +111,8 @@ var b = [4, 5, 6];
 
 var resultado = a + b;
 
-console.log(typeof resultado);	// string​​​​​
-console.log(resultado)					// '1,2,34,5,6'​​​​​
+console.log(typeof resultado);	// "string​​​​​"
+console.log(resultado)					// "1,2,34,5,6"
 \end{lstlisting}
 
 Con todo esto visto, ahora se tiene un mejor panorama de cómo funciona el operador \code{+} en JavaScript. Se utiliza principalmente en valores de tipos numéricos o strings. 
